@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unioneafrica.com</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="assets/logo/grupo_logo.png" alt="grupo unione logotipo">
+                <!-- <img src="assets/logo/grupo_logo_circulo.png" alt="grupo unione logotipo"> -->
+            </div>
+            <div class="nav-links">
+                <a href="#">grupo unione</a>
+                <a href="#">empresas</a>
+                <a href="#">áreas de negócios</a>
+                <a href="#">empreendimentos</a>
+                <a href="#">investidores</a>
+                <a href="#">contatos</a>
+                <i id="search" class="fas fa-search"></i>
+            </div>
+        </nav>
+        <span class="lang">Pt</span>
+
+    </header>
+
+    <!-- Hero Section com Slides -->
+    <section class="hero-section">
+        <div class="baner">
+            <div class="baner-cards">
+                <!-- Os slides serão inseridos aqui dinamicamente -->
+                <div class="e-con card-baner">
+                    <img src="assets/Imagens/2168.jpg" alt="hero-imagem">
+
+                    <div class="txt">
+                        <h2>Saúde e <br> Bem estar</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Rem vero similique quas iste sint numquam! Laboriosam ullam
+                            error illo a odio beatae expedita ea neque.
+                        </p>
+                        <button class="btn-saiba-mais" onclick="window.location.href='${slide.link}'">
+                            <span>Saiba mais</span>
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="custom-selector">
+                <div class="dot"></div>
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    </section>
+    <!-- section destaques -->
+    <section class="destaque-section">
+        <h1 class="titulo">Destaques</h1>
+        <div class="carousel-container">
+            <div class="card">
+                <img src="assets/Imagens/21.jpg" alt="Laboratório de Análises">
+                <div class="card-overlay">
+                    <h3>Laboratório de Análises</h3>
+                    <a href="#" class="btn">Ver mais</a>
+                </div>
+            </div>
+
+            <div class="card active">
+                <img src="assets/Imagens/20.jpg" alt="Granja de Suínos Quavi">
+                <div class="card-overlay">
+                    <h3>Granja de Suínos Quavi</h3>
+                    <a href="#" class="btn">Ver mais</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="assets/Imagens/22.jpg" alt="Granja de Suínos">
+                <div class="card-overlay">
+                    <h3>Granja de Suínos</h3>
+                    <a href="#" class="btn">Ver mais</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-navigation">
+            <button class="arrow left"><i class="fas fa-arrow-left"></i></button>
+            <div class="dots">
+                <span class="dot"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+            <button class="arrow right"><i class="fas fa-arrow-right"></i></button>
+        </div>
+
+
+    </section>
+
+    <!-- section sobre -->
+    <section class="sobre-section">
+
+        <div class="header-text">
+            <h1 class="titulo">Sobre nós</h1>
+        </div>
+
+        <div class="content-block">
+            <div class="text-top">
+                <p>Fundado em 2005, o <strong>Grupo Unione</strong> é um importante grupo empresarial e de
+                    investimento Angolano, com atuação estratégica em setores chave da economia.</p>
+            </div>
+            <div class="image-container">
+                <img src="assets/Imagens/24.jpg" alt="Visão aérea de um condomínio ou comunidade">
+            </div>
+            <div class="text-bottom">
+                <p>A nossa diversificação e capacidade operacional são evidenciadas por projetos de grande impacto,
+                    o que nos torna um parceiro de referência em diversas áreas de negócio, entre as quais:
+                    <strong>Construção Civil, Saúde, Ensino, Energia, Agricultura</strong> entre outras.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="sobre-container">
+            <h1 class="titulo">Nossos Números</h1>
+            <div class="content-grid">
+                <div class="icon-item active left-column">
+                    <div class="icon-circle">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="icon-text active">Áreas de Negócios</div>
+                </div>
+
+                <div class="icon-item left-column">
+                    <div class="icon-circle">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="icon-text">Áreas de Negócios</div>
+                </div>
+
+                <div class="icon-item left-column">
+                    <div class="icon-circle">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="icon-text">Áreas de Negócios</div>
+                </div>
+
+                <div class="grafico-container">
+                    <div class="fatia fatia1"></div>
+                    <div class="fatia fatia2"></div>
+                    <div class="fatia fatia3"></div>
+                    <div class="fatia fatia4"></div>
+                    <div class="fatia fatia5"></div>
+                    <div class="fatia fatia6"></div>
+
+                    <div class="centro">
+                        <h1>+50 milhões<br>de dólares</h1>
+                        <p>já investidos</p>
+                    </div>
+                </div>
+
+                <div class="icon-item right-column">
+                    <div class="icon-circle">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="icon-text">Áreas de Negócios</div>
+                </div>
+
+                <div class="icon-item right-column">
+                    <div class="icon-circle">
+                        <i class="fas fa-folder"></i>
+                    </div>
+                    <div class="icon-text">Áreas de Negócios</div>
+                </div>
+
+                <div class="icon-item right-column">
+                    <div class="icon-circle">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="icon-text">Áreas de Negócios</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="empresa-section">
+        <h1 class="titulo">Empresas do Grupo</h1>
+        <div class="carousel-container">
+            <article class="wrapper">
+                <div class="marquee">
+                    <div class="marquee__group">
+                        <div class="icon-empresa">
+                            <img src="assets/logo/_Logo MBT_Horizontal_Cor_V.Secundária 1.png"
+                                alt="MBT_Horizontal_Cor_V">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Corpo&Mente_Logo-Horizontal.png" alt="Corpo e mente">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Fibra_Logo.png" alt="Fibra_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/InfraOne_Logo.png" alt="InfraOne_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Integracons - Logo-Sem Sombra.png" alt="Integracons">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Kalanaua_Logo-Horizontal 1.png" alt="Kalanaua_Logo-Horizontal">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Mater_Logo-Horizontal.png" alt="Mater_Logo-Horizontal">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Okukulanaua_Logo 2.png" alt="Okukulanaua_Logo">
+                        </div>
+                    </div>
+                    <div aria-hidden="true" class="marquee__group">
+                        <div class="icon-empresa">
+                            <img src="assets/logo/_Logo MBT_Horizontal_Cor_V.Secundária 1.png"
+                                alt="MBT_Horizontal_Cor_V">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Corpo&Mente_Logo-Horizontal.png" alt="corpo e mente">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Fibra_Logo.png" alt="Fibra_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/InfraOne_Logo.png" alt="InfraOne_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Okukulanaua_Logo 2.png" alt="Okukulanaua_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Integracons - Logo-Sem Sombra.png" alt="Integracons">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Kalanaua_Logo-Horizontal 1.png" alt="Kalanaua_Logo-Horizontal">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Mater_Logo-Horizontal.png" alt="Mater_Logo-Horizontal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="marquee marquee--reverse">
+                    <div class="marquee__group">
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Corpo&Mente_Logo-Horizontal.png" alt="corpo e mente">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Okukulanaua_Logo 2.png" alt="Okukulanaua_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Fibra_Logo.png" alt="Fibra_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Kalanaua_Logo-Horizontal 1.png" alt="Kalanaua_Logo-Horizontal">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/InfraOne_Logo.png" alt="InfraOne_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Integracons - Logo-Sem Sombra.png" alt="Integracons">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/_Logo MBT_Horizontal_Cor_V.Secundária 1.png"
+                                alt="MBT_Horizontal_Cor_V">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Metalangol_Logo-Vertical.png" alt="Metalangol_Logo-Vertical">
+                        </div>
+                    </div>
+
+                    <div aria-hidden="true" class="marquee__group">
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Mater_Logo-Horizontal.png" alt="Mater_Logo-Horizontal">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Fibra_Logo.png" alt="Fibra_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/_Logo MBT_Horizontal_Cor_V.Secundária 1.png"
+                                alt="MBT_Horizontal_Cor_V">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/InfraOne_Logo.png" alt="InfraOne_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Okukulanaua_Logo 2.png" alt="Okukulanaua_Logo">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Corpo&Mente_Logo-Horizontal.png" alt="corpo e mente">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Integracons - Logo-Sem Sombra.png" alt="Integracons">
+                        </div>
+                        <div class="icon-empresa">
+                            <img src="assets/logo/Kalanaua_Logo-Horizontal 1.png" alt="Kalanaua_Logo-Horizontal">
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+            <div class="carousel-navigation">
+                <button class="arrow left"><i class="fas fa-arrow-left"></i></button>
+                <button class="arrow " style="background-color: #c7c7c7; color: #fff;"> <i
+                        class="fas fa-pause"></i></button>
+                <button class="arrow right"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="areas-section">
+        <h1 class="titulo">Áreas de Negócios</h1>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <h3>Saúde e Bem-estar</h3>
+                    <img src="assets/Imagens/8981.jpg" alt="Swiper">
+                </div>
+                <div class="swiper-slide">
+                    <h3>Educação</h3>
+                    <img src="assets/Imagens/8982.jpg" alt="Swiper">
+                </div>
+                <div class="swiper-slide">
+                    <h3>Hotelaria</h3>
+                    <img src="assets/Imagens/24.jpg" alt="Swiper">
+                </div>
+                <div class="swiper-slide">
+                    <h3>Hotelaria</h3>
+                    <img src="assets/Imagens/24.jpg" alt="Swiper">
+                </div>
+                <div class="swiper-slide">
+                    <h3>Hotelaria</h3>
+                    <img src="assets/Imagens/24.jpg" alt="Swiper">
+                </div>
+
+            </div>
+        </div>
+        <div class="carousel-navigation">
+            <button class="arrow left prev"><i class="fas fa-arrow-left"></i></button>
+            <div class="dots swiper-pagination-slid">
+                <span class="swiper-pagination-bullet swiper-pagination-bullet-active" aria-current="true"></span>
+            </div>
+            <button class="arrow right next"><i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section class="projectos-section">
+        <h1 class="titulo">Projectos</h1>
+
+        <div class="carousel-container">
+            <div class="card">
+                <img src="assets/Imagens/Central_Fotovoltaica_Chiange.jpg" alt="Laboratório de Análises">
+                <div class="card-overlay">
+                    <h3>Central Híbrida-Solar & Diesel: Município dos Gambos, Huíla</h3>
+                    <a href="#" class="btn">Ver mais</a>
+                </div>
+            </div>
+
+            <div class="card active">
+                <img src="assets/Imagens/central_termoeletrica_2.jpg" alt="Granja de Suínos Quavi">
+                <div class="card-overlay">
+                    <h3>Centrais Termoelétricas: Luanda e Benguela</h3>
+                    <a href="#" class="btn">Ver mais</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="assets/Imagens/22.jpg" alt="Granja de Suínos">
+                <div class="card-overlay">
+                    <h3>Granja de Suínos: Humpata, Huíla </h3>
+                    <a href="#" class="btn">Ver mais</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-navigation">
+            <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="polis-section">
+        <img src="assets/Imagens/quavi.jpeg" alt="Granja de Suínos Quavi">
+        <div class="card-overlay">
+            <div class="logo-polis">
+                <div class="logo"><img src="assets/logo/polis.png" alt=""></div>
+                <div class="text-polis-top">
+                    <h4>
+                        Polo de Desenvolvimento Integrado e Sustentável
+                    </h4>
+                </div>
+            </div>
+            <div class="text-polis">
+                <h3>Mais do que um Empreendimento,
+                    um compromisso com o futuro</h3>
+                <a href="#" class="btn">Descubra o <strong>POLIS</strong> <i class="fas fa-arrow-right"></i> </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="noticias-section">
+
+        <div class="category">
+
+            <div class="blog-space-category">
+                <div class="card-blog">
+                    <img id="img-card" src="../../../../frontend/src/assets/Img/analises-2.jpg" alt="">
+                    <section>
+                        <h2 class="card-blog-titulo">Titulo</h2>
+                        <h4>Serie de white pappers sobre industria na area de inteligencia</h4>
+                        <span>21 de fevereiro de 2025</span>
+                    </section>
+                </div>
+                <div class="card-blog">
+                    <img id="img-card" src="../../../../frontend/src/assets/Img/analises-1.jpg" alt="">
+                    <section>
+                        <h2 class="card-blog-titulo">Titulo1</h2>
+                        <h4>Serie de white pappers sobre industria na area de inteligencia</h4>
+                        <span>21 de fevereiro de 2025</span>
+                    </section>
+                </div>
+                <div class="card-blog">
+                    <img id="img-card" src="../../../../frontend/src/assets/Img/analises-2.jpg" alt="">
+                    <section>
+                        <h2 class="card-blog-titulo">Titulo2</h2>
+                        <h4>Serie de white pappers sobre industria na area de inteligencia</h4>
+                        <span>21 de fevereiro de 2025</span>
+                    </section>
+                </div>
+                <div class="card-blog">
+                    <img id="img-card" src="../../../../frontend/src/assets/Img/analises-1.jpg" alt="">
+                    <section>
+                        <h2 class="card-blog-titulo">Titulo3</h2>
+                        <h4>Serie de white pappers sobre industria na area de inteligencia</h4>
+                        <span>21 de fevereiro de 2025</span>
+                    </section>
+                </div>
+            </div>
+    </section>
+
+
+    </section>
+
+    <script src="js/script.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            mousewheel: true,
+            allowTouchMove: false,
+            pagination: {
+                el: '.swiper-pagination-slid',
+            },
+            navigation: {
+                nextEl: '.next',
+                prevEl: '.prev',
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+    </script>
+</body>
+
+</html>

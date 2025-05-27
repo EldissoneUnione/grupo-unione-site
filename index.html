@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>unioneafrica.com</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsivStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -21,17 +22,38 @@
                 <!-- <img src="assets/logo/grupo_logo_circulo.png" alt="grupo unione logotipo"> -->
             </div>
             <div class="nav-links">
-                <a href="#">grupo unione</a>
-                <a href="#">empresas</a>
-                <a href="#">áreas de negócios</a>
-                <a href="#">empreendimentos</a>
-                <a href="#">investidores</a>
-                <a href="#">contatos</a>
+                <nav>
+                    <a href="#">grupo unione</a>
+                    <div class="dropdown">
+                        <a href="#">empresas</a>
+                        <div class="dropdown-menu">
+                            <a href="#">Empresa 1</a>
+                            <a href="#">Empresa 2</a>
+                            <a href="#">Empresa 3</a>
+                        </div>
+                    </div>
+                    <a href="#">áreas de negócios</a>
+                    <a href="#">empreendimentos</a>
+                    <a href="#">investidores</a>
+                    <a href="#">contatos</a>
+                </nav>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <i id="search" class="fas fa-search"></i>
             </div>
         </nav>
         <span class="lang">Pt</span>
-
+         <div class="menu-container" id="nav-links">
+                <nav class="nav-links" >
+                    <a href="#">grupo unione</a>
+                    <a href="#">empresas</a>
+                    <a href="#">áreas de negócios</a>
+                    <a href="#">empreendimentos</a>
+                    <a href="#">investidores</a>
+                    <a href="#">contatos</a>
+                </nav>
+            </div>
     </header>
 
     <!-- Hero Section com Slides -->

@@ -1,6 +1,6 @@
 :root {
     --bg-body: #f7f7f7;
-    --bg-nav:  #d9d9d9cb;
+    --bg-nav: #d9d9d9cb;
     --text-color: #C33622;
     --text-color2: #343434;
     --text-color3: #000000;
@@ -27,7 +27,7 @@
     --segment-2-color: var(--text-color);
     --segment-3-color: #777;
 
- 
+
     --size: clamp(10rem, 1rem + 40vmin, 30rem);
     --gap: calc(var(--size) / 14);
     --duration: 60s;
@@ -53,18 +53,18 @@ body {
     justify-content: center;
     flex-direction: column;
     width: 100vw;
-    min-width: 1024px;
     max-width: 1920px;
+    margin: 0 auto;
     background-color: var(--bg-body)
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--text-color);
-  border-radius: 10px
+    background-color: var(--text-color);
+    border-radius: 10px
 }
 
 img {
@@ -116,44 +116,104 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 80%;
-    gap: 2rem;
-
+    height: 100%;
 }
 
 .nav-links a {
-    display: inline-block;
     position: relative;
     color: var(--text-color3);
     text-decoration: none;
     text-transform: capitalize;
-    font-size: 1.3rem;
+    font-size: clamp(1.3rem, 1.5vw, 1.3rem);
     font-weight: 300;
     padding: 5px;
     transition: all .3s;
     overflow: hidden;
     z-index: 1;
-
-    &:before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0%;
-        height: 10%;
-        transition: all .3s;
-        z-index: -1
-    }
-
-    &:hover:before,
-    &.active:before {
-        width: 100%
-    }
-
-    &:hover,
-    &.active {
-        color: var(--text-color)
-    }
+    margin-left: 40px;
 }
+
+.nav-links a:hover::before,
+.nav-links a.active::before {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text-color);
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-nav, #fff);
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    border-radius: 8px;
+    margin-left: 0;
+
+}
+
+.dropdown-menu a {
+    color: var(--text-color3);
+    padding: 10px 1px;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+
+}
+
+.dropdown-menu a:hover {
+    color: var(--text-color);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+.dropdown>a::after {
+    content: "▾";
+    font-size: 1.5rem;
+    margin-left: 4px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-color3);
+}
+
+.menu-container {
+    display: none;
+    position: absolute;
+    right: 8rem;
+    top: 80px;
+    z-index: 999;
+    width: 250px;
+    background: var(--bg-nav);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: heigth 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 10px;
+}
+
+.menu-container .nav-links {
+    display: block;
+    width: 100%;
+}
+
 
 #search {
     padding: 12px;
@@ -241,21 +301,21 @@ section {
     align-self: center;
     flex-direction: column;
     justify-content: center;
-    padding: 0 90px;
+    padding: 20px 90px;
     left: 0px;
     bottom: 20px;
     opacity: 1;
 
-    & h2 {
+    h2 {
         color: #fff;
-        font-size: 8rem;
+        font-size: clamp(8rem, 4vw, 7rem);
         font-weight: bold;
         line-height: 120px;
         text-shadow: 0 0px 80px rgba(0, 0, 0, 0.9);
 
     }
 
-    & p {
+    p {
         margin: 0;
         color: var(--white);
         font-size: 1.4rem;
@@ -333,7 +393,7 @@ section {
     margin-top: 20px;
     gap: 50px;
 
-    & i {
+    i {
         color: #838282;
     }
 
@@ -410,7 +470,7 @@ section {
     padding: 5rem 0;
     width: 100%;
 
-    & .carousel-container {
+    .carousel-container {
         display: flex;
         gap: 80px;
         padding: 30px 0;
@@ -497,7 +557,7 @@ section {
         cursor: pointer;
         color: var(--text-color2);
 
-        & p strong {
+        p strong {
             color: var(--text-color3);
         }
 
@@ -1146,7 +1206,7 @@ section {
         border-radius: 50px;
         padding: 5px;
 
-        & .logo {
+        .logo {
             height: 100%;
         }
 
@@ -1157,7 +1217,7 @@ section {
             align-items: center;
             padding-left: 10px;
 
-            & h4 {
+            h4 {
                 font-size: 1.6rem;
                 color: var(--text-color3);
                 font-weight: 300;
@@ -1241,7 +1301,7 @@ section {
         padding: 5px 7px;
         height: 40%;
 
-        & a {
+        a {
             display: inline-block;
             padding: 8px 15px;
             background-color: transparent;
@@ -1484,8 +1544,8 @@ footer {
 
         .social-icons {
             padding: 10px 0;
-            
-           & a {
+
+            a {
                 font-size: 1.8rem;
                 margin-right: 10px;
                 color: var(--white);

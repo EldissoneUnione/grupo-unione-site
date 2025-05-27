@@ -8,7 +8,8 @@
       {
         "ignore": [
           "mask-image",
-          "user-select"
+          "user-select",
+          "backdrop-filter"
         ]
       }
     ],

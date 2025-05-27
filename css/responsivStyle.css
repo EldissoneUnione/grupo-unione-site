@@ -1,0 +1,75 @@
+@media (max-width: 1024px) {
+
+    .menu-container.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        width: 100px;
+    }
+
+    nav {
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .card-baner .txt h2 {
+        font-size: 3rem;
+        line-height: 60px;
+    }
+
+    .card-baner .txt p {
+        font-size: 1rem;
+    }
+
+    .btn-saiba-mais {
+        align-self: center;
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    .carousel-navigation {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 140px;
+    }
+
+    .card-baner .txt h2 {
+        font-size: 2.4rem;
+        line-height: 50px;
+    }
+
+    .card-baner .txt p {
+        font-size: 0.9rem;
+    }
+
+    .titulo {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    .text-top,
+    .text-bottom {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+}

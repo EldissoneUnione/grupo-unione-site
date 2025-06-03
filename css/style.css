@@ -252,6 +252,7 @@ section {
 
 .hero-section {
     height: 100vh;
+
 }
 
 .baner {
@@ -347,9 +348,8 @@ section {
 
 .custom-selector {
     z-index: 999;
-    height: 70px;
     width: 100%;
-    bottom: 0px;
+    bottom: 20px;
     max-height: 100%;
     min-height: 0 !important;
     position: absolute;
@@ -470,13 +470,13 @@ section {
     padding: 5rem 0;
     width: 100%;
 
+
     .carousel-container {
         display: flex;
         gap: 80px;
         padding: 30px 0;
         overflow: hidden;
         max-width: 98%;
-
     }
 
     .card {
@@ -490,7 +490,6 @@ section {
         display: flex;
         align-items: center;
         justify-content: center;
-
     }
 
     .card.active {
@@ -614,8 +613,8 @@ section {
 
     .image-container {
         flex-shrink: 0;
-        width: 80%;
-        max-height: 550px;
+        width: 90%;
+        max-height: 650px;
         background-color: #ddd;
         overflow: hidden;
         position: relative;
@@ -630,7 +629,6 @@ section {
         display: block;
     }
 
-
     .sobre-container {
         background: var(--gradient-gray);
         border-top-left-radius: var(--border2);
@@ -642,48 +640,25 @@ section {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
     }
 
     .content-grid {
-        display: grid;
-
-        grid-template-areas:
-            "icon1L . chart . icon1R"
-            "icon2L . chart . icon2R"
-            "icon3L . chart . icon3R";
-        grid-template-columns: auto 1fr 2.5fr 1fr auto;
-        grid-template-rows: repeat(3, 1fr);
-        gap: 0px;
+        display: flex;
         align-items: center;
         justify-items: center;
-        min-height: 400px;
-        position: relative;
+        width: 80%;
+        height: 500px;
+        padding: 0 4rem;
     }
 
-    .content-grid .icon-item:nth-child(1) {
-        grid-area: icon1L;
-    }
-
-    .content-grid .icon-item:nth-child(2) {
-        grid-area: icon2L;
-    }
-
-    .content-grid .icon-item:nth-child(3) {
-        grid-area: icon3L;
-    }
-
-    .content-grid .icon-item:nth-child(5) {
-        grid-area: icon1R;
-    }
-
-
-    .content-grid .icon-item:nth-child(6) {
-        grid-area: icon2R;
-    }
-
-
-    .content-grid .icon-item:nth-child(7) {
-        grid-area: icon3R;
+    .content-top,
+    .content-bottom {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .icon-item {
@@ -692,6 +667,7 @@ section {
         justify-content: flex-start;
         padding: 10px 0;
         width: 250px;
+        margin: 20px;
     }
 
     .icon-item.active {
@@ -700,7 +676,10 @@ section {
         border: none;
         background-color: #e0e0e0;
         box-shadow: 0px 0px -2px;
+    }
 
+    .icon-item.active .icon-text {
+        display: flex;
     }
 
     .icon-item.left-column {
@@ -730,82 +709,46 @@ section {
     }
 
     .icon-text {
-        display: flex;
         text-align: start;
         font-size: 1.5em;
         color: var(--light-gray);
-        font-weight: 500;
+        font-weight: 400;
         white-space: wrap;
         max-width: 140px;
         display: none;
     }
 
-    .icon-text.active {
-        display: flex;
-    }
-
-
     .grafico-container {
-        grid-area: chart;
         position: relative;
-        width: 500px;
-        height: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 450px;
+        height: 450px;
+        margin: auto;
         border-radius: 50%;
     }
 
-    .fatia {
+    .center-span h1 {
+        margin: 0;
+        font-size: 1.4em;
+        color: var(--text-color);
+        line-height: 1.3em;
+    }
+
+    .center-span p {
+        margin: 0;
+        font-size: 1em;
+        color: #666;
+    }
+
+
+    .rotate-on-scroll .center-span {
         position: absolute;
+        top: 50%;
+        left: 50%;
         width: 50%;
         height: 50%;
-        top: 0;
-        left: 50%;
-        transform-origin: 0% 100%;
-        clip-path: polygon(0% 100%, 100% 100%, 100% 0%);
-        border-radius: 0 100% 0 0;
-    }
-
-    .fatia1 {
-        background: #d93224;
-        transform: rotate(0deg);
-        transform: scale(1.1);
-    }
-
-    .fatia2 {
-        background: #e0e0e0;
-        transform: rotate(60deg);
-    }
-
-    .fatia3 {
-        background: #e0e0e0;
-        transform: rotate(120deg);
-    }
-
-    .fatia4 {
-        background: #e0e0e0;
-        transform: rotate(180deg);
-    }
-
-    .fatia5 {
-        background: #e0e0e0;
-        transform: rotate(240deg);
-    }
-
-    .fatia6 {
-        background: #e0e0e0;
-        transform: rotate(300deg);
-    }
-
-    .centro {
-        position: absolute;
-        width: 70%;
-        height: 70%;
-        top: 15%;
-        left: 15%;
-        background: #f5f5f5;
         border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background: #f5f5f5;
         z-index: 2;
         display: flex;
         justify-content: center;
@@ -813,19 +756,29 @@ section {
         text-align: center;
         flex-direction: column;
         padding: 10px;
+
     }
 
-    .centro h1 {
-        margin: 0;
-        font-size: 1.4em;
-        color: #d93224;
-        line-height: 1.3em;
+    .span {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background-color: #ccc;
+        border-radius: 10px;
+        border-radius: 50% 50%;
+        transition: 0.5s ease;
     }
 
-    .centro p {
-        margin: 0;
-        font-size: 1em;
-        color: #666;
+    .no-scroll {
+        overflow: hidden;
+    }
+
+
+    .span.grow {
+        width: 170px;
+        height: 170px;
+        z-index: 1;
+        background-color: var(--text-color);
     }
 }
 
@@ -837,7 +790,6 @@ section {
     padding-top: 5rem;
     margin-top: 100px;
     flex-direction: column;
-
 
 
     .carousel-container {
@@ -1017,7 +969,7 @@ section {
 
 .areas-section {
     width: 100%;
-    height: 80vh;
+    height: auto;
     cursor: pointer;
     flex-direction: column;
 
@@ -1026,6 +978,17 @@ section {
         padding-top: 4rem;
         padding-left: 8rem;
 
+    }
+
+    .swiper-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        transition-property: transform;
+        transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+        box-sizing: content-box
     }
 
     .swiper-slide {
@@ -1073,16 +1036,6 @@ section {
         background: var(--text-color)
     }
 
-    .swiper-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        display: flex;
-        transition-property: transform;
-        transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
-        box-sizing: content-box
-    }
 
     .swiper-wrapper {
         transition: .5s !important;
@@ -1181,7 +1134,6 @@ section {
     align-items: center;
     justify-content: center;
 
-
     .card-overlay {
         position: absolute;
         left: 0;
@@ -1201,6 +1153,7 @@ section {
     .logo-polis {
         display: flex;
         width: 500px;
+        max-width: 90%;
         height: 100px;
         background-color: var(--dot-color2);
         border-radius: 50px;
@@ -1236,7 +1189,6 @@ section {
         font-weight: bold;
     }
 
-
     .card-overlay .btn {
         display: inline-block;
         padding: 8px 0px;
@@ -1257,41 +1209,45 @@ section {
 }
 
 .noticias-section {
+    height: auto;
     background-color: var(--bg-body);
     border-top-left-radius: var(--border4);
     border-top-right-radius: var(--border4);
     padding-top: 5rem;
+    padding-bottom: 2rem;
     flex-direction: column;
 
     .category {
         margin: 10px;
         display: flex;
         align-items: center;
-        width: 95%;
-        max-height: 550px;
-        padding: 15px 5rem;
+        justify-content: center;
+        gap: 60px;
+        width: 100%;
+        max-height: 100%;
+        padding: 5px 5rem;
     }
 
     .card-blog {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 220px;
-        height: 430px;
-        background-color: #EFEFEF;
+        flex-shrink: 0;
+        z-index: 1;
+        width: 460px;
+        height: 460px;
+        background-color: var(--white);
         transition: all ease-in-out .5s;
         cursor: pointer;
-        flex-grow: 1;
-        flex-basis: 100;
-        margin: 30px;
-        border-radius: 10px;
+        border-radius: 20px;
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 
     }
 
     .card-blog img {
         height: 60%;
-        border-radius: 10px 10px 0 0;
+        border-radius: 20px 20px 0 0;
     }
 
     .card-blog section {
@@ -1321,7 +1277,7 @@ section {
         text-align: justify;
         align-self: start;
         height: auto;
-        width: 90%;
+        width: 100%;
         left: 0;
         top: 0;
         font-weight: 500;
@@ -1335,7 +1291,6 @@ section {
         color: var(--light-gray);
         font-size: 1.2rem;
         align-self: flex-start;
-
     }
 
 }
@@ -1393,14 +1348,14 @@ section {
         display: inline-block;
         margin: 10px 10px 0 0;
         font-size: 2rem;
-        color: white;
+        color: var(--white);
     }
 
     .contact-form {
         flex: 1;
-        padding: 50px;
+
         padding: 3rem;
-        height: 690px;
+        /* height: 690px; */
         border-radius: 3rem;
     }
 

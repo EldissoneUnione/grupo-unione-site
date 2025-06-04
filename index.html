@@ -4,32 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>unioneafrica.com</title>
+    <meta name="description" content="Grupo Unione - Grupo empresarial e de investimento Angolano com atuação em diversos setores da economia">
+    <meta name="keywords" content="Grupo Unione, Angola, investimento, construção civil, saúde, ensino, energia, agricultura">
+    <meta name="author" content="Grupo Unione">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Grupo Unione - Grupo Empresarial Angolano">
+    <meta property="og:description" content="Grupo empresarial e de investimento Angolano com atuação em diversos setores da economia">
+    <meta property="og:image" content="assets/logo/grupo_logo.webp">
+    <meta property="og:url" content="https://unioneafrica.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://unioneafrica.com">
+    <title>Grupo Unione - Grupo Empresarial Angolano</title>
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="css/responsivStyle.css" as="style">
+    <link rel="preload" href="assets/logo/grupo_logo.webp" as="image">
+    <link rel="preload" href="assets/Imagens/2168.webp" as="image">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsivStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 </head>
 
 <body>
     <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Menu principal">
             <div class="logo">
-                <img src="assets/logo/grupo_logo.webp" alt="grupo unione logotipo">
-                <!-- <img src="assets/logo/grupo_logo_circulo.wegranja1.webp" alt="grupo unione logotipo"> -->
+                <img src="assets/logo/grupo_logo.webp" alt="Grupo Unione logotipo" width="150" height="50" loading="eager">
             </div>
             <div class="nav-links">
                 <nav>
-                    <a href="#">grupo unione</a>
+                    <a href="#" aria-current="page">grupo unione</a>
                     <div class="dropdown">
-                        <a href="#">empresas</a>
-                        <div class="dropdown-menu">
-                            <a href="#">Empresa 1</a>
-                            <a href="#">Empresa 2</a>
-                            <a href="#">Empresa 3</a>
+                        <a href="#" aria-expanded="false" aria-haspopup="true">empresas</a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="#" role="menuitem">MBT</a>
+                            <a href="#" role="menuitem">Corpo e Mente</a>
+                            <a href="#" role="menuitem">Quavi</a>
+                            <a href="#" role="menuitem">Okukulanaua</a>
+                            <a href="#" role="menuitem">Tecnology</a>
+                            <a href="#" role="menuitem">Kalanaua</a>
                         </div>
                     </div>
                     <a href="#">áreas de negócios</a>
@@ -37,14 +53,16 @@
                     <a href="#">investidores</a>
                     <a href="#">contatos</a>
                 </nav>
-                <button class="menu-toggle" id="menu-toggle">
-                    <i class="fas fa-bars"></i>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
-                <i id="search" class="fas fa-search"></i>
+                <button id="search" class="search-button" aria-label="Pesquisar">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
             </div>
         </nav>
-        <span class="lang">Pt</span>
-        <div class="menu-container" id="nav-links">
+        <button class="lang" aria-label="Mudar idioma">Pt</button>
+        <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
             <nav class="nav-links">
                 <a href="#">grupo unione</a>
                 <a href="#">empresas</a>
@@ -57,40 +75,37 @@
     </header>
 
     <!-- Hero Section com Slides -->
-    <section class="hero-section">
+    <section class="hero-section" role="banner" aria-label="Banner principal">
         <div class="baner">
-            <div class="baner-cards ">
-                <!-- Os slides serão inseridos aqui dinamicamente -->
+            <div class="baner-cards">
                 <div class="e-con card-baner">
-                    <img src="assets/Imagens/2168.webp" alt="hero-imagem">
-
+                    <img src="assets/Imagens/2168.webp" alt="Imagem representando saúde e bem estar" width="1920" height="1080" loading="eager">
                     <div class="txt">
                         <h2>Saúde e <br> Bem estar</h2>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                             Rem vero similique quas iste sint numquam! Laboriosam ullam
                             error illo a odio beatae expedita ea neque.
                         </p>
-                        <button class="btn-saiba-mais" onclick="window.location.href='${slide.link}'">
+                        <button class="btn-saiba-mais" onclick="window.location.href='${slide.link}'" aria-label="Saiba mais sobre saúde e bem estar">
                             <span>Saiba mais</span>
                         </button>
-
                     </div>
-
                 </div>
             </div>
-            <div class="custom-selector">
-                <div class="dot"></div>
-                <div class="dot active"></div>
-                <div class="dot"></div>
+            <div class="custom-selector" role="tablist" aria-label="Navegação do banner">
+                <button class="dot" role="tab" aria-selected="false" aria-label="Slide 1"></button>
+                <button class="dot active" role="tab" aria-selected="true" aria-label="Slide 2"></button>
+                <button class="dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
             </div>
         </div>
     </section>
+    
     <!-- section destaques -->
     <section class="destaque-section">
         <h1 class="titulo">Destaques</h1>
         <div class="carousel-container">
             <div class="card">
-                <img src="assets/Imagens/21.webp" alt="Laboratório de Análises">
+                <img src="assets/Imagens/21.webp" alt="Laboratório de Análises" loading="lazy">
                 <div class="card-overlay">
                     <h3>Laboratório de Análises</h3>
                     <a href="#" class="btn">Ver mais</a>
@@ -98,7 +113,7 @@
             </div>
 
             <div class="card active">
-                <img src="assets/Imagens/20.webp" alt="Granja de Suínos Quavi">
+                <img src="assets/Imagens/20.webp" alt="Granja de Suínos Quavi" loading="lazy">
                 <div class="card-overlay">
                     <h3>Granja de Suínos Quavi</h3>
                     <a href="#" class="btn">Ver mais</a>
@@ -106,7 +121,7 @@
             </div>
 
             <div class="card">
-                <img src="assets/Imagens/22.webp" alt="Granja de Suínos">
+                <img src="assets/Imagens/22.webp" alt="Granja de Suínos" loading="lazy">
                 <div class="card-overlay">
                     <h3>Granja de Suínos</h3>
                     <a href="#" class="btn">Ver mais</a>
@@ -415,7 +430,7 @@
             <div class="card">
                 <img src="assets/Imagens/22.webp" alt="Granja de Suínos">
                 <div class="card-overlay">
-                    <h3>Granja de Suínos: Humpata, Huíla </h3>
+                    <h3>Granja de Suínos: Humpata, Huíla</h3>
                     <a href="#" class="btn">Ver mais</a>
                 </div>
             </div>
@@ -613,27 +628,50 @@
 
     <script src="js/script.js"></script>
     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
-        let swiperInstance;
+        // Lazy loading para imagens
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+
+        // Otimização do Swiper
+        let swiperInstance;
         function initSwiper() {
             if (window.innerWidth >= 768 && !swiperInstance) {
-                swiperInstance = new Swiper('.swiper', {
-                    slidesPerView: 'auto',
-                    spaceBetween: 30,
-                    mousewheel: true,
-                    allowTouchMove: false,
-                    pagination: {
-                        el: '.swiper-pagination-slid',
-                    },
-                    navigation: {
-                        nextEl: '.next',
-                        prevEl: '.prev',
-                    },
-                    scrollbar: {
-                        el: '.swiper-scrollbar',
-                    },
+                import('https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js').then(module => {
+                    swiperInstance = new module.default('.swiper', {
+                        slidesPerView: 'auto',
+                        spaceBetween: 30,
+                        mousewheel: true,
+                        allowTouchMove: false,
+                        pagination: {
+                            el: '.swiper-pagination-slid',
+                        },
+                        navigation: {
+                            nextEl: '.next',
+                            prevEl: '.prev',
+                        },
+                        scrollbar: {
+                            el: '.swiper-scrollbar',
+                        },
+                    });
                 });
             } else if (window.innerWidth < 768 && swiperInstance) {
                 swiperInstance.destroy(true, true);
@@ -641,9 +679,21 @@
             }
         }
 
-        window.addEventListener('load', initSwiper);
-        window.addEventListener('resize', initSwiper);
+        // Carregar Swiper apenas quando necessário
+        const swiperElement = document.querySelector('.swiper');
+        if (swiperElement) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initSwiper();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            observer.observe(swiperElement);
+        }
 
+        window.addEventListener('resize', initSwiper);
     </script>
 </body>
 

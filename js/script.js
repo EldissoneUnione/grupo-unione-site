@@ -78,12 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (item) item.classList.toggle('activeu', i === index);
       });
     });
-
-    if (currentIndex < total - 1) {
-      document.body.classList.add('no-scroll');
-    } else {
-      document.body.classList.remove('no-scroll');
-    }
   }
 
   function setupSwipeEvents() {
@@ -97,9 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
       const touchEndY = e.changedTouches[0].clientY;
       const deltaY = touchStartY - touchEndY;
 
-      if (Math.abs(deltaY) > 50 && !isScrolling) {
+      if (Math.abs(deltaY) > 30 && !isScrolling) {
         isScrolling = true;
-        setTimeout(() => isScrolling = false, 200);
+        setTimeout(() => isScrolling = false, 100);
 
         if (deltaY > 0 && currentIndex < total - 1) {
           currentIndex++;
@@ -116,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (isScrolling) return;
 
       isScrolling = true;
-      setTimeout(() => isScrolling = false, 200);
+      setTimeout(() => isScrolling = false, 100);
 
       if (event.deltaY > 0 && currentIndex < total - 1) {
         currentIndex++;
@@ -139,19 +133,34 @@ document.addEventListener('DOMContentLoaded', function () {
   setupSwipeEvents();
 });
 
+// Adicionar debounce para eventos de redimensionamento
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
 
-function preventScrollKeys(e) {
-  const keys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // space, page up/down, arrows
-  if (keys.includes(e.keyCode)) {
-    e.preventDefault();
-  }
+// Melhorar acessibilidade
+function setupAccessibility() {
+  const menuItems = document.querySelectorAll('.nav-links a');
+  menuItems.forEach(item => {
+    item.setAttribute('role', 'menuitem');
+    item.setAttribute('tabindex', '0');
+  });
 }
 
-function preventTouchScroll(e) {
-  if (document.body.classList.contains('no-scroll')) {
-    e.preventDefault();
+// Melhorar tratamento de erros
+function safeQuerySelector(selector) {
+  const element = document.querySelector(selector);
+  if (!element) {
+    console.warn(`Elemento não encontrado: ${selector}`);
+    return null;
   }
+  return element;
 }
-
-window.addEventListener('keydown', preventScrollKeys, { passive: false });
-window.addEventListener('touchmove', preventTouchScroll, { passive: false });

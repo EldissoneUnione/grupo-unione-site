@@ -153,7 +153,5 @@ function preventTouchScroll(e) {
   }
 }
 
-// Adiciona os listeners globais
 window.addEventListener('keydown', preventScrollKeys, { passive: false });
 window.addEventListener('touchmove', preventTouchScroll, { passive: false });
-

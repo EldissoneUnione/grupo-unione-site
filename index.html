@@ -28,7 +28,6 @@
 </head>
 
 <body>
-    <!-- Header -->
     <header class="header" role="banner">
         <nav class="nav-container" role="navigation" aria-label="Menu principal">
             <div class="logo">
@@ -74,11 +73,10 @@
         </div>
     </header>
 
-    <!-- Hero Section com Slides -->
     <section class="hero-section" role="banner" aria-label="Banner principal">
         <div class="baner">
             <div class="baner-cards">
-                <div class="e-con card-baner">
+                <div class="e-con card-baner active">
                     <img src="assets/Imagens/2168.webp" alt="Imagem representando saúde e bem estar" width="1920" height="1080" loading="eager">
                     <div class="txt">
                         <h2>Saúde e <br> Bem estar</h2>
@@ -86,16 +84,40 @@
                             Rem vero similique quas iste sint numquam! Laboriosam ullam
                             error illo a odio beatae expedita ea neque.
                         </p>
-                        <button class="btn-saiba-mais" onclick="window.location.href='${slide.link}'" aria-label="Saiba mais sobre saúde e bem estar">
+                        <button class="btn-saiba-mais" aria-label="Saiba mais sobre saúde e bem estar">
+                            <span>Saiba mais</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="e-con card-baner">
+                    <img src="assets/Imagens/2169.webp" alt="Imagem representando inovação" width="1920" height="1080" loading="lazy">
+                    <div class="txt">
+                        <h2>Inovação <br> Tecnológica</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Rem vero similique quas iste sint numquam! Laboriosam ullam
+                            error illo a odio beatae expedita ea neque.
+                        </p>
+                        <button class="btn-saiba-mais" aria-label="Saiba mais sobre inovação tecnológica">
+                            <span>Saiba mais</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="e-con card-baner">
+                    <img src="assets/Imagens/granja.webp" alt="Imagem representando sustentabilidade" width="1920" height="1080" loading="lazy">
+                    <div class="txt">
+                        <h2>Sustentabilidade <br> Ambiental</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Rem vero similique quas iste sint numquam! Laboriosam ullam
+                            error illo a odio beatae expedita ea neque.
+                        </p>
+                        <button class="btn-saiba-mais" aria-label="Saiba mais sobre sustentabilidade ambiental">
                             <span>Saiba mais</span>
                         </button>
                     </div>
                 </div>
             </div>
             <div class="custom-selector" role="tablist" aria-label="Navegação do banner">
-                <button class="dot" role="tab" aria-selected="false" aria-label="Slide 1"></button>
-                <button class="dot active" role="tab" aria-selected="true" aria-label="Slide 2"></button>
-                <button class="dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+                <!-- Os dots serão gerados dinamicamente aqui -->
             </div>
         </div>
     </section>
@@ -127,6 +149,7 @@
                     <a href="#" class="btn">Ver mais</a>
                 </div>
             </div>
+            
         </div>
 
         <div class="carousel-navigation">
@@ -628,6 +651,8 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/slide.js"></script>
+    <script src="js/carousel.js"></script>
     <!-- Swiper JS -->
     <script>
         // Lazy loading para imagens

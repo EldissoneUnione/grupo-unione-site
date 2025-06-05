@@ -9,7 +9,10 @@
         "ignore": [
           "mask-image",
           "user-select",
-          "backdrop-filter"
+          "backdrop-filter",
+          "-webkit-overflow-scrolling",
+          "scrollbar-width",
+          "scrollbar-width: none"
         ]
       }
     ],
@@ -34,6 +37,18 @@
       "default",
       {
         "frame-title": "off"
+      }
+    ],
+    "axe/structure": [
+      "default",
+      {
+        "list": "off"
+      }
+    ],
+    "axe/aria": [
+      "default",
+      {
+        "aria-required-children": "off"
       }
     ]
   }

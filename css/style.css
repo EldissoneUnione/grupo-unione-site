@@ -481,7 +481,7 @@ section {
 .carousel-navigation .dot.active {
     background-color: #888;
 }
-
+/*
 .destaque-section .card:last-child {
     border-top-right-radius: var(--border);
     border-bottom-right-radius: var(--border);
@@ -491,7 +491,7 @@ section {
     border-top-left-radius: var(--border);
     border-bottom-left-radius: var(--border);
 }
-
+*/
 .destaque-section,
 .projectos-section {
     flex-direction: column;
@@ -506,7 +506,7 @@ section {
         padding: 10px 0;
         overflow: hidden;
         width: 100%;
-        max-width: 1800px;
+        max-width: 100%;
         min-height: 550px;
         gap: 60px;
         scroll-behavior: smooth;

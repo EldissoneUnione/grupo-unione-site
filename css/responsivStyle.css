@@ -93,7 +93,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 10px;
             padding: 10px 0;
             overflow: hidden;
             max-width: 100%;
@@ -103,6 +103,7 @@
         .card {
             width: 300px;
             height: 280px;
+        
         }
 
         .card.active {
@@ -482,7 +483,7 @@
 }
 
 /*Mobile*/
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     header {
         top: 1px;
     }
@@ -508,7 +509,6 @@
         height: auto;
         width: 98%;
         padding: 0.5rem;
-
     }
 
     .dropdown-menu {
@@ -582,21 +582,31 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            padding: 10px 0;
+            padding: 10px;
             overflow: hidden;
             max-width: 100%;
 
         }
-
-        .card {
-            width: 300px;
-            height: 280px;
+        .carousel-container {
+            gap: 20px;
+            padding: 10px 0;
+            max-width: 100%;
         }
-
+    
+        .card {
+            width: 80vw;
+            height: 280px;
+            opacity: 0.5;
+            border-radius: 30px !important;
+        }
+    
         .card.active {
-            width: 300px;
-            height: 300px;
-            transform: scale(1);
+            opacity: 1;
+            transform: scale(1.05) translateY(0px);
+        }
+    
+        .card:not(.active) {
+            display: none;
         }
 
         .card-overlay h3 {

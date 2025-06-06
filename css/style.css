@@ -493,7 +493,7 @@ section {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px ;
+        padding: 20px;
         overflow-x: auto;
         overflow-y: hidden;
         width: 100%;
@@ -639,7 +639,7 @@ section {
         align-self: center;
         z-index: 10;
         flex: 1;
-        border-radius: 100px ;
+        border-radius: 100px;
         text-align: justify;
         background: var(--gradient-gray);
         font-size: 1.8em;
@@ -664,7 +664,7 @@ section {
     .image-container {
         flex-shrink: 0;
         width: 90%;
-        max-height: 450px;
+        max-height: 480px;
         background-color: #ddd;
         overflow: hidden;
         position: relative;
@@ -789,7 +789,7 @@ section {
 
     .rotate-on-scroll .center-span {
         position: absolute;
-        top: 50%;    
+        top: 50%;
         left: 50%;
         width: 50%;
         height: 50%;
@@ -1320,19 +1320,18 @@ section {
         justify-content: space-between;
         flex-shrink: 0;
         z-index: 1;
-        width: 380px;
+        width: 390px;
         height: 460px;
         background-color: var(--white);
         transition: all ease-in-out .5s;
-        cursor: pointer;
-        border-radius: 20px;
+        border-radius: 30px;
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 
     }
 
     .card-blog img {
         height: 60%;
-        border-radius: 20px 20px 0 0;
+        border-radius: 30px 30px 0 0;
     }
 
     .card-blog section {
@@ -1342,8 +1341,9 @@ section {
         padding: 5px 7px;
         height: 40%;
 
-        a {
-            display: inline-block;
+
+        & a {
+            display: flex;
             padding: 8px 15px;
             background-color: transparent;
             border: 1px solid transparent;
@@ -1354,6 +1354,12 @@ section {
             transition: background-color 0.3s, color 0.3s;
             align-self: flex-end;
             text-transform: lowercase;
+            cursor: pointer;
+
+        }
+
+        a:hover {
+            color: var(--text-color);
         }
 
     }
@@ -1438,9 +1444,7 @@ section {
 
     .contact-form {
         flex: 1;
-
         padding: 3rem;
-        /* height: 690px; */
         border-radius: 3rem;
     }
 
@@ -1465,7 +1469,15 @@ section {
         background: #eee;
         font-size: 1rem;
         outline: none;
+        transition: all .5s;
+    }
 
+    .contact-form .empresa {
+        display: none;
+    }
+
+    .contact-form .empresa.active {
+        display: flex;
     }
 
     .contact-form input:focus,
@@ -1620,7 +1632,21 @@ footer {
 
 /* Ajusta o container para mostrar 3 cards */
 .destaque-section .carousel-container {
-    max-width: 1800px; /* Aproximadamente 3 cards + gaps */
+    max-width: 1800px;
+    /* Aproximadamente 3 cards + gaps */
     margin: 0 auto;
     padding: 30px 0;
+}
+
+.donut-slice {
+    fill: #e0e0e0;
+    transition: fill 0.3s;
+}
+.donut-slice.active {
+    fill: #C33622;
+}
+.icon-item.active .icon-circle {
+    background: #C33622;
+    color: #fff;
+    transition: background 0.3s;
 }

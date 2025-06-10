@@ -1,6 +1,6 @@
 // Configuração das rotas do site
 const routes = {
-    '/': 'index.html',
+    '../': 'index.html',
     '/grupo': 'pages/grupo.html',
     '/empresas': 'pages/empresas.html',
     '/areas-negocios': 'pages/areas-negocios.html',

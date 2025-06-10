@@ -98,7 +98,7 @@ header {
     align-items: center;
     padding: 0 1rem;
     max-width: 100vw;
-    width: calc(100% - 100px);
+    width: calc(100% - 180px);
     height: 100%;
     margin: 0 auto;
     border-radius: 100px;
@@ -106,22 +106,22 @@ header {
 }
 
 .logo {
-    max-width: 250px;
-    width: 25%;
+    padding: 0;
+    width: 100px;
     height: 100%;
 }
 
 .logo img {
     height: 100%;
     width: 100%;
-    object-fit: contain
+    object-fit: cover
 }
 
 .nav-links {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: 85%;
     height: 100%;
 }
 
@@ -239,6 +239,9 @@ header {
 }
 
 #search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border: none;
     padding: 12px;
     color: var(--text-color3);
@@ -248,6 +251,42 @@ header {
     cursor: pointer;
     background-color: var(--white);
     opacity: 0.6;
+    transition: all 0.5s ease;
+
+}
+
+#search-input {
+    display: none;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    background-color: var(--white);
+    opacity: 0.6;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 5px 15px;
+    width: 100%;
+
+
+}
+
+#search.active {
+    position: relative;
+    right: 0;
+    top: 0;
+    background-color: var(--white);
+    opacity: 1;
+    width: 300px;
+    height: 70%;
+    z-index: 1000;
+    border-radius: 100px;
+    transition: all 0.5s ease;
+
+    #search-input {
+        display: flex;
+        position: relative;
+    }
 }
 
 #search:hover {
@@ -835,6 +874,7 @@ section {
     border-top-left-radius: var(--border2);
     border-top-right-radius: var(--border2);
     padding-top: 3rem;
+    padding-bottom: 6rem;
     margin-top: 100px;
     flex-direction: column;
 
@@ -1395,6 +1435,7 @@ section {
     padding: 5rem;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
 
     .logo {
         width: 40%;
@@ -1458,6 +1499,7 @@ section {
     .contact-form form {
         display: flex;
         flex-direction: column;
+        transition: all 0.5s ease;
     }
 
     .contact-form input,
@@ -1474,6 +1516,8 @@ section {
 
     .contact-form .empresa {
         display: none;
+        transition: all 0.5s ease;
+
     }
 
     .contact-form .empresa.active {
@@ -1488,12 +1532,14 @@ section {
     .contact-form textarea {
         min-height: 250px;
         min-width: 580px;
+        resize: none;
     }
 
     .options {
         display: flex;
         gap: 10px;
         margin-bottom: 15px;
+        transition: all 0.5s ease;
     }
 
     .options button {

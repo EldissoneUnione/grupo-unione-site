@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerenciamento de empresas - Admin Grupo Unione">
+    <title>Empresas - Admin Grupo Unione</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsivStyle.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <img src="/assets/logo/Grupo Unione-branco.webp" alt="Grupo Unione" class="admin-logo">
+            <nav>
+                <ul class="admin-menu">
+                    <li>
+                        <a href="/pages/admin/dashboard.html">
+                            <i class="fas fa-home"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pages/admin/empresas.html" class="active">
+                            <i class="fas fa-building"></i>
+                            Empresas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pages/admin/areas-negocio.html">
+                            <i class="fas fa-briefcase"></i>
+                            Áreas de Negócio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pages/admin/empreendimentos.html">
+                            <i class="fas fa-project-diagram"></i>
+                            Empreendimentos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pages/admin/noticias.html">
+                            <i class="fas fa-newspaper"></i>
+                            Notícias
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/pages/admin/usuarios.html">
+                            <i class="fas fa-users"></i>
+                            Usuários
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Sair
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="admin-content">
+            <header class="admin-header">
+                <h1>Gerenciar Empresas</h1>
+                <button class="btn-admin btn-add" id="addEmpresa">
+                    <i class="fas fa-plus"></i>
+                    Nova Empresa
+                </button>
+            </header>
+
+            <div class="admin-card">
+                <div class="admin-filters">
+                    <input type="text" id="searchEmpresa" placeholder="Buscar empresa...">
+                    <select id="filterStatus">
+                        <option value="">Todos os status</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Logo</th>
+                            <th>Nome</th>
+                            <th>Área de Negócio</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="/assets/logo/MBT Energia.svg" alt="MBT" class="company-logo"></td>
+                            <td>MBT</td>
+                            <td>Energia</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td>
+                                <button class="btn-admin btn-edit" data-id="1">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-admin btn-delete" data-id="1">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="/assets/logoBranco/C&M.svg" alt="Corpo e Mente" class="company-logo"></td>
+                            <td>Corpo e Mente</td>
+                            <td>Saúde</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td>
+                                <button class="btn-admin btn-edit" data-id="2">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-admin btn-delete" data-id="2">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="/assets/logoBranco/Quavi.svg" alt="Quavi" class="company-logo"></td>
+                            <td>Quavi</td>
+                            <td>Agropecuária</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td>
+                                <button class="btn-admin btn-edit" data-id="3">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-admin btn-delete" data-id="3">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para adicionar/editar empresa -->
+    <div id="empresaModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Nova Empresa</h2>
+            <form id="empresaForm">
+                <div class="form-group">
+                    <label for="nome">Nome da Empresa</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="areaNegocio">Área de Negócio</label>
+                    <select id="areaNegocio" name="areaNegocio" required>
+                        <option value="">Selecione uma área</option>
+                        <option value="energia">Energia</option>
+                        <option value="saude">Saúde</option>
+                        <option value="agropecuaria">Agropecuária</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="logo">Logo</label>
+                    <input type="file" id="logo" name="logo" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" required>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-admin">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/admin/empresas.js"></script>
+</body>
+</html> 

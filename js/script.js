@@ -57,3 +57,58 @@ function safeQuerySelector(selector) {
   }
   return element;
 }
+
+window.onload = function () {
+    let logo = document.getElementById('logo');
+
+    if (logo && logo.getContext) {
+        let contexto = logo.getContext('2d');
+        let imagem = new Image();
+        imagem.src = '../assets/logo/grupo_logo_circulo.webp';
+        imagem.onload = function () { contexto.drawImage(imagem, 0, 0, logo.width, logo.height); };
+
+        logo.addEventListener("click", function(e) {
+            e.preventDefault();
+            
+            function loadHTML() {
+                let load = `
+                    <div class="loader">
+                        <div class="banter-loader">
+                            <div class="banter-loader__box"></div>
+                            <div class="banter-loader__box"></div>
+                            <div class="banter-loader__box"></div>
+                            <div class="banter-loader__box"></div>
+                            <div class="banter-loader__box"></div>
+                            <div class="banter-loader__box"></div>
+                            <div class="banter-loader__box"></div>
+                            <div class="banter-loader__box"></div>
+                            <div class="banter-loader__box"></div>
+                        </div>
+                    </div>
+                `;
+                
+                // Adicionando o loader em uma div específica
+                let loaderContainer = document.createElement('div');
+                loaderContainer.innerHTML = load;
+                document.body.appendChild(loaderContainer);
+            }
+
+            loadHTML();
+
+            setTimeout(function() {
+                window.location.assign("/");
+            }, 2000); 
+        });
+        
+    } else {
+        console.error('Elemento logo não encontrado ou não suporta getContext.');
+    }
+};
+
+const searchIcon = document.getElementById('search-icon');
+const search = document.getElementById('search');
+
+searchIcon.addEventListener('click', () => {
+   search.classList.toggle('active');
+});
+

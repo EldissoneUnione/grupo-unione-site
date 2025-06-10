@@ -23,11 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
  
     slices.forEach((slice, i) => {
       slice.classList.toggle('active', i === realIndex);
+    console.log(`slice ativado: ${i}`);
+
+    if (i == 1) {
+      console.log("igual")
+    }
+
     });
 
     centerInfo.innerHTML = `<h1>${info[realIndex].title}</h1><p>${info[realIndex].desc}</p>`;
     
-  
     updateSize(realIndex);
     activateSequentially()
   }
@@ -37,14 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
   let i = 0;
 
   function activateNext() {
-    // Desativa todos
     iconsArray.forEach(icon => icon.classList.remove('active'));
 
-    // Ativa o ícone atual
     iconsArray[i].classList.add('active');
 
     console.log(`Ícone ativado: ${i}`);
-
     i++;
   }
 

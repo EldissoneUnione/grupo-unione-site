@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nome": "Unione Construções",
+    "descricao": "Empresa especializada em engenharia civil, obras públicas e construção de infraestruturas modernas.",
+    "logo": "img/unione-construcoes.png",
+    "imagemCapa": "img/unione-construcoes-capa.jpg",
+    "setor": "Construção Civil",
+    "localizacao": "Luanda, Angola",
+    "website": "https://construcoes.unione.co.ao"
+  },
+  {
+    "id": 2,
+    "nome": "Unione Agro",
+    "descricao": "Focada em agronegócio sustentável, com produção agrícola em larga escala e apoio a pequenos produtores.",
+    "logo": "img/unione-agro.png",
+    "imagemCapa": "img/unione-agro-capa.jpg",
+    "setor": "Agroindústria",
+    "localizacao": "Huambo, Angola",
+    "website": "https://agro.unione.co.ao"
+  },
+  {
+    "id": 3,
+    "nome": "Unione Tech",
+    "descricao": "Desenvolvimento de soluções tecnológicas, software empresarial e consultoria em TI.",
+    "logo": "img/unione-tech.png",
+    "imagemCapa": "img/unione-tech-capa.jpg",
+    "setor": "Tecnologia da Informação",
+    "localizacao": "Lubango, Angola",
+    "website": "https://tech.unione.co.ao"
+  }
+]

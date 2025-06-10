@@ -1,0 +1,70 @@
+.baner-grupo {
+    position: relative;
+    width: 100%;
+    height: 100vh
+}
+
+.baner-cards-grupo {
+    position: relative;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    list-style: none;
+
+}
+
+.card-baner-grupo {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    flex-shrink: 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.card-baner-grupo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #ffffff9f, transparent);
+}
+
+.card-baner-grupo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+    transform: translateX(0);
+}
+
+.logo-grupoP {
+    position: absolute;
+    bottom: 3rem;
+    left: 5rem;
+    width: 35%;
+    height: 30%; 
+    z-index: 1;
+
+    & img {
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+    }
+}

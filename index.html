@@ -21,6 +21,7 @@
     <link rel="preload" href="assets/Imagens/2168.webp" as="image">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsivStyle.css">
+    <link rel="stylesheet" href="css/load.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
@@ -30,45 +31,44 @@
 <body>
     <header class="header" role="banner">
         <nav class="nav-container" role="navigation" aria-label="Menu principal">
-            <div class="logo">
-                <img src="assets/logo/grupo_logo.webp" alt="Grupo Unione logotipo" width="150" height="50" loading="eager">
-            </div>
+            <canvas class="logo" id="logo"></canvas>
             <div class="nav-links">
                 <nav>
-                    <a href="#" aria-current="page">grupo unione</a>
+                    <a href="/grupo" data-translate="grupo-unione" aria-current="page">grupo unione</a>
                     <div class="dropdown">
-                        <a href="#" aria-expanded="false" aria-haspopup="true">empresas</a>
+                        <a href="/empresas" aria-expanded="false" aria-haspopup="true" data-translate="empresas">empresas</a>
                         <div class="dropdown-menu" role="menu">
-                            <a href="#" role="menuitem">MBT</a>
-                            <a href="#" role="menuitem">Corpo e Mente</a>
-                            <a href="#" role="menuitem">Quavi</a>
-                            <a href="#" role="menuitem">Okukulanaua</a>
-                            <a href="#" role="menuitem">Tecnology</a>
-                            <a href="#" role="menuitem">Kalanaua</a>
+                            <a href="/empresas/mbt" role="menuitem" data-translate="mbt">MBT</a>
+                            <a href="/empresas/corpo-e-mente" role="menuitem" data-translate="corpo-e-mente">Corpo e Mente</a>
+                            <a href="/empresas/quavi" role="menuitem" data-translate="quavi">Quavi</a>
+                            <a href="/empresas/okukulanaua" role="menuitem" data-translate="okukulanaua">Okukulanaua</a>
+                            <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
+                            <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
                         </div>
                     </div>
-                    <a href="#">áreas de negócios</a>
-                    <a href="#">empreendimentos</a>
-                    <a href="#">investidores</a>
-                    <a href="#">contatos</a>
+                    <a href="/areas-negocios" data-translate="areas-negocios">áreas de negócios</a>
+                    <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
+                    <a href="/investidores" data-translate="investidores">investidores</a>
+                    <a href="/contatos" data-translate="contatos">contatos</a>
                 </nav>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" data-translate="no">
                     <i aria-hidden="true" class="fas fa-bars" aria-hidden="true"></i>
                 </button>
                 <button id="search" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" class="fas fa-search" aria-hidden="true"></i>
+                    <input type="text" placeholder="Pesquisar" id="search-input">
+                    <i aria-hidden="true" class="fas fa-search" aria-hidden="true" id="search-icon"></i>
                 </button>
             </div>
         </nav>
-        <button class="lang" aria-label="Mudar idioma">Pt</button>
+        <button class="lang" aria-label="Mudar idioma" >Pt</button>
         <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
             <nav class="nav-links">
-                <a href="#">grupo unione</a>
-                <a href="#">empresas</a>
-                <a href="#">áreas de negócios</a>
-                <a href="#">empreendimentos</a>
-                <a href="#">investidores</a>
-                <a href="#">contatos</a>
+                <a href="/grupo">grupo unione</a>
+                <a href="/empresas">empresas</a>
+                <a href="/areas-negocios">áreas de negócios</a>
+                <a href="/empreendimentos">empreendimentos</a>
+                <a href="/investidores">investidores</a>
+                <a href="/contatos">contatos</a>
             </nav>
         </div>
     </header>
@@ -79,7 +79,7 @@
                 <div class="e-con card-baner active">
                     <img src="assets/Imagens/2168.webp" alt="Imagem representando saúde e bem estar" width="1920" height="1080" loading="eager">
                     <div class="txt">
-                        <h2>Saúde e <br> Bem estar</h2>
+                        <h2 data-translate="saude-bem-estar">Saúde e <br> Bem estar</h2>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                             Rem vero similique quas iste sint numquam! Laboriosam ullam
                             error illo a odio beatae expedita ea neque.
@@ -92,7 +92,7 @@
                 <div class="e-con card-baner">
                     <img src="assets/Imagens/2169.webp" alt="Imagem representando inovação" width="1920" height="1080" loading="lazy">
                     <div class="txt">
-                        <h2>Inovação <br> Tecnológica</h2>
+                        <h2 >Inovação <br> Tecnológica</h2>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                             Rem vero similique quas iste sint numquam! Laboriosam ullam
                             error illo a odio beatae expedita ea neque.
@@ -124,7 +124,7 @@
     
     <!-- section destaques -->
     <section class="destaque-section">
-        <h1 class="titulo">Destaques</h1>
+        <h1 class="titulo" data-translate="destaques">Destaques</h1>
         <div class="carousel-container">
             <div class="card">
                 <img src="assets/Imagens/21.webp" alt="Laboratório de Análises" loading="lazy">
@@ -168,7 +168,7 @@
     <!-- section sobre -->
     <section class="sobre-section">
         <div class="header-text">
-            <h1 class="titulo">Sobre nós</h1>
+            <h1 class="titulo" data-translate="sobre-nos">Sobre nós</h1>
         </div>
 
         <div class="content-block">
@@ -189,7 +189,7 @@
 
 
         <div class="sobre-container">
-            <h1 class="titulo">Nossos Números</h1>
+            <h1 class="titulo" data-translate="nossos-numeros">Nossos Números</h1>
             <div class="content-grid">
                 <div class="content-top">
 
@@ -255,7 +255,7 @@
     </section>
 
     <section class="empresa-section">
-        <h1 class="titulo">Empresas do Grupo</h1>
+        <h1 class="titulo" data-translate="empresas">Empresas do Grupo</h1>
         <div class="carousel-container">
             <article class="wrapper">
                 <div class="marquee">
@@ -374,17 +374,12 @@
                     </div>
                 </div>
             </article>
-            <div class="carousel-navigation">
-                <button aria-label="Slide anterior" class="arrow left"><i aria-hidden="true" class="fas fa-arrow-left"></i></button>
-                <button aria-label="Slide anterior" class="arrow " style="background-color: #c7c7c7; color: #fff;"> <i
-                        aria-hidden="true" class="fas fa-pause"></i></button>
-                <button aria-label="Slide anterior" class="arrow right"><i aria-hidden="true" class="fas fa-arrow-right"></i></button>
-            </div>
+           
         </div>
     </section>
 
     <section class="areas-section">
-        <h1 class="titulo">Áreas de Negócios</h1>
+        <h1 class="titulo" data-translate="areas-negocios">Áreas de Negócios</h1>
         <div class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -430,7 +425,7 @@
     </section>
 
     <section class="projectos-section">
-        <h1 class="titulo">Projectos</h1>
+        <h1 class="titulo" data-translate="projectos">Projectos</h1>
 
         <div class="carousel-container">
 
@@ -492,7 +487,7 @@
     </section>
 
     <section class="noticias-section">
-        <h1 class="titulo">Notícias e Imprensa</h1>
+        <h1 class="titulo" data-translate="noticias-imprensa">Notícias e Imprensa</h1>
         <div class="category">
             <div class="card-blog">
                 <img id="img-card" src="assets/Imagens/granja1.webp" alt="laboratorio">
@@ -535,13 +530,13 @@
                 <img src="assets/logo/Grupo Unione-branco.webp" alt="grupo unione logotipo">
             </div>
 
-            <h1>Contacte-nos</h1>
+            <h1 data-translate="contacte-nos">Contacte-nos</h1>
             <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla</p>
             <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
             <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
 
             <div class="social">
-                <h3>Siga-nos</h3>
+                <h3 data-translate="siga-nos">Siga-nos</h3>
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-facebook"></i></a>
@@ -550,19 +545,19 @@
 
 
         <div class="contact-form">
-            <h1>Fale conosco</h1>
+            <h1 data-translate="fale-conosco">Fale conosco</h1>
             <form>
-                <input type="text" placeholder="Seu Nome" required>
-                <input type="email" placeholder="Seu E-mail" required>
+                <input type="text" placeholder="Seu Nome" data-translate="seu-nome" required>
+                <input type="email" placeholder="Seu E-mail" data-translate="seu-email" required>
                 
                 <div class="options">
-                    <button type="button">Particular</button>
-                    <button type="button" class="empresaBtn">Empresa</button>
+                    <button type="button" data-translate="particular">Particular</button>
+                    <button type="button" class="empresaBtn" data-translate="empresa">Empresa</button>
                 </div>
-                <input type="empresa" class="empresa" id="empresaInput" placeholder="Empresa">
+                <input type="empresa" class="empresa" id="empresaInput" placeholder="Empresa" data-translate="empresa">
 
-                <textarea placeholder="Mensagem" rows="5" required></textarea>
-                <button type="submit" class="submit-btn">Enviar</button>
+                <textarea placeholder="Mensagem" rows="5" data-translate="mensagem" required></textarea>
+                <button type="submit" class="submit-btn" data-translate="enviar">Enviar</button>
             </form>
         </div>
     </section>
@@ -580,26 +575,25 @@
         <div class="bottom">
             <div class="footer-top">
                 <div class="footer-column">
-
                     <img src="assets/logo/Grupo Unione-branco.webp" alt="Grupo UNIONE" class="logo-footer">
                     <ul>
-                        <li><a href="#">O Grupo</a></li>
-                        <li><a href="#">História</a></li>
-                        <li><a href="#">Missão</a></li>
+                        <li><a href="#" data-translate="o-grupo">O Grupo</a></li>
+                        <li><a href="#" data-translate="historia">História</a></li>
+                        <li><a href="#" data-translate="missao">Missão</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h4>Pessoas</h4>
+                    <h4 data-translate="pessoas">Pessoas</h4>
                     <ul>
-                        <li><a href="#">Trabalhe conosco</a></li>
-                        <li><a href="#">Programas de Estágio</a></li>
+                        <li><a href="#" data-translate="trabalhe-conosco">Trabalhe conosco</a></li>
+                        <li><a href="#" data-translate="programas-estagio">Programas de Estágio</a></li>
                     </ul>
                 </div>
 
 
                 <div class="footer-column">
-                    <h4>Áreas de Negócio</h4>
+                    <h4 data-translate="areas-negocios">Áreas de Negócio</h4>
                     <ul class="coluna-dupla">
                         <li><a href="#">Saúde</a></li>
                         <li><a href="#">Telecomunicações</a></li>
@@ -617,15 +611,15 @@
 
 
                 <div class="footer-column">
-                    <h4>Siga-nos</h4>
+                    <h4 data-translate="siga-nos">Siga-nos</h4>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook"></i></a>
                     </div>
                     <ul>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Termos e Condições</a></li>
+                        <li><a href="#" data-translate="politica-privacidade">Política de Privacidade</a></li>
+                        <li><a href="#" data-translate="termos-condicoes">Termos e Condições</a></li>
                     </ul>
                 </div>
             </div>
@@ -646,7 +640,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Grupo Unione - Todos os direitos reservados.</p>
+                <p>&copy; 2025 Grupo Unione - <span data-translate="direitos-reservados">Todos os direitos reservados</span>.</p>
             </div>
         </div>
     </footer>
@@ -655,6 +649,8 @@
     <script src="js/slide.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/scroolslide.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/translations.js"></script>
   
     <script>
         // Lazy loading para imagens

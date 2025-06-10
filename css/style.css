@@ -106,8 +106,8 @@ header {
 }
 
 .logo {
-    padding: 0;
-    width: 100px;
+    max-width: 25%;
+    padding: 5px;
     height: 100%;
 }
 
@@ -267,8 +267,6 @@ header {
     font-size: 1rem;
     padding: 5px 15px;
     width: 100%;
-
-
 }
 
 #search.active {

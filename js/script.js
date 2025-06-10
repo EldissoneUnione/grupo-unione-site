@@ -61,12 +61,7 @@ function safeQuerySelector(selector) {
 window.onload = function () {
     let logo = document.getElementById('logo');
 
-    if (logo && logo.getContext) {
-        let contexto = logo.getContext('2d');
-        let imagem = new Image();
-        imagem.src = '../assets/logo/grupo_logo_circulo.webp';
-        imagem.onload = function () { contexto.drawImage(imagem, 0, 0, logo.width, logo.height); };
-
+    if (logo) {
         logo.addEventListener("click", function(e) {
             e.preventDefault();
             

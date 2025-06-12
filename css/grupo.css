@@ -1,70 +1,308 @@
 .baner-grupo {
-    position: relative;
-    width: 100%;
-    height: 100vh
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70vh;
 }
 
 .baner-cards-grupo {
-    position: relative;
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-    height: 70vh;
-    overflow: hidden;
-    list-style: none;
+  position: relative;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  list-style: none;
 
 }
 
 .card-baner-grupo {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    flex-direction: column;
-    flex-shrink: 0;
-    top: 0;
-    left: 0;
-    z-index: 1;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  flex-shrink: 0;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .card-baner-grupo::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #ffffff9f, transparent);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #ffffff9f, transparent);
 }
 
 .card-baner-grupo img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 1;
-    transition: opacity 0.8s ease-in-out;
-    transform: translateX(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+  transform: translateX(0);
 }
 
 .logo-grupoP {
-    position: absolute;
-    bottom: 3rem;
-    left: 5rem;
-    width: 35%;
-    height: 30%; 
-    z-index: 1;
+  position: absolute;
+  bottom: 3rem;
+  left: 5rem;
+  width: 35%;
+  height: 30%;
+  z-index: 1;
 
-    & img {
-        object-fit: contain;
-        object-position: center;
-        width: 100%;
-        height: 100%;
-    }
+  & img {
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.hero-section {
+  height: 70vh;
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4rem 1rem;
+  max-width: 100%;
+}
+
+.grupo p {
+  font-size: 16px;
+  line-height: 1.6;
+  width: 100%;
+  padding: 0 6rem;
+  font-size: 1.5rem;
+  color: var(--text-color2);
+  margin: 5px 0;
+
+}
+
+.mensagem-ceo {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0rem 1rem;
+
+
+
+  & p {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-align: justify;
+    padding: 2em;
+  }
+}
+
+.mensagem-ceo .ceo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5rem;
+
+}
+
+.mensagem-ceo .ceo-img {
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 320px;
+  height: 350px;
+  margin: 10px 20px;
+
+}
+
+.ceo-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.ceo-name h4 {
+  font-size: 1.6rem;
+  color: var(--text-color3);
+
+}
+
+.ceo-name h5 {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--text-color3);
+}
+
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  background: transparent;
+}
+
+.black {
+  border-color: black;
+  top: 50px;
+  left: -50px;
+  width: 270px;
+  height: 200px;
+}
+
+.red {
+  border-color: var(--text-color);
+  top: 50px;
+  left: 10px;
+  width: 230px;
+  height: 230px;
+  z-index: 10;
+  background-color: #ffffff;
+  background-size: contain;
+  background: url('/assets/Imagens/ceo.png') no-repeat center;
+
+}
+
+.gold {
+  border-color: goldenrod;
+  top: 0px;
+  left: 80px;
+  width: 230px;
+  height: 230px;
+  z-index: 2;
+
+}
+
+.mensagem-ceo .ceo-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.text-b {
+  display: flex;
+  align-self: center;
+  width: 88%;
+
+}
+
+.ceo-image .placeholder {
+  width: 100px;
+  height: 100px;
+  border: 2px dashed #ccc;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.ceo-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ceo-name span {
+  font-weight: normal;
+  font-size: 12px;
+  color: #666;
+}
+
+.historia {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  will-change: transform;
+}
+
+.gallery {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.card {
+  position: absolute;
+  width: 45px;
+  height: 60px;
+  border-radius: 4px;
+  transform-origin: center;
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  overflow: hidden;
+
+}
+
+.title-container {
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 42px;
+    clip-path: polygon(0 0, 100%, 0, 100% 100%, 0% 100%);
+}
+
+.title-container p {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  letter-spacing: -0.05rem;
+}
+
+.word {
+  position: relative;
+  display: inline-block;
+  will-change: transform;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #fff;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+
+.noticias-section {
+  margin: 0;
 }

@@ -2,7 +2,7 @@
     --bg-body: #f7f7f7;
     --bg-nav: #d9d9d9cb;
     --text-color: #C33622;
-    --text-color2: #343434;
+    --text-color2: #2D2D2D;
     --text-color3: #000000;
     --text-color-black: #912B1C;
     --light-gray: #858585;
@@ -76,7 +76,9 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block
+    display: block;
+    backface-visibility: hidden;
+
 }
 
 header {
@@ -349,6 +351,17 @@ section {
     left: 0;
 }
 
+.card-baner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.1;
+}
+
 .card-baner.active {
     opacity: 1;
     z-index: 1;
@@ -382,9 +395,8 @@ section {
 
     h2 {
         color: #fff;
-        font-size: 7rem;
+        font-size: 5rem;
         font-weight: bold;
-        /* line-height: 120px; */
         text-shadow: 0 0px 80px rgba(0, 0, 0, 0.9);
 
     }
@@ -456,7 +468,7 @@ section {
 .titulo {
     display: flex;
     align-self: flex-start;
-    padding: 0px 6rem;
+    padding: 0px 5rem;
     font-size: var(--size-titulo);
     color: var(--text-color);
     cursor: pointer;
@@ -656,10 +668,10 @@ section {
     .content-block::after {
         content: '';
         position: absolute;
-        top: 150px;
+        top: 130px;
         right: -300px;
         width: 100%;
-        height: 37%;
+        height: 35%;
         border-top-left-radius: 440px;
         border-bottom-left-radius: 440px;
         opacity: 1;
@@ -728,6 +740,11 @@ section {
         align-items: center;
         justify-content: center;
 
+        .no-scroll {
+            overflow: hidden;
+        }
+
+
     }
 
     .content-grid {
@@ -736,6 +753,7 @@ section {
         justify-items: center;
         width: 100%;
         padding: 0 4rem;
+
     }
 
     .content-top,
@@ -745,6 +763,7 @@ section {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+
     }
 
     .icon-item {
@@ -752,7 +771,7 @@ section {
         align-items: center;
         justify-content: flex-start;
         padding: 10px 0;
-        width: 250px;
+        width: 300px;
         margin: 20px;
     }
 
@@ -796,18 +815,21 @@ section {
 
     .icon-text {
         text-align: start;
-        font-size: 1.5em;
+        font-size: 1.3em;
         color: var(--light-gray);
         font-weight: 400;
         white-space: wrap;
-        max-width: 140px;
         display: none;
     }
 
-    .grafico-container {
-        position: relative;
-        margin: auto;
-        border-radius: 50%;
+    .center-span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        font-size: 1.1rem;
+        color: #888;
     }
 
     .center-span h1 {
@@ -823,47 +845,20 @@ section {
         color: #666;
     }
 
-
-    .rotate-on-scroll .center-span {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 50%;
-        height: 50%;
+    .donut {
+        width: 35%;
+        position: relative;
+        margin: auto;
         border-radius: 50%;
-        transform: translate(-50%, -50%);
-        background: #f5f5f5;
-        z-index: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        flex-direction: column;
-        padding: 10px;
-
     }
 
-    .span {
-        position: absolute;
-        width: 150px;
-        height: 150px;
-        background-color: #ccc;
-        border-radius: 10px;
-        border-radius: 50% 50%;
-        transition: 0.5s ease;
-    }
-
-    .no-scroll {
-        overflow: hidden;
+    svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-30deg);
     }
 
 
-    .span.grow {
-        width: 170px;
-        height: 170px;
-        z-index: 1;
-        background-color: var(--text-color);
-    }
 }
 
 .empresa-section {
@@ -1225,7 +1220,7 @@ section {
 }
 
 .polis-section {
-    height: 1200px;
+    height: 1000px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -1256,12 +1251,15 @@ section {
 
     .logo-polis {
         display: flex;
-        width: 500px;
-        max-width: 90%;
+        max-width: 80%;
         height: 100px;
-        background-color: var(--dot-color2);
+        background-color: rgba(255, 255, 255, 0.542);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(5px);
         border-radius: 50px;
         padding: 5px;
+
+
 
         .logo {
             height: 100%;
@@ -1276,9 +1274,10 @@ section {
 
 
             h4 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
                 color: var(--text-color3);
-                font-weight: 300;
+                font-weight: 400;
+                line-height: 1;
             }
 
         }
@@ -1686,9 +1685,11 @@ footer {
     fill: #e0e0e0;
     transition: fill 0.3s;
 }
+
 .donut-slice.active {
     fill: #C33622;
 }
+
 .icon-item.active .icon-circle {
     background: #C33622;
     color: #fff;

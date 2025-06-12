@@ -2,100 +2,34 @@ document.addEventListener('DOMContentLoaded', function () {
   const icons = document.querySelectorAll('.icon-item');
   const slices = document.querySelectorAll('.span');
   const centerInfo = document.getElementById('center-info');
-  const container = document.querySelector('.rotate-on-scroll');
   const total = slices.length;
-
   const customOrder = [4, 3, 2, 1, 0, 5]; // ordem personalizada
   let currentIndex = 0;
   let isScrolling = false;
 
   const info = [
-    { title: '+50 milhões<br>de dólares', desc: 'já investidos' },     // 0
-    { title: 'Internacionalização', desc: 'Presença global' },         // 1
-    { title: 'Prêmios', desc: 'Reconhecimentos' },                     // 2
-    { title: 'Investimentos', desc: 'Em expansão' },                   // 3
-    { title: 'Projetos', desc: 'Diversificados' },                     // 4
-    { title: 'Pessoas', desc: 'Equipe qualificada' }                   // 5
+    { title: '+50 milhões<br>de dólares', desc: 'já investidos' },
+    { title: 'Internacionalização', desc: 'Presença global' },
+    { title: 'Prêmios', desc: 'Reconhecimentos' },
+    { title: 'Investimentos', desc: 'Em expansão' },
+    { title: 'Projetos', desc: 'Diversificados' },
+    { title: 'Pessoas', desc: 'Equipe qualificada' }
   ];
 
   function setActive(visualIndex) {
     const realIndex = customOrder[visualIndex];
- 
+
     slices.forEach((slice, i) => {
       slice.classList.toggle('active', i === realIndex);
-    console.log(`slice ativado: ${i}`);
+      slice.classList.toggle('grow', i === realIndex);
+    });
 
-    if (i == 1) {
-      console.log("igual")
-    }
-
+    icons.forEach((icon, i) => {
+      icon.classList.toggle('active', i === realIndex);
     });
 
     centerInfo.innerHTML = `<h1>${info[realIndex].title}</h1><p>${info[realIndex].desc}</p>`;
-    
-    updateSize(realIndex);
-    activateSequentially()
-  }
-
-  function activateSequentially() {
-  const iconsArray = Array.from(icons);
-  let i = 0;
-
-  function activateNext() {
-    iconsArray.forEach(icon => icon.classList.remove('active'));
-
-    iconsArray[i].classList.add('active');
-
-    console.log(`Ícone ativado: ${i}`);
-    i++;
-  }
-
-  activateNext();
-}
-
-
-  function calculateSizes() {
-    const screenWidth = window.innerWidth;
-    const isMobile = screenWidth < 768;
-
-    const containerSize = isMobile ? 300 : 450;
-    const spanSize = isMobile ? 100 : 150;
-
-    const centerX = containerSize / 2;
-    const centerY = containerSize / 2;
-    const adjustedRadius = (containerSize / 2) - (spanSize / 2);
-
-    container.style.width = `${containerSize}px`;
-    container.style.height = `${containerSize}px`;
-
-    slices.forEach((span, index) => {
-      const angleDeg = (360 / total) * index;
-      const angleRad = angleDeg * (Math.PI / 180);
-
-      const x = centerX + adjustedRadius * Math.cos(angleRad) - spanSize / 2;
-      const y = centerY + adjustedRadius * Math.sin(angleRad) - spanSize / 2;
-
-      span.style.width = `${spanSize}px`;
-      span.style.height = `${spanSize}px`;
-      span.style.left = `${x}px`;
-      span.style.top = `${y}px`;
-
-      if (span.classList.contains('rotated')) {
-        span.style.transform = `rotate(-30deg)`;
-      }
-      if (span.classList.contains('rotated1')) {
-        span.style.transform = `rotate(0deg)`;
-      }
-      if (span.classList.contains('rotated2')) {
-        span.style.transform = `rotate(30deg)`;
-      }
-    });
-  }
-
-  function updateSize(realIndex) {
-    slices.forEach((span, i) => {
-      span.classList.toggle('grow', i === realIndex);
-    });
+    updateHighlight(realIndex); // mantém os segmentos SVG sincronizados
   }
 
   function setupSwipeEvents() {
@@ -111,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (Math.abs(deltaY) > 30 && !isScrolling) {
         isScrolling = true;
-        setTimeout(() => isScrolling = false, 100);
+        setTimeout(() => isScrolling = false, 300);
 
         if (deltaY > 0 && currentIndex < total - 1) {
           currentIndex++;
@@ -128,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (isScrolling) return;
 
       isScrolling = true;
-      setTimeout(() => isScrolling = false, 100);
+      setTimeout(() => isScrolling = false, 300);
 
       if (event.deltaY > 0 && currentIndex < total - 1) {
         currentIndex++;
@@ -139,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Aqui o loop que cria os eventos para os ícones seguindo a ordem do customOrder
+  // Eventos nos ícones
   customOrder.forEach((realIndex, visualIndex) => {
     const icon = icons[realIndex];
     icon.addEventListener('mouseenter', () => {
@@ -157,12 +91,63 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   window.addEventListener('resize', () => {
-    calculateSizes();
     setActive(currentIndex);
   });
 
-  calculateSizes();
   setActive(0);
   setupWheelEvent();
   setupSwipeEvents();
 });
+
+
+// === SVG Segmentos Dinâmicos ===
+const g = document.getElementById("segments");
+const totalSegments = 6;
+const radius = 80;
+const thickness = 20;
+const center = 100;
+let segments = [];
+
+function createSegments() {
+  for (let i = 0; i < totalSegments; i++) {
+    const startAngle = (Math.PI * 2 * i) / totalSegments;
+    const endAngle = (Math.PI * 2 * (i + 1)) / totalSegments;
+
+    const x1 = center + radius * Math.cos(startAngle);
+    const y1 = center + radius * Math.sin(startAngle);
+    const x2 = center + radius * Math.cos(endAngle);
+    const y2 = center + radius * Math.sin(endAngle);
+    const x3 = center + (radius - thickness) * Math.cos(endAngle);
+    const y3 = center + (radius - thickness) * Math.sin(endAngle);
+    const x4 = center + (radius - thickness) * Math.cos(startAngle);
+    const y4 = center + (radius - thickness) * Math.sin(startAngle);
+
+    const pathData = `
+      M ${x1} ${y1}
+      A ${radius} ${radius} 0 0 1 ${x2} ${y2}
+      L ${x3} ${y3}
+      A ${radius - thickness} ${radius - thickness} 0 0 0 ${x4} ${y4}
+      Z
+    `;
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", pathData.trim());
+    path.setAttribute("fill", "#ddd");
+    g.appendChild(path);
+    segments.push(path);
+  }
+}
+
+function updateHighlight(index) {
+  segments.forEach((seg, i) => {
+    seg.setAttribute("fill", i === index ? "#c62828" : "#ddd");
+  });
+
+  const icons = document.querySelectorAll(".icon-item");
+  icons.forEach((icon, i) => {
+    icon.classList.toggle("active", i === index);
+  });
+}
+
+// Criar segmentos
+createSegments();

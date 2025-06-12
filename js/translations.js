@@ -127,7 +127,7 @@ const translations = {
         'direitos-reservados': 'All rights reserved',
 
         // Main banner
-        'saude-bem-estar': 'Health and Well-being',
+        'saude-e-bem-estar': 'Health and Well-being',
         'saude-bem-estar-desc': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem vero similique quas iste sint numquam! Laboriosam ullam error illo a odio beatae expedita ea neque.',
         'inovacao-tecnologica': 'Technological Innovation',
         'inovacao-tecnologica-desc': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem vero similique quas iste sint numquam! Laboriosam ullam error illo a odio beatae expedita ea neque.',

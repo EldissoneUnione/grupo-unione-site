@@ -35,7 +35,7 @@ function loadShow() {
         items[i].style.transform = `translateX(${250 * stt}px) scale(${1 - 0.2 * stt}) perspective(18px) rotateY(-1deg)`;
         items[i].style.zIndex = -stt;
         items[i].style.filter = 'blur(1px)';
-        items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        items[i].style.opacity = stt > 2 ? 0 : 0.7;
     }
 
     stt = 0;

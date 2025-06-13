@@ -700,6 +700,7 @@
             font-size: 1em;
             color: var(--light-gray);
             white-space: wrap;
+            display: none !important;
         }
 
         .donut {

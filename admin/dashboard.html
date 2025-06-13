@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin</title>
+    <link rel="stylesheet" href="../css/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <img src="../assets/logo/grupo_logo_circulo.webp" alt="Logo" class="img-fluid mb-2" style="max-width: 120px;">
+                        <p class="text-muted" id="userInfo">Olá, Usuário</p>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="dashboard.html">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="banners.html">
+                                Banners
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="destaques.html">
+                                Destaques
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="text-center">
+                        <button class="btn btn-danger btn-sm" onclick="authChecker.logout()">Sair</button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Conteúdo Principal -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                </div>
+
+                <!-- Cards de Resumo -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Banners</h5>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h2 class="mb-0" id="totalBanners">0</h2>
+                                        <p class="text-muted mb-0">Total de banners</p>
+                                    </div>
+                                    <div>
+                                        <h2 class="mb-0" id="activeBanners">0</h2>
+                                        <p class="text-muted mb-0">Banners ativos</p>
+                                    </div>
+                                </div>
+                                <a href="banners.html" class="btn btn-primary mt-3">Gerenciar Banners</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Destaques</h5>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h2 class="mb-0" id="totalDestaques">0</h2>
+                                        <p class="text-muted mb-0">Total de destaques</p>
+                                    </div>
+                                    <div>
+                                        <h2 class="mb-0" id="activeDestaques">0</h2>
+                                        <p class="text-muted mb-0">Destaques ativos</p>
+                                    </div>
+                                </div>
+                                <a href="destaques.html" class="btn btn-primary mt-3">Gerenciar Destaques</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Últimas Atividades -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Últimas Atividades</h5>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Tipo</th>
+                                                <th>Título</th>
+                                                <th>Data</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="lastActivities">
+                                            <!-- Atividades serão inseridas aqui via JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin/auth.js"></script>
+    <script src="../js/admin/dashboard.js"></script>
+</body>
+</html> 

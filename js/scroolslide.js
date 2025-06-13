@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const slices = document.querySelectorAll('.span');
   const centerInfo = document.getElementById('center-info');
   const total = slices.length;
-  const customOrder = [4, 3, 2, 1, 0, 5]; // ordem personalizada
+  const customOrder = [4, 3, 2, 1, 0, 5];
   let currentIndex = 0;
   let isScrolling = false;
 
@@ -29,48 +29,81 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     centerInfo.innerHTML = `<h1>${info[realIndex].title}</h1><p>${info[realIndex].desc}</p>`;
-    updateHighlight(realIndex); // mantém os segmentos SVG sincronizados
+    updateHighlight(realIndex);
   }
 
-  function setupSwipeEvents() {
-    let touchStartY = 0;
+  function smoothScrollTo(index) {
+    isScrolling = true;
+    currentIndex = index;
+    setActive(currentIndex);
+    setTimeout(() => isScrolling = false, 600);
+  }
 
+  function setupControlledScrollInSection() {
+    const sobreSection = document.querySelector('.sobre-container');
+    if (!sobreSection) return;
+
+    const body = document.body;
+
+    function isInsideSobre() {
+      const rect = sobreSection.getBoundingClientRect();
+      return rect.top <= 0 && rect.bottom >= window.innerHeight;
+    }
+
+    function lockScroll() {
+      sobreSection.classList.add('scroll-lock');
+      body.style.overflow = 'hidden';
+    }
+
+    function unlockScroll() {
+      sobreSection.classList.remove('scroll-lock');
+      body.style.overflow = '';
+    }
+
+    function handleScroll(direction) {
+      if (!isInsideSobre() || isScrolling) return;
+
+      lockScroll();
+
+      if (direction === 'down' && currentIndex < total - 1) {
+        smoothScrollTo(currentIndex + 1);
+      } else if (direction === 'up' && currentIndex > 0) {
+        smoothScrollTo(currentIndex - 1);
+      }
+    }
+
+    // Monitorar entrada e saída da seção
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) {
+        unlockScroll();
+      }
+    }, { threshold: 0.1 });
+
+    observer.observe(sobreSection);
+
+    // Eventos de scroll
+    window.addEventListener('wheel', (e) => {
+      if (isInsideSobre()) {
+        e.preventDefault();
+        handleScroll(e.deltaY > 0 ? 'down' : 'up');
+      }
+    }, { passive: false });
+
+    let touchStartY = 0;
     window.addEventListener('touchstart', (e) => {
       touchStartY = e.touches[0].clientY;
-    });
+    }, { passive: false });
+
+    window.addEventListener('touchmove', (e) => {
+      if (isInsideSobre()) e.preventDefault();
+    }, { passive: false });
 
     window.addEventListener('touchend', (e) => {
-      const touchEndY = e.changedTouches[0].clientY;
-      const deltaY = touchStartY - touchEndY;
-
-      if (Math.abs(deltaY) > 30 && !isScrolling) {
-        isScrolling = true;
-        setTimeout(() => isScrolling = false, 300);
-
-        if (deltaY > 0 && currentIndex < total - 1) {
-          currentIndex++;
-        } else if (deltaY < 0 && currentIndex > 0) {
-          currentIndex--;
-        }
-        setActive(currentIndex);
+      const deltaY = touchStartY - e.changedTouches[0].clientY;
+      if (Math.abs(deltaY) > 30 && isInsideSobre()) {
+        handleScroll(deltaY > 0 ? 'down' : 'up');
       }
-    });
-  }
-
-  function setupWheelEvent() {
-    window.addEventListener('wheel', (event) => {
-      if (isScrolling) return;
-
-      isScrolling = true;
-      setTimeout(() => isScrolling = false, 300);
-
-      if (event.deltaY > 0 && currentIndex < total - 1) {
-        currentIndex++;
-      } else if (event.deltaY < 0 && currentIndex > 0) {
-        currentIndex--;
-      }
-      setActive(currentIndex);
-    });
+    }, { passive: false });
   }
 
   // Eventos nos ícones
@@ -95,10 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   setActive(0);
-  setupWheelEvent();
-  setupSwipeEvents();
+  setupControlledScrollInSection();
 });
-
 
 // === SVG Segmentos Dinâmicos ===
 const g = document.getElementById("segments");
@@ -107,6 +138,8 @@ const radius = 80;
 const thickness = 20;
 const center = 100;
 let segments = [];
+
+const iconToSegmentMap = [4, 3, 2, 5, 0, 1];
 
 function createSegments() {
   for (let i = 0; i < totalSegments; i++) {
@@ -138,16 +171,17 @@ function createSegments() {
   }
 }
 
-function updateHighlight(index) {
+function updateHighlight(iconIndex) {
+  const segmentIndex = iconToSegmentMap[iconIndex];
+
   segments.forEach((seg, i) => {
-    seg.setAttribute("fill", i === index ? "#c62828" : "#ddd");
+    seg.setAttribute("fill", i === segmentIndex ? "#c62828" : "#ddd");
   });
 
   const icons = document.querySelectorAll(".icon-item");
   icons.forEach((icon, i) => {
-    icon.classList.toggle("active", i === index);
+    icon.classList.toggle("active", i === iconIndex);
   });
 }
 
-// Criar segmentos
 createSegments();

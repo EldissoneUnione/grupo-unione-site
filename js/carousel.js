@@ -106,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     cards.forEach((card, index) => {
         card.addEventListener('click', (e) => {
+            e.preventDefault();
             if (isDragging) return;
             if (isAnimating) return;
             if (index === currentIndex) return;

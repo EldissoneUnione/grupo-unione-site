@@ -84,13 +84,13 @@
 }
 
 .grupo p {
-  font-size: 16px;
+  align-self: center;
+  text-align: justify;
   line-height: 1.6;
-  width: 100%;
-  padding: 0 6rem;
   font-size: 1.5rem;
   color: var(--text-color2);
-  margin: 5px 0;
+  margin: 10px 0;
+  width: 90%;
 
 }
 
@@ -98,9 +98,8 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  justify-content: center;
   padding: 0rem 1rem;
-
-
 
   & p {
     font-size: 1.5rem;
@@ -113,7 +112,7 @@
 .mensagem-ceo .ceo-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 5rem;
 
 }
@@ -169,7 +168,7 @@
 .red {
   border-color: var(--text-color);
   top: 50px;
-  left: 10px;
+  left: 40px;
   width: 230px;
   height: 230px;
   z-index: 10;
@@ -272,13 +271,13 @@
 }
 
 .title-container {
-    position: absolute;
-    bottom: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 42px;
-    clip-path: polygon(0 0, 100%, 0, 100% 100%, 0% 100%);
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 42px;
+  clip-path: polygon(0 0, 100%, 0, 100% 100%, 0% 100%);
 }
 
 .title-container p {
@@ -301,6 +300,83 @@
   margin-top: 0.5rem;
   text-align: center;
 }
+
+.recrutamento {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 40px auto;
+  padding: 2rem 0;
+  background: var(--white);
+  border: 1px solid #ddd;
+}
+
+.tabs {
+  display: flex;
+  gap: 20px;
+  padding: 1rem 0;
+  margin-bottom: 20px;
+  margin-left: 5rem;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #aaa;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background: var(--text-color);
+}
+
+.form-card {
+  background: #e0e0e0;
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  margin-left: 5rem;
+  width: 90%;
+
+}
+
+.form-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recrutamento-form {
+  margin-top: 40px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  font-size: 1rem;
+  outline: none;
+}
+
 
 
 .noticias-section {

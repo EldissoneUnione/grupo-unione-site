@@ -78,4 +78,98 @@ function updateActivitiesTable(activities) {
 function showError(message) {
     // Implementar uma notificação de erro mais elaborada
     console.error(message);
-} 
+}
+
+// Dashboard Manager
+class DashboardManager {
+    constructor() {
+        this.banners = JSON.parse(localStorage.getItem('banners')) || [];
+        this.destaques = JSON.parse(localStorage.getItem('destaques')) || [];
+        
+        this.initializeDashboard();
+    }
+
+    initializeDashboard() {
+        this.updateBannerStats();
+        this.updateDestaqueStats();
+        this.loadLastActivities();
+    }
+
+    updateBannerStats() {
+        const totalBanners = this.banners.length;
+        const activeBanners = this.banners.filter(b => b.status).length;
+
+        document.getElementById('totalBanners').textContent = totalBanners;
+        document.getElementById('activeBanners').textContent = activeBanners;
+    }
+
+    updateDestaqueStats() {
+        const totalDestaques = this.destaques.length;
+        const activeDestaques = this.destaques.filter(d => d.status).length;
+
+        document.getElementById('totalDestaques').textContent = totalDestaques;
+        document.getElementById('activeDestaques').textContent = activeDestaques;
+    }
+
+    loadLastActivities() {
+        const activities = [];
+        
+        // Adicionar banners às atividades
+        this.banners.forEach(banner => {
+            activities.push({
+                type: 'Banner',
+                title: banner.title,
+                date: new Date(banner.createdAt),
+                status: banner.status ? 'Ativo' : 'Inativo'
+            });
+        });
+
+        // Adicionar destaques às atividades
+        this.destaques.forEach(destaque => {
+            activities.push({
+                type: 'Destaque',
+                title: destaque.title,
+                date: new Date(destaque.createdAt),
+                status: destaque.status ? 'Ativo' : 'Inativo'
+            });
+        });
+
+        // Ordenar por data (mais recente primeiro)
+        activities.sort((a, b) => b.date - a.date);
+
+        // Mostrar apenas as 5 atividades mais recentes
+        const lastActivities = activities.slice(0, 5);
+
+        // Atualizar a tabela
+        const tbody = document.getElementById('lastActivities');
+        tbody.innerHTML = '';
+
+        lastActivities.forEach(activity => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${activity.type}</td>
+                <td>${activity.title}</td>
+                <td>${this.formatDate(activity.date)}</td>
+                <td>
+                    <span class="badge ${activity.status === 'Ativo' ? 'bg-success' : 'bg-danger'}">
+                        ${activity.status}
+                    </span>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    formatDate(date) {
+        return new Intl.DateTimeFormat('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        }).format(date);
+    }
+}
+
+// Inicializar o dashboard
+const dashboardManager = new DashboardManager(); 

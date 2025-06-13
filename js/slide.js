@@ -1,5 +1,5 @@
 // Controle do Slide
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const slides = document.querySelectorAll('.card-baner');
     const dotsContainer = document.querySelector('.custom-selector');
     let currentSlide = 0;
@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function generateDots() {
         dotsContainer.innerHTML = '';
-        
+
         slides.forEach((_, index) => {
             const dot = document.createElement('button');
             dot.className = `dot ${index === 0 ? 'active' : ''}`;
             dot.setAttribute('role', 'tab');
             dot.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
             dot.setAttribute('aria-label', `Slide ${index + 1}`);
-            
+
             dot.addEventListener('click', () => {
                 stopSlideShow();
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showSlide(currentSlide);
                 startSlideShow();
             });
-            
+
             dotsContainer.appendChild(dot);
         });
     }
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             slide.classList.remove('active');
             slide.style.opacity = '0';
         });
-        
+
         const dots = document.querySelectorAll('.dot');
         dots.forEach(dot => {
             dot.classList.remove('active');
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let touchEndX = 0;
 
     const bannerCards = document.querySelector('.baner-cards');
-    
+
     bannerCards.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
@@ -103,5 +103,3 @@ document.addEventListener('DOMContentLoaded', function() {
     bannerCards.addEventListener('mouseenter', stopSlideShow);
     bannerCards.addEventListener('mouseleave', startSlideShow);
 });
-
-

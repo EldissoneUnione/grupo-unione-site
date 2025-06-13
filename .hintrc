@@ -29,7 +29,8 @@
       {
         "ignore": [
           "iframe[loading]",
-          "iframe[referrerpolicy=no-referrer-when-downgrade]"
+          "iframe[referrerpolicy=no-referrer-when-downgrade]",
+          "img[fetchpriority]"
         ]
       }
     ],

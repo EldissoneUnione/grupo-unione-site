@@ -21,14 +21,15 @@
     <link rel="preload" href="css/style.css" as="style">
     <link rel="preload" href="css/responsivStyle.css" as="style">
     <link rel="preload" href="assets/logo/grupo_logo_circulo.webp" as="image">
+    <link rel="stylesheet" href="css/load.css">
     <link rel="preload" href="assets/Imagens/2168.webp" as="image">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsivStyle.css">
     <link rel="stylesheet" href="css/load.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
 </head>
 
 <body>
@@ -85,74 +86,54 @@
         <div class="baner">
             <div class="baner-cards">
                 <div class="e-con card-baner active">
-                    <img src="assets/Imagens/2168.webp" 
-                         alt="Imagem representando saúde e bem estar" 
-                         width="800" 
-                         height="450" 
-                         loading="eager"
-                         decoding="async"
-                         fetchpriority="high">
+                    <img src="assets/Imagens/2168.webp" alt="Imagem representando saúde e bem estar" width="1024"
+                        height="1000" loading="eager">
                     <div class="txt">
                         <h2 data-translate="saude-e-bem-estar">Saúde e <br> Bem estar</h2>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                             Rem vero similique quas iste sint numquam! Laboriosam ullam
                             error illo a odio beatae expedita ea neque.
                         </p>
-                        <button class="btn-saiba-mais" 
-                                aria-label="Saiba mais sobre saúde e bem estar"
-                                role="button">
+                        <button class="btn-saiba-mais" aria-label="Saiba mais sobre saúde e bem estar">
                             <span>Saiba mais</span>
                         </button>
                     </div>
                 </div>
                 <div class="e-con card-baner">
-                    <img src="assets/Imagens/2169.webp" 
-                         alt="Imagem representando inovação" 
-                         width="800" 
-                         height="450" 
-                         loading="lazy"
-                         decoding="async">
+                    <img src="assets/Imagens/2169.webp" alt="Imagem representando inovação" width="1024" height="1000"
+                        loading="lazy">
                     <div class="txt">
                         <h2>Inovação <br> Tecnológica</h2>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                             Rem vero similique quas iste sint numquam! Laboriosam ullam
                             error illo a odio beatae expedita ea neque.
                         </p>
-                        <button class="btn-saiba-mais" 
-                                aria-label="Saiba mais sobre inovação tecnológica"
-                                role="button">
+                        <button class="btn-saiba-mais" aria-label="Saiba mais sobre inovação tecnológica">
                             <span>Saiba mais</span>
                         </button>
                     </div>
                 </div>
                 <div class="e-con card-baner">
-                    <img src="assets/Imagens/granja.webp" 
-                         alt="Imagem representando sustentabilidade" 
-                         width="800" 
-                         height="450" 
-                         loading="lazy"
-                         decoding="async">
+                    <img src="assets/Imagens/granja.webp" alt="Imagem representando sustentabilidade" width="1024"
+                        height="1000" loading="lazy">
                     <div class="txt">
                         <h2>Sustentabilidade <br> Ambiental</h2>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                             Rem vero similique quas iste sint numquam! Laboriosam ullam
                             error illo a odio beatae expedita ea neque.
                         </p>
-                        <button class="btn-saiba-mais" 
-                                aria-label="Saiba mais sobre sustentabilidade ambiental"
-                                role="button">
+                        <button class="btn-saiba-mais" aria-label="Saiba mais sobre sustentabilidade ambiental">
                             <span>Saiba mais</span>
                         </button>
                     </div>
                 </div>
             </div>
             <div class="custom-selector" role="tablist" aria-label="Navegação do banner">
-                <!-- Os dots serão gerados dinamicamente aqui -->
+                   
             </div>
         </div>
     </section>
 
-    <!-- section destaques -->
     <section class="destaque-section">
         <h1 class="titulo" data-translate="destaques">Destaques</h1>
         <div class="carousel-container">
@@ -197,7 +178,6 @@
 
     </section>
 
-    <!-- section sobre -->
     <section class="sobre-section">
         <div class="header-text">
             <h1 class="titulo" data-translate="sobre-nos">Sobre nós</h1>
@@ -247,10 +227,8 @@
                 </div>
 
                 <div class="donut">
-                    <!-- Segmentos em SVG -->
                     <svg viewBox="0 0 200 200">
                         <g id="segments">
-                            <!-- Segmentos serão gerados via JS -->
                         </g>
                     </svg>
                     <div class="center-span" id="center-info">
@@ -679,56 +657,37 @@
         </div>
     </footer>
 
-    <script src="js/script.js" defer></script>
-    <script src="js/slide.js" defer></script>
-    
-    <script src="js/swiper.js" defer></script>
-    <script src="js/carousel.js" defer></script>
-    <script src="js/scroolslide.js" defer></script>
-    <script src="js/routes.js" defer></script>
-    <script src="js/translations.js" defer></script>
+    <script src="js/script.js"></script>
+    <script src="js/slide.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/scroolslide.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/translations.js"></script>
 
     <script>
-        // Lazy loading otimizado para imagens
+        // Lazy loading para imagens
         document.addEventListener("DOMContentLoaded", function () {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
             if ("IntersectionObserver" in window) {
-                const lazyImageObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
+                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
                         if (entry.isIntersecting) {
-                            const lazyImage = entry.target;
-                            if (lazyImage.dataset.src) {
-                                lazyImage.src = lazyImage.dataset.src;
-                                lazyImage.classList.remove("lazy");
-                            }
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
                             lazyImageObserver.unobserve(lazyImage);
                         }
                     });
-                }, {
-                    rootMargin: "50px 0px",
-                    threshold: 0.01
                 });
 
-                document.querySelectorAll("img.lazy").forEach(lazyImage => {
+                lazyImages.forEach(function (lazyImage) {
                     lazyImageObserver.observe(lazyImage);
                 });
             }
         });
 
-        // Preload de imagens críticas
-        const preloadImages = () => {
-            const criticalImages = [
-                'assets/logo/grupo_logo_circulo.webp',
-                'assets/Imagens/2168.webp'
-            ];
-            
-            criticalImages.forEach(src => {
-                const img = new Image();
-                img.src = src;
-            });
-        };
-
-        // Executar preload após carregamento da página
-        window.addEventListener('load', preloadImages);
     </script>
 </body>
 

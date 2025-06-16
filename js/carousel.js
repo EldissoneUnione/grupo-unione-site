@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateDots() {
         dotsContainer.innerHTML = '';
-        
         cards.forEach((_, index) => {
             const dot = document.createElement('span');
             dot.className = `dot ${index === currentIndex ? 'active' : ''}`;

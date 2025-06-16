@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <header class="header" role="banner">
+    <header class="header" id="navBarHeder" role="banner">
         <nav class="nav-container" role="navigation" aria-label="Menu principal">
             <div class="logo" id="logo">
                 <img src="../assets/logo/grupo_logo_circulo.webp" alt="Logo do Grupo Unione" width="100" height="100">
@@ -20,10 +20,12 @@
                 <nav>
                     <a href="/grupo" data-translate="grupo-unione" aria-current="page">grupo unione</a>
                     <div class="dropdown">
-                        <a href="/empresas" aria-expanded="false" aria-haspopup="true" data-translate="empresas">empresas</a>
+                        <a href="/empresas" aria-expanded="false" aria-haspopup="true"
+                            data-translate="empresas">empresas</a>
                         <div class="dropdown-menu" role="menu">
                             <a href="/empresas/mbt" role="menuitem" data-translate="mbt">MBT</a>
-                            <a href="/empresas/corpo-e-mente" role="menuitem" data-translate="corpo-e-mente">Corpo e Mente</a>
+                            <a href="/empresas/corpo-e-mente" role="menuitem" data-translate="corpo-e-mente">Corpo e
+                                Mente</a>
                             <a href="/empresas/quavi" role="menuitem" data-translate="quavi">Quavi</a>
                             <a href="/empresas/okukulanaua" role="menuitem" data-translate="okukulanaua">Okukulanaua</a>
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
@@ -35,17 +37,55 @@
                     <a href="/investidores" data-translate="investidores">investidores</a>
                     <a href="/contatos" data-translate="contatos">contatos</a>
                 </nav>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" data-translate="no">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false"
+                    data-translate="no">
                     <i aria-hidden="true" class="fas fa-bars" aria-hidden="true"></i>
                 </button>
-                <button id="search" class="search-button" aria-label="Pesquisar">
-                    <input type="text" placeholder="Pesquisar" id="search-input">
+                <button id="searchNav" class="search-button" aria-label="Pesquisar">
                     <i aria-hidden="true" class="fas fa-search" aria-hidden="true" id="search-icon"></i>
                 </button>
             </div>
         </nav>
-        <button class="lang" aria-label="Mudar idioma" >Pt</button>
+        <button class="lang" aria-label="Mudar idioma">Pt</button>
+
+        <div class="search-conteiner">
+            <div class="search-top">
+                <span id="FeicharBtn">Pesquisar</span>
+                <button id="search" class="search-button" aria-label="Pesquisar">
+                    <i aria-hidden="true" class="fas fa-search" aria-hidden="true" id="search-icon"></i>
+                    <input type="text" placeholder="Pesquisar sobre..." id="search-input">
+                </button>
+            </div>
+
+            <div class="contacto">
+                <div class="social-menu">
+                    <div class="social-icon">
+                        <h3 data-translate="siga-nos">Siga-nos</h3>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="adress">
+
+                    <h2 data-translate="contacte-nos">Contacte-nos</h2>
+                    <div class="adress-p">
+                        <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla</p>
+                            <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                            <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+                            <button class="lang-menu" aria-label="Mudar idioma">Pt</button>
+                        </div>
+                </div>
+
+            </div>
+        </div>
         <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
+            <div class="search-menu">
+                <button id="search" class="search-button" aria-label="Pesquisar">
+                    <i aria-hidden="true" class="fas fa-search" aria-hidden="true" id="search-icon"></i>
+                    <input type="text" placeholder="Pesquisar sobre..." id="search-input">
+                </button>
+            </div>
             <nav class="nav-links">
                 <a href="/grupo">grupo unione</a>
                 <a href="/empresas">empresas</a>
@@ -54,6 +94,25 @@
                 <a href="/investidores">investidores</a>
                 <a href="/contatos">contatos</a>
             </nav>
+
+            <div class="contacto">
+                <h2 data-translate="contacte-nos">Contacte-nos</h2>
+                <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, <br> Humpata -
+                    Huíla</p>
+                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+
+                <div class="social-menu">
+                    <div class="social-icon">
+                        <h3 data-translate="siga-nos">Siga-nos</h3>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                    <button class="lang-menu" aria-label="Mudar idioma">Pt</button>
+                </div>
+            </div>
+
         </div>
     </header>
 

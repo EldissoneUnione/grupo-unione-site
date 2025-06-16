@@ -6,7 +6,6 @@
 
     .menu-toggle {
         display: flex;
-        margin-right: 10px;
     }
 
     .nav-links nav {
@@ -32,6 +31,7 @@
 
     .hero-section {
         height: 90vh;
+        width: 100%;
     }
 
     .baner-cards {
@@ -87,33 +87,37 @@
     .destaque-section {
         padding: 0;
 
-        .carousel-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 10px 0;
-            overflow: hidden;
-            max-width: 100%;
-
-        }
-
-        .card {
-            width: 300px;
-            height: 280px;
-
-        }
-
-        .card.active {
-            width: 300px;
-            height: 300px;
-            transform: scale(1);
-        }
-
         .card-overlay h3 {
             font-size: 1.4em;
         }
     }
+
+
+    .carousel-container,
+    .carousel-container-project {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 0;
+        overflow: hidden;
+        max-width: 100%;
+
+    }
+
+    .card,
+    .card-project {
+        width: 300px;
+        height: 280px;
+    }
+
+    .card.active,
+    .card-project.active {
+        width: 300px;
+        height: 300px;
+        transform: scale(1);
+    }
+
 
     .destaque-section .carousel-container::after {
         top: -120px;
@@ -225,7 +229,7 @@
     }
 
     .areas-section {
-        height: auto;
+        height: 480px;
     }
 
     .areas-section .slider {
@@ -237,18 +241,29 @@
 
     .areas-section .item {
         position: absolute;
-        width: 200px;
+        width: 250px;
         height: 320px;
         text-align: center;
         background-color: #fff;
         border-radius: 20px;
-        padding: 20px;
         transition: 0.5s;
         left: calc(50% - 110px);
         top: 0;
     }
 
-
+    .card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+        color: var(--white);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center
+    }
 
     .areas-section .item h3 {
         font-size: 1.3em;
@@ -262,25 +277,16 @@
 
     .projectos-section {
         border-radius: 0;
-        padding: 10px 20px 80px;
+        padding: 0;
         border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px;
+        border: 1px solid red;
 
-        .carousel-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 0;
-            overflow: hidden;
-            width: 100%;
 
-        }
 
         .card {
             width: 100%;
-            height: 280px;
+            height: 180px;
         }
 
         .card.active {
@@ -480,16 +486,11 @@
 /*Mobile*/
 @media (max-width: 768px) {
     header {
-        top: 1px;
+        top: 10px;
     }
 
-    .menu-container.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: flex;
-        margin-right: 10px;
+    .burger {
+        display: block;
     }
 
     .nav-links nav {
@@ -497,11 +498,12 @@
     }
 
     .nav-links {
-        width: 100px;
+        width: 80px;
+        justify-content: center;
     }
 
     .nav-container {
-        width: 98%;
+        width: 97%;
     }
 
     .dropdown-menu {
@@ -512,12 +514,20 @@
         display: none;
     }
 
+    #search {
+        width: 100%;
+    }
+
+    #searchNav {
+        display: none;
+    }
+
     .hero-section {
-        height: 93vh;
+        height: 100vh;
     }
 
     .baner-cards {
-        height: 93vh;
+        height: 100vh;
         overflow: hidden;
         border-bottom-right-radius: 200px
     }
@@ -544,10 +554,6 @@
         padding: 12px 20px;
     }
 
-    .custom-selector {
-        bottom: 90px;
-    }
-
     .carousel-navigation {
         width: 100%;
         justify-content: space-around;
@@ -570,34 +576,7 @@
     .destaque-section {
         padding: 0;
 
-        .carousel-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px;
-            overflow: hidden;
-            max-width: 100%;
 
-        }
-
-        .carousel-container {
-            gap: 20px;
-            padding: 10px 0;
-            max-width: 100%;
-        }
-
-        .card {
-            width: 80vw;
-            height: 280px;
-            opacity: 0.5;
-            border-radius: 30px !important;
-        }
-
-        .card.active {
-            opacity: 1;
-            transform: scale(1.05) translateY(0px);
-        }
 
         .card:not(.active) {
             display: none;
@@ -606,6 +585,31 @@
         .card-overlay h3 {
             font-size: 1.4em;
         }
+    }
+
+    .carousel-container,
+    .carousel-container-noticias {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+        overflow: hidden;
+        max-width: 100%;
+        padding: 10px 0;
+
+    }
+
+    .destaque-section .card {
+        width: 85vw;
+        height: 280px;
+        opacity: 0.5;
+        border-radius: 30px !important;
+    }
+
+    .card.active {
+        opacity: 1;
+        transform: scale(1.02) translateY(0px);
     }
 
     .destaque-section .carousel-container::after {
@@ -718,18 +722,21 @@
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
         padding-top: 2rem;
+        max-height: 350px;
         margin-top: 0;
+        padding: 1rem 0;
+
     }
 
     .areas-section {
-        height: 470px;
+        max-height: 450px;
+        margin: 0;
     }
-
 
     .areas-section .item {
         position: absolute;
-        width: 250px;
-        height: 320px;
+        max-width: 270px;
+        max-height: 320px;
         text-align: center;
         background-color: #fff;
         border-radius: 20px;
@@ -740,55 +747,40 @@
 
     .projectos-section {
         border-radius: 0;
-        padding: 10px 20px 80px;
+        padding: 1rem 0;
+        height: auto;
         border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
+        border-bottom-right-radius: 50px
+    }
 
-        .carousel-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 0;
-            overflow: hidden;
-            width: 100%;
+    .carousel-container-project {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px;
+        overflow: hidden;
+        max-width: 100%;
+        padding: 10px 0;
 
-        }
+    }
 
-        .card {
-            width: 100%;
-            height: 280px;
-        }
+    .card-project {
+        width: 90vw;
+        height: 280px;
+        opacity: 0.5;
+        border-radius: 30px !important;
+    }
 
-        .card.active {
-            width: 100%;
-            height: 280px;
-            transform: scale(1);
-        }
+    .card-project.active {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+    }
 
-        .card-overlay {
-            align-items: center;
-            text-align: center;
-        }
 
-        .card-overlay h3 {
-            font-size: 1.4em;
-        }
-
-        .card.active .card-overlay h3 {
-            font-size: 1.5em;
-        }
-
-        .card-overlay .btn {
-            font-size: 1em;
-            padding: 6px 12px;
-        }
-
-        .carousel-navigation {
-            display: none;
-        }
-
+    .projectos-section .carousel-navigation {
+        display: none;
     }
 
     .polis-section {
@@ -797,7 +789,7 @@
 
     .polis-section,
     .noticias-section {
-        margin-top: -60px;
+        margin-top: -50px;
 
         .card-overlay {
             padding: 6rem 1rem;
@@ -843,21 +835,12 @@
         border-top-right-radius: 50px;
         padding-top: 1rem;
 
-        .category {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px 0;
-            overflow: hidden;
-            max-width: 100%;
-        }
 
         .card-blog {
-            width: 320px;
-            height: 380px;
-
+            width: 85vw;
+            height: 420px
         }
+
 
         .card-blog section {
             a {
@@ -879,24 +862,26 @@
     .contactos-section {
         padding: 2rem 20px;
 
-        .logo {
+        .logo-contact {
             width: 100%;
         }
 
         .contact-info {
             padding: 2rem;
-            border-radius: 3rem
+            border-radius: 3rem;
         }
 
-        .contact-info h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+        .contact-info h2, h3,
+        .contact-form h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 15px;
         }
 
         .contact-info p {
             margin: 20px 0;
             font-size: 1.2rem;
-            font-weight: 300;
+            font-weight: 200;
         }
 
         .contact-info i {
@@ -910,18 +895,17 @@
         }
 
         .social {
-            padding: 40px 0;
+            padding: 10px 0;
+        }
+
+        .social a {
+            margin: 0 0;
         }
 
         .contact-form {
             width: 100%;
             margin-top: 30px;
             padding: 0rem;
-        }
-
-        .contact-form h1 {
-            margin-bottom: 25px;
-            font-size: 2rem;
         }
 
 
@@ -975,6 +959,69 @@
         margin: 0;
     }
 
+    footer {
+
+        .bottom {
+            .footer-top {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 20px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+
+            .footer-column {
+                flex: 1 1 100px;
+            }
+
+            .coluna-dupla {
+                column-gap: 10px;
+            }
+
+            .footer-column {
+                padding-left: 0;
+            }
+
+            .logo-footer {
+                margin-left: 0px;
+            }
+
+            .coluna-dupla li {
+                margin-bottom: 5px;
+            }
+
+            .footer-column h4 {
+                margin-bottom: 10px;
+                font-size: 1.4rem;
+                font-weight: 400;
+            }
+
+            .footer-column ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .footer-column ul li {
+                margin-bottom: 10px;
+                font-size: 1.1rem;
+                font-weight: 200;
+            }
+
+            .termo {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                & li {
+                    margin-bottom: 10px;
+                    font-size: 1rem !important;
+                    font-weight: bold !important;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 480px) {
@@ -1000,5 +1047,18 @@
     .text-bottom {
         font-size: 1.1rem;
         padding: 1rem;
+    }
+
+    footer {
+        & .bottom {
+            .footer-column {
+                padding-left: 0;
+            }
+
+            .logo-footer {
+                margin-left: 0px;
+
+            }
+        }
     }
 }

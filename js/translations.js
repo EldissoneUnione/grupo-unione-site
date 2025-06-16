@@ -53,7 +53,7 @@ const translations = {
         'direitos-reservados': 'Todos os direitos reservados',
 
         // Banner principal
-        'saude-bem-estar': 'Saúde e Bem estar',
+        'saude--bem-estar': 'Saúde e Bem estar',
         'saude-bem-estar-desc': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem vero similique quas iste sint numquam! Laboriosam ullam error illo a odio beatae expedita ea neque.',
         'inovacao-tecnologica': 'Inovação Tecnológica',
         'inovacao-tecnologica-desc': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem vero similique quas iste sint numquam! Laboriosam ullam error illo a odio beatae expedita ea neque.',

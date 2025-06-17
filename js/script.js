@@ -1,6 +1,9 @@
 const burgerInput = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
 const navLinksItem = document.querySelectorAll('.nav-links a.active');
+const searchIcon = document.getElementById('search-icon');
+const FeicharBtnIcon = document.getElementById('FeicharBtn');
+const searchConteiner = document.querySelector('.search-conteiner');
 
 
 const buttons = document.querySelectorAll('.options button');
@@ -65,16 +68,16 @@ window.onload = function () {
   } else {
     console.error('Elemento logo não encontrado ou não suporta getContext.');
   }
+  searchConteiner.classList.remove('active');
   
 };
 
-const searchIcon = document.getElementById('search-icon');
-const FeicharBtnIcon = document.getElementById('FeicharBtn');
-const searchConteiner = document.querySelector('.search-conteiner');
+
 
 searchIcon.addEventListener('click', () => {
-  searchConteiner.classList.toggle('active');
+  searchConteiner.classList.add('active');
 });
+
 FeicharBtnIcon.addEventListener('click', () => {
   searchConteiner.classList.remove('active');
 });

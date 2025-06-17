@@ -229,9 +229,9 @@
 
 
 
-    <section class="noticias-section">
+     <section class="noticias-section">
         <h1 class="titulo" data-translate="noticias-imprensa">Notícias e Imprensa</h1>
-        <div class="category">
+        <div class="carousel-container-noticias">
             <div class="card-blog">
                 <img id="img-card" src="../assets/Imagens/granja1.webp" alt="laboratorio">
                 <section>
@@ -256,13 +256,25 @@
                     <a href="#">ver mais</a>
                 </section>
             </div>
+            <div class="card-blog">
+                <img id="img-card" src="../assets/Imagens/20.webp" alt="laboratorio">
+                <section>
+                    <span>08 / Março 2025</span>
+                    <h4>Novo2 Laboratório de Prevenção e Controle Suíno</h4>
+                    <a href="#">ver mais</a>
+                </section>
+            </div>
         </div>
         <div class="carousel-navigation">
+            <button aria-label="Slide anterior" class="arrow left"><i aria-hidden="true"
+                    class="fas fa-arrow-left"></i></button>
             <div class="dots">
                 <span class="dot"></span>
                 <span class="dot active"></span>
                 <span class="dot"></span>
             </div>
+            <button aria-label="Slide anterior" class="arrow right"><i aria-hidden="true"
+                    class="fas fa-arrow-right"></i></button>
         </div>
     </section>
 
@@ -389,8 +401,9 @@
     </footer>
 
 
-    <script src="../js/script.js"></script>
     <script type="module" src="../js/grupo.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/carouselN.js"></script>
     <script src="../js/routes.js"></script>
     <script src="../js/translations.js"></script>
 

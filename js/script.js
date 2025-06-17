@@ -1,5 +1,6 @@
 const burgerInput = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
+const navLinksItem = document.querySelectorAll('.nav-links a.active');
 
 
 const buttons = document.querySelectorAll('.options button');
@@ -22,6 +23,7 @@ buttons.forEach(button => {
 burgerInput.addEventListener('change', () => {
   navLinks.classList.toggle('active', burgerInput.checked);
 });
+
 
 window.onload = function () {
   let logo = document.getElementById('logo');
@@ -63,6 +65,7 @@ window.onload = function () {
   } else {
     console.error('Elemento logo não encontrado ou não suporta getContext.');
   }
+  
 };
 
 const searchIcon = document.getElementById('search-icon');

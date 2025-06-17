@@ -92,7 +92,6 @@ header {
     height: 70px;
     z-index: 1000;
     transition: all 0.5s ease-in-out;
-
 }
 
 header.active {
@@ -278,6 +277,7 @@ header.active {
 }
 
 .menu-container {
+    /* display: none; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -921,7 +921,7 @@ section {
         top: 180px;
         right: -300px;
         width: 100%;
-        height: 37%;
+        height: 35%;
         border-top-left-radius: 440px;
         border-bottom-left-radius: 440px;
         opacity: 1;
@@ -992,8 +992,9 @@ section {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
     }
-
+/* 
     .sobre-container.scroll-lock {
         position: fixed;
         top: 0;
@@ -1003,7 +1004,7 @@ section {
         overflow: hidden;
         z-index: 999;
         background: white;
-    }
+    } */
 
 
     .content-grid {
@@ -1103,7 +1104,7 @@ section {
     }
 
     .donut {
-        width: 35%;
+        width: 45%;
         position: relative;
         margin: auto;
         border-radius: 50%;

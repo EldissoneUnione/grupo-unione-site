@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-       <header class="header" id="navBarHeder" role="banner">
+     <header class="header" id="navBarHeder" role="banner">
         <nav class="nav-container" role="navigation" aria-label="Menu principal">
             <div class="logo" id="logo">
-                <img src="../../assets/logo/grupo_logo_circulo.webp" alt="Logo do Grupo Unione" width="100" height="100">
+                <img src="../../../assets/logo/grupo_logo_circulo.webp" alt="Logo do Grupo Unione" width="100"
+                    height="100">
             </div>
             <div class="nav-links">
                 <nav>
@@ -37,10 +38,14 @@
                     <a href="/investidores" data-translate="investidores">investidores</a>
                     <a href="/contatos" data-translate="contatos">contatos</a>
                 </nav>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false"
-                    data-translate="no">
-                    <i aria-hidden="true" class="fas fa-bars" aria-hidden="true"></i>
-                </button>
+
+                <label class="burger" for="burger">
+                    <input type="checkbox" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
                 <button id="searchNav" class="search-button" aria-label="Pesquisar">
                     <i aria-hidden="true" class="fas fa-search" aria-hidden="true" id="search-icon"></i>
                 </button>
@@ -50,7 +55,13 @@
 
         <div class="search-conteiner">
             <div class="search-top">
-                <span id="FeicharBtn">Pesquisar</span>
+                <span>Pesquisar</span>
+                <button class="close-btn" id="FeicharBtn" aria-label="Fechar">
+                    <svg viewBox="0 0 24 24" width="34" height="34" fill="white">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+
                 <button id="search" class="search-button" aria-label="Pesquisar">
                     <i aria-hidden="true" class="fas fa-search" aria-hidden="true" id="search-icon"></i>
                     <input type="text" placeholder="Pesquisar sobre..." id="search-input">
@@ -70,11 +81,12 @@
 
                     <h2 data-translate="contacte-nos">Contacte-nos</h2>
                     <div class="adress-p">
-                        <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla</p>
-                            <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
-                            <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
-                            <button class="lang-menu" aria-label="Mudar idioma">Pt</button>
-                        </div>
+                        <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata
+                            - Huíla</p>
+                        <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                        <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+                        <button class="lang-menu" aria-label="Mudar idioma">Pt</button>
+                    </div>
                 </div>
 
             </div>

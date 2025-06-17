@@ -1,18 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
   const cardsN = document.querySelectorAll('.card-blog');
   const dotsNoticias = document.querySelectorAll('.noticias-section .carousel-navigation .dot');
-  const dotsContainer = document.querySelector('.noticias-section .carousel-navigation .dots');
   const prevButton = document.querySelector('.noticias-section .carousel-navigation .arrow.left');
   const nextButton = document.querySelector('.noticias-section .carousel-navigation .arrow.right');
 
-  let activeIndex = 1;
+  let activeIndexN = 1;
 
   function updateCarouselNoticias(indexN) {
+    if (indexN < 0) indexN = 0;
+    if (indexN > cardsN.length - 1) indexN = cardsN.length - 1;
+
     cardsN.forEach((cardN, i) => {
       cardN.classList.remove('active');
       cardN.style.display = 'none';
       cardN.style.transform = 'scale(1)';
-      cardN.style.opacity = 1;
+      cardN.style.opacity = 0.9;
       cardN.style.zIndex = 1;
     });
 
@@ -34,23 +36,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     activeIndexN = indexN;
-    console.log('Atualizou carousel de notícias. Index ativo:', indexN);
-
   }
 
   dotsNoticias.forEach((dotN, index) => {
     dotN.addEventListener('click', () => {
-      console.log('Dot notícia clicado', index);
       updateCarouselNoticias(index);
     });
   });
 
   cardsN.forEach((cardN, index) => {
     cardN.addEventListener('click', () => {
-      console.log('Card notícia clicado', index);
       updateCarouselNoticias(index);
     });
   });
 
-  updateCarouselNoticias(activeIndex);
+  if (prevButton && nextButton) {
+    prevButton.addEventListener('click', () => {
+      updateCarouselNoticias(activeIndexN - 1);
+    });
+
+    nextButton.addEventListener('click', () => {
+      updateCarouselNoticias(activeIndexN + 1);
+    });
+  }
+
+  const container = document.querySelector('.noticias-section .category');
+  if (container) {
+    container.addEventListener('wheel', (e) => {
+      if (e.deltaY > 0) {
+        updateCarouselNoticias(activeIndexN + 1); 
+      } else {
+        updateCarouselNoticias(activeIndexN - 1); 
+      }
+    });
+  }
+
+  updateCarouselNoticias(activeIndexN);
 });

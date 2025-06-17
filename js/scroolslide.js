@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setActive(0);
   setupControlledScrollInSection();
 });
-
+ 
 // === SVG Segmentos Dinâmicos ===
 const g = document.getElementById("segments");
 const totalSegments = 6;

@@ -781,28 +781,6 @@
                 });
             }
         });
-
-        const nav = document.querySelector('.nav-container');
-        const header = document.querySelector('#navBarHeder');
-        let prevScrollpos = window.pageYOffset;
-
-        window.addEventListener('scroll', () => {
-            let currentScrollPos = window.pageYOffset;
-
-            if (prevScrollpos < currentScrollPos) {
-                nav.classList.add('hide');
-                header.classList.remove('active');
-            } else if (window.pageYOffset === 0) {
-                nav.classList.remove('hide');
-                header.classList.remove('active');
-            } else {
-                nav.classList.remove('hide');
-                header.classList.add('active');
-            }
-
-            prevScrollpos = currentScrollPos;
-        });
-
     </script>
 </body>
 

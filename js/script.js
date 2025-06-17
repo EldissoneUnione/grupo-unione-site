@@ -1,10 +1,14 @@
 const burgerInput = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
 const navLinksItem = document.querySelectorAll('.nav-links a.active');
+
 const searchIcon = document.getElementById('search-icon');
 const FeicharBtnIcon = document.getElementById('FeicharBtn');
 const searchConteiner = document.querySelector('.search-conteiner');
 
+const nav = document.querySelector('.nav-container');
+const header = document.querySelector('#navBarHeder');
+let prevScrollpos = window.pageYOffset;
 
 const buttons = document.querySelectorAll('.options button');
 const inputEmpresa = document.querySelector('#empresaInput');
@@ -69,7 +73,7 @@ window.onload = function () {
     console.error('Elemento logo não encontrado ou não suporta getContext.');
   }
   searchConteiner.classList.remove('active');
-  
+
 };
 
 
@@ -117,53 +121,60 @@ const debounce = (func, wait) => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Seleciona todos os links de navegação, inclusive menus duplicados (mobile/desktop)
-    const links = document.querySelectorAll('.nav-links a');
-    const currentPath = window.location.pathname.replace(/\/$/, ""); // remove barra final
+  const links = document.querySelectorAll('.nav-links a');
+  const currentPath = window.location.pathname.replace(/\/$/, "");
 
-    links.forEach(link => {
-        // Remove barra final do href para comparar corretamente
-        const linkPath = link.getAttribute('href').replace(/\/$/, "");
-        // Marca como ativo se o path atual começa com o href do link (evita erro em subpáginas)
-        if (linkPath !== "" && currentPath.startsWith(linkPath)) {
-            link.classList.add('active');
-        }
-    });
+  links.forEach(link => {
+    const linkPath = link.getAttribute('href').replace(/\/$/, "");
+    if (linkPath !== "" && currentPath.startsWith(linkPath)) {
+      link.classList.add('active');
+    }
+  });
 });
 
-// Função para gerenciar o menu ativo
 function setActiveMenu() {
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-links nav a');
-    
-    // Remove a classe active de todos os links
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-    });
-    
-    // Verifica cada link
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        
-        // Se for uma subpágina de empresas
-        if (currentPath.includes('/empresas/')) {
-            const empresasLink = document.querySelector('a[href="/empresas"]');
-            if (empresasLink) {
-                empresasLink.classList.add('active');
-            }
-        }
-        
-        // Verifica se o path atual corresponde ao href do link
-        if (currentPath.includes(linkPath)) {
-            link.classList.add('active');
-        }
-    });
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-links nav a');
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+  });
+
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute('href');
+
+    if (currentPath.includes('/empresas/')) {
+      const empresasLink = document.querySelector('a[href="/empresas"]');
+      if (empresasLink) {
+        empresasLink.classList.add('active');
+      }
+    }
+
+    if (currentPath.includes(linkPath)) {
+      link.classList.add('active');
+    }
+  });
 }
 
-// Executa quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function() {
-    setActiveMenu();
-    
-    // Executa quando a URL mudar
-    window.addEventListener('popstate', setActiveMenu);
+document.addEventListener('DOMContentLoaded', function () {
+  setActiveMenu();
+
+  window.addEventListener('popstate', setActiveMenu);
+});
+
+window.addEventListener('scroll', () => {
+  let currentScrollPos = window.pageYOffset;
+
+  if (prevScrollpos < currentScrollPos) {
+    nav.classList.add('hide');
+    header.classList.remove('active');
+  } else if (window.pageYOffset === 0) {
+    nav.classList.remove('hide');
+    header.classList.remove('active');
+  } else {
+    nav.classList.remove('hide');
+    header.classList.add('active');
+  }
+
+  prevScrollpos = currentScrollPos;
 });

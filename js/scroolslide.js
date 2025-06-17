@@ -63,8 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const body = document.body;
     let touchStartY = 0;
     let touchStartX = 0;
-    const touchThreshold = 30;
-    let isLocked = false;
+    const touchThreshold = 30; // Reduzido para tornar mais sensível
 
     function isInsideSobre() {
       const rect = sobreSection.getBoundingClientRect();
@@ -87,14 +86,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (direction === 'down' && currentIndex < total - 1) {
         currentIndex++;
         setActive(currentIndex);
-        lockScroll();
       } else if (direction === 'up' && currentIndex > 0) {
         currentIndex--;
         setActive(currentIndex);
-        lockScroll();
-      } else if (direction === 'down' && currentIndex === total - 1) {
-        // Se estiver no último ícone e tentar rolar para baixo, libera o scroll
-        unlockScroll();
       }
     }
 
@@ -102,9 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('wheel', (e) => {
       if (isInsideSobre()) {
         e.preventDefault();
-        if (!isLocked || currentIndex === total - 1) {
-          handleScroll(e.deltaY > 0 ? 'down' : 'up');
-        }
+        handleScroll(e.deltaY > 0 ? 'down' : 'up');
       }
     }, { passive: false });
 
@@ -117,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
-      if (isInsideSobre() && isLocked) {
+      if (isInsideSobre()) {
         e.preventDefault();
       }
     }, { passive: false });
@@ -130,17 +122,16 @@ document.addEventListener('DOMContentLoaded', function () {
       const deltaY = touchStartY - touchEndY;
       const deltaX = touchStartX - touchEndX;
 
+      // Verifica se o movimento foi mais vertical que horizontal
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > touchThreshold) {
-        if (!isLocked || currentIndex === total - 1) {
-          handleScroll(deltaY > 0 ? 'down' : 'up');
-        }
+        handleScroll(deltaY > 0 ? 'down' : 'up');
       }
     }, { passive: true });
 
     // Monitorar entrada e saída da seção
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) {
-        unlockScroll();
+        body.style.overflow = '';
       }
     }, { 
       threshold: 0.1,
@@ -152,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Limpar eventos quando a página é descarregada
     window.addEventListener('beforeunload', () => {
       observer.disconnect();
-      unlockScroll();
     });
   }
 
@@ -235,3 +225,47 @@ function createSegments() {
 }
 
 createSegments();
+
+let isScrolling = false;
+
+// Listener de rolagem com debounce simples
+window.addEventListener('wheel', (event) => {
+  if (isScrolling) return;
+
+  const sobreSection = document.querySelector('.sobre-container');
+  if (!sobreSection) return;
+
+  const rect = sobreSection.getBoundingClientRect();
+  const isInsideSobre = rect.top <= 0 && rect.bottom >= window.innerHeight;
+  if (!isInsideSobre) return;
+
+  isScrolling = true;
+  setTimeout(() => isScrolling = false, 300); // tempo de espera para liberar novo scroll
+
+  if (event.deltaY > 0 && currentIndex < total - 1) {
+    currentIndex++;
+    setActive(customOrder[currentIndex]);
+  } else if (event.deltaY < 0 && currentIndex > 0) {
+    currentIndex--;
+    setActive(customOrder[currentIndex]);
+  }
+});
+
+// Bloqueio de scroll por teclado
+window.addEventListener('keydown', preventScrollKeys, { passive: false });
+
+// Bloqueio de scroll por touch
+window.addEventListener('touchmove', preventTouchScroll, { passive: false });
+
+function preventScrollKeys(e) {
+  const keys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // space, page up/down, arrows
+  if (document.body.classList.contains('no-scroll') && keys.includes(e.keyCode)) {
+    e.preventDefault();
+  }
+}
+
+function preventTouchScroll(e) {
+  if (document.body.classList.contains('no-scroll')) {
+    e.preventDefault();
+  }
+}

@@ -34,11 +34,15 @@
     --scroll-end: calc(-100% - var(--gap));
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
 }
 
 html {
@@ -990,7 +994,8 @@ section {
         justify-content: center;
         cursor: pointer;
     }
-/* 
+
+    /* 
     .sobre-container.scroll-lock {
         position: fixed;
         top: 0;

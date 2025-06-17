@@ -163,10 +163,6 @@ header.active {
     z-index: 1;
 }
 
-.nav-links a:hover::before,
-.nav-links a.active::before {
-    width: 100%;
-}
 
 .nav-links a:hover,
 .nav-links a.active {

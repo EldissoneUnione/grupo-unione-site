@@ -110,3 +110,57 @@ const debounce = (func, wait) => {
     timeout = setTimeout(later, wait);
   };
 };
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Seleciona todos os links de navegação, inclusive menus duplicados (mobile/desktop)
+    const links = document.querySelectorAll('.nav-links a');
+    const currentPath = window.location.pathname.replace(/\/$/, ""); // remove barra final
+
+    links.forEach(link => {
+        // Remove barra final do href para comparar corretamente
+        const linkPath = link.getAttribute('href').replace(/\/$/, "");
+        // Marca como ativo se o path atual começa com o href do link (evita erro em subpáginas)
+        if (linkPath !== "" && currentPath.startsWith(linkPath)) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Função para gerenciar o menu ativo
+function setActiveMenu() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-links nav a');
+    
+    // Remove a classe active de todos os links
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Verifica cada link
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        // Se for uma subpágina de empresas
+        if (currentPath.includes('/empresas/')) {
+            const empresasLink = document.querySelector('a[href="/empresas"]');
+            if (empresasLink) {
+                empresasLink.classList.add('active');
+            }
+        }
+        
+        // Verifica se o path atual corresponde ao href do link
+        if (currentPath.includes(linkPath)) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Executa quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', function() {
+    setActiveMenu();
+    
+    // Executa quando a URL mudar
+    window.addEventListener('popstate', setActiveMenu);
+});

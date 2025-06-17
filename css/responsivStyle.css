@@ -506,6 +506,10 @@
         width: 97%;
     }
 
+    .search-conteiner {
+        display: none;
+    }
+
     .dropdown-menu {
         display: none;
     }
@@ -871,7 +875,8 @@
             border-radius: 3rem;
         }
 
-        .contact-info h2, h3,
+        .contact-info h2,
+        h3,
         .contact-form h2 {
             font-size: 1.8rem;
             font-weight: 400;

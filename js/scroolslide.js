@@ -16,6 +16,23 @@ document.addEventListener('DOMContentLoaded', function () {
     { title: 'Pessoas', desc: 'Equipe qualificada' }
   ];
 
+  // Adicionar transições suaves
+  icons.forEach(icon => {
+    icon.style.transition = 'all 0.5s ease-in-out';
+  });
+
+  slices.forEach(slice => {
+    slice.style.transition = 'all 0.5s ease-in-out';
+  });
+
+  centerInfo.style.transition = 'all 0.5s ease-in-out';
+
+  // Adicionar transição para os segmentos
+  const segments = document.querySelectorAll('#segments path');
+  segments.forEach(segment => {
+    segment.style.transition = 'all 0.5s ease-in-out';
+  });
+
   function setActive(visualIndex) {
     const realIndex = customOrder[visualIndex];
 
@@ -44,6 +61,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!sobreSection) return;
 
     const body = document.body;
+    let touchStartY = 0;
+    let touchStartX = 0;
+    const touchThreshold = 30;
+    let isLocked = false;
 
     function isInsideSobre() {
       const rect = sobreSection.getBoundingClientRect();
@@ -51,59 +72,88 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function lockScroll() {
-      sobreSection.classList.add('scroll-lock');
       body.style.overflow = 'hidden';
+      isLocked = true;
     }
 
     function unlockScroll() {
-      sobreSection.classList.remove('scroll-lock');
       body.style.overflow = '';
+      isLocked = false;
     }
 
     function handleScroll(direction) {
-      if (!isInsideSobre() || isScrolling) return;
-
-      lockScroll();
+      if (!isInsideSobre()) return;
 
       if (direction === 'down' && currentIndex < total - 1) {
-        smoothScrollTo(currentIndex + 1);
+        currentIndex++;
+        setActive(currentIndex);
+        lockScroll();
       } else if (direction === 'up' && currentIndex > 0) {
-        smoothScrollTo(currentIndex - 1);
+        currentIndex--;
+        setActive(currentIndex);
+        lockScroll();
+      } else if (direction === 'down' && currentIndex === total - 1) {
+        // Se estiver no último ícone e tentar rolar para baixo, libera o scroll
+        unlockScroll();
       }
     }
+
+    // Eventos de scroll com wheel
+    window.addEventListener('wheel', (e) => {
+      if (isInsideSobre()) {
+        e.preventDefault();
+        if (!isLocked || currentIndex === total - 1) {
+          handleScroll(e.deltaY > 0 ? 'down' : 'up');
+        }
+      }
+    }, { passive: false });
+
+    // Eventos de touch para dispositivos móveis
+    window.addEventListener('touchstart', (e) => {
+      if (isInsideSobre()) {
+        touchStartY = e.touches[0].clientY;
+        touchStartX = e.touches[0].clientX;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (isInsideSobre() && isLocked) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    window.addEventListener('touchend', (e) => {
+      if (!isInsideSobre()) return;
+
+      const touchEndY = e.changedTouches[0].clientY;
+      const touchEndX = e.changedTouches[0].clientX;
+      const deltaY = touchStartY - touchEndY;
+      const deltaX = touchStartX - touchEndX;
+
+      if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > touchThreshold) {
+        if (!isLocked || currentIndex === total - 1) {
+          handleScroll(deltaY > 0 ? 'down' : 'up');
+        }
+      }
+    }, { passive: true });
 
     // Monitorar entrada e saída da seção
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) {
         unlockScroll();
       }
-    }, { threshold: 0.1 });
+    }, { 
+      threshold: 0.1,
+      rootMargin: '0px'
+    });
 
     observer.observe(sobreSection);
 
-    // Eventos de scroll
-    window.addEventListener('wheel', (e) => {
-      if (isInsideSobre()) {
-        e.preventDefault();
-        handleScroll(e.deltaY > 0 ? 'down' : 'up');
-      }
-    }, { passive: false });
-
-    let touchStartY = 0;
-    window.addEventListener('touchstart', (e) => {
-      touchStartY = e.touches[0].clientY;
-    }, { passive: false });
-
-    window.addEventListener('touchmove', (e) => {
-      if (isInsideSobre()) e.preventDefault();
-    }, { passive: false });
-
-    window.addEventListener('touchend', (e) => {
-      const deltaY = touchStartY - e.changedTouches[0].clientY;
-      if (Math.abs(deltaY) > 30 && isInsideSobre()) {
-        handleScroll(deltaY > 0 ? 'down' : 'up');
-      }
-    }, { passive: false });
+    // Limpar eventos quando a página é descarregada
+    window.addEventListener('beforeunload', () => {
+      observer.disconnect();
+      unlockScroll();
+    });
   }
 
   // Eventos nos ícones
@@ -127,10 +177,23 @@ document.addEventListener('DOMContentLoaded', function () {
     setActive(currentIndex);
   });
 
+  function updateHighlight(iconIndex) {
+    const segmentIndex = iconToSegmentMap[iconIndex];
+
+    segments.forEach((seg, i) => {
+      seg.setAttribute("fill", i === segmentIndex ? "#c62828" : "#ddd");
+    });
+
+    const icons = document.querySelectorAll(".icon-item");
+    icons.forEach((icon, i) => {
+      icon.classList.toggle("active", i === iconIndex);
+    });
+  }
+
   setActive(0);
   setupControlledScrollInSection();
 });
- 
+
 // === SVG Segmentos Dinâmicos ===
 const g = document.getElementById("segments");
 const totalSegments = 6;
@@ -169,19 +232,6 @@ function createSegments() {
     g.appendChild(path);
     segments.push(path);
   }
-}
-
-function updateHighlight(iconIndex) {
-  const segmentIndex = iconToSegmentMap[iconIndex];
-
-  segments.forEach((seg, i) => {
-    seg.setAttribute("fill", i === segmentIndex ? "#c62828" : "#ddd");
-  });
-
-  const icons = document.querySelectorAll(".icon-item");
-  icons.forEach((icon, i) => {
-    icon.classList.toggle("active", i === iconIndex);
-  });
 }
 
 createSegments();

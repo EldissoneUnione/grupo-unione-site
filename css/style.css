@@ -1439,6 +1439,14 @@ section {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+video {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+
+}
+
 .logo-polis {
     display: flex;
     max-width: 80%;
@@ -1490,7 +1498,7 @@ section {
         height: 100%;
         width: 100%;
         padding: 10rem 8rem;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
         color: var(--white);
         box-sizing: border-box;
         display: flex;
@@ -1554,7 +1562,6 @@ section {
     background-color: var(--bg-nav);
     transition: all ease-in-out .5s;
     border-radius: 30px;
-    /* box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); */
 }
 
 .card-blog.active {

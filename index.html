@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/load.css">
     <link rel="preload" href="assets/Imagens/2168.webp" as="image">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/responsivStyle.css">
     <link rel="stylesheet" href="css/load.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -34,6 +35,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -206,7 +208,7 @@
     </section>
 
     <section class="destaque-section">
-        <h1 class="titulo" data-translate="destaques">Destaques</h1>
+        <h1 class="titulo" data-translate="destaques" data-aos="fade-down">Destaques</h1>
         <div class="carousel-container">
             <div class="card">
                 <img src="assets/Imagens/21.webp" alt="Laboratório de Análises" loading="lazy">
@@ -238,21 +240,20 @@
             <button aria-label="Slide anterior" class="arrow left"><i aria-hidden="true"
                     class="fas fa-arrow-left"></i></button>
             <div class="dots">
-                
+
             </div>
             <button aria-label="Slide anterior" class="arrow right"><i aria-hidden="true"
                     class="fas fa-arrow-right"></i></button>
         </div>
 
-
     </section>
 
     <section class="sobre-section">
         <div class="header-text">
-            <h1 class="titulo" data-translate="sobre-nos">Sobre nós</h1>
+            <h1 class="titulo" data-translate="sobre-nos" data-aos="fade-down">Sobre nós</h1>
         </div>
 
-        <div class="content-block">
+        <div class="content-block" data-aos="fade-in">
             <div class="text-top">
                 <p>Fundado em 2005, o <strong>Grupo Unione</strong> é um importante grupo empresarial e de
                     investimento Angolano, com atuação estratégica em setores chave da economia.</p>
@@ -260,7 +261,7 @@
             <div class="image-container">
                 <img src="assets/Imagens/24.webp" alt="Visão aérea de um condomínio ou comunidade">
             </div>
-            <div class="text-bottom">
+            <div class="text-bottom" data-aos="fade-in">
                 <p>A nossa diversificação e capacidade operacional são evidenciadas por projetos de grande impacto,
                     o que nos torna um parceiro de referência em diversas áreas de negócio, entre as quais:
                     <strong>Construção Civil, Saúde, Ensino, Energia, Agricultura</strong> entre outras.
@@ -270,7 +271,7 @@
 
 
         <div class="sobre-container">
-            <h1 class="titulo" data-translate="nossos-numeros">Nossos Números</h1>
+            <h1 class="titulo" data-translate="nossos-numeros" data-aos="fade-down">Nossos Números</h1>
             <div class="content-grid">
                 <div class="content-top">
                     <div class="icon-item left-column pri4" id="t" data-index="0">
@@ -334,7 +335,7 @@
     </section>
 
     <section class="empresa-section">
-        <h1 class="titulo" data-translate="empresas">Empresas do Grupo</h1>
+        <h1 class="titulo" data-translate="empresas" data-aos="fade-down">Empresas do Grupo</h1>
         <div class="carousel-container">
             <article class="wrapper">
                 <div class="marquee">
@@ -453,7 +454,7 @@
     </section>
 
     <section class="areas-section">
-        <h1 class="titulo" data-translate="areas-negocios">Áreas de Negócios</h1>
+        <h1 class="titulo" data-translate="areas-negocios" data-aos="fade-down">Áreas de Negócios</h1>
         <div class="slider">
             <div class="item">
                 <img src="assets/Imagens/8981.webp" alt="img1">
@@ -506,9 +507,9 @@
     </section>
 
     <section class="projectos-section">
-        <h1 class="titulo" data-translate="projectos">Projectos</h1>
-        <div class="carousel-container-project">
-            <div class="card-project">
+        <h1 class="titulo" data-translate="projectos" data-aos="fade-down">Projectos</h1>
+        <div class="carousel-container-project aos-all">
+            <div class="card-project" data-aos="fade-in">
                 <img src="assets/Imagens/Central_Fotovoltaica_Chiange.webp" alt="">
                 <div class="card-project-overlay">
                     <h3>Central Híbrida-Solar & Diesel: Município dos Gambos, Huíla</h3>
@@ -516,7 +517,7 @@
                 </div>
             </div>
 
-            <div class="card-project ">
+            <div class="card-project" data-aos="fade-down">
                 <img src="assets/Imagens/central_termoeletrica_2.webp" alt="">
                 <div class="card-project-overlay">
                     <h3>Centrais Termoelétricas: Luanda e Benguela</h3>
@@ -524,7 +525,7 @@
                 </div>
             </div>
 
-            <div class="card-project">
+            <div class="card-project" data-aos="fade-in">
                 <img src="assets/Imagens/22.webp" alt="">
                 <div class="card-project-overlay">
                     <h3>Granja de Suínos: Humpata, Huíla</h3>
@@ -546,7 +547,7 @@
     <section class="polis-section">
         <video class="video-quavi" src="assets/videos/vid2.mp4" autoplay muted loop playsinline></video>
         <div class="card-overlay">
-            <div class="logo-polis">
+            <div class="logo-polis" data-aos="flip-up">
                 <div class="logo"><img src="assets/logo/polis.webp" alt=""></div>
                 <div class="text-polis-top">
                     <h4>
@@ -565,7 +566,7 @@
     </section>
 
     <section id="noticias" class="noticias-section">
-        <h1 class="titulo" data-translate="noticias-imprensa">Notícias e Imprensa</h1>
+        <h1 class="titulo" data-translate="noticias-imprensa" data-aos="fade-down">Notícias e Imprensa</h1>
         <div class="carousel-container-noticias">
             <div class="card-blog">
                 <img id="img-card" src="assets/Imagens/granja1.webp" alt="laboratorio">
@@ -604,7 +605,7 @@
             <button aria-label="Slide anterior" class="arrow left"><i aria-hidden="true"
                     class="fas fa-arrow-left"></i></button>
             <div class="dots">
-             
+
             </div>
             <button aria-label="Slide anterior" class="arrow right"><i aria-hidden="true"
                     class="fas fa-arrow-right"></i></button>
@@ -617,7 +618,7 @@
                 <img src="assets/logo/Grupo Unione-branco.webp" alt="grupo unione logotipo">
             </div>
 
-            <h2 data-translate="contacte-nos">Contacte-nos</h2>
+            <h2 data-translate="contacte-nos" data-aos="fade-down">Contacte-nos</h2>
             <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla</p>
             <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
             <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
@@ -632,7 +633,7 @@
 
 
         <div class="contact-form">
-            <h2 data-translate="fale-conosco">Fale conosco</h2>
+            <h2 data-translate="fale-conosco" data-aos="fade-down">Fale conosco</h2>
             <form>
                 <input type="text" placeholder="Seu Nome" data-translate="seu-nome" required>
                 <input type="email" placeholder="Seu E-mail" data-translate="seu-email" required>
@@ -751,6 +752,7 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/aos.js"></script>
     <script src="js/slide.js"></script>
     <script src="js/swiper.js"></script>
     <script src="js/carousel.js"></script>
@@ -781,6 +783,11 @@
                 });
             }
         });
+    </script>
+     <script>
+      AOS.init({
+        easing: 'ease-in-out-sine'
+      });
     </script>
 </body>
 

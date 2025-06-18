@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Grupo Unione - Grupo empresarial e de investimento Angolano com atuação em diversos setores da economia">
+    <meta name="keywords"
+        content="Grupo Unione, Angola, investimento, construção civil, saúde, ensino, energia, agricultura">
+    <meta name="author" content="Grupo Unione">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Grupo Unione - Grupo Empresarial Angolano">
+    <meta property="og:description"
+        content="Grupo empresarial e de investimento Angolano com atuação em diversos setores da economia">
+    <meta property="og:image" content="assets/logo/grupo_logo.webp">
+    <meta property="og:url" content="https://unioneafrica.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://unioneafrica.com">
+    <title>Notícias - Grupo Unione</title>
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="preload" href="../css/styleNoticias.css" as="style">
+    <link rel="preload" href="../css/responsivStyle.css" as="style">
+    <link rel="preload" href="assets/logo/grupo_logo_circulo.webp" as="image">
+    <link rel="stylesheet" href="css/load.css">
+    <link rel="preload" href="assets/Imagens/2168.webp" as="image">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/grupo.css">
+    <link rel="stylesheet" href="../css/styleNoticias.css">
+    <link rel="stylesheet" href="../css/responsivStyle.css">
+    <link rel="stylesheet" href="css/load.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" id="navBarHeder" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Menu principal">
+            <div class="logo" id="logo">
+                <img src="../assets/logo/grupo_logo_circulo.webp" alt="Logo do Grupo Unione" width="100" height="100">
+            </div>
+            <div class="nav-links">
+                <nav>
+                    <a href="/grupo" data-translate="grupo-unione" aria-current="page">grupo unione</a>
+                    <div class="dropdown">
+                        <a href="/empresas" aria-expanded="false" aria-haspopup="true"
+                            data-translate="empresas">empresas</a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="/empresas/mbt" role="menuitem" data-translate="mbt">MBT</a>
+                            <a href="/empresas/corpo-e-mente" role="menuitem" data-translate="corpo-e-mente">Corpo e
+                                Mente</a>
+                            <a href="/empresas/quavi" role="menuitem" data-translate="quavi">Quavi</a>
+                            <a href="/empresas/okukulanaua" role="menuitem" data-translate="okukulanaua">Okukulanaua</a>
+                            <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
+                            <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
+                        </div>
+                    </div>
+                    <a href="/areas-negocios" data-translate="areas-negocios">áreas de negócios</a>
+                    <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
+                    <a href="/investidores" data-translate="investidores">investidores</a>
+                    <a href="/contatos" data-translate="contatos">contatos</a>
+                </nav>
+
+                <label class="burger" for="burger">
+                    <input type="checkbox" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <button id="searchNav" class="search-button" aria-label="Pesquisar">
+                    <i aria-hidden="true" class="fas fa-search" aria-hidden="true" id="search-icon"></i>
+                </button>
+            </div>
+        </nav>
+        <button class="lang" aria-label="Mudar idioma">Pt</button>
+
+        <div class="search-conteiner">
+            <div class="search-top">
+                <span>Pesquisar</span>
+                <button class="close-btn" id="FeicharBtn" aria-label="Fechar">
+                    <svg viewBox="0 0 24 24" width="34" height="34" fill="white">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+
+                <button id="search" class="search-button" aria-label="Pesquisar">
+                    <i aria-hidden="true" class="fas fa-search" aria-hidden="true" id="search-icon"></i>
+                    <input type="text" placeholder="Pesquisar sobre..." id="search-input">
+                </button>
+            </div>
+
+            <div class="contacto">
+                <div class="social-menu">
+                    <div class="social-icon">
+                        <h3 data-translate="siga-nos">Siga-nos</h3>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="adress">
+
+                    <h2 data-translate="contacte-nos">Contacte-nos</h2>
+                    <div class="adress-p">
+                        <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata
+                            - Huíla</p>
+                        <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                        <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+                        <button class="lang-menu" aria-label="Mudar idioma">Pt</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
+            <div class="search-menu">
+                <button id="search" class="search-button" aria-label="Pesquisar">
+                    <i aria-hidden="true" class="fas fa-search" aria-hidden="true" id="search-icon"></i>
+                    <input type="text" placeholder="Pesquisar sobre..." id="search-input">
+                </button>
+            </div>
+            <nav class="nav-links">
+                <a href="/grupo">grupo unione</a>
+                <a href="/empresas">empresas</a>
+                <a href="/areas-negocios">áreas de negócios</a>
+                <a href="/empreendimentos">empreendimentos</a>
+                <a href="/investidores">investidores</a>
+                <a href="/contatos">contatos</a>
+            </nav>
+
+            <div class="contacto">
+                <h2 data-translate="contacte-nos">Contacte-nos</h2>
+                <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, <br> Humpata -
+                    Huíla</p>
+                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+
+                <div class="social-menu">
+                    <div class="social-icon">
+                        <h3 data-translate="siga-nos">Siga-nos</h3>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                    <button class="lang-menu" aria-label="Mudar idioma">Pt</button>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="noticias-section-view">
+        <main class="noticia-detalhe">
+            <img id="noticia-img" src="" alt="Imagem da notícia">
+        </main>
+        <h1 id="noticia-titulo"></h1>
+        <span id="noticia-data"></span>
+        <div id="noticia-conteudo"> </div>
+        <a href="../index.html#noticias">Voltar para notícias</a>
+    </section>
+
+
+
+    <script src="../js/script.js"></script>
+    <script src="../js/scriptNoticias.js"></script>
+    <script src="../js/routes.js"></script>
+    <script src="../js/translations.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function (lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>

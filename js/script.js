@@ -133,4 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Garante que busca esteja oculta ao iniciar
   searchContainer.classList.remove('active');
+
+
 });

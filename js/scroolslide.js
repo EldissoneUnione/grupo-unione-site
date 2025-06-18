@@ -1,190 +1,20 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const icons = document.querySelectorAll('.icon-item');
-  const slices = document.querySelectorAll('.span');
-  const centerInfo = document.getElementById('center-info');
-  const total = slices.length;
-  const customOrder = [4, 3, 2, 1, 0, 5];
-  let currentIndex = 0;
-  let isScrolling = false;
+const icons = document.querySelectorAll('.icon-item');
+const centerInfo = document.getElementById('center-info');
+const sobreSection = document.querySelector('.sobre-container');
+const total = icons.length;
+let currentIndex = 0;
+let isScrolling = false;
+let scrollLocked = true;
 
-  const info = [
-    { title: '+50 milhões<br>de dólares', desc: 'já investidos' },
-    { title: 'Internacionalização', desc: 'Presença global' },
-    { title: 'Prêmios', desc: 'Reconhecimentos' },
-    { title: 'Investimentos', desc: 'Em expansão' },
-    { title: 'Projetos', desc: 'Diversificados' },
-    { title: 'Pessoas', desc: 'Equipe qualificada' }
-  ];
+const info = [
+  { title: '+50 milhões', desc: 'investidos' },
+  { title: 'Internacionalização', desc: 'Presença global' },
+  { title: 'Prêmios', desc: 'Reconhecimentos' },
+  { title: 'Investimentos', desc: 'Expansão' },
+  { title: 'Projetos', desc: 'Diversificados' },
+  { title: 'Pessoas', desc: 'Equipe' }
+];
 
-  // Adicionar transições suaves
-  icons.forEach(icon => {
-    icon.style.transition = 'all 0.5s ease-in-out';
-  });
-
-  slices.forEach(slice => {
-    slice.style.transition = 'all 0.5s ease-in-out';
-  });
-
-  centerInfo.style.transition = 'all 0.5s ease-in-out';
-
-  // Adicionar transição para os segmentos
-  const segments = document.querySelectorAll('#segments path');
-  segments.forEach(segment => {
-    segment.style.transition = 'all 0.5s ease-in-out';
-  });
-
-  function setActive(visualIndex) {
-    const realIndex = customOrder[visualIndex];
-
-    slices.forEach((slice, i) => {
-      slice.classList.toggle('active', i === realIndex);
-      slice.classList.toggle('grow', i === realIndex);
-    });
-
-    icons.forEach((icon, i) => {
-      icon.classList.toggle('active', i === realIndex);
-    });
-
-    centerInfo.innerHTML = `<h1>${info[realIndex].title}</h1><p>${info[realIndex].desc}</p>`;
-    updateHighlight(realIndex);
-  }
-
-  function smoothScrollTo(index) {
-    isScrolling = true;
-    currentIndex = index;
-    setActive(currentIndex);
-    setTimeout(() => isScrolling = false, 600);
-  }
-
-  function setupControlledScrollInSection() {
-    const sobreSection = document.querySelector('.sobre-container');
-    if (!sobreSection) return;
-
-    const body = document.body;
-    let touchStartY = 0;
-    let touchStartX = 0;
-    const touchThreshold = 30; // Reduzido para tornar mais sensível
-
-    function isInsideSobre() {
-      const rect = sobreSection.getBoundingClientRect();
-      return rect.top <= 0 && rect.bottom >= window.innerHeight;
-    }
-
-    function lockScroll() {
-      body.style.overflow = 'hidden';
-      isLocked = true;
-    }
-
-    function unlockScroll() {
-      body.style.overflow = '';
-      isLocked = false;
-    }
-
-    function handleScroll(direction) {
-      if (!isInsideSobre()) return;
-
-      if (direction === 'down' && currentIndex < total - 1) {
-        currentIndex++;
-        setActive(currentIndex);
-      } else if (direction === 'up' && currentIndex > 0) {
-        currentIndex--;
-        setActive(currentIndex);
-      }
-    }
-
-    // Eventos de scroll com wheel
-    window.addEventListener('wheel', (e) => {
-      if (isInsideSobre()) {
-        e.preventDefault();
-        handleScroll(e.deltaY > 0 ? 'down' : 'up');
-      }
-    }, { passive: false });
-
-    // Eventos de touch para dispositivos móveis
-    window.addEventListener('touchstart', (e) => {
-      if (isInsideSobre()) {
-        touchStartY = e.touches[0].clientY;
-        touchStartX = e.touches[0].clientX;
-      }
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
-      if (isInsideSobre()) {
-        e.preventDefault();
-      }
-    }, { passive: false });
-
-    window.addEventListener('touchend', (e) => {
-      if (!isInsideSobre()) return;
-
-      const touchEndY = e.changedTouches[0].clientY;
-      const touchEndX = e.changedTouches[0].clientX;
-      const deltaY = touchStartY - touchEndY;
-      const deltaX = touchStartX - touchEndX;
-
-      // Verifica se o movimento foi mais vertical que horizontal
-      if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > touchThreshold) {
-        handleScroll(deltaY > 0 ? 'down' : 'up');
-      }
-    }, { passive: true });
-
-    // Monitorar entrada e saída da seção
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) {
-        body.style.overflow = '';
-      }
-    }, { 
-      threshold: 0.1,
-      rootMargin: '0px'
-    });
-
-    observer.observe(sobreSection);
-
-    // Limpar eventos quando a página é descarregada
-    window.addEventListener('beforeunload', () => {
-      observer.disconnect();
-    });
-  }
-
-  // Eventos nos ícones
-  customOrder.forEach((realIndex, visualIndex) => {
-    const icon = icons[realIndex];
-    icon.addEventListener('mouseenter', () => {
-      currentIndex = visualIndex;
-      setActive(currentIndex);
-    });
-    icon.addEventListener('focus', () => {
-      currentIndex = visualIndex;
-      setActive(currentIndex);
-    });
-    icon.addEventListener('click', () => {
-      currentIndex = visualIndex;
-      setActive(currentIndex);
-    });
-  });
-
-  window.addEventListener('resize', () => {
-    setActive(currentIndex);
-  });
-
-  function updateHighlight(iconIndex) {
-    const segmentIndex = iconToSegmentMap[iconIndex];
-
-    segments.forEach((seg, i) => {
-      seg.setAttribute("fill", i === segmentIndex ? "#c62828" : "#ddd");
-    });
-
-    const icons = document.querySelectorAll(".icon-item");
-    icons.forEach((icon, i) => {
-      icon.classList.toggle("active", i === iconIndex);
-    });
-  }
-
-  setActive(0);
-  setupControlledScrollInSection();
-});
-
-// === SVG Segmentos Dinâmicos ===
 const g = document.getElementById("segments");
 const totalSegments = 6;
 const radius = 80;
@@ -209,12 +39,12 @@ function createSegments() {
     const y4 = center + (radius - thickness) * Math.sin(startAngle);
 
     const pathData = `
-      M ${x1} ${y1}
-      A ${radius} ${radius} 0 0 1 ${x2} ${y2}
-      L ${x3} ${y3}
-      A ${radius - thickness} ${radius - thickness} 0 0 0 ${x4} ${y4}
-      Z
-    `;
+                M ${x1} ${y1}
+                A ${radius} ${radius} 0 0 1 ${x2} ${y2}
+                L ${x3} ${y3}
+                A ${radius - thickness} ${radius - thickness} 0 0 0 ${x4} ${y4}
+                Z
+            `;
 
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("d", pathData.trim());
@@ -224,48 +54,112 @@ function createSegments() {
   }
 }
 
-createSegments();
+function setActive(index) {
+  icons.forEach((icon, i) => {
+    icon.classList.toggle('active', i === index);
+  });
+  centerInfo.innerHTML = `<h1>${info[index].title}</h1><p>${info[index].desc}</p>`;
+  updateHighlight(index);
+}
 
-let isScrolling = false;
+function updateHighlight(iconIndex) {
+  const segmentIndex = iconToSegmentMap[iconIndex];
+  segments.forEach((seg, i) => seg.setAttribute("fill", i === segmentIndex ? "#c62828" : "#ddd"));
+  icons.forEach((icon, i) => icon.classList.toggle("active", i === iconIndex));
+}
 
-// Listener de rolagem com debounce simples
-window.addEventListener('wheel', (event) => {
-  if (isScrolling) return;
+function lockScroll() {
+  if (!scrollLocked) {
+    scrollLocked = true;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('wheel', preventScroll, { passive: false });
+    document.addEventListener('touchmove', preventScroll, { passive: false });
+    document.addEventListener('keydown', preventKeyScroll, { passive: false });
+  }
+}
 
-  const sobreSection = document.querySelector('.sobre-container');
-  if (!sobreSection) return;
+function unlockScroll() {
+  if (scrollLocked) {
+    scrollLocked = false;
+    document.body.style.overflow = '';
+    document.removeEventListener('wheel', preventScroll);
+    document.removeEventListener('touchmove', preventScroll);
+    document.removeEventListener('keydown', preventKeyScroll);
+  }
+}
 
+function preventScroll(e) {
+  e.preventDefault();
+}
+
+function preventKeyScroll(e) {
+  const keys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' '];
+  if (keys.includes(e.key)) {
+    e.preventDefault();
+  }
+}
+
+function isSobreContainerCentered() {
   const rect = sobreSection.getBoundingClientRect();
-  const isInsideSobre = rect.top <= 0 && rect.bottom >= window.innerHeight;
-  if (!isInsideSobre) return;
+  const middle = window.innerHeight / 2;
+  return rect.top <= middle && rect.bottom >= middle;
+}
 
+window.addEventListener('wheel', (e) => {
+  if (!isSobreContainerCentered() || isScrolling) return;
+
+  e.preventDefault();
   isScrolling = true;
-  setTimeout(() => isScrolling = false, 300); // tempo de espera para liberar novo scroll
 
-  if (event.deltaY > 0 && currentIndex < total - 1) {
+  const scrollingDown = e.deltaY > 0;
+  const scrollingUp = e.deltaY < 0;
+
+  if (scrollingDown && currentIndex < total - 1) {
     currentIndex++;
-    setActive(customOrder[currentIndex]);
-  } else if (event.deltaY < 0 && currentIndex > 0) {
+    setActive(currentIndex);
+  } else if (scrollingUp && currentIndex > 0) {
     currentIndex--;
-    setActive(customOrder[currentIndex]);
+    setActive(currentIndex);
+  }
+
+  // Libera o scroll no início e fim
+  if (currentIndex === total - 1 || currentIndex === 0) {
+    unlockScroll();
+  } else {
+    lockScroll();
+  }
+
+  setTimeout(() => isScrolling = false, 500);
+}, { passive: false });
+
+window.addEventListener('scroll', () => {
+  if (isSobreContainerCentered() && currentIndex !== 0 && currentIndex !== total - 1) {
+    lockScroll();
+  } else {
+    unlockScroll();
   }
 });
 
-// Bloqueio de scroll por teclado
-window.addEventListener('keydown', preventScrollKeys, { passive: false });
+// Hover ativa ícone correspondente
+icons.forEach((icon, index) => {
+  icon.addEventListener('mouseenter', () => {
+    currentIndex = index;
+    setActive(index);
+  });
+});
 
-// Bloqueio de scroll por touch
-window.addEventListener('touchmove', preventTouchScroll, { passive: false });
+// Inicialização
+createSegments();
+setActive(0);
+lockScroll();
 
-function preventScrollKeys(e) {
-  const keys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // space, page up/down, arrows
-  if (document.body.classList.contains('no-scroll') && keys.includes(e.keyCode)) {
-    e.preventDefault();
-  }
-}
+// Aplicar transições suaves
+icons.forEach(icon => {
+  icon.style.transition = 'all 0.5s ease-in-out';
+});
 
-function preventTouchScroll(e) {
-  if (document.body.classList.contains('no-scroll')) {
-    e.preventDefault();
-  }
-}
+segments.forEach(segment => {
+  segment.style.transition = 'all 0.5s ease-in-out';
+});
+
+centerInfo.style.transition = 'all 0.5s ease-in-out';

@@ -71,7 +71,7 @@ function navigateTo(path) {
 // Adicionar event listeners para os links de navegação
 document.addEventListener('DOMContentLoaded', () => {
     // Links principais
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinks = document.querySelectorAll('.nav-links a, .nav-links-menu a');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();

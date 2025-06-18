@@ -21,6 +21,15 @@
         width: 95%;
     }
 
+    .menu-container {
+        display: flex;
+
+    }
+
+    .search-conteiner {
+        display: none;
+    }
+
     .dropdown-menu {
         display: none;
     }
@@ -506,10 +515,6 @@
         width: 97%;
     }
 
-    .search-conteiner {
-        display: none;
-    }
-
     .dropdown-menu {
         display: none;
     }
@@ -573,14 +578,12 @@
     }
 
     .titulo {
-        font-size: 1.5rem;
-        margin-left: 1rem;
+        font-size: 1.7rem;
+        margin-left: 1.2rem;
     }
 
     .destaque-section {
         padding: 0;
-
-
 
         .card:not(.active) {
             display: none;
@@ -633,8 +636,8 @@
 
         .text-top,
         .text-bottom {
-            padding: 10px 20px;
-            font-size: 0.7em;
+            padding: 10px 15px;
+            font-size: 0.8em;
             line-height: 1.2;
         }
 
@@ -729,8 +732,14 @@
         max-height: 350px;
         margin-top: 0;
         padding: 1rem 0;
-
     }
+    
+    .marquee .icon-empresa {
+        width: 120px;
+        height: 100px;
+        padding: 5px;
+    }
+
 
     .areas-section {
         max-height: 450px;

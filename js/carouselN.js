@@ -1,75 +1,147 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const cardsN = document.querySelectorAll('.card-blog');
-  const dotsNoticias = document.querySelectorAll('.noticias-section .carousel-navigation .dot');
-  const prevButton = document.querySelector('.noticias-section .carousel-navigation .arrow.left');
-  const nextButton = document.querySelector('.noticias-section .carousel-navigation .arrow.right');
+  let card = document.querySelectorAll('.noticias-section .carousel-container-noticias .card-blog');
+  let nextBtn = document.querySelector('.noticias-section .carousel-navigation .arrow.right');
+  let prevBtn = document.querySelector('.noticias-section .carousel-navigation .arrow.left');
+  const dotsContainerC = document.querySelector('.noticias-section .carousel-navigation .dots');
+  const cardConteiner = document.querySelector('.carousel-container-noticias');
 
-  let activeIndexN = 1;
+  let activeN = 1;
 
-  function updateCarouselNoticias(indexN) {
-    if (indexN < 0) indexN = 0;
-    if (indexN > cardsN.length - 1) indexN = cardsN.length - 1;
+  function generateDots() {
+    dotsContainerC.innerHTML = '';
+    card.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = `dot ${index === activeN ? 'activeN' : ''}`;
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-selected', index === activeN ? 'true' : 'false');
+      dot.setAttribute('aria-label', `Slide ${index + 1}`);
+      dotsContainerC.appendChild(dot);
+    });
+  }
 
-    cardsN.forEach((cardN, i) => {
-      cardN.classList.remove('active');
-      cardN.style.display = 'none';
-      cardN.style.transform = 'scale(1)';
-      cardN.style.opacity = 0.9;
-      cardN.style.zIndex = 1;
+  function updateDots() {
+    const dots = dotsContainerC.querySelectorAll('.dot');
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('activeN', i === activeN);
+      dot.setAttribute('aria-selected', i === activeN ? 'true' : 'false');
+    });
+  }
+
+  function loadShow() {
+    let stt = 0;
+    card.forEach(item => {
+      item.style.transform = '';
+      item.style.zIndex = '';
+      item.style.filter = '';
+      item.style.opacity = '0';
     });
 
-    for (let i = indexN - 1; i <= indexN + 1; i++) {
-      if (i >= 0 && i < cardsN.length) {
-        const cardN = cardsN[i];
-        cardN.style.display = 'flex';
-        if (i === indexN) {
-          cardN.classList.add('active');
-          cardN.style.transform = 'scale(1)';
-          cardN.style.opacity = 1;
-          cardN.style.zIndex = 2;
-        }
-      }
+    card[activeN].style.transform = 'none';
+    card[activeN].style.zIndex = 1;
+    card[activeN].style.filter = 'none';
+    card[activeN].style.opacity = 1;
+
+    for (let i = activeN + 1; i < card.length; i++) {
+      stt++;
+      card[i].style.transform = `translateX(${450 * stt}px) scale(${1 - 0 * stt}) perspective(18px) rotateY(-0deg)`;
+      card[i].style.zIndex = -stt;
+      card[i].style.filter = 'blur(0px)';
+      card[i].style.opacity = 1;
     }
 
-    dotsNoticias.forEach((dotN, i) => {
-      dotN.classList.toggle('active', i === indexN);
-    });
+    stt = 0;
+    for (let i = activeN - 1; i >= 0; i--) {
+      stt++;
+      card[i].style.transform = `translateX(${-450 * stt}px) scale(${1 - 0 * stt}) perspective(18px) rotateY(0deg)`;
+      card[i].style.zIndex = -stt;
+      card[i].style.filter = 'blur(0px)';
+      card[i].style.opacity = 1;
+    }
 
-    activeIndexN = indexN;
+    updateDots();
   }
 
-  dotsNoticias.forEach((dotN, index) => {
-    dotN.addEventListener('click', () => {
-      updateCarouselNoticias(index);
-    });
-  });
+  nextBtn.onclick = () => {
+    if (activeN + 1 < card.length) {
+      activeN++;
+      loadShow();
+    }
+  };
 
-  cardsN.forEach((cardN, index) => {
-    cardN.addEventListener('click', () => {
-      updateCarouselNoticias(index);
-    });
-  });
+  prevBtn.onclick = () => {
+    if (activeN - 1 >= 0) {
+      activeN--;
+      loadShow();
+    }
+  };
 
-  if (prevButton && nextButton) {
-    prevButton.addEventListener('click', () => {
-      updateCarouselNoticias(activeIndexN - 1);
-    });
-
-    nextButton.addEventListener('click', () => {
-      updateCarouselNoticias(activeIndexN + 1);
-    });
-  }
-
-  const container = document.querySelector('.noticias-section .category');
-  if (container) {
-    container.addEventListener('wheel', (e) => {
-      if (e.deltaY > 0) {
-        updateCarouselNoticias(activeIndexN + 1); 
-      } else {
-        updateCarouselNoticias(activeIndexN - 1); 
+  dotsContainerC.addEventListener('click', (e) => {
+    if (e.target.classList.contains('dot')) {
+      const index = [...dotsContainerC.children].indexOf(e.target);
+      if (index !== -1) {
+        activeN = index;
+        loadShow();
       }
-    });
-  }
+    }
+  });
 
-  updateCarouselNoticias(activeIndexN);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' && activeN + 1 < card.length) {
+      activeN++;
+      loadShow();
+    }
+    if (e.key === 'ArrowLeft' && activeN - 1 >= 0) {
+      activeN--;
+      loadShow();
+    }
+  });
+
+  let startXX = 0;
+  let isDraggingg = false;
+  let dragThresholdd = 50;
+
+  cardConteiner.addEventListener('mousedown', (e) => {
+    isDraggingg = true;
+    startXX = e.pageX;
+  });
+
+  cardConteiner.addEventListener('mousemove', (e) => {
+    if (!isDraggingg) return;
+    const diff = e.pageX - startXX;
+    if (Math.abs(diff) > dragThresholdd) {
+      if (diff < 0 && activeN + 1 < card.length) {
+        activeN++;
+      } else if (diff > 0 && activeN - 1 >= 0) {
+        activeN--;
+      }
+      isDraggingg = false;
+      loadShow();
+    }
+  });
+
+  cardConteiner.addEventListener('mouseup', () => isDraggingg = false);
+  cardConteiner.addEventListener('mouseleave', () => isDraggingg = false);
+
+  let startTouchXX = 0;
+
+  cardConteiner.addEventListener('touchstart', (e) => {
+    startTouchXX = e.touches[0].clientX;
+  });
+
+  cardConteiner.addEventListener('touchmove', (e) => {
+    const diff = e.touches[0].clientX - startTouchXX;
+    if (Math.abs(diff) > dragThresholdd) {
+      if (diff < 0 && activeN + 1 < card.length) {
+        activeN++;
+      } else if (diff > 0 && activeN - 1 >= 0) {
+        activeN--;
+      }
+      loadShow();
+      startTouchXX = e.touches[0].clientX;
+    }
+  });
+
+  generateDots();
+  loadShow();
+
 });

@@ -138,7 +138,7 @@ header.active {
     object-fit: contain
 }
 
-.nav-links {
+.nav-links{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -154,7 +154,8 @@ header.active {
     height: 100%;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-links-menu a {
     position: relative;
     color: var(--text-color3);
     text-decoration: none;
@@ -277,7 +278,7 @@ header.active {
 }
 
 .menu-container {
-    /* display: none; */
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -307,7 +308,7 @@ header.active {
     pointer-events: auto;
 }
 
-.menu-container .nav-links {
+.nav-links-menu  {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -410,7 +411,7 @@ header.active {
     transform: translateY(-30px);
     pointer-events: none;
     transition: opacity 0.5s ease, transform 0.5s ease;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -697,7 +698,9 @@ section {
     padding: 0;
 }
 
-.custom-selector .dot.active {
+.dot.active,
+.dot.activeN,
+.dot.activeD {
     background-color: #fff;
     transform: scale(1.2);
 }
@@ -768,6 +771,7 @@ section {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s;
+    border: none;
 }
 
 .carousel-navigation .dot.active {
@@ -1541,23 +1545,33 @@ video {
     padding-top: 2rem;
     padding-bottom: 2rem;
     flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: .3s opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+    padding: 10px;
 }
 
 .carousel-container-noticias {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding-top: 2rem;
+    overflow: hidden;
 
 }
 
 .card-blog {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-shrink: 0;
     z-index: 1;
-    width: 390px;
+    width: 400px;
     height: 460px;
     background-color: var(--bg-nav);
     transition: all ease-in-out .5s;

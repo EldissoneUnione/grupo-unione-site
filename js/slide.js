@@ -1,4 +1,3 @@
-// Controle do Slide
 document.addEventListener('DOMContentLoaded', function () {
     const slides = document.querySelectorAll('.card-baner');
     const dotsContainer = document.querySelector('.custom-selector');

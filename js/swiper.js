@@ -27,14 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function handleScrollLock() {
-    if (active > 0 && active < items.length - 1) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }
-
   function loadShow() {
     let stt = 0;
     items.forEach(item => {
@@ -67,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     updateDots();
-    handleScrollLock();
   }
 
   next.onclick = () => {

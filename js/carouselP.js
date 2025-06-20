@@ -7,11 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateCarousel(index) {
     const total = cards.length;
 
-    // Loop circular: se index for negativo ou maior que total, ajusta
     if (index < 0) index = total - 1;
     if (index >= total) index = 0;
 
-    // Esconde todos
     cards.forEach((card) => {
       card.classList.remove('active');
       card.style.display = 'none';
@@ -20,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.zIndex = 1;
     });
 
-    // Mostra o item atual e os vizinhos (loop circular)
     for (let offset = -1; offset <= 1; offset++) {
       let i = (index + offset + total) % total;
       const card = cards[i];
@@ -34,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Atualiza os dots
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === index);
     });
@@ -42,17 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     activeIndex = index;
   }
 
-  // Clique nos dots
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => updateCarousel(index));
   });
 
-  // Clique nos próprios cards
   cards.forEach((card, index) => {
     card.addEventListener('click', () => updateCarousel(index));
   });
 
-  // Scroll com roda do mouse (opcional)
   let scrollTimeout;
   window.addEventListener('wheel', (e) => {
     clearTimeout(scrollTimeout);
@@ -65,6 +58,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 50);
   }, { passive: true });
 
-  // Inicializa
   updateCarousel(activeIndex);
 });

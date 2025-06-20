@@ -30,7 +30,8 @@
         "ignore": [
           "iframe[loading]",
           "iframe[referrerpolicy=no-referrer-when-downgrade]",
-          "img[fetchpriority]"
+          "img[fetchpriority]",
+          "video[playsinline]"
         ]
       }
     ],

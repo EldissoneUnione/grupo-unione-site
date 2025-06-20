@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dotsContainer = document.querySelector('.swiper-pagination-slid');
   const slider = document.querySelector('.slider');
 
-  let active = 0;
+  let active = 2;
 
   function generateDots() {
     dotsContainer.innerHTML = '';
@@ -25,6 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.classList.toggle('active', i === active);
       dot.setAttribute('aria-selected', i === active ? 'true' : 'false');
     });
+  }
+
+  function handleScrollLock() {
+    if (active > 0 && active < items.length - 1) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
   }
 
   function loadShow() {
@@ -59,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     updateDots();
+    handleScrollLock();
   }
 
   next.onclick = () => {
@@ -85,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Teclado
   window.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' && active + 1 < items.length) {
       active++;
@@ -97,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Mouse drag
   let startX = 0;
   let isDragging = false;
   let dragThreshold = 50;
@@ -124,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
   slider.addEventListener('mouseup', () => isDragging = false);
   slider.addEventListener('mouseleave', () => isDragging = false);
 
-  // Touch drag
   let startTouchX = 0;
 
   slider.addEventListener('touchstart', (e) => {
@@ -144,7 +150,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Inicialização
+  let scrollTimeout;
+  window.addEventListener('wheel', (e) => {
+    const goingDown = e.deltaY > 0;
+    const goingUp = e.deltaY < 0;
+
+    const shouldHandle =
+      (goingDown && active < items.length - 1) ||
+      (goingUp && active > 0);
+
+    if (shouldHandle) {
+      e.preventDefault();
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (goingDown && active + 1 < items.length) {
+          active++;
+          loadShow();
+        } else if (goingUp && active - 1 >= 0) {
+          active--;
+          loadShow();
+        }
+      }, 50);
+    }
+  }, { passive: false });
+
   generateDots();
   loadShow();
 });

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const prev = document.getElementById('prevBtn');
   const dotsContainer = document.querySelector('.swiper-pagination-slid');
   const slider = document.querySelector('.slider');
+  const areasSection = document.querySelector('.areas-section');
 
   let active = 2;
 
@@ -41,10 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
     items[active].style.filter = 'none';
     items[active].style.opacity = 1;
 
-    stt = 0;
     for (let i = active + 1; i < items.length; i++) {
       stt++;
-      items[i].style.transform = `translateX(${250 * stt}px) scale(${1 - 0.2 * stt}) perspective(18px) rotateY(-1deg)`;
+      items[i].style.transform = `translateX(${250 * stt}px) scale(${1 - 0.2 * stt}) rotateY(-1deg)`;
       items[i].style.zIndex = -stt;
       items[i].style.filter = 'blur(1px)';
       items[i].style.opacity = stt > 2 ? 0 : 0.7;
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     stt = 0;
     for (let i = active - 1; i >= 0; i--) {
       stt++;
-      items[i].style.transform = `translateX(${-250 * stt}px) scale(${1 - 0.2 * stt}) perspective(18px) rotateY(1deg)`;
+      items[i].style.transform = `translateX(${-250 * stt}px) scale(${1 - 0.2 * stt}) rotateY(1deg)`;
       items[i].style.zIndex = -stt;
       items[i].style.filter = 'blur(1px)';
       items[i].style.opacity = stt > 2 ? 0 : 0.6;
@@ -123,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
   slider.addEventListener('mouseup', () => isDragging = false);
   slider.addEventListener('mouseleave', () => isDragging = false);
 
-
   let startTouchX = 0;
 
   slider.addEventListener('touchstart', (e) => {
@@ -143,27 +142,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-
+  // Scroll travado dentro da areas-section
   let lastScrollTime = 0;
   const scrollCooldown = 300;
-  let isSliderHovered = false;
   let isScrollLocked = false;
 
-  slider.addEventListener('mouseenter', () => {
-    isSliderHovered = true;
-    isScrollLocked = true;
-  });
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        isScrollLocked = true;
+      } else {
+        isScrollLocked = false;
+      }
+    });
+  }, { threshold: 0.5 });
 
-  slider.addEventListener('mouseleave', () => {
-    isSliderHovered = false;
-    // Desbloqueia se estiver nos extremos
-    if (active === 0 || active === items.length - 1) {
-      isScrollLocked = false;
-    }
-  });
+  if (areasSection) {
+    sectionObserver.observe(areasSection);
+  }
 
   window.addEventListener('wheel', (e) => {
-    if (!isSliderHovered && !isScrollLocked) return;
+    if (!isScrollLocked) return;
 
     const now = Date.now();
     if (now - lastScrollTime < scrollCooldown) return;
@@ -189,13 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
       isScrollLocked = false;
     }
 
-    if (isSliderHovered && (handled || isScrollLocked)) {
-      e.preventDefault(); 
+    if (handled || isScrollLocked) {
+      e.preventDefault();
       lastScrollTime = now;
     }
   }, { passive: false });
 
-  // Inicialização
   generateDots();
   loadShow();
 });

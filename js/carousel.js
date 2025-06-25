@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const prevButton = document.querySelector('.arrow.left');
   const nextButton = document.querySelector('.arrow.right');
 
-  let currentIndex = 2;
+  let currentIndex = 1;
   let isAnimating = false;
   let isDragging = false;
   let startX;

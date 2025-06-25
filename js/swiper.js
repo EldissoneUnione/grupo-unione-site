@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  let items = document.querySelectorAll(".slider .item");
-  let next = document.getElementById('nextBtn');
-  let prev = document.getElementById('prevBtn');
+  const items = document.querySelectorAll(".slider .item");
+  const next = document.getElementById('nextBtn');
+  const prev = document.getElementById('prevBtn');
   const dotsContainer = document.querySelector('.swiper-pagination-slid');
   const slider = document.querySelector('.slider');
 
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     items[active].style.filter = 'none';
     items[active].style.opacity = 1;
 
+    stt = 0;
     for (let i = active + 1; i < items.length; i++) {
       stt++;
       items[i].style.transform = `translateX(${250 * stt}px) scale(${1 - 0.2 * stt}) perspective(18px) rotateY(-1deg)`;
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let startX = 0;
   let isDragging = false;
-  let dragThreshold = 50;
+  const dragThreshold = 50;
 
   slider.addEventListener('mousedown', (e) => {
     isDragging = true;
@@ -122,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   slider.addEventListener('mouseup', () => isDragging = false);
   slider.addEventListener('mouseleave', () => isDragging = false);
 
+
   let startTouchX = 0;
 
   slider.addEventListener('touchstart', (e) => {
@@ -141,30 +143,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  let scrollTimeout;
+
+  let lastScrollTime = 0;
+  const scrollCooldown = 300;
+  let isSliderHovered = false;
+  let isScrollLocked = false;
+
+  slider.addEventListener('mouseenter', () => {
+    isSliderHovered = true;
+    isScrollLocked = true;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    isSliderHovered = false;
+    // Desbloqueia se estiver nos extremos
+    if (active === 0 || active === items.length - 1) {
+      isScrollLocked = false;
+    }
+  });
+
   window.addEventListener('wheel', (e) => {
+    if (!isSliderHovered && !isScrollLocked) return;
+
+    const now = Date.now();
+    if (now - lastScrollTime < scrollCooldown) return;
+
     const goingDown = e.deltaY > 0;
     const goingUp = e.deltaY < 0;
+    const isAtEnd = active === items.length - 1;
+    const isAtStart = active === 0;
 
-    const shouldHandle =
-      (goingDown && active < items.length - 1) ||
-      (goingUp && active > 0);
+    let handled = false;
 
-    if (shouldHandle) {
-      e.preventDefault();
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        if (goingDown && active + 1 < items.length) {
-          active++;
-          loadShow();
-        } else if (goingUp && active - 1 >= 0) {
-          active--;
-          loadShow();
-        }
-      }, 50);
+    if (goingDown && !isAtEnd) {
+      active++;
+      loadShow();
+      handled = true;
+    } else if (goingUp && !isAtStart) {
+      active--;
+      loadShow();
+      handled = true;
+    }
+
+    if ((goingDown && isAtEnd) || (goingUp && isAtStart)) {
+      isScrollLocked = false;
+    }
+
+    if (isSliderHovered && (handled || isScrollLocked)) {
+      e.preventDefault(); 
+      lastScrollTime = now;
     }
   }, { passive: false });
 
+  // Inicialização
   generateDots();
   loadShow();
 });

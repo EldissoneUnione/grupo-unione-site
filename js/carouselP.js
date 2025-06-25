@@ -46,17 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', () => updateCarousel(index));
   });
 
-  let scrollTimeout;
-  window.addEventListener('wheel', (e) => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      if (e.deltaY > 0) {
-        updateCarousel(activeIndex + 1);
-      } else {
-        updateCarousel(activeIndex - 1);
-      }
-    }, 50);
-  }, { passive: true });
 
   updateCarousel(activeIndex);
 });

@@ -1,20 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
   const burgerInput = document.getElementById('burger');
   const navLinks = document.getElementById('nav-links');
-  const navLinksItem = document.querySelectorAll('.nav-links a.active');
 
   const searchIcon = document.getElementById('search-icon');
   const fecharBtnIcon = document.getElementById('FeicharBtn');
   const searchContainer = document.querySelector('.search-conteiner');
 
-  const nav = document.querySelector('.nav-container');
-  const header = document.querySelector('#navBarHeder');
-  let prevScrollpos = window.pageYOffset;
-
   const buttons = document.querySelectorAll('.options button');
   const inputEmpresa = document.querySelector('#empresaInput');
 
-  // Botões de filtro (Empresa / Outra opção)
+  const cards = document.querySelectorAll('.card-baner');
+
+  cards.forEach(card => {
+    const img = card.querySelector('img');
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      img.style.transformOrigin = `${x}% ${y}%`;
+      img.style.transform = 'scale(1.05)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      img.style.transformOrigin = 'center center';
+      img.style.transform = 'scale(1)';
+    });
+  });
+
+
   buttons.forEach(button => {
     button.addEventListener('click', () => {
       buttons.forEach(btn => btn.classList.remove('active'));
@@ -28,12 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Menu burger
   burgerInput.addEventListener('change', () => {
     navLinks.classList.toggle('active', burgerInput.checked);
   });
 
-  // Ícones de busca
   searchIcon.addEventListener('click', () => {
     searchContainer.classList.add('active');
     navLinks.classList.remove('active');
@@ -53,25 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   setupAccessibility();
 
-  // Scroll inteligente do header
-  window.addEventListener('scroll', () => {
-    const currentScrollPos = window.pageYOffset;
 
-    if (prevScrollpos < currentScrollPos) {
-      nav.classList.add('hide');
-      header.classList.remove('active');
-    } else if (window.pageYOffset === 0) {
-      nav.classList.remove('hide');
-      header.classList.remove('active');
-    } else {
-      nav.classList.remove('hide');
-      header.classList.add('active');
-    }
-
-    prevScrollpos = currentScrollPos;
-  });
-
-  // Debounce utilitário
   const debounce = (func, wait) => {
     let timeout;
     return function executedFunction(...args) {
@@ -80,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   };
 
-  // Ativação de links de menu com base na rota
   function setActiveMenu() {
     const currentPath = window.location.pathname.replace(/\/$/, "");
     const navLinks = document.querySelectorAll('.nav-links a, .nav-links-menu a');
@@ -88,15 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
       const linkPath = link.getAttribute('href').replace(/\/$/, "");
       link.classList.remove('active');
-      
-      // Extrai o nome da página do caminho atual
+
       const currentPage = currentPath.split('/').pop().replace('.html', '');
       const linkPage = linkPath.split('/').pop().replace('.html', '');
-      
-      // Verifica se o caminho atual corresponde ao link
-      if (linkPath === currentPath || 
-          currentPage === linkPage ||
-          (currentPath.includes('/pages/empresas/') && linkPath === '/empresas')) {
+
+      if (linkPath === currentPath ||
+        currentPage === linkPage ||
+        (currentPath.includes('/pages/empresas/') && linkPath === '/empresas')) {
         link.classList.add('active');
       }
     });
@@ -105,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setActiveMenu();
   window.addEventListener('popstate', setActiveMenu);
 
-  // Clique no logo redireciona com loader
   const logo = document.getElementById('logo');
   if (logo) {
     logo.addEventListener('click', function (e) {
@@ -131,8 +122,26 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Elemento logo não encontrado.');
   }
 
-  // Garante que busca esteja oculta ao iniciar
   searchContainer.classList.remove('active');
 
+});
+
+const dropdowns = document.querySelectorAll('.dropdown');
+
+dropdowns.forEach(dropdown => {
+  const toggle = dropdown.querySelector('.dropdown-toggle');
+  const menu = dropdown.querySelector('.dropdown-menu');
+  let timeout;
+
+  dropdown.addEventListener('mouseenter', () => {
+    clearTimeout(timeout);
+    menu.classList.add('show');
+  });
+
+  dropdown.addEventListener('mouseleave', () => {
+    timeout = setTimeout(() => {
+      menu.classList.remove('show');
+    }, 300);
+  });
 
 });

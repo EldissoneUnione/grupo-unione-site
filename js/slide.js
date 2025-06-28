@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const dotsContainer = document.querySelector('.custom-selector');
     let currentSlide = 0;
     let slideInterval;
-    const slideDelay = 6000;
+    const slideDelay = 5000;
 
     function generateDots() {
         dotsContainer.innerHTML = '';

@@ -151,23 +151,22 @@ const translations = {
 
 let currentLang = 'pt';
 
-function changeLanguage() {
-    currentLang = currentLang === 'pt' ? 'en' : 'pt';
-    updateLanguageButton();
+function changeLanguage(isChecked) {
+    currentLang = isChecked ? 'en' : 'pt';
+    syncLanguageToggles(isChecked);
     translatePage();
 }
 
-function updateLanguageButton() {
-    const langButton = document.querySelector('.lang');
-    if (langButton) {
-        langButton.textContent = currentLang.toUpperCase();
-    }
+function syncLanguageToggles(isChecked) {
+    document.querySelectorAll('.language-toggle').forEach(t => {
+        t.checked = isChecked;
+    });
 }
 
 function translatePage() {
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
-        if (translations[currentLang][key]) {
+        if (translations[currentLang] && translations[currentLang][key]) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = translations[currentLang][key];
             } else {
@@ -177,11 +176,11 @@ function translatePage() {
     });
 }
 
-// Inicializa a tradução quando o documento estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
-    const langButton = document.querySelector('.lang');
-    if (langButton) {
-        langButton.addEventListener('click', changeLanguage);
-    }
+    document.querySelectorAll('.language-toggle').forEach(toggle => {
+        toggle.addEventListener('change', () => {
+            changeLanguage(toggle.checked);
+        });
+    });
     translatePage();
-}); 
+});

@@ -1,6 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-
 function initScrollHorizontal() {
   const track = document.getElementById("image-track");
   const images = track.querySelectorAll(".item");
@@ -17,22 +16,8 @@ function initScrollHorizontal() {
   const scrollDistance = totalContentWidth + (isMobile ? 0 : window.innerWidth / 2) - (window.innerWidth / 2);
   const pauseBeforeEnd = (imageWidth + gap) * 1;
 
-  // move o track
   gsap.to(track, {
     x: () => `-${scrollDistance}px`,
-    ease: "power1.out",
-    scrollTrigger: {
-      trigger: ".horizontal-scroll-wrapper",
-      start: "top 60%",
-      end: () => `+=${scrollDistance}`,
-      scrub: 0.5,
-      invalidateOnRefresh: true,
-    }
-  });
-
-  // parallax leve nas imagens
-  gsap.to(images, {
-    x: () => `-${scrollDistance * 0.2}px`, // parallax: move menos que o track
     ease: "power1.out",
     scrollTrigger: {
       trigger: ".horizontal-scroll-wrapper",
@@ -75,7 +60,6 @@ window.addEventListener("resize", () => {
 
 initScrollHorizontal();
 
-
 document.querySelectorAll(".marquee__group").forEach(group => {
   const clone = group.cloneNode(true);
   group.parentElement.appendChild(clone);
@@ -85,21 +69,34 @@ function setupMarquee(selector, direction = 1) {
   const el = document.querySelector(selector);
   const totalWidth = el.scrollWidth / 2;
 
-  gsap.to(el, {
-    x: () => `${-totalWidth * direction}px`,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".wrapper",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true,
-    },
-    modifiers: {
-      x: gsap.utils.unitize(x => parseFloat(x) % totalWidth),
-    }
-  });
+  if (window.innerHeight < el.scrollHeight || window.innerWidth < 768) {
+    gsap.to(el, {
+      x: () => `${-totalWidth * direction}px`,
+      ease: "none",
+      duration: 20,
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth),
+      }
+    });
+  } else {
+    gsap.to(el, {
+      x: () => `${-totalWidth * direction}px`,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".wrapper",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth),
+      }
+    });
+  }
 }
 
-setupMarquee(".marquee", 1);           
-setupMarquee(".marquee--reverse", 1); 
+setupMarquee(".marquee", 1);
+setupMarquee(".marquee--reverse", 1);
+
 

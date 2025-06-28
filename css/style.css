@@ -159,7 +159,8 @@ header {
     font-size: 15px;
     line-height: 17px;
     font-weight: 400;
-    padding: 5px;
+    padding: 10px;
+    margin: 4px 0;
     transition: all .3s;
     overflow: hidden;
     z-index: 1;
@@ -321,7 +322,7 @@ header {
     a {
         padding: 10px;
         text-align: center;
-        font-size: 1.6rem;
+        font-size: 1rem;
     }
 }
 
@@ -329,24 +330,6 @@ header {
     top: 0;
     height: 50px;
     width: 100%;
-}
-
-.lang-menu {
-    display: flex;
-    align-self: flex-end;
-    top: 0;
-    right: 0;
-    padding: 5px 15px;
-    border-radius: 20px;
-    background-color: var(--light-gray);
-    color: var(--white);
-    border: none;
-    opacity: 0.8;
-    font-size: 1.1rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 300;
-    cursor: pointer
 }
 
 .search-button {
@@ -469,19 +452,113 @@ header {
     opacity: 1;
 }
 
-.lang {
-    display: flex;
-    top: 0;
-    padding: 8px;
-    border-start-start-radius: 20px;
-    border-end-start-radius: 20px;
-    background-color: var(--white);
-    border: none;
-    font-size: 1.1rem;
-    text-align: center;
-    text-transform: uppercase;
+.switch {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.switch>span {
+    position: absolute;
+    top: 10px;
+    pointer-events: none;
+    font-weight: bold;
+    font-size: 15px;
     font-weight: 300;
-    cursor: pointer
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+    width: 50%;
+    text-align: center;
+}
+
+input.check-toggle-round-flat:checked~.off {
+    color: var(--text-color);
+}
+
+input.check-toggle-round-flat:checked~.on {
+    color: var(--white);
+}
+
+.switch>span.on {
+    left: 0;
+    padding-left: 2px;
+    color: var(--text-color);
+}
+
+.switch>span.off {
+    right: 0;
+    padding-right: 4px;
+    color: var(--white);
+}
+
+.check-toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+
+.check-toggle+label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input.check-toggle-round-flat+label {
+    padding: 2px;
+    width: 80px;
+    height: 35px;
+    background-color: var(--bg-nav);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+}
+
+input.check-toggle-round-flat+label:before,
+input.check-toggle-round-flat+label:after {
+    display: block;
+    position: absolute;
+    content: "";
+}
+
+input.check-toggle-round-flat+label:before {
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    right: 2px;
+    background-color: var(--text-color);
+    -webkit-moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+}
+
+input.check-toggle-round-flat+label:after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 37px;
+    background-color: var(--white);
+    -webkit-border-radius: 52px;
+    -moz-border-radius: 52px;
+    -ms-border-radius: 52px;
+    -o-border-radius: 52px;
+    border-radius: 52px;
+    -webkit-transition: margin 0.2s;
+    -moz-transition: margin 0.2s;
+    -o-transition: margin 0.2s;
+    transition: margin 0.2s;
+}
+
+
+input.check-toggle-round-flat:checked+label:after {
+    margin-left: 37px;
 }
 
 section {
@@ -527,7 +604,6 @@ section {
     left: 0;
     cursor: pointer;
     transition: transform 0.8s ease, filter 0.8s ease;
-
 }
 
 .card-baner::after {
@@ -810,7 +886,7 @@ section {
     height: 360px;
     border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 15px 0px rgba(0,0,0,0.2);
     flex-shrink: 0;
     z-index: 1;
     display: flex;

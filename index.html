@@ -107,8 +107,12 @@
                 </button>
             </div>
         </nav>
-        <button class="lang" aria-label="Mudar idioma">Pt</button>
-
+        <div class="switch lang" aria-label="Mudar idioma">
+            <input id="language-toggle" class="check-toggle check-toggle-round-flat language-toggle" type="checkbox">
+            <label for="language-toggle"></label>
+            <span class="on">PT</span>
+            <span class="off">EN</span>
+        </div>
         <div class="search-conteiner">
             <div class="search-top">
                 <button id="search" class="search-button" aria-label="Pesquisar">
@@ -129,15 +133,21 @@
 
 
         </div>
-        <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
 
+        <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
+            <div class="switch lang" aria-label="Mudar idioma">
+                <input id="language-toggle" class="check-toggle check-toggle-round-flat language-toggle" type="checkbox">
+                <label for="language-toggle"></label>
+                <span class="on">PT</span>
+                <span class="off">EN</span>
+            </div>
             <nav class="nav-links-menu">
-                <a href="/grupo">grupo unione</a>
-                <a href="/empresas">empresas</a>
-                <a href="/areas-negocios">áreas de negócios</a>
-                <a href="/empreendimentos">empreendimentos</a>
-                <a href="/investidores">investidores</a>
-                <a href="/contatos">contatos</a>
+                <a href="/grupo" data-translate="grupo-unione">grupo unione</a>
+                <a href="/empresas" data-translate="empresas">empresas</a>
+                <a href="/areas-negocios" data-translate="areas-negocios">áreas de negócios</a>
+                <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
+                <a href="/investidores" data-translate="investidores">investidores</a>
+                <a href="/contatos" data-translate="contatos">contatos</a>
             </nav>
 
             <div class="search-menu">
@@ -276,7 +286,7 @@
                 <div class="card-overlay">
                     <h3>Laboratório de Análises</h3>
                     <button class="btn"><span class="text">ver mais</span><span>ver
-                                mais</span></button>
+                            mais</span></button>
                 </div>
             </div>
 
@@ -284,8 +294,8 @@
                 <img src="assets/Imagens/20.webp" alt="Granja de Suínos Quavi" loading="lazy">
                 <div class="card-overlay">
                     <h3>Granja de Suínos Quavi</h3>
-                   <button class="btn"><span class="text">ver mais</span><span>ver
-                                mais</span></button>
+                    <button class="btn"><span class="text">ver mais</span><span>ver
+                            mais</span></button>
                 </div>
             </div>
 
@@ -293,8 +303,8 @@
                 <img src="assets/Imagens/22.webp" alt="Granja de Suínos" loading="lazy">
                 <div class="card-overlay">
                     <h3>Granja de Suínos</h3>
-                   <button class="btn"><span class="text">ver mais</span><span>ver
-                                mais</span></button>
+                    <button class="btn"><span class="text">ver mais</span><span>ver
+                            mais</span></button>
                 </div>
             </div>
 
@@ -559,7 +569,7 @@
                     <img src="assets/Imagens/Central_Fotovoltaica_Chiange.webp" alt="">
                     <div class="card-project-overlay">
                         <h3>Central Híbrida-Solar & Diesel: Município dos Gambos, Huíla</h3>
-                         <button class="btn"><span class="text">ver mais</span><span>ver
+                        <button class="btn"><span class="text">ver mais</span><span>ver
                                 mais</span></button>
                     </div>
                 </div>
@@ -577,7 +587,7 @@
                     <img src="assets/Imagens/22.webp" alt="">
                     <div class="card-project-overlay">
                         <h3>Granja de Suínos: Humpata, Huíla</h3>
-                         <button class="btn"><span class="text">ver mais</span><span>ver
+                        <button class="btn"><span class="text">ver mais</span><span>ver
                                 mais</span></button>
                     </div>
                 </div>

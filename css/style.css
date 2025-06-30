@@ -50,11 +50,13 @@ html {
 }
 
 html,
-body {
+body,
+.site-content {
     overflow-x: hidden;
 }
 
-body {
+body,
+.site-content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,7 +65,6 @@ body {
     max-width: 1920px;
     margin: 0;
     background-color: var(--bg-body);
-
 }
 
 ::-webkit-scrollbar {
@@ -81,6 +82,48 @@ img {
     object-fit: cover;
     display: block;
     backface-visibility: hidden;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-nav);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.logo-content {
+    max-width: 35%;
+    height: 100%;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.loading-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+
+}
+
+.loader-logo {
+    height: 250px;
+    width: 250px;
+}
+
+#type-text {
+    font-size: 100px;
+    margin-left: 40px;
+}
+
+.site-content {
+    opacity: 0;
 }
 
 header {
@@ -343,7 +386,7 @@ header {
     border-radius: 50%;
     width: 50px;
     cursor: pointer;
-    background-color: var(--white);
+    background-color: var(--bg-nav);
     transition: all 0.5s ease;
 
     & i {
@@ -532,7 +575,7 @@ input.check-toggle-round-flat+label:before {
     left: 2px;
     bottom: 2px;
     right: 2px;
-    background-color: var(--text-color);
+    background-color: var(--bg-nav);
     -webkit-moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
@@ -651,7 +694,7 @@ section {
     padding: 10px 90px;
     left: 0px;
     bottom: 80px;
-    opacity: 1;
+    opacity: 0;
 
     h2 {
         color: var(--white);
@@ -671,7 +714,6 @@ section {
         max-width: 70%;
     }
 }
-
 
 .btn-saiba-mais {
     position: relative;
@@ -742,7 +784,7 @@ section {
 .custom-selector {
     z-index: 99;
     width: 100%;
-    bottom: 20px;
+    bottom: 50px;
     max-height: 100%;
     gap: 20px;
     min-height: 0 !important;
@@ -853,6 +895,11 @@ section {
     margin-top: 2rem;
 }
 
+.destaque-section,
+.carousel-container {
+  overflow: visible;
+}
+
 .carousel-container,
 .carousel-container-noticias,
 .carousel-container-project {
@@ -886,7 +933,7 @@ section {
     height: 360px;
     border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 0 15px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
     flex-shrink: 0;
     z-index: 1;
     display: flex;

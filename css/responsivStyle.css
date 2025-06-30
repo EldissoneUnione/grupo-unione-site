@@ -561,10 +561,18 @@
         display: block;
     }
 
-    
-    .menu-container {
-        display: flex;
+    .loader-logo {
+        height: 150px;
+        width: 150px;
+    }
 
+
+    #type-text {
+        font-size: 30px;
+        margin-left: 10px;
+    }
+
+    .menu-container {
         .lang {
             display: flex;
             position: absolute;
@@ -662,14 +670,18 @@
 
     .titulo,
     .tituloA {
-        font-size: 3rem;
-        margin-left: 1.5rem;
+        font-size: 2.5rem;
+        margin-left: 0rem;
         margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
     }
 
     .destaque-section {
         padding: 0;
 
+      
         .card:not(.active) {
             display: none;
         }
@@ -712,8 +724,15 @@
         border-bottom-right-radius: 240px;
     }
 
+     .header-text {
+        align-self: center;
+        width: 100%;
+
+    }
+
+
     .sobre-section {
-        margin-top: 2rem;
+        margin-top: 5rem;
         padding: 1rem 0;
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;

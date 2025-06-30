@@ -39,776 +39,805 @@
 </head>
 
 <body>
-    <header class="header" id="navBarHeder" role="banner">
-        <nav class="nav-container" role="navigation" aria-label="Menu principal">
-            <div class="logo" id="logo">
-                <img id="logo1" src="assets/logo/Grupo-Unione_Logotipo.png" alt="Logo do Grupo Unione" width="100"
-                    height="100">
-                <img id="logo2" src="assets/logo/Grupo-Unione_Logo.png" alt="Logo do Grupo Unione" width="100"
-                    height="100">
+    <div class="loading">
+        <div class="loader-logo">
+            <img src="assets/logo/Grupo-Unione_Logotipo.png" class="loading-logo" id="loading-logo">
+        </div>
+        <h1 id="type-text"></h1>
+    </div>
+
+    <div class="site-content">
+        <header class="header" id="navBarHeder" role="banner">
+            <nav class="nav-container" role="navigation" aria-label="Menu principal">
+                <!-- <div class="logo" id="logo">
+                    <img id="logo1" src="assets/logo/Grupo-Unione_Logotipo.png" alt="Logo do Grupo Unione" width="100"
+                        height="100">
+                    <img id="logo2" src="assets/logo/Grupo-Unione_Logo.png" alt="Logo do Grupo Unione" width="100"
+                        height="100">
+                </div> -->
+                <div class="logo-content" id="logo">
+
+                </div>
+                <div class="nav-links">
+                    <nav>
+                        <a href="/grupo" data-translate="grupo-unione" aria-current="page">grupo unione</a>
+                        <div class="dropdown">
+                            <a href="/empresas" aria-expanded="false" aria-haspopup="true"
+                                data-translate="empresas">empresas</a>
+                            <div class="dropdown-menu" role="menu">
+                                <a href="/empresas/corpo-e-mente" role="menuitem" data-translate="corpo-e-mente">Corpo e
+                                    Mente</a>
+                                <a href="/empresas/mbt" role="menuitem" data-translate="FIBRA">Fibra</a>
+                                <a href="/empresas/okukulanaua" role="menuitem"
+                                    data-translate="okukulanaua">Okukulanaua</a>
+                                <a href="/empresas/quavi" role="menuitem" data-translate="quavi">Quavi</a>
+                                <a href="/empresas/unione" role="menuitem" data-translate="UNIONE">Unione</a>
+                                <a href="/empresas/mbt" role="menuitem" data-translate="MBT ENERGIA ">MBT Energia</a>
+                                <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
+                                <a href="/empresas/Infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
+                                <a href="/empresas/Metalangol" role="menuitem"
+                                    data-translate="METALANGOL">Metalangol</a>
+                                <a href="/empresas/mater" role="menuitem" data-translate="MATER">Mater</a>
+                                <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="/areas-negocios" data-translate="areas-negocios">áreas de negócios</a>
+                            <div class="dropdown-menu" role="menu">
+                                <a href="/areas-negocios" role="menuitem" data-translate="SAÚDE">Saúde</a>
+                                <a href="/areas-negocios" role="menuitem"
+                                    data-translate="TELECOMUNICAÇÕES">Telecomunicações</a>
+                                <a href="/areas-negocios" role="menuitem" data-translate="ENSINO">Ensino</a>
+                                <a href="/areas-negocios" role="menuitem" data-translate="AGROPECUÁRIA">Agropecuária</a>
+                                <a href="/areas-negocios" role="menuitem"
+                                    data-translate="CONSULTORIA E GESTÃO">Consultoria
+                                    e Gestão</a>
+                                <a href="/areas-negocios" role="menuitem" data-translate="ENERGIA">Energia</a>
+                                <a href="/areas-negocios" role="menuitem" data-translate="HOTELARIA E TURISMO">Hotelaria
+                                    e
+                                    Turismo</a>
+                                <a href="/areas-negocios" role="menuitem" data-translate="CONSTRUÇÃO CIVIL">Construção
+                                    Civil</a>
+                                <a href="/areas-negocios" role="menuitem"
+                                    data-translate="METALOMECÂNICA">Metalomecânica</a>
+                                <a href="/areas-negocios" role="menuitem" data-translate="CARPINTARIA">Carpintaria</a>
+                                <a href="/areas-negocios" role="menuitem" data-translate="INDÚSTRIA MECÂNICA">Industria
+                                    Mecânica</a>
+                            </div>
+                        </div>
+                        <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
+                        <a href="/investidores" data-translate="investidores">investidores</a>
+                        <a href="/contatos" data-translate="contatos">contatos</a>
+                    </nav>
+
+                    <label class="burger" for="burger">
+                        <input type="checkbox" id="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+
+                    <button id="searchNav" class="search-button" aria-label="Pesquisar">
+                        <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
+                                src="assets/icons/search_thin.svg" alt="search"></i>
+                    </button>
+                </div>
+            </nav>
+            <div class="switch lang" aria-label="Mudar idioma">
+                <input id="language-toggle" class="check-toggle check-toggle-round-flat language-toggle"
+                    type="checkbox">
+                <label for="language-toggle"></label>
+                <span class="on">PT</span>
+                <span class="off">EN</span>
             </div>
-            <div class="nav-links">
-                <nav>
-                    <a href="/grupo" data-translate="grupo-unione" aria-current="page">grupo unione</a>
-                    <div class="dropdown">
-                        <a href="/empresas" aria-expanded="false" aria-haspopup="true"
-                            data-translate="empresas">empresas</a>
-                        <div class="dropdown-menu" role="menu">
-                            <a href="/empresas/corpo-e-mente" role="menuitem" data-translate="corpo-e-mente">Corpo e
-                                Mente</a>
-                            <a href="/empresas/mbt" role="menuitem" data-translate="FIBRA">Fibra</a>
-                            <a href="/empresas/okukulanaua" role="menuitem" data-translate="okukulanaua">Okukulanaua</a>
-                            <a href="/empresas/quavi" role="menuitem" data-translate="quavi">Quavi</a>
-                            <a href="/empresas/unione" role="menuitem" data-translate="UNIONE">Unione</a>
-                            <a href="/empresas/mbt" role="menuitem" data-translate="MBT ENERGIA ">MBT Energia</a>
-                            <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
-                            <a href="/empresas/Infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
-                            <a href="/empresas/Metalangol" role="menuitem" data-translate="METALANGOL">Metalangol</a>
-                            <a href="/empresas/mater" role="menuitem" data-translate="MATER">Mater</a>
-                            <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
-                        </div>
+            <div class="search-conteiner">
+                <div class="search-top">
+                    <button id="search" class="search-button" aria-label="Pesquisar">
+                        <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
+                                src="assets/icons/search_thin.svg" alt="search"></i>
+                        <input type="text" placeholder="Pesquisar sobre..." id="search-input">
+
+                        <svg class="close-btn" id="FeicharBtn" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+
+                    </button>
+
+                    <div class="search-box">
+
                     </div>
-                    <div class="dropdown">
-                        <a href="/areas-negocios" data-translate="areas-negocios">áreas de negócios</a>
-                        <div class="dropdown-menu" role="menu">
-                            <a href="/areas-negocios" role="menuitem" data-translate="SAÚDE">Saúde</a>
-                            <a href="/areas-negocios" role="menuitem"
-                                data-translate="TELECOMUNICAÇÕES">Telecomunicações</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="ENSINO">Ensino</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="AGROPECUÁRIA">Agropecuária</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="CONSULTORIA E GESTÃO">Consultoria
-                                e Gestão</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="ENERGIA">Energia</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="HOTELARIA E TURISMO">Hotelaria e
-                                Turismo</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="CONSTRUÇÃO CIVIL">Construção
-                                Civil</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="METALOMECÂNICA">Metalomecânica</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="CARPINTARIA">Carpintaria</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="INDÚSTRIA MECÂNICA">Industria
-                                Mecânica</a>
-                        </div>
-                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
+                <div class="switch lang" aria-label="Mudar idioma">
+                    <input id="language-toggle" class="check-toggle check-toggle-round-flat language-toggle"
+                        type="checkbox">
+                    <label for="language-toggle"></label>
+                    <span class="on">PT</span>
+                    <span class="off">EN</span>
+                </div>
+                <nav class="nav-links-menu">
+                    <a href="/grupo" data-translate="grupo-unione">grupo unione</a>
+                    <a href="/empresas" data-translate="empresas">empresas</a>
+                    <a href="/areas-negocios" data-translate="areas-negocios">áreas de negócios</a>
                     <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
                     <a href="/investidores" data-translate="investidores">investidores</a>
                     <a href="/contatos" data-translate="contatos">contatos</a>
                 </nav>
 
-                <label class="burger" for="burger">
-                    <input type="checkbox" id="burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-
-                <button id="searchNav" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img src="assets/icons/search_thin.svg"
-                            alt="search"></i>
-                </button>
-            </div>
-        </nav>
-        <div class="switch lang" aria-label="Mudar idioma">
-            <input id="language-toggle" class="check-toggle check-toggle-round-flat language-toggle" type="checkbox">
-            <label for="language-toggle"></label>
-            <span class="on">PT</span>
-            <span class="off">EN</span>
-        </div>
-        <div class="search-conteiner">
-            <div class="search-top">
-                <button id="search" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img src="assets/icons/search_thin.svg"
-                            alt="search"></i>
-                    <input type="text" placeholder="Pesquisar sobre..." id="search-input">
-
-                    <svg class="close-btn" id="FeicharBtn" viewBox="0 0 24 24" width="18" height="18" fill="white">
-                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-
-                </button>
-
-                <div class="search-box">
-
+                <div class="search-menu">
+                    <button id="search" class="search-button" aria-label="Pesquisar">
+                        <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
+                                src="assets/icons/search_thin.svg" alt="search"></i>
+                        <input type="text" placeholder="Pesquisar sobre..." id="search-input">
+                    </button>
                 </div>
-            </div>
-
-
-        </div>
-
-        <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
-            <div class="switch lang" aria-label="Mudar idioma">
-                <input id="language-toggle" class="check-toggle check-toggle-round-flat language-toggle" type="checkbox">
-                <label for="language-toggle"></label>
-                <span class="on">PT</span>
-                <span class="off">EN</span>
-            </div>
-            <nav class="nav-links-menu">
-                <a href="/grupo" data-translate="grupo-unione">grupo unione</a>
-                <a href="/empresas" data-translate="empresas">empresas</a>
-                <a href="/areas-negocios" data-translate="areas-negocios">áreas de negócios</a>
-                <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
-                <a href="/investidores" data-translate="investidores">investidores</a>
-                <a href="/contatos" data-translate="contatos">contatos</a>
-            </nav>
-
-            <div class="search-menu">
-                <button id="search" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img src="assets/icons/search_thin.svg"
-                            alt="search"></i>
-                    <input type="text" placeholder="Pesquisar sobre..." id="search-input">
-                </button>
-            </div>
-
-        </div>
-    </header>
-
-    <section class="hero-section" role="banner" aria-label="Banner principal">
-        <div class="baner">
-            <div class="baner-cards">
-                <div class="e-con card-baner  active">
-                    <img src="assets/Imagens/2_Hero_Quavi_Op.1.png" alt="Imagem representando Agroindústria"
-                        width="1024" height="1000" loading="lazy">
-                    <div class="txt">
-                        <h2>Agroindústria</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/3_Hero_MBT_Op.1.jpeg" alt="Imagem representando energia" width="1024"
-                        height="1000" loading="lazy">
-                    <div class="txt">
-                        <h2>Energia</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/4_Hero_Corpo & Mente.jpeg" alt="Imagem representando saúde" width="1024"
-                        height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="saude">Saúde</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/5_Hero_Okukulanaua_Op.1.jpg" alt="Imagem representando Educação Técnica"
-                        width="1024" height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="saude-e-bem-estar">Educação Técnica</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/6_Hero_Tecnology_Op.1.jpeg" alt="Imagem representando Mecânica Industrial"
-                        width="1024" height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="saude-e-bem-estar">Mecânica Industrial</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/7_Hero_Infraone.jpeg" alt="Imagem representando Construção Civil"
-                        width="1024" height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="Construção Civil">Construção Civil</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/8_Hero_Metalangol.jpeg" alt="Imagem representando Metalomecânica"
-                        width="1024" height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="Metalomecânica">Metalomecânica</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/9_Hero_Mater.jpeg" alt="Imagem representando Marcernaria" width="1024"
-                        height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="Marcernaria">Marcernaria</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/10_Hero_Fibra.jpeg" alt="Imagem representando Telecomunicações"
-                        width="1024" height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="Telecomunicações">Telecomunicações</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/11_Hero_Unione Consultoria.jpg"
-                        alt="Imagem representando Consultoria de Gestão" width="1024" height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="Consultoria de Gestão">Consultoria de Gestão</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/12_Hero_Integracons.jpg" alt="Imagem representando Consultoria Jurídica"
-                        width="1024" height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="Consultoria Jurídica">Consultoria Jurídica</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-                <div class="e-con card-baner">
-                    <img src="assets/Imagens/13_Hero_Kalanaua.jpeg" alt="Imagem representando Hotelaria e Turismo"
-                        width="1024" height="1000" loading="eager">
-                    <div class="txt">
-                        <h2 data-translate="Hotelaria e Turismo">Hotelaria e Turismo</h2>
-                        <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
-                                mais</span></button>
-                    </div>
-                </div>
-            </div>
-            <div class="custom-selector" role="tablist" aria-label="Navegação do banner"></div>
-        </div>
-    </section>
-
-    <section class="destaque-section">
-        <h1 class="titulo" data-translate="destaques" data-aos="zoom-in">Destaques</h1>
-        <div class="carousel-container">
-            <div class="card">
-                <img src="assets/Imagens/21.webp" alt="Laboratório de Análises" loading="lazy">
-                <div class="card-overlay">
-                    <h3>Laboratório de Análises</h3>
-                    <button class="btn"><span class="text">ver mais</span><span>ver
-                            mais</span></button>
-                </div>
-            </div>
-
-            <div class="card active" data-aos="fade-down">
-                <img src="assets/Imagens/20.webp" alt="Granja de Suínos Quavi" loading="lazy">
-                <div class="card-overlay">
-                    <h3>Granja de Suínos Quavi</h3>
-                    <button class="btn"><span class="text">ver mais</span><span>ver
-                            mais</span></button>
-                </div>
-            </div>
-
-            <div class="card" data-aos="fade-down">
-                <img src="assets/Imagens/22.webp" alt="Granja de Suínos" loading="lazy">
-                <div class="card-overlay">
-                    <h3>Granja de Suínos</h3>
-                    <button class="btn"><span class="text">ver mais</span><span>ver
-                            mais</span></button>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="carousel-navigation">
-            <button aria-label="Slide anterior" class="arrow left"><i aria-hidden="true"
-                    class="fas fa-arrow-left"></i></button>
-            <div class="dots">
 
             </div>
-            <button aria-label="Slide anterior" class="arrow right"><i aria-hidden="true"
-                    class="fas fa-arrow-right"></i></button>
-        </div>
+        </header>
 
-    </section>
-
-    <section class="sobre-section">
-        <div class="header-text">
-            <h1 class="titulo" data-translate="sobre-nos" data-aos="zoom-in">Sobre nós</h1>
-        </div>
-
-        <div class="content-block" data-aos="fade-in">
-            <div class="text-top">
-                <p>Fundado em 2005, o <strong>Grupo Unione</strong> é um importante grupo empresarial e de
-                    investimento Angolano, com atuação estratégica em setores chave da economia.</p>
-            </div>
-            <div class="image-container">
-                <img src="assets/Imagens/24.webp" alt="Visão aérea de um condomínio ou comunidade">
-            </div>
-            <div class="text-bottom" data-aos="fade-in">
-                <p>A nossa diversificação e capacidade operacional são evidenciadas por projetos de grande impacto,
-                    o que nos torna um parceiro de referência em diversas áreas de negócio, entre as quais:
-                    <strong>Construção Civil, Saúde, Ensino, Energia, Agricultura</strong> entre outras.
-                </p>
-            </div>
-        </div>
-
-
-        <div class="sobre-container">
-            <h1 class="titulo" data-translate="nossos-numeros" data-aos="zoom-in">Nossos Números</h1>
-            <div class="content-grid">
-                <div class="content-top">
-                    <div class="icon-item left-column pri4" id="t" data-index="0">
-                        <div class="icon-circle">
-                            <i aria-hidden="true" class="fas fa-briefcase"></i>
+        <section class="hero-section" role="banner" aria-label="Banner principal">
+            <div class="baner">
+                <div class="baner-cards">
+                    <div class="e-con card-baner  active">
+                        <img src="assets/Imagens/2_Hero_Quavi_Op.1.png" alt="Imagem representando Agroindústria"
+                            width="1024" height="1000" loading="lazy">
+                        <div class="txt">
+                            <h2>Agroindústria</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
                         </div>
-                        <div class="icon-text">Áreas de Negócios</div>
                     </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/3_Hero_MBT_Op.1.jpeg" alt="Imagem representando energia" width="1024"
+                            height="1000" loading="lazy">
+                        <div class="txt">
+                            <h2>Energia</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
 
-                    <div class="icon-item left-column pri3" id="t" data-index="1">
-                        <div class="icon-circle">
-                            <i aria-hidden="true" class="fas fa-globe-americas"></i>
                         </div>
-                        <div class="icon-text">Internacionalização</div>
                     </div>
-
-                    <div class="icon-item left-column pri2" id="t" data-index="2">
-                        <div class="icon-circle">
-                            <i aria-hidden="true" class="fas fa-trophy"></i>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/4_Hero_Corpo & Mente.jpeg" alt="Imagem representando saúde"
+                            width="1024" height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="saude">Saúde</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
                         </div>
-                        <div class="icon-text">Prêmios</div>
+                    </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/5_Hero_Okukulanaua_Op.1.jpg"
+                            alt="Imagem representando Educação Técnica" width="1024" height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="saude-e-bem-estar">Educação Técnica</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
+                        </div>
+                    </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/6_Hero_Tecnology_Op.1.jpeg"
+                            alt="Imagem representando Mecânica Industrial" width="1024" height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="saude-e-bem-estar">Mecânica Industrial</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
+                        </div>
+                    </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/7_Hero_Infraone.jpeg" alt="Imagem representando Construção Civil"
+                            width="1024" height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="Construção Civil">Construção Civil</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
+                        </div>
+                    </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/8_Hero_Metalangol.jpeg" alt="Imagem representando Metalomecânica"
+                            width="1024" height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="Metalomecânica">Metalomecânica</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
+                        </div>
+                    </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/9_Hero_Mater.jpeg" alt="Imagem representando Marcernaria" width="1024"
+                            height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="Marcernaria">Marcernaria</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
+                        </div>
+                    </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/10_Hero_Fibra.jpeg" alt="Imagem representando Telecomunicações"
+                            width="1024" height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="Telecomunicações">Telecomunicações</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
+                        </div>
+                    </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/11_Hero_Unione Consultoria.jpg"
+                            alt="Imagem representando Consultoria de Gestão" width="1024" height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="Consultoria de Gestão">Consultoria de Gestão</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
+                        </div>
+                    </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/12_Hero_Integracons.jpg"
+                            alt="Imagem representando Consultoria Jurídica" width="1024" height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="Consultoria Jurídica">Consultoria Jurídica</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
+                        </div>
+                    </div>
+                    <div class="e-con card-baner">
+                        <img src="assets/Imagens/13_Hero_Kalanaua.jpeg" alt="Imagem representando Hotelaria e Turismo"
+                            width="1024" height="1000" loading="eager">
+                        <div class="txt">
+                            <h2 data-translate="Hotelaria e Turismo">Hotelaria e Turismo</h2>
+                            <button class="btn-saiba-mais"><span class="text">Saiba mais</span><span>Saiba
+                                    mais</span></button>
+                        </div>
                     </div>
                 </div>
-
-                <div class="donut">
-                    <svg viewBox="0 0 200 200">
-                        <g id="segments">
-                        </g>
-                    </svg>
-                    <div class="center-span" id="center-info">
-                        <h1>+50 milhões<br>de dólares</h1>
-                        <p>já investidos</p>
-                    </div>
-                </div>
-
-                <div class="content-bottom">
-                    <div class="icon-item right-column pri5" id="t" data-index="3">
-                        <div class="icon-circle">
-                            <i aria-hidden="true" class="fas fa-money-bill-wave"></i>
-                        </div>
-                        <div class="icon-text">Investimentos</div>
-                    </div>
-
-                    <div class="icon-item right-column pri6" id="t" data-index="4">
-                        <div class="icon-circle">
-                            <i aria-hidden="true" class="fas fa-folder"></i>
-                        </div>
-                        <div class="icon-text">Projetos</div>
-                    </div>
-
-                    <div class="icon-item right-column pri1" id="t" data-index="5">
-                        <div class="icon-circle">
-                            <i aria-hidden="true" class="fas fa-users"></i>
-                        </div>
-                        <div class="icon-text">Colaboradores</div>
-                    </div>
-                </div>
+                <div class="custom-selector" role="tablist" aria-label="Navegação do banner"></div>
             </div>
-        </div>
+        </section>
 
-    </section>
-
-    <main class="conteiner-Principal">
-        <section class="card-section empresa-section" id="empresa">
-            <h1 class="titulo" data-translate="empresas" data-aos="fade-in">Empresas do Grupo</h1>
+        <section class="destaque-section">
+            <h1 class="titulo" data-translate="destaques" data-aos="zoom-in">Destaques</h1>
             <div class="carousel-container">
-                <article class="wrapper">
-                    <div class="marquee">
-                        <div class="marquee__group">
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Fibra_Logo.webp" alt="Fibra_Logo">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Mater_Logo-Horizontal.webp" alt="Mater_Logo-Horizontal">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/InfraOne_Logo.webp" alt="InfraOne_Logo">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Kalanaua_Logo-Horizontal 1.webp" alt="Kalanaua_Logo-Horizontal">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/cm.webp" alt="corpo e mente">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Okukulanaua_Logo 2.webp" alt="Okukulanaua_Logo">
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="marquee marquee--reverse">
-                        <div class="marquee__group">
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Quavi_Logo 3.webp" alt="quavi">
-                            </div>
-
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Metalangol_Logo-Vertical.webp" alt="Metalangol_Logo-Vertical">
-                            </div>
-
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Integracons - Logo-Sem Sombra.webp" alt="Integracons">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Unione_Logo-Horizontal 3.webp" alt="InfraOne_Logo">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/mbt.webp" alt="Integracons">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Quavi_Logo 3.webp" alt="quavi">
-                            </div>
-
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Metalangol_Logo-Vertical.webp" alt="Metalangol_Logo-Vertical">
-                            </div>
-
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Integracons - Logo-Sem Sombra.webp" alt="Integracons">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/Unione_Logo-Horizontal 3.webp" alt="InfraOne_Logo">
-                            </div>
-                            <div class="icon-empresa">
-                                <img src="assets/logo/mbt.webp" alt="Integracons">
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="card-section">
-            <div class="horizontal-scroll-wrapper">
-                <h1 class="tituloA" data-translate="areas-negocios" data-aos="fade-in">Áreas de Negócios</h1>
-                <div class="horizontal-scroll">
-                    <div id="image-track">
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/corpo.webp" draggable="false" alt="saude" />
-                            <div class="card-overlay">
-                                <h3>Saúde</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/10_Hero_Fibra.jpeg" draggable="false"
-                                alt="Telecomunicações" />
-                            <div class="card-overlay">
-                                <h3>TELECOMUNICAÇÕES</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/ensino.webp" draggable="false" alt="ensino" />
-                            <div class="card-overlay">
-                                <h3>ENSINO</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/quav.webp" draggable="false" alt="Agropecuária" />
-                            <div class="card-overlay">
-                                <h3>AGROPECUÁRIA</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/11_Hero_Unione Consultoria.jpg" draggable="false"
-                                alt="Consultoria" />
-                            <div class="card-overlay">
-                                <h3>CONSULTORIA E GESTÃO</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/3_Hero_MBT_Op.2.jpeg" draggable="false"
-                                alt="energia" />
-                            <div class="card-overlay">
-                                <h3>ENERGIA</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/13_Hero_Kalanaua.jpeg" draggable="false"
-                                alt="Hotelaria" />
-                            <div class="card-overlay">
-                                <h3>HOTELARIA E TURISMO</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/infra_1.webp" draggable="false" alt="construção" />
-                            <div class="card-overlay">
-                                <h3>CONSTRUÇÃO CIVIL</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/metal.webp" draggable="false" alt="Metalmecânica">
-                            <div class="card-overlay">
-                                <h3>METALOMECÂNICA</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/9_Hero_Mater.jpeg" draggable="false"
-                                alt="Carpintaria" />
-                            <div class="card-overlay">
-                                <h3>CARPINTARIA</h3>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img class="image" src="assets/Imagens/tecnology.webp" draggable="false" alt="Mecânica" />
-                            <div class=" card-overlay">
-                                <h3>INDÚSTRIA MECÂNICA</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="card-section reveal-next"></section>
-        <section class="card-section reveal-next"></section>
-
-        <section class="card-section projectos-section">
-            <h1 class="titulo" data-translate="projectos" data-aos="fade-down">Projectos</h1>
-            <div class="carousel-container-project aos-all">
-                <div class="card-project" data-aos="fade-in">
-                    <img src="assets/Imagens/Central_Fotovoltaica_Chiange.webp" alt="">
-                    <div class="card-project-overlay">
-                        <h3>Central Híbrida-Solar & Diesel: Município dos Gambos, Huíla</h3>
+                <div class="card">
+                    <img src="assets/Imagens/21.webp" alt="Laboratório de Análises" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Laboratório de Análises</h3>
                         <button class="btn"><span class="text">ver mais</span><span>ver
                                 mais</span></button>
                     </div>
                 </div>
 
-                <div class="card-project" data-aos="fade-down">
-                    <img src="assets/Imagens/central_termoeletrica_2.webp" alt="">
-                    <div class="card-project-overlay">
-                        <h3>Centrais Termoelétricas: Luanda e Benguela</h3>
+                <div class="card active" data-aos="fade-down">
+                    <img src="assets/Imagens/20.webp" alt="Granja de Suínos Quavi" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Granja de Suínos Quavi</h3>
                         <button class="btn"><span class="text">ver mais</span><span>ver
                                 mais</span></button>
                     </div>
                 </div>
 
-                <div class="card-project" data-aos="fade-down">
-                    <img src="assets/Imagens/22.webp" alt="">
-                    <div class="card-project-overlay">
-                        <h3>Granja de Suínos: Humpata, Huíla</h3>
+                <div class="card" data-aos="fade-down">
+                    <img src="assets/Imagens/22.webp" alt="Granja de Suínos" loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Granja de Suínos</h3>
                         <button class="btn"><span class="text">ver mais</span><span>ver
                                 mais</span></button>
                     </div>
                 </div>
+
             </div>
 
             <div class="carousel-navigation">
+                <button aria-label="Slide anterior" class="arrow left"><i aria-hidden="true"
+                        class="fas fa-arrow-left"></i></button>
                 <div class="dots">
-                    <span class="dot"></span>
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
+
+                </div>
+                <button aria-label="Slide anterior" class="arrow right"><i aria-hidden="true"
+                        class="fas fa-arrow-right"></i></button>
+            </div>
+
+        </section>
+
+        <section class="sobre-section">
+            <div class="header-text">
+                <h1 class="titulo" data-translate="sobre-nos" data-aos="zoom-in">Sobre nós</h1>
+            </div>
+
+            <div class="content-block" data-aos="fade-in">
+                <div class="text-top">
+                    <p>Fundado em 2005, o <strong>Grupo Unione</strong> é um importante grupo empresarial e de
+                        investimento Angolano, com atuação estratégica em setores chave da economia.</p>
+                </div>
+                <div class="image-container">
+                    <img src="assets/Imagens/24.webp" alt="Visão aérea de um condomínio ou comunidade">
+                </div>
+                <div class="text-bottom" data-aos="fade-in">
+                    <p>A nossa diversificação e capacidade operacional são evidenciadas por projetos de grande impacto,
+                        o que nos torna um parceiro de referência em diversas áreas de negócio, entre as quais:
+                        <strong>Construção Civil, Saúde, Ensino, Energia, Agricultura</strong> entre outras.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="sobre-container">
+                <h1 class="titulo" data-translate="nossos-numeros" data-aos="zoom-in">Nossos Números</h1>
+                <div class="content-grid">
+                    <div class="content-top">
+                        <div class="icon-item left-column pri4" id="t" data-index="0">
+                            <div class="icon-circle">
+                                <i aria-hidden="true" class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="icon-text">Áreas de Negócios</div>
+                        </div>
+
+                        <div class="icon-item left-column pri3" id="t" data-index="1">
+                            <div class="icon-circle">
+                                <i aria-hidden="true" class="fas fa-globe-americas"></i>
+                            </div>
+                            <div class="icon-text">Internacionalização</div>
+                        </div>
+
+                        <div class="icon-item left-column pri2" id="t" data-index="2">
+                            <div class="icon-circle">
+                                <i aria-hidden="true" class="fas fa-trophy"></i>
+                            </div>
+                            <div class="icon-text">Prêmios</div>
+                        </div>
+                    </div>
+
+                    <div class="donut">
+                        <svg viewBox="0 0 200 200">
+                            <g id="segments">
+                            </g>
+                        </svg>
+                        <div class="center-span" id="center-info">
+                            <h1>+50 milhões<br>de dólares</h1>
+                            <p>já investidos</p>
+                        </div>
+                    </div>
+
+                    <div class="content-bottom">
+                        <div class="icon-item right-column pri5" id="t" data-index="3">
+                            <div class="icon-circle">
+                                <i aria-hidden="true" class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="icon-text">Investimentos</div>
+                        </div>
+
+                        <div class="icon-item right-column pri6" id="t" data-index="4">
+                            <div class="icon-circle">
+                                <i aria-hidden="true" class="fas fa-folder"></i>
+                            </div>
+                            <div class="icon-text">Projetos</div>
+                        </div>
+
+                        <div class="icon-item right-column pri1" id="t" data-index="5">
+                            <div class="icon-circle">
+                                <i aria-hidden="true" class="fas fa-users"></i>
+                            </div>
+                            <div class="icon-text">Colaboradores</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </section>
-    </main>
 
-    <section class="polis-section">
-        <video class="video-quavi" src="assets/videos/vid2.mp4" autoplay muted loop playsinline></video>
-        <div class="card-overlay">
-            <div class="logo-polis" data-aos="zoom-in">
-                <div class="logoP"><img src="assets/logo/polis.webp" alt=""></div>
+        <main class="conteiner-Principal">
+            <section class="card-section empresa-section" id="empresa">
+                <h1 class="titulo" data-translate="empresas" data-aos="fade-in">Empresas do Grupo</h1>
+                <div class="carousel-container">
+                    <article class="wrapper">
+                        <div class="marquee">
+                            <div class="marquee__group">
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Fibra_Logo.webp" alt="Fibra_Logo">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Mater_Logo-Horizontal.webp" alt="Mater_Logo-Horizontal">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/InfraOne_Logo.webp" alt="InfraOne_Logo">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Kalanaua_Logo-Horizontal 1.webp"
+                                        alt="Kalanaua_Logo-Horizontal">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/cm.webp" alt="corpo e mente">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Okukulanaua_Logo 2.webp" alt="Okukulanaua_Logo">
+                                </div>
 
-            </div>
-            <div class="text-polis">
-                <h3>Mais do que um Empreendimento,
-                    um compromisso com o futuro</h3>
-                <a href="#" class="btn">Descubra o <strong>POLIS</strong> <i aria-hidden="true"
-                        class="fas fa-arrow-right"></i> </a>
-            </div>
-        </div>
-    </section>
+                            </div>
+                        </div>
+                        <div class="marquee marquee--reverse">
+                            <div class="marquee__group">
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Quavi_Logo 3.webp" alt="quavi">
+                                </div>
 
-    <section id="noticias" class="noticias-section">
-        <h1 class="titulo" data-translate="noticias-imprensa">Notícias e Imprensa</h1>
-        <div class="carousel-container-noticias">
-            <div class="card-blog">
-                <img id="img-card" src="assets/Imagens/granja1.webp" alt="laboratorio">
-                <section>
-                    <span>12 / Abril 2025</span>
-                    <h4>Retomada da Produção de Suínos marca nova fase na Nossa Granja</h4>
-                    <a href="#">ver mais</a>
-                </section>
-            </div>
-            <div class="card-blog">
-                <img id="img-card" src="assets/Imagens/epas.webp" alt="laboratorio">
-                <section>
-                    <span>20 / Março 2025</span>
-                    <h4>EPAS Huíla Realiza Team Building no Polis</h4>
-                    <a href="#">ver mais</a>
-                </section>
-            </div>
-            <div class="card-blog">
-                <img id="img-card" src="assets/Imagens/lab.webp" alt="laboratorio">
-                <section>
-                    <span>08 / Março 2025</span>
-                    <h4>Novo Laboratório de Prevenção e Controle Suíno</h4>
-                    <a href="#">ver mais</a>
-                </section>
-            </div>
-            <div class="card-blog">
-                <img id="img-card" src="assets/Imagens/20.webp" alt="laboratorio">
-                <section>
-                    <span>08 / Março 2025</span>
-                    <h4>Novo2 Laboratório de Prevenção e Controle Suíno</h4>
-                    <a href="#">ver mais</a>
-                </section>
-            </div>
-        </div>
-        <div class="carousel-navigation">
-            <button aria-label="Slide anterior" class="arrow left"><i aria-hidden="true"
-                    class="fas fa-arrow-left"></i></button>
-            <div class="dots">
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Metalangol_Logo-Vertical.webp" alt="Metalangol_Logo-Vertical">
+                                </div>
 
-            </div>
-            <button aria-label="Slide anterior" class="arrow right"><i aria-hidden="true"
-                    class="fas fa-arrow-right"></i></button>
-        </div>
-    </section>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Integracons - Logo-Sem Sombra.webp" alt="Integracons">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Unione_Logo-Horizontal 3.webp" alt="InfraOne_Logo">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/mbt.webp" alt="Integracons">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Quavi_Logo 3.webp" alt="quavi">
+                                </div>
 
-    <section class="contactos-section">
-        <div class="contact-info">
-            <div class="logo-contact">
-                <img src="assets/logo/Grupo Unione-branco.webp" alt="grupo unione logotipo">
-            </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Metalangol_Logo-Vertical.webp" alt="Metalangol_Logo-Vertical">
+                                </div>
 
-            <h2 data-translate="contacte-nos">Contacte-nos</h2>
-            <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla</p>
-            <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
-            <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
-
-            <div class="social">
-                <h3 data-translate="siga-nos">Siga-nos</h3>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-            </div>
-        </div>
-
-
-        <div class="contact-form">
-            <h2 data-translate="fale-conosco">Fale conosco</h2>
-            <form>
-                <input type="text" placeholder="Seu Nome" data-translate="seu-nome" required>
-                <input type="email" placeholder="Seu E-mail" data-translate="seu-email" required>
-
-                <div class="options">
-                    <button type="button" data-translate="particular">Particular</button>
-                    <button type="button" class="empresaBtn" data-translate="empresa">Empresa</button>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Integracons - Logo-Sem Sombra.webp" alt="Integracons">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/Unione_Logo-Horizontal 3.webp" alt="InfraOne_Logo">
+                                </div>
+                                <div class="icon-empresa">
+                                    <img src="assets/logo/mbt.webp" alt="Integracons">
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
-                <input type="empresa" class="empresa" id="empresaInput" placeholder="Empresa" data-translate="empresa">
+            </section>
 
-                <textarea placeholder="Mensagem" rows="5" data-translate="mensagem" required></textarea>
-                <button type="submit" class="submit-btn" data-translate="enviar">Enviar</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="w">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5681.374665046663!2d13.346179365522373!3d-14.975112394424539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2f46708b81237da5%3A0x5bc43cb7405af95d!2sGrupo%20Unione!5e1!3m2!1spt-PT!2sao!4v1748271694849!5m2!1spt-PT!2sao"
-                title="localização do grupo unione" width="100%" height="400" style="border:0;" allowfullscreen=""
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-
-        <div class="bottom">
-            <div class="footer-top">
-                <div class="footer-column">
-                    <!-- <img src="assets/logo/Grupo Unione-branco.webp" alt="Grupo UNIONE" class="logo-footer"> -->
-                    <h4 data-translate="Grupo unione"><small>Grupo <strong>unione</strong></small></h4>
-                    <ul>
-                        <li><a href="#" data-translate="o-grupo">O Grupo</a></li>
-                        <li><a href="#" data-translate="historia">História</a></li>
-                        <li><a href="#" data-translate="missao">Missão</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4 data-translate="pessoas">Pessoas</h4>
-                    <ul>
-                        <li><a href="#" data-translate="trabalhe-conosco">Trabalhe conosco</a></li>
-                        <li><a href="#" data-translate="programas-estagio">Programas de Estágio</a></li>
-                    </ul>
-                </div>
-
-
-                <div class="footer-column">
-                    <h4 data-translate="areas-negocios">Áreas de Negócio</h4>
-                    <ul class="coluna-dupla">
-                        <li><a href="#">Saúde</a></li>
-                        <li><a href="#">Telecomunicações</a></li>
-                        <li><a href="#">Construção Civil</a></li>
-                        <li><a href="#">Jurídico</a></li>
-                        <li><a href="#">Hotelaria</a></li>
-                        <li><a href="#">Energia</a></li>
-                        <li><a href="#">Metalmecânica</a></li>
-                        <li><a href="#">Ensino</a></li>
-                        <li><a href="#">Agropecuária</a></li>
-                        <li><a href="#">Indústria Mecânica</a></li>
-                        <li><a href="#">Consultoria</a></li>
-                    </ul>
-                </div>
-
-
-                <div class="footer-column">
-                    <h4 data-translate="siga-nos">Siga-nos</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    </div>
-                    <ul class="termo">
-                        <li><a href="#" data-translate="politica-privacidade">Política de Privacidade</a></li>
-                        <li><a href="#" data-translate="termos-condicoes">Termos e Condições</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div aria-hidden="true" class="footer-logos">
-                <div class="marquee-F">
-                    <div class="marquee__group">
-                        <img src="assets/logoBranco/C&M.svg" alt="cem">
-                        <img src="assets/logoBranco/MBT Energia.svg" alt="mbt">
-                        <img src="assets/logoBranco/Quavi.svg" alt="quavi">
-                        <img src="assets/logoBranco/Okukulanaua.svg" alt="okukulanaua">
-                        <img src="assets/logoBranco/Kalanaua.svg" alt="Kalanaua">
-                        <img src="assets/logoBranco/Tecnology.svg" alt="Tecnology">
-                        <img src="assets/logoBranco/Unione.svg" alt="unione">
-                        <img src="assets/logoBranco/Fibra.svg" alt="Fibra">
-                        <img src="assets/logoBranco/Infraone.svg" alt="Infraone">
-                        <img src="assets/logoBranco/Integracons.svg" alt="Integracons">
-                        <img src="assets/logoBranco/Mater.svg" alt="Mater">
-                        <img src="assets/logoBranco/Metalangol.svg" alt="Metalangol">
-                    </div>
-                    <div aria-hidden="true" class="marquee__group">
-                        <img src="assets/logoBranco/C&M.svg" alt="cem">
-                        <img src="assets/logoBranco/MBT Energia.svg" alt="mbt">
-                        <img src="assets/logoBranco/Quavi.svg" alt="quavi">
-                        <img src="assets/logoBranco/Okukulanaua.svg" alt="okukulanaua">
-                        <img src="assets/logoBranco/Kalanaua.svg" alt="Kalanaua">
-                        <img src="assets/logoBranco/Tecnology.svg" alt="Tecnology">
-                        <img src="assets/logoBranco/Unione.svg" alt="unione">
-                        <img src="assets/logoBranco/Fibra.svg" alt="Fibra">
-                        <img src="assets/logoBranco/Infraone.svg" alt="Infraone">
-                        <img src="assets/logoBranco/Integracons.svg" alt="Integracons">
-                        <img src="assets/logoBranco/Mater.svg" alt="Mater">
-                        <img src="assets/logoBranco/Metalangol.svg" alt="Metalangol">
+            <section class="card-section">
+                <div class="horizontal-scroll-wrapper">
+                    <h1 class="tituloA" data-translate="areas-negocios" data-aos="fade-in">Áreas de Negócios</h1>
+                    <div class="horizontal-scroll">
+                        <div id="image-track">
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/corpo.webp" draggable="false" alt="saude" />
+                                <div class="card-overlay">
+                                    <h3>Saúde</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/10_Hero_Fibra.jpeg" draggable="false"
+                                    alt="Telecomunicações" />
+                                <div class="card-overlay">
+                                    <h3>TELECOMUNICAÇÕES</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/ensino.webp" draggable="false" alt="ensino" />
+                                <div class="card-overlay">
+                                    <h3>ENSINO</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/quav.webp" draggable="false"
+                                    alt="Agropecuária" />
+                                <div class="card-overlay">
+                                    <h3>AGROPECUÁRIA</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/11_Hero_Unione Consultoria.jpg" draggable="false"
+                                    alt="Consultoria" />
+                                <div class="card-overlay">
+                                    <h3>CONSULTORIA E GESTÃO</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/3_Hero_MBT_Op.2.jpeg" draggable="false"
+                                    alt="energia" />
+                                <div class="card-overlay">
+                                    <h3>ENERGIA</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/13_Hero_Kalanaua.jpeg" draggable="false"
+                                    alt="Hotelaria" />
+                                <div class="card-overlay">
+                                    <h3>HOTELARIA E TURISMO</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/infra_1.webp" draggable="false"
+                                    alt="construção" />
+                                <div class="card-overlay">
+                                    <h3>CONSTRUÇÃO CIVIL</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/metal.webp" draggable="false"
+                                    alt="Metalmecânica">
+                                <div class="card-overlay">
+                                    <h3>METALOMECÂNICA</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/9_Hero_Mater.jpeg" draggable="false"
+                                    alt="Carpintaria" />
+                                <div class="card-overlay">
+                                    <h3>CARPINTARIA</h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="image" src="assets/Imagens/tecnology.webp" draggable="false"
+                                    alt="Mecânica" />
+                                <div class=" card-overlay">
+                                    <h3>INDÚSTRIA MECÂNICA</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+            <section class="card-section reveal-next"></section>
+            <section class="card-section reveal-next"></section>
+
+            <section class="card-section projectos-section">
+                <h1 class="titulo" data-translate="projectos" data-aos="fade-down">Projectos</h1>
+                <div class="carousel-container-project aos-all">
+                    <div class="card-project" data-aos="fade-in">
+                        <img src="assets/Imagens/Central_Fotovoltaica_Chiange.webp" alt="">
+                        <div class="card-project-overlay">
+                            <h3>Central Híbrida-Solar & Diesel: Município dos Gambos, Huíla</h3>
+                            <button class="btn"><span class="text">ver mais</span><span>ver
+                                    mais</span></button>
+                        </div>
+                    </div>
+
+                    <div class="card-project" data-aos="fade-down">
+                        <img src="assets/Imagens/central_termoeletrica_2.webp" alt="">
+                        <div class="card-project-overlay">
+                            <h3>Centrais Termoelétricas: Luanda e Benguela</h3>
+                            <button class="btn"><span class="text">ver mais</span><span>ver
+                                    mais</span></button>
+                        </div>
+                    </div>
+
+                    <div class="card-project" data-aos="fade-down">
+                        <img src="assets/Imagens/22.webp" alt="">
+                        <div class="card-project-overlay">
+                            <h3>Granja de Suínos: Humpata, Huíla</h3>
+                            <button class="btn"><span class="text">ver mais</span><span>ver
+                                    mais</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-navigation">
+                    <div class="dots">
+                        <span class="dot"></span>
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <section class="polis-section">
+            <video class="video-quavi" src="assets/videos/vid2.mp4" autoplay muted loop playsinline></video>
+            <div class="card-overlay">
+                <div class="logo-polis" data-aos="zoom-in">
+                    <div class="logoP"><img src="assets/logo/polis.webp" alt=""></div>
+
+                </div>
+                <div class="text-polis">
+                    <h3>Mais do que um Empreendimento,
+                        um compromisso com o futuro</h3>
+                    <a href="#" class="btn">Descubra o <strong>POLIS</strong> <i aria-hidden="true"
+                            class="fas fa-arrow-right"></i> </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="noticias" class="noticias-section">
+            <h1 class="titulo" data-translate="noticias-imprensa">Notícias e Imprensa</h1>
+            <div class="carousel-container-noticias">
+                <div class="card-blog">
+                    <img id="img-card" src="assets/Imagens/granja1.webp" alt="laboratorio">
+                    <section>
+                        <span>12 / Abril 2025</span>
+                        <h4>Retomada da Produção de Suínos marca nova fase na Nossa Granja</h4>
+                        <a href="#">ver mais</a>
+                    </section>
+                </div>
+                <div class="card-blog">
+                    <img id="img-card" src="assets/Imagens/epas.webp" alt="laboratorio">
+                    <section>
+                        <span>20 / Março 2025</span>
+                        <h4>EPAS Huíla Realiza Team Building no Polis</h4>
+                        <a href="#">ver mais</a>
+                    </section>
+                </div>
+                <div class="card-blog">
+                    <img id="img-card" src="assets/Imagens/lab.webp" alt="laboratorio">
+                    <section>
+                        <span>08 / Março 2025</span>
+                        <h4>Novo Laboratório de Prevenção e Controle Suíno</h4>
+                        <a href="#">ver mais</a>
+                    </section>
+                </div>
+                <div class="card-blog">
+                    <img id="img-card" src="assets/Imagens/20.webp" alt="laboratorio">
+                    <section>
+                        <span>08 / Março 2025</span>
+                        <h4>Novo2 Laboratório de Prevenção e Controle Suíno</h4>
+                        <a href="#">ver mais</a>
+                    </section>
+                </div>
+            </div>
+            <div class="carousel-navigation">
+                <button aria-label="Slide anterior" class="arrow left"><i aria-hidden="true"
+                        class="fas fa-arrow-left"></i></button>
+                <div class="dots">
+
+                </div>
+                <button aria-label="Slide anterior" class="arrow right"><i aria-hidden="true"
+                        class="fas fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <section class="contactos-section">
+            <div class="contact-info">
+                <div class="logo-contact">
+                    <img src="assets/logo/Grupo Unione-branco.webp" alt="grupo unione logotipo">
+                </div>
+
+                <h2 data-translate="contacte-nos">Contacte-nos</h2>
+                <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla
+                </p>
+                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+
+                <div class="social">
+                    <h3 data-translate="siga-nos">Siga-nos</h3>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>Copyright &copy; 2025 Grupo Unione - <span data-translate="direitos-reservados">Todos os direitos
-                        reservados</span>.</p>
+
+            <div class="contact-form">
+                <h2 data-translate="fale-conosco">Fale conosco</h2>
+                <form>
+                     <div class="options">
+                        <button type="button" data-translate="particular">Particular</button>
+                        <button type="button" class="empresaBtn" data-translate="empresa">Empresa</button>
+                    </div>
+                     
+                    <input type="empresa" class="empresa" id="empresaInput" placeholder="Empresa"
+                        data-translate="empresa">
+                    <input type="text" placeholder="Seu Nome" data-translate="seu-nome" required>
+                    <input type="email" placeholder="Seu E-mail" data-translate="seu-email" required>
+                
+                    <textarea placeholder="Mensagem" rows="5" data-translate="mensagem" required></textarea>
+                    <button type="submit" class="submit-btn" data-translate="enviar">Enviar</button>
+                </form>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <footer>
+            <div class="w">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5681.374665046663!2d13.346179365522373!3d-14.975112394424539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2f46708b81237da5%3A0x5bc43cb7405af95d!2sGrupo%20Unione!5e1!3m2!1spt-PT!2sao!4v1748271694849!5m2!1spt-PT!2sao"
+                    title="localização do grupo unione" width="100%" height="400" style="border:0;" allowfullscreen=""
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <div class="bottom">
+                <div class="footer-top">
+                    <div class="footer-column">
+                        <!-- <img src="assets/logo/Grupo Unione-branco.webp" alt="Grupo UNIONE" class="logo-footer"> -->
+                        <h4 data-translate="Grupo unione"><small>Grupo <strong>unione</strong></small></h4>
+                        <ul>
+                            <li><a href="#" data-translate="o-grupo">O Grupo</a></li>
+                            <li><a href="#" data-translate="historia">História</a></li>
+                            <li><a href="#" data-translate="missao">Missão</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 data-translate="pessoas">Pessoas</h4>
+                        <ul>
+                            <li><a href="#" data-translate="trabalhe-conosco">Trabalhe conosco</a></li>
+                            <li><a href="#" data-translate="programas-estagio">Programas de Estágio</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="footer-column">
+                        <h4 data-translate="areas-negocios">Áreas de Negócio</h4>
+                        <ul class="coluna-dupla">
+                            <li><a href="#">Saúde</a></li>
+                            <li><a href="#">Telecomunicações</a></li>
+                            <li><a href="#">Construção Civil</a></li>
+                            <li><a href="#">Jurídico</a></li>
+                            <li><a href="#">Hotelaria</a></li>
+                            <li><a href="#">Energia</a></li>
+                            <li><a href="#">Metalmecânica</a></li>
+                            <li><a href="#">Ensino</a></li>
+                            <li><a href="#">Agropecuária</a></li>
+                            <li><a href="#">Indústria Mecânica</a></li>
+                            <li><a href="#">Consultoria</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="footer-column">
+                        <h4 data-translate="siga-nos">Siga-nos</h4>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                        <ul class="termo">
+                            <li><a href="#" data-translate="politica-privacidade">Política de Privacidade</a></li>
+                            <li><a href="#" data-translate="termos-condicoes">Termos e Condições</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div aria-hidden="true" class="footer-logos">
+                    <div class="marquee-F">
+                        <div class="marquee__group">
+                            <img src="assets/logoBranco/C&M.svg" alt="cem">
+                            <img src="assets/logoBranco/MBT Energia.svg" alt="mbt">
+                            <img src="assets/logoBranco/Quavi.svg" alt="quavi">
+                            <img src="assets/logoBranco/Okukulanaua.svg" alt="okukulanaua">
+                            <img src="assets/logoBranco/Kalanaua.svg" alt="Kalanaua">
+                            <img src="assets/logoBranco/Tecnology.svg" alt="Tecnology">
+                            <img src="assets/logoBranco/Unione.svg" alt="unione">
+                            <img src="assets/logoBranco/Fibra.svg" alt="Fibra">
+                            <img src="assets/logoBranco/Infraone.svg" alt="Infraone">
+                            <img src="assets/logoBranco/Integracons.svg" alt="Integracons">
+                            <img src="assets/logoBranco/Mater.svg" alt="Mater">
+                            <img src="assets/logoBranco/Metalangol.svg" alt="Metalangol">
+                        </div>
+                        <div aria-hidden="true" class="marquee__group">
+                            <img src="assets/logoBranco/C&M.svg" alt="cem">
+                            <img src="assets/logoBranco/MBT Energia.svg" alt="mbt">
+                            <img src="assets/logoBranco/Quavi.svg" alt="quavi">
+                            <img src="assets/logoBranco/Okukulanaua.svg" alt="okukulanaua">
+                            <img src="assets/logoBranco/Kalanaua.svg" alt="Kalanaua">
+                            <img src="assets/logoBranco/Tecnology.svg" alt="Tecnology">
+                            <img src="assets/logoBranco/Unione.svg" alt="unione">
+                            <img src="assets/logoBranco/Fibra.svg" alt="Fibra">
+                            <img src="assets/logoBranco/Infraone.svg" alt="Infraone">
+                            <img src="assets/logoBranco/Integracons.svg" alt="Integracons">
+                            <img src="assets/logoBranco/Mater.svg" alt="Mater">
+                            <img src="assets/logoBranco/Metalangol.svg" alt="Metalangol">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>Copyright &copy; 2025 Grupo Unione - <span data-translate="direitos-reservados">Todos os direitos
+                            reservados</span>.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
 
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Flip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -819,6 +848,8 @@
 
 
     <script src="js/script.js"></script>
+    <script src="js/load.js"></script>
+    <script src="js/animar.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/slide.js"></script>
     <script src="js/carousel.js"></script>

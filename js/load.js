@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
     const message = "GRUPO UNIONE";
     let index = 0;
 
-    const tl = gsap.timeline({ defaults: { duration: 1.5, ease: "power2.out" } });
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
     ["#circle1", "#circle2", "#circle3"].forEach((selector, i) => {
         const circle = document.querySelector(selector);
@@ -16,11 +16,18 @@ window.addEventListener('load', () => {
 
         gsap.set(circle, {
             strokeDasharray: length,
-            strokeDashoffset: length
+            strokeDashoffset: length,
+            scale: 0.6,
+            opacity: 0,
+            transformOrigin: "50% 50%"
         });
 
         tl.to(circle, {
-            strokeDashoffset: 0
+            strokeDashoffset: 0,
+            scale: 1,
+            opacity: 1,
+            transformOrigin: "50% 50%",
+            duration: 1.5
         }, i * 0.5);
     });
 
@@ -101,11 +108,9 @@ window.addEventListener('load', () => {
 
                     let logoImg = "";
                     if (window.innerWidth <= 768) {
-                        // Mobile
                         logoImg = `<img  src="assets/logo/Grupo-Unione_Logo.png" alt="Logo do Grupo Unione mobile"
                                          style="height:100%; width:auto;" />`;
                     } else {
-                        // Desktop
                         logoImg = `<img src="assets/logo/Grupo-Unione_Logotipo.png" alt="Logo do Grupo Unione Desktop"
                                          style="height:100%; width:auto;" />`;
                     }

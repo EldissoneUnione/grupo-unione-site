@@ -4,26 +4,57 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentSlide = 0;
     let slideInterval;
     const slideDelay = 5000;
+    const maxVisibleDots = 5;
 
     function generateDots() {
         dotsContainer.innerHTML = '';
+        const totalDots = Math.min(slides.length, maxVisibleDots);
 
-        slides.forEach((_, index) => {
+        for (let index = 0; index < totalDots; index++) {
             const dot = document.createElement('button');
-            dot.className = `dot ${index === 0 ? 'active' : ''}`;
+            dot.className = 'dot';
             dot.setAttribute('role', 'tab');
-            dot.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
-            dot.setAttribute('aria-label', `Slide ${index + 1}`);
-
+            dot.setAttribute('aria-selected', 'false');
             dot.addEventListener('click', () => {
                 stopSlideShow();
-
-                currentSlide = index;
+                // Ajusta o índice real
+                currentSlide = getRealIndex(index);
                 showSlide(currentSlide);
                 startSlideShow();
             });
-
             dotsContainer.appendChild(dot);
+        }
+        updateDots();
+    }
+
+    function getRealIndex(dotIndex) {
+        let start = Math.max(0, currentSlide - Math.floor(maxVisibleDots / 2));
+        if (start + maxVisibleDots > slides.length) {
+            start = slides.length - maxVisibleDots;
+        }
+        start = Math.max(0, start);
+        return start + dotIndex;
+    }
+
+    function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.dot');
+        let start = Math.max(0, currentSlide - Math.floor(maxVisibleDots / 2));
+        if (start + maxVisibleDots > slides.length) {
+            start = slides.length - maxVisibleDots;
+        }
+        start = Math.max(0, start);
+
+        dots.forEach((dot, i) => {
+            const slideIndex = start + i;
+            dot.setAttribute('aria-label', `Slide ${slideIndex + 1}`);
+            dot.classList.toggle('active', slideIndex === currentSlide);
+            dot.setAttribute('aria-selected', slideIndex === currentSlide ? 'true' : 'false');
+
+            const distance = Math.abs(slideIndex - currentSlide);
+            let opacity = 1 - (distance * 0.2);
+            if (opacity < 0.2) opacity = 0.2; 
+
+            dot.style.opacity = opacity;
         });
     }
 
@@ -34,16 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
             slide.style.opacity = '0';
         });
 
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach(dot => {
-            dot.classList.remove('active');
-            dot.setAttribute('aria-selected', 'false');
-        });
-
         slides[index].classList.add('active');
         slides[index].style.opacity = '1';
-        dots[index].classList.add('active');
-        dots[index].setAttribute('aria-selected', 'true');
+
+        currentSlide = index;
+        updateDots();
     }
 
     function nextSlide() {
@@ -69,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let touchStartX = 0;
     let touchEndX = 0;
-
     const bannerCards = document.querySelector('.baner-cards');
 
     bannerCards.addEventListener('touchstart', (e) => {

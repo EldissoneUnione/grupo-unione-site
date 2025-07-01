@@ -39,7 +39,7 @@ const tl = gsap.timeline({
 });
 
 tl.to(".destaque-section h1", {
-  scale: 1.5,
+  scale: 1,
   duration: 0,
   ease: "power2.inOut"
 });

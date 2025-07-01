@@ -17,7 +17,7 @@
     }
 
     .logo {
-        max-width: 55%;
+        max-width: 30%;
         height: 100%;
         padding: 0px;
         cursor: pointer;
@@ -451,7 +451,6 @@
         }
 
         .card-blog section span {
-            color: var(--light-gray);
             font-size: 1rem;
         }
 
@@ -543,9 +542,10 @@
     }
 
     .logo {
-        max-width: 55%;
+        max-width: 50%;
         height: 100%;
         padding: 0px;
+        align-self: flex-start;
         cursor: pointer;
     }
 
@@ -557,19 +557,21 @@
         display: flex;
     }
 
+
+    .loader-logo {
+        width: 90%;
+        flex-direction: column;
+    }
+
+
     .burger {
         display: block;
     }
 
-    .loader-logo {
-        height: 150px;
-        width: 150px;
-    }
-
-
     #type-text {
-        font-size: 30px;
+        font-size: 45px;
         margin-left: 10px;
+        margin-top: -50px;
     }
 
     .menu-container {
@@ -632,7 +634,6 @@
         line-height: 20px;
         font-size: 3rem;
         line-height: 60px;
-
     }
 
     .card-baner .txt p {
@@ -681,7 +682,7 @@
     .destaque-section {
         padding: 0;
 
-      
+
         .card:not(.active) {
             display: none;
         }
@@ -724,7 +725,7 @@
         border-bottom-right-radius: 240px;
     }
 
-     .header-text {
+    .header-text {
         align-self: center;
         width: 100%;
 
@@ -838,7 +839,6 @@
         .donut {
             width: 100%;
         }
-
     }
 
     .empresa-section {
@@ -964,7 +964,7 @@
         border-top-right-radius: 50px;
         padding-top: 1rem;
         margin-top: -80px;
-        height: 700px;
+        height: auto;
 
         .carousel-container-noticias {
             padding: 0;
@@ -989,7 +989,6 @@
         }
 
         .card-blog section span {
-            color: var(--light-gray);
             font-size: 1rem;
         }
 
@@ -1162,9 +1161,6 @@
 }
 
 @media (max-width: 480px) {
-    .logo {
-        width: 300px;
-    }
 
     .card-baner .txt h2 {
         font-size: 2.8rem;

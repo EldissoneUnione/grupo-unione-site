@@ -71,6 +71,15 @@
   }
 }
 
+@media (max-width: 768px) {
+  .logo-grupoP {
+    bottom: 3rem;
+    left: 0;
+    width: 90%;
+  }
+}
+
+
 .hero-section {
   height: 70vh;
 }

@@ -104,27 +104,37 @@ img {
     padding: 5px;
 }
 
-.loading-logo {
+.logo-content svg {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+svg text {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.loader-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center;
-
-}
-
-.loader-logo {
-    height: 250px;
-    width: 250px;
 }
 
 #type-text {
-    font-size: 100px;
-    margin-left: 40px;
+    font-size: 50px;
+    margin-left: -50px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .site-content {
     opacity: 0;
 }
+
 
 header {
     position: fixed;
@@ -1098,7 +1108,7 @@ section {
         top: 0px;
         right: -300px;
         width: 100%;
-        height: 650px;
+        height: 680px;
         border-top-left-radius: 440px;
         border-bottom-left-radius: 440px;
         opacity: 1;
@@ -1617,7 +1627,6 @@ video {
     background-color: var(--bg-nav);
     transition: all ease-in-out .5s;
     border-radius: 50px;
-
 }
 
 .card-blog img {
@@ -1644,7 +1653,7 @@ video {
         padding: 8px 15px;
         background-color: transparent;
         border: 1px solid transparent;
-        color: var(--light-gray);
+        color: var(--text-color3);
         text-decoration: none;
         border-radius: 20px;
         font-size: 1.2rem;
@@ -1676,7 +1685,7 @@ video {
 }
 
 .card-blog section span {
-    color: var(--light-gray);
+    color: var(--text-color3);
     font-size: 1.2rem;
     font-weight: 200;
     align-self: flex-start;

@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
             scale: 1,
             opacity: 1,
             transformOrigin: "50% 50%",
-            duration: 1.5
+            duration: 1
         }, i * 0.5);
     });
 
@@ -45,12 +45,12 @@ window.addEventListener('load', () => {
                 y: 20,
                 scale: 0.5,
                 opacity: 0,
-                duration: 0.6,
+                duration: 0.4,
                 ease: "power2.out"
             });
 
             index++;
-            setTimeout(typeWriter, 200);
+            setTimeout(typeWriter, 100);
         } else {
             animateAfterType();
         }

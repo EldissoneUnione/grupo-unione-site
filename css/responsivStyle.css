@@ -138,7 +138,7 @@
     .card,
     .card-project {
         width: 300px;
-        height: 280px;
+        height: 450px
     }
 
     .card.active,
@@ -662,7 +662,7 @@
 
     .titulo,
     .tituloA {
-        font-size: 2.5rem;
+        font-size: 45px;
         margin-left: 0rem;
         margin-top: 1rem;
         width: 100%;
@@ -673,13 +673,12 @@
     .destaque-section {
         padding: 0;
 
-
         .card:not(.active) {
             display: none;
         }
 
         .card-overlay h3 {
-            font-size: 1.4em;
+            font-size: 25px;
         }
     }
 
@@ -699,7 +698,7 @@
         width: 85vw;
         height: 400px;
         opacity: 0.5;
-        border-radius: 30px !important;
+        border-radius: 50px !important;
     }
 
     .card.active {
@@ -719,9 +718,7 @@
     .header-text {
         align-self: center;
         width: 100%;
-
     }
-
 
     .sobre-section {
         margin-top: 5rem;
@@ -732,7 +729,7 @@
         .text-top,
         .text-bottom {
             padding: 10px 10px;
-            font-size: 15px;
+            font-size: 17px;
             line-height: 1.2;
         }
 
@@ -748,8 +745,8 @@
         .text-bottom {
             width: 100%;
             bottom: 0;
-            top: -20px;
-            padding: 30px;
+            top: -5px;
+            padding: 20px;
         }
 
         .content-block::after {
@@ -768,7 +765,6 @@
             align-items: center;
             justify-content: center;
         }
-
 
         .center-span h1 {
             font-size: 1.5em;
@@ -793,7 +789,6 @@
             width: 100%;
             flex-direction: initial;
             display: none;
-
         }
 
         .image-container {
@@ -852,12 +847,12 @@
     }
 
     .areas-section {
-        max-height: 500px;
+        max-height: 600px;
         margin: 0;
+        border: 1px solid red;
     }
 
     .item {
-
         width: 95vmin;
         height: 100vmin;
     }
@@ -884,19 +879,24 @@
         overflow: hidden;
         max-width: 100%;
         padding: 10px 0;
-
     }
 
     .card-project {
         width: 90vw;
-        height: 280px;
+        height: 450px;
         opacity: 0.5;
-        border-radius: 30px !important;
+        border-radius: 50px !important;
     }
 
     .card-project.active {
         opacity: 1;
-        transform: scale(1) translateY(0px);
+        transform: scale(1.2) translateY(0px);
+    }
+
+    .projectos-section .card-project-overlay h3 {
+        margin-top: 20px;
+        font-size: 22px;
+        font-weight: 400;
     }
 
     .projectos-section .carousel-navigation {
@@ -907,7 +907,7 @@
         height: 90vh;
 
         .card-overlay {
-            padding: 6rem 1rem;
+            padding: 6rem 1.5rem;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
             color: var(--white);
             box-sizing: border-box;

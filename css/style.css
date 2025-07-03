@@ -846,7 +846,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
     gap: 50px;
 
     i {
@@ -858,6 +858,12 @@ section {
     }
 }
 
+.slim-icon {
+    -webkit-text-stroke: 2px var(--bg-body);
+    color: black;
+}
+
+
 .carousel-navigation .arrow {
     background: none;
     border: 1px solid var(--light-gray);
@@ -868,7 +874,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.8em;
+    font-size: 32px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -939,9 +945,9 @@ section {
 .destaque-section .card,
 .card-project {
     position: relative;
-    width: 390px;
-    height: 360px;
-    border-radius: 30px;
+    width: 380px;
+    height: 380px;
+    border-radius: 50px;
     overflow: hidden;
     box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2);
     flex-shrink: 0;
@@ -950,17 +956,24 @@ section {
     align-items: center;
     justify-content: center;
     pointer-events: auto;
-    margin: 0 20px;
+    margin: 0 10px;
     opacity: 0;
     transform: translateY(-70%);
     transition: opacity 1s ease, transform 1s ease;
 }
 
+.card-project.active {
+    width: 400px;
+    margin: 2px;
+}
+
 .destaque-section .card.active {
     transform: scale(1.08) translateY(-1px);
     z-index: 2;
+    width: 400px;
     pointer-events: auto;
-    border-radius: 30px !important;
+    margin: 0 20px;
+    border-radius: 50px !important;
 }
 
 .destaque-section .card.first-visible {
@@ -973,13 +986,13 @@ section {
     border-bottom-right-radius: var(--border);
 }
 
-.card-overlay,
-.card-project-overlay {
+.card-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 20px;
+    border-radius: 50px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
     color: var(--white);
     box-sizing: border-box;
@@ -995,7 +1008,6 @@ section {
     font-weight: bold;
     text-transform: capitalize;
 }
-
 
 .card-overlay .btn,
 .projectos-section .card-project-overlay .btn {
@@ -1362,7 +1374,7 @@ section {
 
 .tituloA {
     position: absolute;
-    top: 0;
+    top: 80px;
     left: 0;
     padding-left: 8rem;
     font-size: 3.5rem;
@@ -1394,8 +1406,9 @@ section {
     overflow: hidden;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: center;
+
 }
 
 #image-track {
@@ -1403,8 +1416,9 @@ section {
     align-items: center;
     gap: 10vmin;
     transform: translateX(50%);
+    height: 80vh;
     width: 100%;
-    height: 100vh;
+    bottom: 0;
 }
 
 .item {
@@ -1472,16 +1486,29 @@ section {
     cursor: pointer;
 }
 
-.projectos-section .card-project-overlay {
-    height: 100%;
+.projectos-section .card-project-overlay,
+.card-blog section {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 50%;
+    padding: 20px;
+    border-radius: 50px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    backdrop-filter: blur(2px);
+    color: var(--white);
+    box-sizing: border-box;
+
 }
 
 .projectos-section .card-project-overlay h3 {
-    margin: 20px 0;
+    margin: 10px 0 0 0;
     font-size: 25px;
     font-weight: 400;
 }
@@ -1613,6 +1640,7 @@ video {
     gap: 60px;
     justify-content: center;
     padding-top: 2rem;
+    cursor: pointer;
 }
 
 .card-blog {
@@ -1630,7 +1658,6 @@ video {
     border-radius: 50px;
 }
 
-
 .card-blog:hover {
     transform: translateY(-10px);
 }
@@ -1641,25 +1668,15 @@ video {
 }
 
 .card-blog section {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
-    padding: 5px 20px;
-    z-index: 1;
-    bottom: 0;
-    background-color: var(--bg-nav);
-    backdrop-filter: blur(5px);
-    border-radius: 50px;
-    height: 40%;
-
+    padding: 20px;
 
     & a {
         display: flex;
         padding: 8px 15px;
         background-color: transparent;
         border: 1px solid transparent;
-        color: var(--text-color3);
+        color: var(--light-gray);
         text-decoration: none;
         border-radius: 20px;
         font-size: 1.2rem;
@@ -1667,11 +1684,10 @@ video {
         align-self: flex-end;
         text-transform: lowercase;
         cursor: pointer;
-
     }
 
     a:hover {
-        color: var(--text-color);
+        color: var(--white);
     }
 
 }
@@ -1684,19 +1700,18 @@ video {
     left: 0;
     top: 0;
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 20px;
     max-height: 120px;
     overflow-y: hidden;
-    color: var(--text-color);
+    color: var(--white);
 }
 
 .card-blog section span {
-    color: var(--text-color3);
+    color: var(--white);
     font-size: 1.2rem;
     font-weight: 200;
     align-self: flex-start;
 }
-
 
 .contactos-section {
     display: flex;

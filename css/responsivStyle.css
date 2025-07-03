@@ -394,14 +394,6 @@
         .logo-polis {
             width: auto;
             height: auto;
-
-            .text-polis-top {
-
-                h4 {
-                    font-size: 1rem;
-                }
-
-            }
         }
 
         .text-polis {
@@ -437,7 +429,6 @@
         .card-blog {
             width: 320px;
             height: 380px;
-
         }
 
         .card-blog section {
@@ -848,7 +839,6 @@
         margin-top: 0;
         padding: 1rem 0;
         max-height: 600px;
-
     }
 
     .marquee .icon-empresa {
@@ -859,9 +849,7 @@
         img {
             object-fit: contain;
         }
-
     }
-
 
     .areas-section {
         max-height: 500px;
@@ -911,7 +899,6 @@
         transform: scale(1) translateY(0px);
     }
 
-
     .projectos-section .carousel-navigation {
         display: none;
     }
@@ -932,30 +919,23 @@
 
         .logo-polis {
             width: auto;
-            height: auto;
+            height: 100px;
             margin-top: 60px;
-
-            .text-polis-top {
-
-                h4 {
-                    font-size: 1rem;
-                }
-
-            }
         }
 
         .text-polis {
-            max-width: 90%;
+            max-width: 100%;
         }
 
         .card-overlay h3 {
             margin: 0 0 10px 0;
-            font-size: 1.3rem;
-            font-weight: bold;
+            font-size: 1.1em;
+            font-weight: 300;
         }
 
         .card-overlay .btn {
-            font-size: 1.2em;
+            font-size: 15px;
+            position: relative;
         }
     }
 
@@ -969,13 +949,17 @@
         .carousel-container-noticias {
             padding: 0;
             margin-top: 0;
+            height: auto;
         }
 
 
         .card-blog {
             width: 85vw;
             height: 450px;
-            border-radius: 20px;
+        }
+
+        .card-blog:hover {
+            transform: translateY(0);
         }
 
         .card-blog section {

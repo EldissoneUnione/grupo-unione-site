@@ -81,7 +81,12 @@
                 </button>
             </div>
         </nav>
-        <button class="lang" aria-label="Mudar idioma">Pt</button>
+        <div class="switch lang" aria-label="Mudar idioma">
+            <input id="language-toggle" class="check-toggle check-toggle-round-flat language-toggle" type="checkbox">
+            <label for="language-toggle"></label>
+            <span class="on">PT</span>
+            <span class="off">EN</span>
+        </div>
 
         <div class="search-conteiner">
             <div class="search-top">
@@ -113,7 +118,6 @@
                 <a href="/investidores">investidores</a>
                 <a href="/contatos">contatos</a>
             </nav>
-
             <div class="search-menu">
                 <button id="search" class="search-button" aria-label="Pesquisar">
                     <i aria-hidden="true" aria-hidden="true" id="search-icon"><img

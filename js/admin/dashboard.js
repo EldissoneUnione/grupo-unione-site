@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Verifica se está autenticado
     if (!localStorage.getItem('adminToken')) {
-        window.location.href = '/pages/admin/login.html';
+        window.location.href = '/admin/login.html';
         return;
     }
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logoutButton.addEventListener('click', (e) => {
         e.preventDefault();
         localStorage.removeItem('adminToken');
-        window.location.href = '/pages/admin/login.html';
+        window.location.href = '/admin/login.html';
     });
 
     // Carrega os dados do dashboard

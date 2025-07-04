@@ -13,11 +13,13 @@
 </head>
 
 <body>
-    <header class="header" id="navBarHeder" role="banner">
+     <header class="header" id="navBarHeder" role="banner">
         <nav class="nav-container" role="navigation" aria-label="Menu principal">
             <div class="logo" id="logo">
-                <img id="logo1" src="../../assets/logo/Grupo-Unione_Logotipo.png" alt="Logo do Grupo Unione" width="100" height="100">
-                <img id="logo2" src="../../assets/logo/Grupo-Unione_Logo.png" alt="Logo do Grupo Unione" width="100" height="100">
+                <img id="logo1" src="../../assets/logo/Grupo-Unione_Logotipo.png" alt="Logo do Grupo Unione" width="100"
+                    height="100">
+                <img id="logo2" src="../../assets/logo/Grupo-Unione_Logo.png" alt="Logo do Grupo Unione" width="100"
+                    height="100">
             </div>
             <div class="nav-links">
                 <nav>
@@ -74,25 +76,29 @@
                 </label>
 
                 <button id="searchNav" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img src="../../assets/icons/search_thin.svg"
-                            alt="search"></i>
+                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
+                            src="../../assets/icons/search_thin.svg" alt="search"></i>
                 </button>
             </div>
         </nav>
-        <button class="lang" aria-label="Mudar idioma">Pt</button>
+        <div class="switch lang" aria-label="Mudar idioma">
+            <input id="language-toggle" class="check-toggle check-toggle-round-flat language-toggle" type="checkbox">
+            <label for="language-toggle"></label>
+            <span class="on">PT</span>
+            <span class="off">EN</span>
+        </div>
 
         <div class="search-conteiner">
             <div class="search-top">
                 <button id="search" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img src="../../assets/icons/search_thin.svg"
-                            alt="search"></i>
+                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
+                            src="../../assets/icons/search_thin.svg" alt="search"></i>
                     <input type="text" placeholder="Pesquisar sobre..." id="search-input">
 
-                        <svg class="close-btn" id="FeicharBtn" viewBox="0 0 24 24" width="18" height="18" fill="white">
-                            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" />
-                        </svg>
-                  
+                    <svg class="close-btn" id="FeicharBtn" viewBox="0 0 24 24" width="18" height="18" fill="white">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+
                 </button>
 
                 <div class="search-box">
@@ -103,7 +109,7 @@
 
         </div>
         <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
-         
+
             <nav class="nav-links-menu">
                 <a href="/grupo">grupo unione</a>
                 <a href="/empresas">empresas</a>
@@ -112,11 +118,10 @@
                 <a href="/investidores">investidores</a>
                 <a href="/contatos">contatos</a>
             </nav>
-
-               <div class="search-menu">
+            <div class="search-menu">
                 <button id="search" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img src="../../assets/icons/search_thin.svg"
-                            alt="search"></i>
+                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
+                            src="../../assets/icons/search_thin.svg" alt="search"></i>
                     <input type="text" placeholder="Pesquisar sobre..." id="search-input">
                 </button>
             </div>

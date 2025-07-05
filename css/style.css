@@ -1474,6 +1474,7 @@ section {
 
 .projectos-section {
     background-color: var(--bg-body);
+    box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.10);
     border-radius: var(--border2);
     height: 100vh;
     position: relative;
@@ -1481,7 +1482,6 @@ section {
     flex-direction: column;
     max-width: 100%;
     z-index: 2;
-    box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.10);
 }
 
 .projectos-section .carousel-container-project {
@@ -1553,13 +1553,15 @@ video {
 }
 
 .polis-section {
-    position: relative;
+    position: sticky;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 1000px;
     margin-top: -120px;
+    bottom: 0;
+     z-index: 1;
 
     .card-overlay {
         position: absolute;
@@ -1587,17 +1589,17 @@ video {
 
     .card-overlay .btn {
         display: inline-block;
-        padding: 8px 15px;
+        padding: 5px 15px;
         background-color: var(--white);
         border: 1px solid transparent;
         color: var(--text-color3);
         text-decoration: none;
-        border-radius: 20px;
-        font-size: 22px;
+        border-radius: 50px;
+        font-size: 20px;
         transition: background-color 0.3s, color 0.3s;
         position: absolute;
-        right: 0;
-        bottom: 5px;
+        left: 85px;
+        bottom: 12px;
         opacity: 0.8;
     }
 

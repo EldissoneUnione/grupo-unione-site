@@ -972,7 +972,6 @@ section {
 .destaque-section .card.active {
     transform: scale(1.08) translateY(-1px);
     z-index: 2;
-    width: 400px;
     pointer-events: auto;
     margin: 0 20px;
     border-radius: 50px !important;

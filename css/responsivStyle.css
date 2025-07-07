@@ -703,6 +703,7 @@
 
     .card.active {
         opacity: 1;
+        width: 370px;
         transform: scale(1.02) translateY(0px);
     }
 

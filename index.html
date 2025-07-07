@@ -71,13 +71,13 @@
                                 <a href="/empresas/okukulanaua" role="menuitem"
                                     data-translate="okukulanaua">Okukulanaua</a>
                                 <a href="/empresas/quavi" role="menuitem" data-translate="quavi">Quavi</a>
-                                <a href="/empresas/unione" role="menuitem" data-translate="UNIONE">Unione</a>
-                                <a href="/empresas/mbt" role="menuitem" data-translate="MBT ENERGIA ">MBT Energia</a>
+                                <a href="/empresas/unione" role="menuitem" data-translate="Unione">Unione</a>
+                                <a href="/empresas/mbt" role="menuitem" data-translate="MBT-Energia">MBT Energia</a>
                                 <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
-                                <a href="/empresas/Infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
+                                <a href="/empresas/Infraone" role="menuitem" data-translate="Infraone">Infraone</a>
                                 <a href="/empresas/Metalangol" role="menuitem"
                                     data-translate="METALANGOL">Metalangol</a>
-                                <a href="/empresas/mater" role="menuitem" data-translate="MATER">Mater</a>
+                                <a href="/empresas/mater" role="menuitem" data-translate="Mater">Mater</a>
                                 <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                             </div>
                         </div>
@@ -619,44 +619,7 @@
 
             <section class="card-section projectos-section">
                 <h1 class="titulo" data-translate="projectos" data-aos="fade-down">Projectos</h1>
-                <div class="carousel-container-project aos-all">
-                    <div class="card-project" data-aos="fade-down">
-                        <img src="assets/Imagens/Projeto 1/central1.jpg" alt="central">
-                        <div class="card-project-overlay">
-                            <h3>Central Híbrida-Solar & Diesel: Município dos Gambos, Huíla</h3>
-                            <button class="btn"><span class="text">ver mais</span><span>ver
-                                    mais</span></button>
-                        </div>
-                    </div>
-
-                    <div class="card-project" data-aos="fade-down" data-aos-delay="200"
-                        data-aos-easing="ease-in">
-                        <img src="assets/Imagens/Projeto 2/Granja_Área Interior_4.png" alt="">
-                        <div class="card-project-overlay">
-                            <h3>Granja de Suínos: Humpata, Huíla</h3>
-                            <button class="btn"><span class="text">ver mais</span><span>ver
-                                    mais</span></button>
-                        </div>
-                    </div>
-
-                    <div class="card-project" data-aos="fade-down" data-aos-delay="600" data-aos-easing="ease-in">
-                        <img src="assets/Imagens/Projeto 3/Scene 6_2.jpg" alt="">
-                        <div class="card-project-overlay">
-                            <h3>Projeto de Desenvolvimento de Centro de Distribuição e Logística - Huíla, Humpata</h3>
-                            <button class="btn"><span class="text">ver mais</span><span>ver
-                                    mais</span></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-navigation">
-                    <div class="dots">
-                        <span class="dot"></span>
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                    </div>
-                </div>
-
+                <div id="projetos-cards" class="carousel-container-project aos-all"></div>
             </section>
         </main>
 
@@ -680,34 +643,7 @@
 
         <section id="noticias" class="noticias-section">
             <h1 class="titulo" data-translate="noticias-imprensa" data-aos="fade-down">Notícias e Imprensa</h1>
-            <div class="carousel-container-noticias">
-                <div class="card-blog" data-aos="fade-down">
-                    <img id="img-card" src="assets/Imagens/Projeto 2/Granja_Área Interior_8.png"
-                        alt="Retomada da Granja">
-                    <section>
-                        <span>12 / Abril 2025</span>
-                        <h4>Retomada da Produção de Suínos de Genética Pura Marca Nova Fase na Nossa Granja</h4>
-                        <a href="#">ver mais</a>
-                    </section>
-                </div>
-                <div class="card-blog" data-aos="fade-down" data-aos-delay="200" data-aos-easing="ease-in">
-                    <img id="img-card" src="assets/Imagens/epas/epas.jpg" alt="epas">
-                    <section>
-                        <span>20 / Março 2025</span>
-                        <h4>EPAS- Huila Realiza Team Building de Sucesso com Dinâmicas Interativas e Estratégicas no
-                            POLIS</h4>
-                        <a href="#">ver mais</a>
-                    </section>
-                </div>
-                <div class="card-blog" data-aos="fade-down" data-aos-delay="600" data-aos-easing="ease-in">
-                    <img id="img-card" src="assets/Imagens/JVL/jvl.jpg" alt="jv+l">
-                    <section>
-                        <span>08 / Março 2025</span>
-                        <h4>Adolescentes do Projeto JV+L Colhem os Frutos de Seu Trabalho e Transformam Vidas!</h4>
-                        <a href="#">ver mais</a>
-                    </section>
-                </div>
-            </div>
+            <div id="noticias-cards" class="carousel-container-noticias"></div>
         </section>
 
         <section class="contactos-section">
@@ -862,6 +798,16 @@
 
     </div>
 
+    <!-- Chat Bot Widget -->
+    <div id="chatbot-widget" class="minimized">
+        <div id="chatbot-header">ChatBot <span id="chatbot-toggle">_</span></div>
+        <div id="chatbot-body">
+            <div id="chatbot-messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." autocomplete="off" />
+            <button id="chatbot-send">Enviar</button>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/Flip.min.js"></script>
@@ -870,16 +816,19 @@
     <script>gsap.registerPlugin(ScrollTrigger);</script>
 
     <script src="js/script.js"></script>
+    <script src="js/scriptProjNot.js"></script>
     <script src="js/load.js"></script>
     <script src="js/animar.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/slide.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/scrollEmpresaAreas.js"></script>
-    <script src="js/carouselN.js"></script>
+    <script src="js/noticiasData.js"></script>
+    <script src="js/projetosData.js"></script>
     <script src="js/scroolslide.js"></script>
     <script src="js/routes.js"></script>
     <script src="js/translations.js"></script>
+    <script src="js/searchData.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
@@ -907,6 +856,9 @@
             easing: 'ease-in-out-sine'
         });
     </script>
+
+
+    
 </body>
 
 </html>

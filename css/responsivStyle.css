@@ -548,21 +548,18 @@
         display: flex;
     }
 
-
     .loader-logo {
-        width: 90%;
+        width: 100%;
         flex-direction: column;
     }
-
 
     .burger {
         display: block;
     }
 
     #type-text {
-        font-size: 45px;
-        margin-left: 10px;
-        margin-top: -50px;
+        margin-left: 0px;
+        margin-top: -120px;
     }
 
     .menu-container {
@@ -893,7 +890,7 @@
         transform: scale(1.2) translateY(0px);
     }
 
-    .projectos-section .card-project-overlay h3 {
+    .card-project-overlay h3 {
         margin-top: 20px;
         font-size: 22px;
         font-weight: 400;

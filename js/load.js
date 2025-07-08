@@ -1,7 +1,7 @@
-window.addEventListener('load', () => {
+function runIntroAnimation() {
     const loader = document.querySelector('.loading');
-    const logo = document.getElementById('logo-svg'); 
-    const logoContent = document.querySelector('.logo-content'); 
+    const logo = document.getElementById('logo-svg');
+    const logoContent = document.querySelector('.logo-content');
     const siteContent = document.querySelector('.site-content');
     const typeText = document.getElementById('type-text');
 
@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
             opacity: 1,
             transformOrigin: "50% 50%",
             duration: 1
-        }, i * 0.5);
+        }, i * 0.6);
     });
 
     tl.add(() => {
@@ -60,29 +60,29 @@ window.addEventListener('load', () => {
         const tl = gsap.timeline();
 
         tl.to(typeText, {
-            scale: 1.2,
-            duration: 0.4,
+            scale: 1,
+            duration: 0,
             ease: "power2.out"
         })
-        .to(logo, {
-            y: -15,
-            duration: 0.4,
-            ease: "bounce.out"
-        })
-        .to(logo, {
-            y: -50,
-            duration: 1,
-            ease: "power2.inOut"
-        })
-        .to(typeText, {
-            scale: 0,
-            opacity: 0,
-            duration: 1,
-            ease: "power2.in"
-        }, "<")
-        .add(() => {
-            startFlip();
-        });
+            .to(logo, {
+                y: -15,
+                duration: 0.4,
+                ease: "bounce.out"
+            })
+            .to(logo, {
+                y: -50,
+                duration: 1,
+                ease: "power2.inOut"
+            })
+            .to(typeText, {
+                scale: 0,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.in"
+            }, "<")
+            .add(() => {
+                startFlip();
+            });
     }
 
     function startFlip() {
@@ -108,11 +108,11 @@ window.addEventListener('load', () => {
 
                     let logoImg = "";
                     if (window.innerWidth <= 768) {
-                        logoImg = `<img  src="assets/logo/Grupo-Unione_Logo.png" alt="Logo do Grupo Unione mobile"
-                                         style="height:100%; width:auto;" />`;
+                        logoImg = `<img src="assets/logo/Grupo-Unione_Logo.png" alt="Logo mobile"
+                                       style="height:100%; width:auto;" />`;
                     } else {
-                        logoImg = `<img src="assets/logo/Grupo-Unione_Logotipo.png" alt="Logo do Grupo Unione Desktop"
-                                         style="height:100%; width:auto;" />`;
+                        logoImg = `<img src="assets/logo/Grupo-Unione_Logotipo.png" alt="Logo desktop"
+                                       style="height:100%; width:auto;" />`;
                     }
                     logoContent.innerHTML = logoImg;
                 }
@@ -127,4 +127,9 @@ window.addEventListener('load', () => {
             duration: 0.8
         }, "<");
     }
+}
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    runIntroAnimation();
 });

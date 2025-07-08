@@ -1,7 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     if (window.NOTICIAS_DATA) {
-        // Ordena por data (mais recente primeiro) - ajuste se necessário
         const noticiasRecentes = window.NOTICIAS_DATA.slice(-3).reverse();
         const container = document.getElementById('noticias-cards');
         if (container) {
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
           </div>
         </div>
       `).join('');
-            // Clique apenas no botão 'ver mais'
             container.querySelectorAll('.ver-mais-projeto').forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.preventDefault();

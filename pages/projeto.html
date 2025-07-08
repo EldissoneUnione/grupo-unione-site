@@ -19,14 +19,13 @@
     <link rel="canonical" href="https://unioneafrica.com">
     <title>Projectos - Grupo Unione</title>
     <link rel="preload" href="../css/style.css" as="style">
-    <link rel="preload" href="../css/styleProjectos.css" as="style">
+    <link rel="preload" href="../css/styleNoticias.css" as="style">
     <link rel="preload" href="../css/responsivStyle.css" as="style">
     <link rel="preload" href="assets/logo/grupo_logo_circulo.webp" as="image">
     <link rel="stylesheet" href="../css/load.css">
     <link rel="preload" href="assets/Imagens/2168.webp" as="image">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/grupo.css">
-    <link rel="stylesheet" href="../css/styleProjectos.css">
+    <link rel="stylesheet" href="../css/styleNoticias.css">
     <link rel="stylesheet" href="../css/responsivStyle.css">
     <link rel="stylesheet" href="../css/load.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -38,6 +37,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <header class="header" id="navBarHeder" role="banner">
         <nav class="nav-container" role="navigation" aria-label="Menu principal">
@@ -107,7 +107,7 @@
                 </button>
             </div>
         </nav>
-         <div class="switch lang" aria-label="Mudar idioma">
+        <div class="switch lang" aria-label="Mudar idioma">
             <input id="language-toggle" class="check-toggle check-toggle-round-flat language-toggle" type="checkbox">
             <label for="language-toggle"></label>
             <span class="on">PT</span>
@@ -155,19 +155,209 @@
         </div>
     </header>
 
-  <section class="projeto-section-view">
-      <img id="projeto-img" src="" alt="">
-    <div id="projeto-detalhe">
-      <h2 id="projeto-titulo"></h2>
-      <div id="projeto-conteudo"></div>
-    </div>
-    
-    <h3 class="titulo">Outros projetos</h3>
-    <div id="outros-projetos" class="carousel-container-project"></div>
-</section>
-<a href="../index.html#projectos" class="btn" style="margin: 24px 0; display: inline-block;">← Voltar para projetos</a>
-  <script src="../js/projetosData.js"></script>
-  <script src="../js/scriptProject.js"></script>
+    <section class="projeto-section-view">
+        <img id="projeto-img" src="" alt="">
+        <div id="projeto-detalhe">
+            <h2 id="projeto-titulo"></h2>
+            <div id="projeto-conteudo"></div>
+        </div>
 
+        <h3 class="titulo">Outros projetos</h3>
+        <div id="outros-projetos" class="carousel-container-project"></div>
+    </section>
+
+    <a href="../index.html#projectos" class="btn-saiba-mais"><span class="text">← Voltar para projetos</span><span>
+            ←
+        </span></a>
+
+
+
+    <div id="chatbot-widget" class="minimized">
+        <div id="chatbot-header">ChatBot <span id="chatbot-toggle">_</span></div>
+        <div id="chatbot-body">
+            <div id="chatbot-messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." autocomplete="off" />
+            <button id="chatbot-send">Enviar</button>
+        </div>
+    </div>
+
+    <section class="contactos-section">
+        <div class="contact-info">
+            <div class="logo-contact">
+                <img src="../assets/Logos Brancos/Grupo Unione.png" alt="grupo unione logotipo">
+            </div>
+
+            <h2 data-translate="contacte-nos">Contacte-nos</h2>
+            <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla
+            </p>
+            <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+            <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+
+            <div class="social">
+                <h3 data-translate="siga-nos">Siga-nos</h3>
+                <a target="_blank" href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i
+                        class="fab fa-linkedin"></i></a>
+                <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i
+                        class="fab fa-instagram"></i></a>
+                <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+
+
+        <div class="contact-form">
+            <h2 data-translate="fale-conosco">Fale conosco</h2>
+            <form>
+                <div class="options">
+                    <button type="button" data-translate="particular">Particular</button>
+                    <button type="button" class="empresaBtn" data-translate="empresa">Empresa</button>
+                </div>
+
+                <input type="empresa" class="empresa" id="empresaInput" placeholder="Empresa" data-translate="empresa">
+                <input type="text" placeholder="Seu Nome" data-translate="seu-nome" required>
+                <input type="email" placeholder="Seu E-mail" data-translate="seu-email" required>
+
+                <textarea placeholder="Mensagem" rows="5" data-translate="mensagem" required></textarea>
+                <button type="submit" class="submit-btn" data-translate="enviar">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="w">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5681.374665046663!2d13.346179365522373!3d-14.975112394424539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2f46708b81237da5%3A0x5bc43cb7405af95d!2sGrupo%20Unione!5e1!3m2!1spt-PT!2sao!4v1748271694849!5m2!1spt-PT!2sao"
+                title="localização do grupo unione" width="100%" height="400" style="border:0;" allowfullscreen=""
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="bottom">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <!-- <img src="assets/logo/Grupo Unione-branco.webp" alt="Grupo UNIONE" class="logo-footer"> -->
+                    <h4 data-translate="Grupo unione"><small>Grupo <strong>unione</strong></small></h4>
+                    <ul>
+                        <li><a href="#" data-translate="o-grupo">O Grupo</a></li>
+                        <li><a href="#" data-translate="historia">História</a></li>
+                        <li><a href="#" data-translate="missao">Missão</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-translate="pessoas">Pessoas</h4>
+                    <ul>
+                        <li><a href="#" data-translate="trabalhe-conosco">Trabalhe conosco</a></li>
+                        <li><a href="#" data-translate="programas-estagio">Programas de Estágio</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-column">
+                    <h4 data-translate="areas-negocios">Áreas de Negócio</h4>
+                    <ul class="coluna-dupla">
+                        <li><a href="#">Saúde</a></li>
+                        <li><a href="#">Telecomunicações</a></li>
+                        <li><a href="#">Construção Civil</a></li>
+                        <li><a href="#">Jurídico</a></li>
+                        <li><a href="#">Hotelaria</a></li>
+                        <li><a href="#">Energia</a></li>
+                        <li><a href="#">Metalmecânica</a></li>
+                        <li><a href="#">Ensino</a></li>
+                        <li><a href="#">Agropecuária</a></li>
+                        <li><a href="#">Indústria Mecânica</a></li>
+                        <li><a href="#">Consultoria</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-column">
+                    <h4 data-translate="siga-nos">Siga-nos</h4>
+                    <div class="social-icons">
+                        <a target="_blank"
+                            href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i
+                                class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                    <ul class="termo">
+                        <li><a href="#" data-translate="politica-privacidade">Política de Privacidade</a></li>
+                        <li><a href="#" data-translate="termos-condicoes">Termos e Condições</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div aria-hidden="true" class="footer-logos">
+                <div class="marquee-F">
+                    <div class="marquee__group">
+                        <img src="../assets/Logos Brancos/Corpo e Mente.png" alt="cem">
+                        <img src="../assets/Logos Brancos/MBT.png" alt="mbt">
+                        <img src="../assets/Logos Brancos/Quavi.png" alt="quavi">
+                        <img src="../assets/Logos Brancos/Okukulanaua.png" alt="okukulanaua">
+                        <img src="../assets/Logos Brancos/Kalanaua.png" alt="Kalanaua">
+                        <img src="../assets/Logos Brancos/Tecnology.png" alt="Tecnology">
+                        <img src="../assets/Logos Brancos/Unione.png" alt="unione">
+                        <img src="../assets/Logos Brancos/Fibra.png" alt="Fibra">
+                        <img src="../assets/Logos Brancos/Infraone.png" alt="Infraone">
+                        <img src="../assets/Logos Brancos/Integracons.png" alt="Integracons">
+                        <img src="../assets/Logos Brancos/Mater.png" alt="Mater">
+                        <img src="../assets/Logos Brancos/Metalangol.png" alt="Metalangol">
+                    </div>
+                    <div aria-hidden="true" class="marquee__group">
+                        <img src="../assets/Logos Brancos/Corpo e Mente.png" alt="cem">
+                        <img src="../assets/Logos Brancos/MBT.png" alt="mbt">
+                        <img src="../assets/Logos Brancos/Quavi.png" alt="quavi">
+                        <img src="../assets/Logos Brancos/Okukulanaua.png" alt="okukulanaua">
+                        <img src="../assets/Logos Brancos/Kalanaua.png" alt="Kalanaua">
+                        <img src="../assets/Logos Brancos/Tecnology.png" alt="Tecnology">
+                        <img src="../assets/Logos Brancos/Unione.png" alt="unione">
+                        <img src="../assets/Logos Brancos/Fibra.png" alt="Fibra">
+                        <img src="../assets/Logos Brancos/Infraone.png" alt="Infraone">
+                        <img src="../assets/Logos Brancos/Integracons.png" alt="Integracons">
+                        <img src="../assets/Logos Brancos/Mater.png" alt="Mater">
+                        <img src="../assets/Logos Brancos/Metalangol.png" alt="Metalangol">
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright &copy; 2025 Grupo Unione - <span data-translate="direitos-reservados">Todos os direitos
+                        reservados</span>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/projetosData.js"></script>
+    <script src="../js/scriptProject.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function (lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+
+    </script>
+
+    <script>
+
+    </script>
 </body>
-</html> 
+
+</html>

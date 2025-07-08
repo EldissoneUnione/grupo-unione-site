@@ -2099,22 +2099,23 @@ footer {
     position: fixed;
     bottom: 52px;
     right: 32px;
-    width: 340px;
+    width: 380px;
     max-width: 95vw;
     background: #fff;
     border-radius: 18px 18px 8px 8px;
     border: none;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 8px rgba(242,169,0,0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18), 0 1.5px 8px rgba(242, 169, 0, 0.08);
     font-family: 'Roboto', Arial, sans-serif;
     overflow: hidden;
-    transition: all 0.35s cubic-bezier(.23,1.02,.32,1);
+    transition: all 0.35s cubic-bezier(.23, 1.02, .32, 1);
     opacity: 1;
     z-index: 10;
     transform: translateY(40px) scale(0.95);
-    animation: chatbotIn 0.7s cubic-bezier(.23,1.02,.32,1) 0.2s forwards;
+    animation: chatbotIn 0.7s cubic-bezier(.23, 1.02, .32, 1) 0.2s forwards;
 
-  }
-  #chatbot-widget.minimized {
+}
+
+#chatbot-widget.minimized {
     width: 80px !important;
     height: 80px !important;
     min-width: 80px !important;
@@ -2123,7 +2124,7 @@ footer {
     max-height: 80px !important;
     border-radius: 50% !important;
     background: linear-gradient(135deg, #f2a900 60%, #b52e0f 100%);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
     padding: 1;
     cursor: pointer;
     display: flex;
@@ -2131,13 +2132,15 @@ footer {
     justify-content: center;
     z-index: 10;
 
-  }
-  #chatbot-widget.minimized #chatbot-header,
-  #chatbot-widget.minimized #chatbot-body,
-  #chatbot-widget.minimized #chatbot-whatsapp {
+}
+
+#chatbot-widget.minimized #chatbot-header,
+#chatbot-widget.minimized #chatbot-body,
+#chatbot-widget.minimized #chatbot-whatsapp {
     display: none !important;
-  }
-  #chatbot-widget.minimized::after {
+}
+
+#chatbot-widget.minimized::after {
     content: '';
     display: block;
     width: 44px;
@@ -2146,14 +2149,15 @@ footer {
     background: url('assets/logo/Grupo-Unione_Logo.png') no-repeat center center/contain;
     border-radius: 50%;
     box-shadow: 0 1px 6px #0002;
-  }
-  /* Garante que ao expandir, o conteúdo aparece */
-  #chatbot-widget:not(.minimized) #chatbot-header,
-  #chatbot-widget:not(.minimized) #chatbot-body,
-  #chatbot-widget:not(.minimized) #chatbot-whatsapp {
+}
+
+/* Garante que ao expandir, o conteúdo aparece */
+#chatbot-widget:not(.minimized) #chatbot-header,
+#chatbot-widget:not(.minimized) #chatbot-body,
+#chatbot-widget:not(.minimized) #chatbot-whatsapp {
     display: block;
-  }
-  
+}
+
 #chatbot-header {
     background: var(--text-color);
     color: #fff;
@@ -2181,7 +2185,7 @@ footer {
     flex: 1;
     overflow-y: auto;
     margin-bottom: 8px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #chatbot-input {
@@ -2215,22 +2219,22 @@ footer {
 
 .chatbot-msg-bot,
 .chatbot-msg-user {
-     position: relative;
-    padding: 10px 20px;
-    border-radius: 50px;
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 20px;
     color: var(--white);
     font-weight: 400;
-    max-width: 280px;
+    max-width: 240px;
 }
 
 
 .chatbot-msg-bot {
     background-color: var(--light-gray);
-        text-align: left;
+    text-align: left;
 }
 
-.chatbot-msg-user{
-    text-align: right;
+.chatbot-msg-user {
+    text-align: left;
     background-color: var(--text-color);
 }
 
@@ -2253,7 +2257,6 @@ footer {
     border-radius: 50%;
     margin: 0 8px;
     background: #fff;
-    border: 1.5px solid var(--text-color);
     object-fit: contain;
 }
 
@@ -2261,6 +2264,7 @@ footer {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }

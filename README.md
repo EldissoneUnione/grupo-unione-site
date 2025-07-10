@@ -12,7 +12,7 @@ Site institucional do Grupo Unione, um importante grupo empresarial e de investi
 - CSS3
 - JavaScript
 - Font Awesome
-- WebP para otimização de imagens
+- Png/jpg/jpeg para otimização de imagens
 
 ## 🎯 Otimizações Implementadas
 
@@ -24,7 +24,7 @@ Site institucional do Grupo Unione, um importante grupo empresarial e de investi
    - Cache-Control para recursos estáticos
 
 2. **Otimização de Imagens**
-   - Formato WebP para melhor compressão
+   - Formato Png para melhor compressão
    - Lazy loading com IntersectionObserver
    - Dimensões otimizadas (800x450)
    - Preload de imagens críticas
@@ -88,8 +88,6 @@ grupo-unione-site/
 ```html
 <link rel="preload" href="css/style.css" as="style">
 <link rel="preload" href="css/responsivStyle.css" as="style">
-<link rel="preload" href="assets/logo/grupo_logo_circulo.webp" as="image">
-<link rel="preload" href="assets/Imagens/2168.webp" as="image">
 ```
 
 ### Carregamento Otimizado de Scripts

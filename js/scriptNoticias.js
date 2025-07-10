@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('noticia-conteudo').innerHTML = noticia.conteudo;
     }
 
-    // Exibir outras notícias
     const outrasNoticias = window.NOTICIAS_DATA.filter(n => n.id !== noticia.id);
     const container = document.getElementById('outras-noticias');
     container.innerHTML = outrasNoticias.map(n => `
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     `).join('');
 
-    // Clique nos cards de outras notícias
+    
     container.querySelectorAll('.card-blog').forEach(card => {
         card.addEventListener('click', function (e) {
             if (e.target.tagName === 'A') e.preventDefault();
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const noticia = window.NOTICIAS_DATA.find(n => n.id === id);
             if (noticia) {
                 localStorage.setItem('noticiaSelecionada', JSON.stringify(noticia));
-                window.location.reload(); // Recarrega a página para mostrar a nova notícia
+                window.location.reload(); 
             }
         });
     });

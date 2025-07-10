@@ -216,35 +216,6 @@
 
         }
 
-        .icon-item {
-            padding: 10px 0;
-            width: 50px;
-        }
-
-        .icon-item.left-column {
-            gap: 5px;
-        }
-
-        .icon-item.right-column {
-            gap: 5px;
-        }
-
-        .icon-circle {
-            width: 50px;
-            height: 50px;
-            font-size: 2em;
-        }
-
-        .center-span h1 {
-            font-size: 1.5em;
-        }
-
-        .center-span p {
-            margin: 0;
-            font-size: 1.3em;
-            color: #666;
-        }
-
         .sobre-container {
             margin-top: 2rem;
             border-top-left-radius: 50px;
@@ -788,40 +759,48 @@
             display: none;
         }
 
-        .image-container {
-            height: 290px;
-        }
-
-        .icon-item {
-            padding: 10px 0;
-            width: 50px;
-        }
-
-        .icon-item.left-column {
-            gap: 5px;
-        }
-
-        .icon-item.right-column {
-            gap: 5px;
-        }
-
-        .icon-circle {
-            width: 50px;
-            height: 50px;
-            font-size: 2em;
-        }
-
-        .icon-text {
-            text-align: start;
-            font-size: 1em;
-            color: var(--light-gray);
-            white-space: wrap;
-            display: none !important;
+        text {
+            font-size: 80px;
+            position: relative;
         }
 
         .donut {
-            width: 100%;
+            width: 140px;
+            height: 150px;
+            margin-bottom: 10px;
         }
+
+        .tit {
+            bottom: 0%;
+            font-size: 2rem;
+
+        }
+
+        .number {
+            width: 100%;
+            position: absolute;
+            border-radius: 50px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+            z-index: 2;
+            background-color: var(--bg-body);
+        }
+
+    }
+
+    .sobre-container .numsection {
+        position: sticky;
+        border-radius: 50px;
+        height: 400px;
+        width: 100%;
+        max-width: 1300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 1rem;
+        transition: border-radius 0.2s;
+        background-color: #f0f0f0;
     }
 
     .empresa-section {

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const query = searchInput.value.trim().toLowerCase();
       searchBox.innerHTML = '';
       if (query.length < 2) {
-        searchBox.style.display = 'none';
+        // searchBox.style.display = 'none';
         return;
       }
       const results = window.SEARCH_DATA.filter(item =>
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     document.addEventListener('click', function (e) {
       if (!searchBox.contains(e.target) && e.target !== searchInput) {
-        searchBox.style.display = 'none';
+        // searchBox.style.display = 'none';
       }
     });
   });

@@ -215,7 +215,7 @@
             flex-direction: initial;
 
         }
-
+/*
         .sobre-container {
             margin-top: 2rem;
             border-top-left-radius: 50px;
@@ -244,7 +244,7 @@
             height: auto;
             padding: 0;
         }
-
+*/
 
     }
 
@@ -720,7 +720,7 @@
         .content-block::after {
             display: none;
         }
-
+/*
         .sobre-container {
             margin-top: 2rem;
             border-top-left-radius: 50px;
@@ -734,22 +734,7 @@
             justify-content: center;
         }
 
-        .center-span h1 {
-            font-size: 1.5em;
-        }
-
-        .center-span p {
-            margin: 0;
-            font-size: 1.3em;
-            color: #666;
-        }
-
-        .content-grid {
-            flex-direction: column;
-            width: 100%;
-            height: auto;
-            padding: 0;
-        }
+        */
 
         .content-top,
         .content-bottom {

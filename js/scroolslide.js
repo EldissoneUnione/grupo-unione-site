@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const numSections = document.querySelectorAll('.numsection');
-
    
     window.addEventListener('scroll', () => {
         numSections.forEach(numsection => {
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             numsection.style.borderRadius = `${radius}px`;
         });
     });
-
 
     const counters = document.querySelectorAll('tspan[data-target]');
     const observer = new IntersectionObserver(entries => {

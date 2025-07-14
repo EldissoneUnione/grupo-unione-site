@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentSlide = 0;
     let slideInterval;
     const slideDelay = 5000;
-    const maxVisibleDots = 5;
+    const maxVisibleDots = 6;
 
     function generateDots() {
         dotsContainer.innerHTML = '';
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dot.setAttribute('aria-selected', 'false');
             dot.addEventListener('click', () => {
                 stopSlideShow();
-                // Ajusta o índice real
+               
                 currentSlide = getRealIndex(index);
                 showSlide(currentSlide);
                 startSlideShow();

@@ -201,13 +201,6 @@
             justify-content: center;
         }
 
-        .content-grid {
-            flex-direction: column;
-            width: 100%;
-            height: auto;
-            padding: 0;
-        }
-
         .content-top,
         .content-bottom {
             height: auto;
@@ -215,7 +208,8 @@
             flex-direction: initial;
 
         }
-/*
+
+        /*
         .sobre-container {
             margin-top: 2rem;
             border-top-left-radius: 50px;
@@ -229,21 +223,7 @@
             justify-content: center;
         }
 
-        .icon-item {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 10px 0;
-            width: 300px;
-            margin: 20px;
-        }
-
-        .content-grid {
-            flex-direction: column;
-            width: 100%;
-            height: auto;
-            padding: 0;
-        }
+     
 */
 
     }
@@ -720,7 +700,8 @@
         .content-block::after {
             display: none;
         }
-/*
+
+        /*
         .sobre-container {
             margin-top: 2rem;
             border-top-left-radius: 50px;
@@ -744,48 +725,6 @@
             display: none;
         }
 
-        text {
-            font-size: 80px;
-            position: relative;
-        }
-
-        .donut {
-            width: 140px;
-            height: 150px;
-            margin-bottom: 10px;
-        }
-
-        .tit {
-            bottom: 0%;
-            font-size: 2rem;
-
-        }
-
-        .number {
-            width: 100%;
-            position: absolute;
-            border-radius: 50px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
-            z-index: 2;
-            background-color: var(--bg-body);
-        }
-
-    }
-
-    .sobre-container .numsection {
-        position: sticky;
-        border-radius: 50px;
-        height: 400px;
-        width: 100%;
-        max-width: 1300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        font-size: 1rem;
-        transition: border-radius 0.2s;
-        background-color: #f0f0f0;
     }
 
     .empresa-section {
@@ -810,8 +749,12 @@
     .areas-section {
         max-height: 600px;
         margin: 0;
-        border: 1px solid red;
     }
+
+    .reveal-next-mobile {
+        display: flex;
+    }
+
 
     .item {
         width: 95vmin;

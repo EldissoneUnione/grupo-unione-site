@@ -1,5 +1,5 @@
 window.NOTICIAS_DATA = [
-  {
+  { 
     id: 1,
     img: "assets/Imagens/Projeto 2/Granja_Área Interior_8.png",
     data: "12 / Abril 2025",
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (noticia) {
         localStorage.setItem('noticiaSelecionada', JSON.stringify(noticia));
-        window.location.href = 'pages/noticia.html';
+        window.location.href = '/pages/noticia.html';
       }
     });
   });

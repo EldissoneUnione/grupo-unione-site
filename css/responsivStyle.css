@@ -693,7 +693,7 @@
         .text-bottom {
             width: 100%;
             bottom: 0;
-            top: -5px;
+            top: 20px;
             padding: 20px;
         }
 
@@ -701,9 +701,8 @@
             display: none;
         }
 
-        /*
+
         .sobre-container {
-            margin-top: 2rem;
             border-top-left-radius: 50px;
             border-top-right-radius: 50px;
             padding-top: 1rem;
@@ -713,9 +712,15 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
+
+            & svg {
+                width: 100%;
+                height: 550px;
+            }
+
         }
 
-        */
 
         .content-top,
         .content-bottom {
@@ -724,8 +729,9 @@
             flex-direction: initial;
             display: none;
         }
-
     }
+
+
 
     .empresa-section {
         border-top-left-radius: 50px;

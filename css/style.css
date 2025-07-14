@@ -2028,7 +2028,7 @@ footer {
 #chatbot-widget {
     position: fixed;
     bottom: 52px;
-    right: 32px;
+    right: 15px;
     width: 380px;
     max-width: 95vw;
     background: #fff;

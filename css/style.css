@@ -238,9 +238,7 @@ header {
     transform: translateX(-50%);
     min-width: 220px;
     padding: 12px 20px;
-    background: var(--bg-nav);
-    -webkit-backdrop-filter: blur(45px);
-    backdrop-filter: blur(45px);
+    background: var(--bg-body);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     border-radius: 12px;
     z-index: 999;
@@ -1291,10 +1289,6 @@ section {
     display: block;
 }
 
-.icon-empresa:hover {
-    filter: grayscale(0%);
-}
-
 .conteiner-Principal {
     width: 100%;
     position: relative;
@@ -1373,7 +1367,7 @@ section {
     transition: 0.5s;
     cursor: pointer;
     object-position: center center;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease ;
 
     & .card-overlay {
         position: absolute;
@@ -1396,9 +1390,9 @@ section {
     transition: transform 0.8s ease, filter 0.8s ease;
 }
 
-.item:hover .image {
-    transform: scale(1.01);
-    filter: brightness(1.01);
+.item:hover  {
+    transform: scale(1.02);
+    filter: brightness(1.02);
 }
 
 .item h3 {

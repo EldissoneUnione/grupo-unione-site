@@ -209,7 +209,6 @@
 
         }
 
-        /*
         .sobre-container {
             margin-top: 2rem;
             border-top-left-radius: 50px;
@@ -222,9 +221,6 @@
             align-items: center;
             justify-content: center;
         }
-
-     
-*/
 
     }
 
@@ -715,8 +711,8 @@
 
 
             & svg {
-                width: 100%;
-                height: 550px;
+                width: 90%;
+                height: 500px;
             }
 
         }

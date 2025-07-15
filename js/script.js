@@ -141,7 +141,7 @@ dropdowns.forEach(dropdown => {
   dropdown.addEventListener('mouseleave', () => {
     timeout = setTimeout(() => {
       menu.classList.remove('show');
-    }, 200);
+    }, 100);
   });
 
 });

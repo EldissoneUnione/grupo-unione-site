@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </div>
     `).join('');
-    
+     
 
     container.querySelectorAll('.card-project').forEach(card => {
         card.addEventListener('click', function (e) {

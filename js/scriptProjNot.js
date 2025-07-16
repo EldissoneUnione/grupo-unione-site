@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const noticia = window.NOTICIAS_DATA.find(n => n.id === id);
                     if (noticia) {
                         localStorage.setItem('noticiaSelecionada', JSON.stringify(noticia));
-                        window.location.href = '/pages/noticia.html';
+                        window.location.href = 'pages/noticia.html';
                     }
                 });
             });
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const projeto = window.PROJETOS_DATA.find(p => p.id === id);
                     if (projeto) {
                         localStorage.setItem('projetoSelecionado', JSON.stringify(projeto));
-                        window.location.href = '/pages/projeto.html';
+                        window.location.href = 'pages/projeto.html';
                     }
                 });
             });

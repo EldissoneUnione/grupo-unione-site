@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const projeto = window.PROJETOS_DATA.find(p => p.id === id);
                     if (projeto) {
                         localStorage.setItem('projetoSelecionado', JSON.stringify(projeto));
-                        window.location.href = 'pages/projeto.html';
+                        window.location.href = '/pages/projeto.html';
                     }
                 });
             });

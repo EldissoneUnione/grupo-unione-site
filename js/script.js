@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(loaderContainer);
 
       setTimeout(() => {
-        window.location.assign("/");
+        window.location.assign("/index.html");
       }, 2000);
     });
   } else {

@@ -138,7 +138,8 @@
     .card,
     .card-project {
         width: 300px;
-        height: 450px
+        height: 450px;
+
     }
 
     .card.active,
@@ -189,9 +190,7 @@
         }
 
         .sobre-container {
-            margin-top: 2rem;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
+
             padding: 1rem 2rem;
             width: 100%;
             text-align: center;
@@ -208,20 +207,6 @@
             flex-direction: initial;
 
         }
-
-        .sobre-container {
-            margin-top: 2rem;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
-            padding-top: 1rem;
-            width: 100%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
     }
 
     .empresa-section {
@@ -626,6 +611,10 @@
         }
     }
 
+    .slim-icon {
+        -webkit-text-stroke: 1px var(--bg-body);
+    }
+
     .carousel-container {
         display: flex;
         align-items: center;
@@ -634,13 +623,13 @@
         padding: 10px;
         overflow: hidden;
         max-width: 100%;
-        height: 500px;
+        height: 600px;
         padding: 10px 0;
     }
 
     .destaque-section .card {
         width: 85vw;
-        height: 400px;
+        height: 450px;
         opacity: 0.5;
         border-radius: 50px !important;
     }
@@ -697,10 +686,7 @@
             display: none;
         }
 
-
         .sobre-container {
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
             padding-top: 1rem;
             width: 100%;
             text-align: center;
@@ -709,12 +695,39 @@
             align-items: center;
             justify-content: center;
 
-
             & svg {
                 width: 90%;
-                height: 500px;
+                height: 400px;
             }
 
+            .dashboard-container {
+                display: flex;
+                padding: 30px 10px;
+                padding-bottom: 80px;
+                max-height: 100%;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .left-panel,
+            .right-panel {
+                width: 70%;
+                height: 100%;
+                padding: 2rem;
+            }
+
+            .donut-chart::after,
+            .donut-chart::before {
+              display: none;
+            }
+       
+
+            .donut-chart {
+                width: 100%;
+                height: 380px;
+
+            }
         }
 
         .content-top,
@@ -726,13 +739,10 @@
         }
     }
 
-
-
     .empresa-section {
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
         padding-top: 2rem;
-        margin-top: 0;
         padding: 1rem 0;
         max-height: 600px;
     }
@@ -756,15 +766,14 @@
         display: flex;
     }
 
-
     .item {
-        width: 95vmin;
-        height: 100vmin;
+        width: 99vmin;
+        height: 500px;
     }
 
     .image {
-        width: 85vmin;
-        height: 100vmin;
+        width: 90vmin;
+        height: 100%;
     }
 
     .projectos-section {
@@ -857,9 +866,8 @@
             height: auto;
         }
 
-
         .card-blog {
-            width: 85vw;
+            width: 90vw;
             height: 450px;
         }
 
@@ -1052,12 +1060,8 @@
 @media (max-width: 480px) {
 
     .card-baner .txt h2 {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
         line-height: 50px;
-    }
-
-    .card-baner .txt p {
-        font-size: 0.9rem;
     }
 
     .titulo,

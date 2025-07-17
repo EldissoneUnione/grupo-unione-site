@@ -1,144 +1,118 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const donutData = [
+        { name: 'Saúde e bem estar', value: 10 },
+        { name: 'Setor 2', value: 20, },
+        { name: 'Environment, Sustainable<br>Natural Resources', value: 3 },
+        { name: 'Setor 4', value: 5},
+        { name: 'Setor 5', value: 8 },
+        { name: 'Setor 6', value: 12 },
+        { name: 'Setor 7', value: 7 },
+        { name: 'Setor 8', value: 9 },
+        { name: 'Setor 9', value: 6 },
+        { name: 'Setor 10', value: 8 },
+        { name: 'Setor 11', value: 5 },
+        { name: 'Setor 12', value: 3 }
+    ];
 
-const svg = document.getElementById('donut');
-const infoPercent = document.getElementById('infoPercent');
-const infoDesc = document.getElementById('infoDesc');
+    const total = donutData.reduce((acc, cur) => acc + cur.value, 0);
+    const radius = 50;
+    const circumference = 2 * Math.PI * radius;
+    const svg = document.querySelector('svg.donut-chart');
+    let offset = 0;
 
-const segments = [
-    { start: 0, end: 31, color: '#b52e0f', label: "describe: 7%" },
-    { start: 30, end: 61, color: '#b52e0f', label: "A2: 8%" },
-    { start: 60, end: 86, color: '#f2a900', label: "B1: 20%" },
-    { start: 85, end: 96, color: '#f2a900', label: "B2: 10%" },
-    { start: 95, end: 101, color: '#f2a900', label: "B2: 5%" },
-    { start: 100, end: 106, color: '#f2a900', label: "B2: 5%" },
-    { start: 105, end: 121, color: '#f2a900', label: "B3: 15%" },
-    { start: 120, end: 151, color: '#27ae60', label: "C1: 9%" },
-    { start: 150, end: 181, color: '#27ae60', label: "C2: 9%" },
-    { start: 180, end: 211, color: '#2980b9', label: "D1: 10%" },
-    { start: 210, end: 241, color: '#2980b9', label: "D2: 10%" },
-    { start: 240, end: 251, color: '#8e44ad', label: "E1: 12%" },
-    { start: 250, end: 281, color: '#8e44ad', label: "E2: 12%" },
-    { start: 280, end: 301, color: '#16a085', label: "F1: 2%" },
-    { start: 300, end: 321, color: '#16a085', label: "F2: 6%" },
-    { start: 320, end: 361, color: '#16a085', label: "F3: 4%" },
-];
+    const overlapFix = 2.5;
 
-function polarToCartesian(cx, cy, r, angle) {
-    const rad = (angle - 90) * Math.PI / 180.0;
-    return {
-        x: cx + (r * Math.cos(rad)),
-        y: cy + (r * Math.sin(rad))
-    };
-}
+    const donutPercent = document.getElementById('donut-percent');
+    const donutDesc = document.getElementById('donut-desc');
 
-function describeArc(cx, cy, r, startAngle, endAngle) {
-    const start = polarToCartesian(cx, cy, r, startAngle);
-    const end = polarToCartesian(cx, cy, r, endAngle);
-    const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
-    return ["M", start.x, start.y, "A", r, r, 0, largeArcFlag, 1, end.x, end.y].join(" ");
-}
+    let lastActive = null;
 
-function splitLabel(label) {
-    const parts = label.split(":");
-    return {
-        desc: parts[0]?.trim() || "",
-        percent: parts[1]?.trim() || ""
-    };
-}
+    donutData.forEach((seg, i) => {
+        const percent = seg.value / total;
+        const dashLength = (percent * circumference) + overlapFix;
 
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute('cx', '60');
+        circle.setAttribute('cy', '60');
+        circle.setAttribute('r', radius);
+        circle.setAttribute('fill', 'none');
+        circle.setAttribute('stroke', seg.color);
+        circle.setAttribute('stroke-width', '18');
+        circle.setAttribute('stroke-dasharray', `0 ${circumference}`);
+        circle.setAttribute('stroke-dashoffset', -offset.toFixed(2));
+        circle.setAttribute('data-name', seg.name);
+        circle.setAttribute('data-value', seg.value);
+        circle.setAttribute('data-dasharray', `${dashLength.toFixed(2)} ${circumference}`);
+        circle.setAttribute('data-dashoffset', -offset.toFixed(2));
+        circle.classList.add(`segment`);
 
-let activeSegment = segments[0];
-segments.forEach((seg, i) => {
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", describeArc(50, 50, 40, seg.start, seg.end));
-    path.setAttribute("fill", "none");
-    path.setAttribute("stroke", seg.color);
-    path.setAttribute("stroke-width", 18);
-    path.setAttribute("stroke-linecap", "0");
+        circle.addEventListener('mouseover', () => {
+            svg.querySelectorAll('circle.segment.active').forEach(c => c.classList.remove('active'));
+            circle.classList.add('active');
+            donutPercent.textContent = `${((seg.value / total) * 100).toFixed(1)}%`;
+            donutDesc.innerHTML = seg.name;
+            lastActive = { percent: ((seg.value / total) * 100).toFixed(1), name: seg.name };
 
-    const length = path.getTotalLength();
-    path.style.strokeDasharray = length;
-    path.style.strokeDashoffset = length;
+            svg.appendChild(circle);
+        });
 
-    path.addEventListener("mouseenter", () => {
-        if (activeSegment && activeSegment !== seg) {
-            activeSegment.el.setAttribute("d", describeArc(50, 50, 40, activeSegment.start, activeSegment.end));
-            activeSegment.el.style.filter = "none";
-        }
-        path.setAttribute("d", describeArc(50, 50, 40.1, seg.start, seg.end));
-        path.style.strokeWidth = 18;
-        path.style.filter = "url(#dropShadow)";
-
-        const split = splitLabel(seg.label);
-        infoPercent.textContent = split.percent;
-        infoDesc.textContent = split.desc;
-    });
-
-    path.addEventListener("mouseleave", () => {
-        activeSegment = seg;
-        activeSegment.el.setAttribute("d", describeArc(50, 50, 40.1, activeSegment.start, activeSegment.end));
-        activeSegment.el.style.strokeWidth = 18;
-        activeSegment.el.style.filter = "url(#dropShadow)";
-        const split = splitLabel(activeSegment.label);
-        infoPercent.textContent = split.percent;
-        infoDesc.textContent = split.desc;
-    });
-
-    svg.appendChild(path);
-    seg.el = path;
-    seg.length = length;
-
-    if (i === 0) {
-        path.setAttribute("d", describeArc(50, 50, 40.1, seg.start, seg.end));
-        path.style.strokeWidth = 18;
-        path.style.filter = "url(#dropShadow)";
-        path.style.strokeDashoffset = 0;
-
-        const split = splitLabel(seg.label);
-        infoPercent.textContent = split.percent;
-        infoDesc.textContent = split.desc;
-        activeSegment = seg;
-    }
-});
-
-let observerN = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) startAnimation();
-    });
-}, { threshold: 0.5 });
-observerN.observe(svg);
-
-function easeOutQuad(t) {
-    return t * (2 - t);
-}
-
-function startAnimation() {
-    let current = 0;
-    let progress = 0;
-    let speed = 60;
-
-    segments.forEach(s => s.el.style.strokeDashoffset = s.length);
-    infoPercent.textContent = "";
-    infoDesc.textContent = "";
-
-    function animate() {
-        if (current < segments.length) {
-            const s = segments[current];
-            progress += speed / 100;
-
-            if (progress > 1) progress = 1;
-
-            const easedProgress = easeOutQuad(progress);
-            const offset = s.length * (1 - easedProgress);
-            s.el.style.strokeDashoffset = offset;
-
-            if (progress >= 1) {
-                current++;
-                progress = 0;
+        circle.addEventListener('mouseout', () => {
+            circle.classList.add('active');
+            if (lastActive) {
+                donutPercent.textContent = `${lastActive.percent}%`;
+                donutDesc.innerHTML = lastActive.name;
             }
+        });
 
-            requestAnimationFrame(animate);
-        }
-    }
-    animate();
-}
+        svg.appendChild(circle);
+        offset += dashLength - overlapFix;
+    });
 
+    const style = document.createElement('style');
+    style.innerHTML = `.segment.active { stroke-width: 19; r: 50.4; filter: drop-shadow(1px 1px 1px rgba(29, 29, 29, 0.4)); opacity: 1; cursor: pointer; }`;
+    document.head.appendChild(style);
+
+    const circles = svg.querySelectorAll('circle');
+
+    const drawSegmentsSequentially = async () => {
+          for (const c of circles) {
+            const dashArray = c.getAttribute('data-dasharray');
+            const dashOffset = c.getAttribute('data-dashoffset');
+
+            c.setAttribute('stroke-dasharray', `0 ${dashArray.split(' ')[1]}`);
+            c.setAttribute('stroke-dashoffset', dashOffset);
+            c.style.opacity = '1';
+            c.style.transition = 'stroke-dasharray 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+
+            await new Promise(resolve => {
+              setTimeout(() => {
+                c.setAttribute('stroke-dasharray', dashArray);
+                setTimeout(resolve, 50); 
+              }, 80);
+            });
+          }
+        };
+      
+        const resetSegments = () => {
+          circles.forEach(c => {
+            const dashArray = c.getAttribute('data-dasharray');
+            const dashOffset = c.getAttribute('data-dashoffset');
+            c.setAttribute('stroke-dasharray', `0 ${dashArray.split(' ')[1]}`);
+            c.setAttribute('stroke-dashoffset', dashOffset);
+            c.style.opacity = '1';
+          });
+        };
+
+        const observerNumber = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              drawSegmentsSequentially();
+            } else {
+              resetSegments();
+            }
+          });
+        }, { threshold: 0.5 });
+      
+    observerNumber.observe(svg);
+
+});

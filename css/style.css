@@ -1442,13 +1442,18 @@ section {
 }
 
 .icon-empresa {
-    height: 60px;
-    width: 170px;
+    height: 80px;
+    width: 200px;
+    padding: 10px;
     display: block;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #b8b8b8;
+    border-radius: 50px;
 }
 
 .icon-empresa img {
-    height: 60px;
+    height: 100%;
     width: auto;
     display: block;
 }

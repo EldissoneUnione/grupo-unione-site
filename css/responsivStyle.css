@@ -748,9 +748,11 @@
     }
 
     .marquee .icon-empresa {
-        width: 100px;
-        height: 80px;
+        width: 160px;
+        height: 60px;
         padding: 5px;
+
+
 
         img {
             object-fit: contain;

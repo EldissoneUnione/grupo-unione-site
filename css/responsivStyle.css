@@ -720,9 +720,9 @@
 
             .donut-chart::after,
             .donut-chart::before {
-              display: none;
+                display: none;
             }
-       
+
 
             .donut-chart {
                 width: 100%;
@@ -745,6 +745,10 @@
         padding-top: 2rem;
         padding: 1rem 0;
         max-height: 600px;
+    }
+
+    .marquee__group {
+        gap: 1rem;
     }
 
     .marquee .icon-empresa {

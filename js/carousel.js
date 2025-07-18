@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let scrollLeft;
   const MAX_VISIBLE_CARDS = 3;
   let isMobile = window.innerWidth <= 768;
+  let scrollTimeout;
 
   function getVisibleCardsCount() {
     return Math.min(MAX_VISIBLE_CARDS, cards.length);
@@ -71,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (isAnimating) return;
     isAnimating = true;
 
-    // Loop circular
     if (index < 0) index = total - 1;
     if (index >= total) index = 0;
 
@@ -112,22 +112,27 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   if (!isMobile) {
+    // Scroll horizontal detectado
     carousel.addEventListener('scroll', () => {
       if (isAnimating) return;
 
-      const containerWidth = carousel.offsetWidth;
-      const cardWidth = cards[0].offsetWidth;
-      const gap = 60;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const containerWidth = carousel.offsetWidth;
+        const cardWidth = cards[0].offsetWidth;
+        const gap = 60;
 
-      const scrollPosition = carousel.scrollLeft;
-      const centerPosition = scrollPosition + (containerWidth / 2);
-      const newIndex = Math.round(centerPosition / (cardWidth + gap));
+        const scrollPosition = carousel.scrollLeft;
+        const centerPosition = scrollPosition + (containerWidth / 2);
+        const newIndex = Math.round(centerPosition / (cardWidth + gap));
 
-      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < cards.length) {
-        updateCarousel(newIndex);
-      }
+        if (newIndex !== currentIndex && newIndex >= 0 && newIndex < cards.length) {
+          updateCarousel(newIndex);
+        }
+      }, 100);
     });
 
+    // Drag com o mouse
     carousel.addEventListener('mousedown', (e) => {
       isDragging = true;
       startX = e.pageX - carousel.offsetLeft;
@@ -146,12 +151,30 @@ document.addEventListener('DOMContentLoaded', function () {
     carousel.addEventListener('mouseup', () => {
       isDragging = false;
       carousel.style.cursor = 'grab';
+
+      const containerWidth = carousel.offsetWidth;
+      const cardWidth = cards[0].offsetWidth;
+      const gap = 60;
+
+      const scrollPosition = carousel.scrollLeft;
+      const centerPosition = scrollPosition + (containerWidth / 2);
+      const newIndex = Math.round(centerPosition / (cardWidth + gap));
+
+      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < cards.length) {
+        updateCarousel(newIndex);
+      }
     });
 
     carousel.addEventListener('mouseleave', () => {
       isDragging = false;
       carousel.style.cursor = 'grab';
     });
+
+    // Scroll com roda do mouse (converte vertical para horizontal)
+    carousel.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      carousel.scrollLeft += e.deltaY;
+    }, { passive: false });
   }
 
   updateCarousel(currentIndex);

@@ -659,6 +659,7 @@
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
 
+
         .text-top,
         .text-bottom {
             padding: 10px 10px;
@@ -695,9 +696,14 @@
             align-items: center;
             justify-content: center;
 
+            .titulo {
+                margin-top: 3rem;
+            }
+
+
             .dashboard-container {
                 display: flex;
-                padding: 30px 10px;
+                padding: 10px 10px;
                 padding-bottom: 80px;
                 max-height: 100%;
                 flex-direction: column;

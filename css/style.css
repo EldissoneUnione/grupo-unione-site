@@ -928,6 +928,7 @@ section {
 .carousel-container {
     overflow: visible;
     flex-direction: column;
+    
 
 }
 
@@ -1125,8 +1126,10 @@ section {
         color: var(--text-color2);
         border-bottom-left-radius: var(--border2);
         border-bottom-right-radius: var(--border2);
-        padding-bottom: 2rem;
+        padding-bottom: 4rem;
+        margin-top: 1rem;
         background-color: var(--gray);
+
 
         p strong {
             color: var(--text-color3);

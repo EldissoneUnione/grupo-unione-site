@@ -695,11 +695,6 @@
             align-items: center;
             justify-content: center;
 
-            & svg {
-                width: 90%;
-                height: 400px;
-            }
-
             .dashboard-container {
                 display: flex;
                 padding: 30px 10px;

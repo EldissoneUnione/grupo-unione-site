@@ -112,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   if (!isMobile) {
-    // Scroll horizontal detectado
     carousel.addEventListener('scroll', () => {
       if (isAnimating) return;
 
@@ -132,7 +131,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 100);
     });
 
-    // Drag com o mouse
     carousel.addEventListener('mousedown', (e) => {
       isDragging = true;
       startX = e.pageX - carousel.offsetLeft;
@@ -170,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function () {
       carousel.style.cursor = 'grab';
     });
 
-    // Scroll com roda do mouse (converte vertical para horizontal)
     carousel.addEventListener('wheel', (e) => {
       e.preventDefault();
       carousel.scrollLeft += e.deltaY;

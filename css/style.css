@@ -1326,7 +1326,7 @@ section {
     .donut-center .percent {
         font-size: 2.5rem;
         font-weight: bold;
-        color: #fff;
+        color: var(--white);
     }
 
     .donut-center .desc {
@@ -1381,7 +1381,7 @@ section {
         display: flex;
         align-items: center;
         margin-bottom: 8px;
-        color: #e9f6ff;
+        color: var(--white);
         font-size: 1.1rem;
     }
 
@@ -1396,8 +1396,8 @@ section {
 
     .donut-tooltip {
         position: fixed;
-        background: #fff;
-        color: #222;
+        background: var(--white);
+        color: var(--text-color3);
         padding: 8px 16px;
         border-radius: 6px;
         font-size: 1rem;
@@ -1736,6 +1736,7 @@ video {
     transform: translate3d(0, 0, 0);
     z-index: 10;
     padding: 10px;
+    border: 1px solid red;
 }
 
 .carousel-container-noticias {
@@ -1829,7 +1830,10 @@ video {
     border-radius: 20px;
     padding: 5rem;
     overflow: hidden;
+    margin-top: -40px;
+    background-color: var(--bg-body);
     transition: all 0.5s ease;
+    z-index: 100;
 
 }
 

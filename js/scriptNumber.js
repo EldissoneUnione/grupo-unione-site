@@ -2,14 +2,14 @@
 const donutData = [
   { name: 'Laboratório de Análises', value: 10, color: '#77dd77' },
   { name: 'Projectos de Inpacto social', value: 20, color: '#ceaabe' },
-  { name: 'Sector 3', value: 3, color: '#8ca9c4' },
+  { name: '', value: 3, color: '#8ca9c4' },
   { name: '+50 milhões de dólares <br> já alocados em expansão', value: 50, color: '#1e668d' },
   { name: 'Agricultura', value: 8, color: '#7bbf3f' },
   { name: 'Agroindústria', value: 12, color: '#e07bbf' },
   { name: 'Ambiente, Sustentabilidade<br> e Recursos Humanos', value: 7, color: '#e07bbf' },
-  { name: 'Setor 8', value: 9, color: '#0a3d91' },
-  { name: 'Setor 9', value: 6, color: '#ffb347' },
-  { name: 'Setor 10', value: 8, color: '#ff6961' },
+  { name: '', value: 9, color: '#0a3d91' },
+  { name: '', value: 6, color: '#ffb347' },
+  { name: '', value: 8, color: '#ff6961' },
   { name: 'Saúde', value: 15, color: '#77dd77' },
   { name: 'Qualidade de vida', value: 3, color: '#77dd77' }
 ];

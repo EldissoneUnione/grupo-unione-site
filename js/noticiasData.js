@@ -36,7 +36,7 @@ window.NOTICIAS_DATA = [
   },
   {
     id: 4,
-    img: "/assets/Imagens/cm/cm3.jpg",
+    img: "assets/Imagens/cm/cm3.jpg",
     data: "07 / Julho 2025",
     titulo: "Clínica Corpo e Mente Anuncia Novo Serviço de Medicina Dentária para Este Ano!",
     conteudo: `

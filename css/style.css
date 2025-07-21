@@ -1414,8 +1414,8 @@ section {
     background: var(--gradient-gray);
     border-top-left-radius: var(--border2);
     border-top-right-radius: var(--border2);
-    padding: 5rem 0;
     margin-top: -80px;
+    padding-top: 8rem;
     height: 80vh;
     flex-direction: column;
 }

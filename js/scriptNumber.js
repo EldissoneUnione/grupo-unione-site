@@ -1,35 +1,30 @@
-
 const donutData = [
-  { name: 'Laboratório de Análises', value: 10, color: '#77dd77' },
-  { name: 'Projectos de Inpacto social', value: 20, color: '#ceaabe' },
-  { name: '', value: 3, color: '#8ca9c4' },
-  { name: '+50 milhões de dólares <br> já alocados em expansão', value: 50, color: '#1e668d' },
-  { name: 'Agricultura', value: 8, color: '#7bbf3f' },
-  { name: 'Agroindústria', value: 12, color: '#e07bbf' },
-  { name: 'Ambiente, Sustentabilidade<br> e Recursos Humanos', value: 7, color: '#e07bbf' },
-  { name: '', value: 9, color: '#0a3d91' },
-  { name: '', value: 6, color: '#ffb347' },
-  { name: '', value: 8, color: '#ff6961' },
-  { name: 'Saúde', value: 15, color: '#77dd77' },
-  { name: 'Qualidade de vida', value: 3, color: '#77dd77' }
+  { name: 'Laboratório de Análises', value: 10, percent: 1, color: '#77dd77' },
+  { name: 'Projectos de Inpacto social', value: 20, percent: 500, color: '#ceaabe' },
+  { name: 'áreas de negóciode negócio', value: 3, percent: 12, color: '#8ca9c4' },
+  { name: 'milhões de dólares <br> já alocados em expansão', value: 50, percent: 50, color: '#1e668d' },
+  { name: 'Agricultura', value: 8, percent: 4, color: '#7bbf3f' },
+  { name: 'Agroindústria', value: 12, percent: 6, color: '#e07bbf' },
+  { name: 'Ambiente, Sustentabilidade<br> e Recursos Humanos', value: 7, percent: 3.5, color: '#e07bbf' },
+  { name: 'Colaboradores', value: 9, percent: 1000, color: '#0a3d91' },
+  { name: 'Clientes e parceiros', value: 6, percent: 5000, color: '#ffb347' },
+  { name: '', value: 8, percent: 4, color: '#ff6961' },
+  { name: 'Saúde', value: 15, percent: 7.5, color: '#77dd77' },
+  { name: 'Qualidade de vida', value: 3, percent: 1.5, color: '#77dd77' }
 ];
 
 const total = donutData.reduce((acc, cur) => acc + cur.value, 0);
 const radius = 50;
 const circumference = 2 * Math.PI * radius;
 const svg = document.querySelector('svg.donut-chart');
-const nameBox = document.getElementById('segment-name');
-const valueBox = document.getElementById('segment-value');
-let offset = 0;
-
-const overlapFix = 2.5; 
-
 const donutPercent = document.getElementById('donut-percent');
 const donutDesc = document.getElementById('donut-desc');
+let offset = 0;
 
+const overlapFix = 2.5;
 let lastActive = null;
 
-donutData.forEach((seg, i) => {
+donutData.forEach((seg) => {
   const percent = seg.value / total;
   const dashLength = (percent * circumference) + overlapFix;
 
@@ -49,21 +44,18 @@ donutData.forEach((seg, i) => {
   circle.classList.add(`segment`);
 
   circle.addEventListener('mouseover', () => {
-    
     svg.querySelectorAll('circle.segment.active').forEach(c => c.classList.remove('active'));
-    
     circle.classList.add('active');
-    donutPercent.textContent = `${((seg.value / total) * 100).toFixed(1)}%`;
+    donutPercent.textContent = `+${seg.percent.toFixed(1)}`;
     donutDesc.innerHTML = seg.name;
-    lastActive = { percent: ((seg.value / total) * 100).toFixed(1), name: seg.name };
-
+    lastActive = { percent: seg.percent.toFixed(1), name: seg.name };
     svg.appendChild(circle);
   });
 
   circle.addEventListener('mouseout', () => {
     circle.classList.add('active');
     if (lastActive) {
-      donutPercent.textContent = `${lastActive.percent}%`;
+      donutPercent.textContent = `+${lastActive.percent}`;
       donutDesc.innerHTML = lastActive.name;
     }
   });
@@ -83,7 +75,7 @@ const drawSegmentsSequentially = async () => {
     const dashArray = c.getAttribute('data-dasharray');
     const dashOffset = c.getAttribute('data-dashoffset');
 
-    c.setAttribute('stroke-dasharray', `0 ${dashArray.split(' ')[1]}`);
+    c.setAttribute('stroke-dasharray', `0 ${dashArray.split(' ')[0]}`);
     c.setAttribute('stroke-dashoffset', dashOffset);
     c.style.opacity = '1';
     c.style.transition = 'stroke-dasharray 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -91,9 +83,8 @@ const drawSegmentsSequentially = async () => {
     await new Promise(resolve => {
       setTimeout(() => {
         c.setAttribute('stroke-dasharray', dashArray);
-        
-        setTimeout(resolve, 100); 
-      }, 80); 
+        setTimeout(resolve, 100);
+      }, 80);
     });
   }
 };

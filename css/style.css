@@ -928,7 +928,7 @@ section {
 .carousel-container {
     overflow: visible;
     flex-direction: column;
-    
+
 
 }
 
@@ -1443,9 +1443,10 @@ section {
 
 .icon-empresa {
     height: 80px;
-    width: 200px;
+    min-width: 100px;
+    width: auto;
     padding: 10px;
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #b8b8b8;
@@ -1456,6 +1457,7 @@ section {
     height: 100%;
     width: auto;
     display: block;
+    object-fit: contain;
 }
 
 .conteiner-Principal {
@@ -1909,6 +1911,7 @@ video {
     font-weight: 300;
     outline: none;
     transition: all .5s;
+    font-family: "Roboto", sans-serif;
 }
 
 .contact-form .empresa {

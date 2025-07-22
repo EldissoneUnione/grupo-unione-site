@@ -1,16 +1,16 @@
 const donutData = [
-  { name: 'Laboratório de Análises', value: 10, percent: 1, color: '#77dd77' },
+  { name: 'áreas de negócio', value: 10, percent: 12, color: '#77dd77' },
   { name: 'Projectos de Inpacto social', value: 20, percent: 500, color: '#ceaabe' },
-  { name: 'áreas de negóciode negócio', value: 3, percent: 12, color: '#8ca9c4' },
+  { name: 'Projectos de Inpacto social', value: 3, percent: 500, color: '#ceaabe' },
   { name: 'milhões de dólares <br> já alocados em expansão', value: 50, percent: 50, color: '#1e668d' },
-  { name: 'Agricultura', value: 8, percent: 4, color: '#7bbf3f' },
-  { name: 'Agroindústria', value: 12, percent: 6, color: '#e07bbf' },
-  { name: 'Ambiente, Sustentabilidade<br> e Recursos Humanos', value: 7, percent: 3.5, color: '#e07bbf' },
+  { name: 'Colaboradores', value: 8, percent: 1000, color: '#0a3d91' },
+  { name: 'Colaboradores', value: 12, percent: 1000, color: '#0a3d91' },
+  { name: 'Colaboradores', value: 7, percent: 1000, color: '#0a3d91' },
   { name: 'Colaboradores', value: 9, percent: 1000, color: '#0a3d91' },
   { name: 'Clientes e parceiros', value: 6, percent: 5000, color: '#ffb347' },
-  { name: '', value: 8, percent: 4, color: '#ff6961' },
-  { name: 'Saúde', value: 15, percent: 7.5, color: '#77dd77' },
-  { name: 'Qualidade de vida', value: 3, percent: 1.5, color: '#77dd77' }
+  { name: 'Clientes e parceiros', value: 8, percent: 5000, color: '#ffb347'},
+  { name: 'Clientes e parceiros', value: 15, percent: 5000, color: '#ffb347' },
+  { name: 'Clientes e parceiros', value: 3, percent: 5000, color: '#ffb347' }
 ];
 
 const total = donutData.reduce((acc, cur) => acc + cur.value, 0);

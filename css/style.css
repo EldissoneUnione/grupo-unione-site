@@ -1302,13 +1302,13 @@ section {
 
     }
 
-    .donut-chart::after,
+    /* .donut-chart::after,
     .donut-chart::before {
         content: "";
         width: 2px;
         height: 100%;
         background-color: var(--white);
-    }
+    } */
 
     .donut-chart svg {
         width: 100%;

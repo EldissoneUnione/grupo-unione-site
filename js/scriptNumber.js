@@ -46,16 +46,16 @@ donutData.forEach((seg) => {
   circle.addEventListener('mouseover', () => {
     svg.querySelectorAll('circle.segment.active').forEach(c => c.classList.remove('active'));
     circle.classList.add('active');
-    donutPercent.textContent = `+${seg.percent.toFixed(1)}`;
+    donutPercent.textContent = `+${Math.round(seg.percent)}`;
     donutDesc.innerHTML = seg.name;
-    lastActive = { percent: seg.percent.toFixed(1), name: seg.name };
+    lastActive = { percent: Math.round(seg.percent), name: seg.name };
     svg.appendChild(circle);
   });
 
   circle.addEventListener('mouseout', () => {
     circle.classList.add('active');
     if (lastActive) {
-      donutPercent.textContent = `+${lastActive.percent}`;
+       donutPercent.textContent = `+${lastActive.percent}`;
       donutDesc.innerHTML = lastActive.name;
     }
   });

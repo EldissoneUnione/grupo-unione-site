@@ -1,7 +1,7 @@
 window.NOTICIAS_DATA = [
   { 
     id: 1,
-    img: "assets/Imagens/Projeto 2/Granja_Área Interior_8.png",
+    img: "../assets/Imagens/Projeto 2/Granja_Área Interior_8.png",
     data: "12 / Abril 2025",
     titulo: "Retomada da Produção de Suínos de Genética Pura Marca Nova Fase na Nossa Granja",
     conteudo: `
@@ -16,7 +16,7 @@ window.NOTICIAS_DATA = [
   },
   {
     id: 2,
-    img: "assets/Imagens/epas/epas.jpg",
+    img: "../assets/Imagens/epas/epas.jpg",
     data: "20 / Março 2025",
     titulo: "EPAS- Huila Realiza Team Building de Sucesso com Dinâmicas Interativas e Estratégicas no POLIS",
     conteudo: `
@@ -26,7 +26,7 @@ window.NOTICIAS_DATA = [
   },
   {
     id: 3,
-    img: "assets/Imagens/JVL/jvl.jpg",
+    img: "../assets/Imagens/JVL/jvl.jpg",
     data: "08 / Março 2025",
     titulo: "Adolescentes do Projeto JV+L Colhem os Frutos de Seu Trabalho e Transformam Vidas!",
     conteudo: `
@@ -36,7 +36,7 @@ window.NOTICIAS_DATA = [
   },
   {
     id: 4,
-    img: "assets/Imagens/cm/cm3.jpg",
+    img: "../assets/Imagens/cm/cm3.jpg",
     data: "07 / Julho 2025",
     titulo: "Clínica Corpo e Mente Anuncia Novo Serviço de Medicina Dentária para Este Ano!",
     conteudo: `

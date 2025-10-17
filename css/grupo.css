@@ -108,7 +108,6 @@
   color: var(--white);
   margin: 10px 0;
   width: 90%;
-
 }
 
 .mensagem-ceo {
@@ -138,7 +137,6 @@
   align-items: center;
   justify-content: center;
   padding: 0 5rem;
-
 }
 
 .mensagem-ceo .ceo-img {
@@ -149,7 +147,6 @@
   width: 320px;
   height: 350px;
   margin: 10px 20px;
-
 }
 
 .ceo-name {
@@ -158,7 +155,6 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-
 }
 
 .ceo-name h4 {
@@ -172,7 +168,6 @@
   font-weight: 300;
   color: var(--text-color3);
 }
-
 
 .circle {
   position: absolute;
@@ -199,7 +194,6 @@
   background-color: #ffffff;
   background-size: contain;
   background: url('/assets/Imagens/ceo.png') no-repeat center;
-
 }
 
 .gold {
@@ -209,7 +203,6 @@
   width: 230px;
   height: 230px;
   z-index: 2;
-
 }
 
 .mensagem-ceo .ceo-text {
@@ -231,13 +224,11 @@
   font-weight: bold;
   font-size: 14px;
 
-  h4, h5 {
-  color: var(--white);
-
+  h4,
+  h5 {
+    color: var(--white);
   }
 }
-
-
 
 .historia {
   margin-top: -50px;
@@ -247,7 +238,6 @@
   justify-content: center;
   border-radius: var(--border2);
   background-color: var(--white);
-
 }
 
 .container {
@@ -269,6 +259,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid red;
 }
 
 .circle-timeline {
@@ -291,6 +282,7 @@
   height: 250px;
   border-radius: 50%;
   border: 1px solid red;
+  box-shadow: 1px 10px 5px;
 
 }
 
@@ -444,13 +436,13 @@
   text-align: center;
 }
 
-.recrutamento{
+.recrutamento {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
   margin: auto;
-  padding: 2rem 4rem;
+  padding: 2rem 0rem;
   background: var(--bg-body);
   border: 1px solid #ddd;
   z-index: 10;
@@ -548,7 +540,7 @@
   flex-direction: column;
 }
 
-.missao {
+.missao, .visao {
   position: relative;
   width: 100%;
   height: 500px;
@@ -558,6 +550,26 @@
   justify-content: center;
   align-items: center;
 
+  & img {
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50px;
+  }
+
+}
+
+.valores {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  padding: 40px;
+  margin: 80px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   & img {
     width: 60%;
@@ -571,7 +583,7 @@
 
 .text-tit {
   height: 100%;
-  padding: 40px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -586,7 +598,7 @@
 
   h1 {
     color: var(--white);
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 100;
   }
 
@@ -594,7 +606,7 @@
 
 .text-paragrafo {
   position: absolute;
-  bottom: -50px;
+  bottom: -70px;
   right: 150px;
   padding: 30px;
   width: 60%;
@@ -603,10 +615,45 @@
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
 
   & p {
-    font: 15px;
+    font-size: 20px;
     font-weight: 300;
     line-height: 1.8;
     text-align: justify;
+  }
+}
+
+.text-paragrafo-visao {
+  position: absolute;
+  bottom: -50px;
+  left: 150px;
+  padding: 30px;
+  width: 60%;
+  border-radius: 50px;
+  background-color: var(--white);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
+
+  & p {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.8;
+    text-align: justify;
+  }
+}
+
+.text-paragrafo-valores {
+  position: absolute;
+  bottom: -30px;
+  right: 70px;
+  padding: 30px;
+  border-radius: 50px;
+  background-color: var(--white);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
+
+  & p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.8;
+    text-align: center;
   }
 }
 
@@ -619,10 +666,10 @@
 .candidatura-container {
   background: var(--cor-fundo);
   border-radius: 16px;
-  padding: 2rem;
+  /* padding: 2rem; */
   max-width: 600px;
   width: 100%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .titulo {
@@ -650,10 +697,12 @@
   color: #fff;
 }
 
-.oferta, .Candidatura {
+.oferta,
+.Candidatura {
   display: none;
   animation: fadeIn 0.4s ease;
   width: 100%;
+  padding: 0 80px;
 }
 
 .oferta.active,
@@ -675,12 +724,12 @@
 
 .info h3 {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   color: var(--cor-texto);
 }
 
 .info p {
-  margin: 0.25rem 0;
+  margin: 0.5rem 0;
   color: #555;
 }
 
@@ -694,7 +743,7 @@
   border: none;
   border-radius: 8px;
   padding: 0.5rem 1rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: opacity 0.3s;
 }
@@ -744,8 +793,15 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 600px) {
@@ -753,6 +809,7 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
   .actions {
     width: 100%;
     text-align: left;

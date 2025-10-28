@@ -259,7 +259,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
 }
 
 .circle-timeline {
@@ -272,7 +271,6 @@
   justify-content: center;
   transition: transform 0.2s linear;
   will-change: transform;
-  border: 1px solid red;
 
 }
 
@@ -281,8 +279,7 @@
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  border: 1px solid red;
-  box-shadow: 1px 10px 5px;
+  box-shadow: 1px 1px 5px;
 
 }
 
@@ -388,7 +385,7 @@
 }
 
 .spacer {
-  /* height: 250vh; */
+  height: 250vh;
 }
 
 

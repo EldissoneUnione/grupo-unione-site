@@ -250,8 +250,6 @@ header {
     will-change: opacity, transform;
 }
 
-
-
 .dropdown-menu a {
     color: var(--text-color3);
     padding: 10px 1px;

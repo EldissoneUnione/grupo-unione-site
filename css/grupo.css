@@ -73,12 +73,63 @@
 
 @media (max-width: 768px) {
   .logo-grupoP {
-    bottom: 3rem;
+    bottom: 1rem;
     left: 0;
     width: 90%;
   }
-}
 
+  .grupo {
+    height: 750px;
+    padding: 1rem 0!important;
+
+  }
+
+  .mensagem-ceo {
+    padding: 1rem 0rem !important;
+    height: auto;
+
+  }
+
+  .ceo-content {
+    flex-direction: column;
+    padding: 0 0 !important;
+  }
+
+  .mensagem-ceo .ceo-img {
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    margin: 0 !important;
+  }
+
+  .historia,
+  .mvv {
+    display: none !important;
+  }
+
+  .recrutamento {
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  .oferta,
+  .Candidatura {
+    animation: fadeIn 0.4s ease;
+    width: 100%;
+    padding: 0 30px !important;
+  }
+
+  .tabs {
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 20px;
+    padding: 1rem !important;
+    margin-bottom: 20px;
+    margin-left: 1rem !important
+  }
+
+}
 
 .hero-section {
   height: 70vh;
@@ -88,7 +139,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 90vh;
   padding: 2rem 2rem;
   max-width: 100%;
   background-color: var(--text-color);
@@ -191,9 +241,10 @@
   width: 230px;
   height: 230px;
   z-index: 10;
-  background-color: #ffffff;
-  background-size: contain;
-  background: url('/assets/Imagens/ceo.png') no-repeat center;
+  background-image: url('/assets/Imagens/CEO/Fernando Gomes - Fotos.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
 }
 
 .gold {
@@ -385,7 +436,7 @@
 }
 
 .spacer {
-  height: 250vh;
+  /* height: 250vh; */
 }
 
 
@@ -537,7 +588,8 @@
   flex-direction: column;
 }
 
-.missao, .visao {
+.missao,
+.visao {
   position: relative;
   width: 100%;
   height: 500px;

@@ -656,6 +656,10 @@
         padding: 10px 0;
     }
 
+    .carousel-content {
+        overflow: hidden;
+    }
+
     .destaque-section .card {
         width: 85vw;
         height: 450px;
@@ -821,6 +825,7 @@
         padding: 1rem 0;
         height: auto;
         border-radius: 50px;
+
     }
 
     .carousel-container-project {
@@ -828,8 +833,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 15px;
-        padding: 10px;
         overflow: hidden;
         max-width: 100%;
         padding: 10px 0;
@@ -896,9 +899,11 @@
     .noticias-section {
         border-top-left-radius: 50px;
         border-top-right-radius: 50px;
-        padding-top: 1rem;
+        padding: 1rem 0;
         margin-top: -80px;
         height: auto;
+        margin-bottom: 50px;
+        
 
         .carousel-container-noticias {
             padding: 0;
@@ -909,6 +914,7 @@
         .card-blog {
             width: 90vw;
             height: 450px;
+            margin: 10px 0;
         }
 
         .card-blog:hover {

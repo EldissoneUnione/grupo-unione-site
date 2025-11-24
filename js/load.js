@@ -118,18 +118,28 @@ function runIntroAnimation() {
                 }
             });
         })
-        .to(loader, {
-            opacity: 0,
-            duration: 0.8,
-        }, "<")
-        .to(siteContent, {
-            opacity: 1,
-            duration: 0.8
-        }, "<");
+            .to(loader, {
+                opacity: 0,
+                duration: 0.8,
+            }, "<")
+            .to(siteContent, {
+                opacity: 1,
+                duration: 0.8
+            }, "<");
     }
 }
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    runIntroAnimation();
+    const logoContent = document.querySelector('.logo-content');
+
+    let logoImg = "";
+    if (window.innerWidth <= 768) {
+        logoImg = `<img src="assets/logo/Grupo-Unione_Logo.png" alt="Logo mobile"
+                                       style="height:100%; width:auto;" />`;
+    } else {
+        logoImg = `<img src="assets/logo/Grupo-Unione_Logotipo.png" alt="Logo desktop"
+                                       style="height:100%; width:auto;" />`;
+    }
+    logoContent.innerHTML = logoImg;
 });

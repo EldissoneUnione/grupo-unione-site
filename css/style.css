@@ -94,7 +94,7 @@ img {
     backface-visibility: hidden;
 }
 
-.loading {
+/* .loading {
     position: fixed;
     top: 0;
     left: 0;
@@ -105,7 +105,7 @@ img {
     align-items: center;
     justify-content: center;
     z-index: 999;
-}
+} */
 
 .logo-content {
     max-width: 35%;
@@ -138,10 +138,9 @@ img {
     font-family: "Arial Rounded MT Bold", "Arial Rounded MT" !important;
 }
 
-.site-content {
+/* .site-content {
     opacity: 0;
-}
-
+} */
 
 header {
     position: fixed;
@@ -2209,7 +2208,7 @@ footer {
     overflow: hidden;
     transition: all 0.35s cubic-bezier(.23, 1.02, .32, 1);
     opacity: 1;
-    z-index: 10;
+    z-index: 999;
     transform: translateY(40px) scale(0.95);
     animation: chatbotIn 0.7s cubic-bezier(.23, 1.02, .32, 1) 0.2s forwards;
 
@@ -2230,7 +2229,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    z-index: 999;
 
 }
 

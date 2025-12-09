@@ -111,6 +111,7 @@
     align-items: center;
     width: 100%;
     margin: 0;
+    z-index: 999;
   }
 
   .oferta,
@@ -848,6 +849,21 @@
 
 
 /* a trabalhar */
+
+.recrutamento {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 80px;
+  padding: 2rem 0rem;
+  background: var(--bg-body);
+  border: 1px solid #ddd;
+  z-index: 10;
+  border-top-left-radius: var(--border2);
+  border-top-right-radius: var(--border2);
+}
 
 .active {
   display: block;

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Unione - Nossa História</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #000000;
+            --primary-dark: #333333;
+            --secondary: #8B0000;
+            --white: #ffffff;
+            --gray-50: #f8f8f8;
+            --gray-100: #e8e8e8;
+            --gray-200: #d0d0d0;
+            --gray-800: #1a1a1a;
+            --gold: #D4AF37;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.12);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header estilo Grupo Unione */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 strong {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 30px auto;
+        }
+
+        /* Timeline Section */
+        .historia-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Timeline Moderna */
+        .timeline-container {
+            position: relative;
+            padding: 60px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--gray-100);
+            z-index: 1;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--secondary), var(--primary));
+            z-index: 2;
+            transition: height 0.8s ease;
+        }
+
+        .timeline-items {
+            position: relative;
+            z-index: 3;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 100px;
+            opacity: 0.5;
+            transition: var(--transition);
+        }
+
+        .timeline-item.active {
+            opacity: 1;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item-content {
+            flex: 1;
+            padding: 40px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-item-content {
+            margin-right: 40px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-item-content {
+            margin-left: 40px;
+        }
+
+        .timeline-year {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .timeline-year span {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .timeline-description {
+            color: var(--gray-800);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .timeline-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .timeline-highlight {
+            background: var(--gray-50);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            border-left: 3px solid var(--secondary);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            border: 3px solid var(--gray-100);
+            border-radius: 50%;
+            z-index: 4;
+            transition: var(--transition);
+        }
+
+        .timeline-item.active .timeline-marker {
+            border-color: var(--secondary);
+            background: var(--secondary);
+            transform: translateX(-50%) scale(1.2);
+            box-shadow: 0 0 0 8px rgba(139, 0, 0, 0.1);
+        }
+
+        .timeline-connector {
+            width: 40px;
+            height: 2px;
+            background: var(--gray-100);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-connector {
+            left: calc(50% - 40px);
+        }
+
+        .timeline-item:nth-child(even) .timeline-connector {
+            left: 50%;
+        }
+
+        /* Navegação */
+        .timeline-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .nav-btn {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            color: var(--gray-800);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .year-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .year-indicator {
+            font-size: 1rem;
+            color: var(--gray-800);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+        }
+
+        .year-indicator:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .year-indicator.active {
+            background: var(--secondary);
+            color: var(--white);
+            border-color: var(--secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 20px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--gray-100);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: var(--gray-200);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-200);
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 20px;
+            }
+
+            .timeline-item-content {
+                padding: 30px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+            }
+
+            .logo {
+                margin-bottom: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-progress {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                margin-left: 60px;
+            }
+
+            .timeline-item-content {
+                margin: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-marker {
+                left: 30px;
+            }
+
+            .timeline-connector {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .timeline-year {
+                font-size: 2rem;
+            }
+
+            .timeline-title {
+                font-size: 1.3rem;
+            }
+
+            .year-indicators {
+                flex-wrap: wrap;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">GRUPO <span>UNIONE</span></div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Nosso Grupo</a></li>
+                <li><a href="#">Empresas</a></li>
+                <li><a href="#">Áreas de Negócios</a></li>
+                <li><a href="#">Empreendimentos</a></li>
+                <li><a href="#">Investidores</a></li>
+                <li><a href="#">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NOSSA <strong>HISTÓRIA</strong></h1>
+            <div class="divider"></div>
+            <p>Uma trajetória de crescimento, inovação e compromisso com a excelência. Conheça os marcos que definiram nossa jornada e nos tornaram referência no mercado.</p>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="historia-section">
+        <div class="section-header">
+            <h2 class="section-title">Linha do Tempo</h2>
+            <p class="section-subtitle">Descubra os momentos mais importantes da nossa evolução e expansão no mercado</p>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-progress" id="timelineProgress"></div>
+
+            <div class="timeline-items" id="timelineItems">
+                <!-- Ano 2005 -->
+                <div class="timeline-item active" data-year="2005">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2005</span></div>
+                        <h3 class="timeline-title">Fundação do Grupo</h3>
+                        <p class="timeline-description">
+                            Em 2005, nasceu o Grupo Unione com uma visão clara de criar um conglomerado de excelência. 
+                            As primeiras iniciativas estratégicas foram implementadas, estabelecendo as bases para 
+                            o crescimento sustentável que viria a seguir.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Criação da holding</span>
+                            <span class="timeline-highlight">Estratégia de mercado</span>
+                            <span class="timeline-highlight">Primeiros investimentos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ano 2008 -->
+                <div class="timeline-item" data-year="2008">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2008</span></div>
+                        <h3 class="timeline-title">Expansão Estratégica</h3>
+                        <p class="timeline-description">
+                            Três anos após sua fundação, o Grupo Unione iniciou sua primeira grande expansão, 
+                            diversificando seus investimentos e consolidando sua presença em novos mercados. 
+                            Este ano marcou o início de nossa trajetória de crescimento acelerado.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Diversificação de portfólio</span>
+                            <span class="timeline-highlight">Expansão geográfica</span>
+                            <span class="timeline-highlight">Consolidação operacional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ano 2009 -->
+                <div class="timeline-item" data-year="2009">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2009</span></div>
+                        <h3 class="timeline-title">Inovação e Tecnologia</h3>
+                        <p class="timeline-description">
+                            Em 2009, implementamos tecnologias de ponta em todas as nossas operações, 
+                            revolucionando nossos processos e elevando nossos padrões de qualidade. 
+                            Esta transformação digital nos posicionou à frente do mercado.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Digitalização de processos</span>
+                            <span class="timeline-highlight">Automação operacional</span>
+                            <span class="timeline-highlight">Sistemas integrados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ano 2010 -->
+                <div class="timeline-item" data-year="2010">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2010</span></div>
+                        <h3 class="timeline-title">Reconhecimento e Premiações</h3>
+                        <p class="timeline-description">
+                            Nosso compromisso com a excelência foi reconhecido com importantes prêmios do setor. 
+                            Alcançamos marcas significativas e consolidamos nossa posição como líder de mercado, 
+                            preparando o terreno para nossa expansão internacional.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Prêmios de excelência</span>
+                            <span class="timeline-highlight">Certificações internacionais</span>
+                            <span class="timeline-highlight">Reconhecimento de mercado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Indicadores de Ano -->
+            <div class="year-indicators">
+                <div class="year-indicator active" data-year="2005">2005</div>
+                <div class="year-indicator" data-year="2008">2008</div>
+                <div class="year-indicator" data-year="2009">2009</div>
+                <div class="year-indicator" data-year="2010">2010</div>
+            </div>
+
+            <!-- Navegação -->
+            <div class="timeline-nav">
+                <button class="nav-btn" id="prevBtn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>GRUPO UNIONE</h3>
+                <p style="color: var(--gray-200); margin-top: 20px; line-height: 1.6;">
+                    Uma história de sucesso construída com determinação, inovação e compromisso com a excelência.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3>Empresas</h3>
+                <ul>
+                    <li><a href="#">Holding</a></li>
+                    <li><a href="#">Subsidiárias</a></li>
+                    <li><a href="#">Parcerias</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Áreas de Negócios</h3>
+                <ul>
+                    <li><a href="#">Consultoria</a></li>
+                    <li><a href="#">Investimentos</a></li>
+                    <li><a href="#">Desenvolvimento</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul>
+                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="#">Trabalhe Conosco</a></li>
+                    <li><a href="#">Investidores</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 GRUPO UNIONE. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        class UnioneTimeline {
+            constructor() {
+                this.currentIndex = 0;
+                this.items = document.querySelectorAll('.timeline-item');
+                this.indicators = document.querySelectorAll('.year-indicator');
+                this.progress = document.getElementById('timelineProgress');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                
+                this.init();
+            }
+            
+            init() {
+                // Event listeners para os indicadores
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        this.goToYear(index);
+                    });
+                });
+                
+                // Event listeners para navegação
+                this.prevBtn.addEventListener('click', () => this.goToPrev());
+                this.nextBtn.addEventListener('click', () => this.goToNext());
+                
+                // Navegação por teclado
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.goToPrev();
+                    if (e.key === 'ArrowRight') this.goToNext();
+                });
+                
+                // Scroll spy
+                this.initScrollSpy();
+                
+                // Inicializar
+                this.updateDisplay();
+            }
+            
+            goToYear(index) {
+                if (index === this.currentIndex) return;
+                
+                this.currentIndex = index;
+                this.updateDisplay();
+                this.scrollToItem();
+            }
+            
+            goToPrev() {
+                if (this.currentIndex > 0) {
+                    this.goToYear(this.currentIndex - 1);
+                }
+            }
+            
+            goToNext() {
+                if (this.currentIndex < this.items.length - 1) {
+                    this.goToYear(this.currentIndex + 1);
+                }
+            }
+            
+            updateDisplay() {
+                // Atualiza itens da timeline
+                this.items.forEach((item, index) => {
+                    const isActive = index === this.currentIndex;
+                    item.classList.toggle('active', isActive);
+                    
+                    // Adiciona/remove animação
+                    if (isActive) {
+                        item.style.animation = 'none';
+                        setTimeout(() => {
+                            item.style.animation = 'fadeInUp 0.6s ease';
+                        }, 10);
+                    }
+                });
+                
+                // Atualiza indicadores
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentIndex);
+                });
+                
+                // Atualiza progresso
+                const progressHeight = (this.currentIndex / (this.items.length - 1)) * 100;
+                this.progress.style.height = `${progressHeight}%`;
+                
+                // Atualiza botões de navegação
+                this.prevBtn.disabled = this.currentIndex === 0;
+                this.nextBtn.disabled = this.currentIndex === this.items.length - 1;
+                
+                // Atualiza marcador ativo
+                const activeMarker = this.items[this.currentIndex].querySelector('.timeline-marker');
+                activeMarker.style.animation = 'none';
+                setTimeout(() => {
+                    activeMarker.style.animation = 'pulseMarker 0.6s ease';
+                }, 10);
+            }
+            
+            scrollToItem() {
+                const activeItem = this.items[this.currentIndex];
+                const yOffset = -100;
+                const y = activeItem.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+            }
+            
+            initScrollSpy() {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const index = Array.from(this.items).indexOf(entry.target);
+                                if (index !== -1 && index !== this.currentIndex) {
+                                    this.currentIndex = index;
+                                    this.updateDisplay();
+                                }
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.5,
+                        rootMargin: '-100px 0px -100px 0px'
+                    }
+                );
+                
+                this.items.forEach(item => observer.observe(item));
+            }
+        }
+        
+        // Inicializar quando o DOM estiver carregado
+        document.addEventListener('DOMContentLoaded', () => {
+            new UnioneTimeline();
+            
+            // Adicionar animação CSS para o marcador
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes pulseMarker {
+                    0% { transform: translateX(-50%) scale(1); box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.4); }
+                    70% { transform: translateX(-50%) scale(1.3); box-shadow: 0 0 0 15px rgba(139, 0, 0, 0); }
+                    100% { transform: translateX(-50%) scale(1.2); box-shadow: 0 0 0 0 rgba(139, 0, 0, 0); }
+                }
+                
+                .timeline-item:hover .timeline-marker {
+                    border-color: var(--secondary);
+                    transform: translateX(-50%) scale(1.1);
+                }
+                
+                .timeline-item-content {
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                
+                .timeline-item:hover .timeline-item-content {
+                    transform: translateY(-5px);
+                    box-shadow: var(--shadow-lg);
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Adicionar efeito de hover nos botões de ano
+            const indicators = document.querySelectorAll('.year-indicator');
+            indicators.forEach(indicator => {
+                indicator.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = 'translateY(-3px)';
+                        this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                    }
+                });
+                
+                indicator.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

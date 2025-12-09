@@ -143,11 +143,11 @@
   padding: 2rem 2rem;
   max-width: 100%;
   background-color: var(--text-color);
+  border-top-left-radius: var(--border2);
+  border-top-right-radius: var(--border2);
+  z-index: 99;
+    margin-top: 2rem;
 
-  .titulo {
-    color: var(--text-color4);
-    margin: 2rem 0;
-  }
 }
 
 .grupo p {
@@ -181,7 +181,7 @@
   background-color: var(--text-color);
 
   .titulo {
-    color: var(--text-color4);
+    color: var(--white);
   }
 
   & p {

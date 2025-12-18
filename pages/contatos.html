@@ -10,6 +10,144 @@
     <link rel="stylesheet" href="../css/responsivStyle.css">
     <link rel="stylesheet" href="../css/load.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .hero-company {
+            position: relative;
+            height: 50vh;
+            min-height: 350px;
+            background-image: url('../assets/Imagens/7_Hero_Infraone.jpeg'); /* Generic placeholder */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-company::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            padding: 80px 10%;
+            background-color: #fff;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: #b52e0f;
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+
+        .info-item h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .info-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #b52e0f;
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: #b52e0f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #8a200a;
+        }
+
+        .map-section {
+            height: 400px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 50px 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -36,8 +174,8 @@
                             <a href="/empresas/unione" role="menuitem" data-translate="UNIONE">Unione</a>
                             <a href="/empresas/mbt" role="menuitem" data-translate="MBT ENERGIA ">MBT Energia</a>
                             <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
-                            <a href="/empresas/Infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
-                            <a href="/empresas/Metalangol" role="menuitem" data-translate="METALANGOL">Metalangol</a>
+                            <a href="/empresas/infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
+                            <a href="/empresas/metalangol" role="menuitem" data-translate="METALANGOL">Metalangol</a>
                             <a href="/empresas/mater" role="menuitem" data-translate="MATER">Mater</a>
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                         </div>
@@ -129,8 +267,127 @@
         </div>
     </header>
 
+    <main>
+        <section class="hero-company" style="background-image: url('../assets/Imagens/7_Hero_Infraone.jpeg');">
+            <div class="hero-content">
+                <h1>Contatos</h1>
+                <p>Estamos prontos para atender você. Entre em contato conosco.</p>
+            </div>
+        </section>
 
+        <section class="contact-container">
+            <div class="contact-info">
+                <h2>Informações de Contato</h2>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Endereço</h4>
+                        <p>Luanda, Angola<br>Bairro Talatona, Rua do MAT</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Telefone</h4>
+                        <p>+244 923 000 000<br>+244 222 000 000</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>geral@grupounione.co.ao<br>comercial@grupounione.co.ao</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Horário de Atendimento</h4>
+                        <p>Segunda a Sexta: 08:00 - 17:00<br>Sábado: 09:00 - 13:00</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="contact-form">
+                <h3 style="margin-bottom: 20px; color: #333;">Envie uma mensagem</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <select id="subject" name="subject">
+                            <option value="geral">Informações Gerais</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="rh">Recursos Humanos</option>
+                            <option value="investidores">Investidores</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.865576182606!2d13.189567314785664!3d-8.807869993674686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f5c6b6b6b6b7%3A0x1a51f5c6b6b6b6b7!2sTalatona%2C%20Luanda%2C%20Angola!5e0!3m2!1spt-PT!2sao!4v1620000000000!5m2!1spt-PT!2sao" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <div class="bottom">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h4 class="type-text" data-translate="Grupo unione"><small>Grupo <strong>unione</strong></small></h4>
+                    <ul>
+                        <li><a href="/grupo" data-translate="o-grupo">O Grupo</a></li>
+                        <li><a href="/grupo#historia" data-translate="historia">História</a></li>
+                        <li><a href="/grupo#missao" data-translate="missao">Missão</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-translate="pessoas">Pessoas</h4>
+                    <ul>
+                        <li><a href="/contatos" data-translate="trabalhe-conosco">Trabalhe conosco</a></li>
+                        <li><a href="/contatos" data-translate="programas-estagio">Programas de Estágio</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-translate="areas-negocios">Áreas de Negócio</h4>
+                    <ul class="coluna-dupla">
+                        <li><a href="/areas-negocios#saude">Saúde</a></li>
+                        <li><a href="/areas-negocios#telecomunicacoes">Telecomunicações</a></li>
+                        <li><a href="/areas-negocios#construcao">Construção Civil</a></li>
+                        <li><a href="/areas-negocios#energia">Energia</a></li>
+                        <li><a href="/areas-negocios#ensino">Ensino</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-translate="siga-nos">Siga-nos</h4>
+                    <div class="social-icons">
+                        <a target="_blank" href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i class="fab fa-linkedin"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright &copy; 2025 Grupo Unione - <span data-translate="direitos-reservados">Todos os direitos reservados</span>.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="../js/script.js"></script>
     <script src="../js/routes.js"></script>

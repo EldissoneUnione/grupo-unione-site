@@ -45,7 +45,7 @@ window.SEARCH_DATA = [
   { title: "O Grupo - Valores", url: "/pages/grupo.html#valores" },
   { title: "Empresas", url: "/pages/empresas.html" },
   { title: "Corpo e Mente", url: "/pages/empresas/corpo-e-mente.html" },
-  { title: "Fibra", url: "/pages/empresas/mbt.html" },
+  { title: "Fibra", url: "/pages/empresas/fibra.html" },
   { title: "Okukulanaua", url: "/pages/empresas/okukulanaua.html" },
   { title: "Quavi", url: "/pages/empresas/quavi.html" },
   { title: "Unione", url: "/pages/empresas/unione.html" },

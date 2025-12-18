@@ -1,0 +1,486 @@
+/* =========================================
+   Shared Styles for Company Pages & Subpages
+   ========================================= */
+
+/* Hero Section */
+.hero-company {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-company::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Company Details Section */
+.company-details {
+    padding: 80px 10%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.company-details h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.company-details p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Services Grid (Used in Company Pages) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 80px 10%;
+    background-color: #f9f9f9;
+}
+
+.service-card {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: #b52e0f;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* =========================================
+   Empreendimentos Page
+   ========================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 80px 10%;
+    background-color: #f9f9f9;
+}
+
+.project-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    height: 250px;
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    color: #b52e0f;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.project-info p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.project-status {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.status-completed {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-progress {
+    background-color: #fff3e0;
+    color: #ef6c00;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        padding: 50px 20px;
+    }
+}
+
+/* =========================================
+   Investidores Page
+   ========================================= */
+.investor-content {
+    padding: 80px 10%;
+    background-color: #fff;
+}
+
+.investor-content h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.investor-content > p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+.investor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.investor-card {
+    text-align: center;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.investor-card:hover {
+    transform: translateY(-5px);
+}
+
+.investor-card i {
+    font-size: 3rem;
+    color: #b52e0f;
+    margin-bottom: 20px;
+}
+
+.investor-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.cta-section {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #b52e0f;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #8a200a;
+}
+
+@media (max-width: 768px) {
+    .investor-content {
+        padding: 50px 20px;
+    }
+}
+
+/* =========================================
+   Contatos Page
+   ========================================= */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 80px 10%;
+    background-color: #fff;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #b52e0f;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.info-item h4 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.info-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #b52e0f;
+    outline: none;
+}
+
+.submit-btn {
+    background-color: #b52e0f;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #8a200a;
+}
+
+.map-section {
+    height: 400px;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 50px 20px;
+    }
+}
+
+/* =========================================
+   Organizational Chart (Grupo Page)
+   ========================================= */
+.org-chart-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.org-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.org-node {
+    background: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 2px solid #b52e0f;
+    min-width: 200px;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.org-node:hover {
+    transform: translateY(-5px);
+}
+
+.org-role {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.org-name {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.org-connector-vertical {
+    width: 2px;
+    height: 30px;
+    background-color: #b52e0f;
+}
+
+.org-connector-vertical-small {
+    width: 2px;
+    height: 20px;
+    background-color: #b52e0f;
+    margin: 0 auto;
+}
+
+.org-connector-horizontal {
+    width: 75%; /* Adjust based on number of branches */
+    height: 2px;
+    background-color: #b52e0f;
+    margin-bottom: 0;
+}
+
+.org-level {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.level-3 {
+    padding-top: 0;
+    flex-wrap: wrap;
+}
+
+.org-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .org-level {
+        flex-direction: column;
+        align-items: center;
+    }
+    .org-connector-horizontal {
+        display: none; /* Hide horizontal connector on mobile */
+    }
+    .org-connector-vertical {
+        height: 20px;
+    }
+    .level-3 {
+        gap: 20px;
+    }
+    .org-branch {
+        width: 100%;
+    }
+    .org-node {
+        width: 100%;
+        max-width: 300px;
+    }
+}

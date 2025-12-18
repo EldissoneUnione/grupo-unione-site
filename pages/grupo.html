@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/responsivStyle.css">
     <link rel="stylesheet" href="../css/load.css">
     <link rel="stylesheet" href="../css/grupo.css">
+    <link rel="stylesheet" href="../css/pages-custom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -38,8 +39,8 @@
                             <a href="/empresas/unione" role="menuitem" data-translate="UNIONE">Unione</a>
                             <a href="/empresas/mbt" role="menuitem" data-translate="MBT ENERGIA ">MBT Energia</a>
                             <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
-                            <a href="/empresas/Infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
-                            <a href="/empresas/Metalangol" role="menuitem" data-translate="METALANGOL">Metalangol</a>
+                            <a href="/empresas/infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
+                            <a href="/empresas/metalangol" role="menuitem" data-translate="METALANGOL">Metalangol</a>
                             <a href="/empresas/mater" role="menuitem" data-translate="MATER">Mater</a>
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                         </div>
@@ -314,8 +315,6 @@
         </section>
     </section>
 
-
-
     <section class="mvv">
 
         <div class="missao">
@@ -374,6 +373,145 @@
 
         </div>
 
+    </section>
+
+    <!-- Organizational Chart Section -->
+    <section class="org-chart-section">
+        <h2 class="titulo">Organograma</h2>
+        <div class="org-container">
+            <div class="org-level level-1">
+                <div class="org-node">
+                    <div class="org-role">CEO</div>
+                    <div class="org-name">Fernando Gomes</div>
+                </div>
+            </div>
+            <div class="org-connector-vertical"></div>
+            <div class="org-level level-2">
+                <div class="org-node">
+                    <div class="org-role">Conselho de Administração</div>
+                </div>
+            </div>
+            <div class="org-connector-vertical"></div>
+            <div class="org-connector-horizontal"></div>
+            <div class="org-level level-3">
+                <div class="org-branch">
+                    <div class="org-connector-vertical-small"></div>
+                    <div class="org-node">
+                        <div class="org-role">Direção Administrativa e Financeira</div>
+                    </div>
+                </div>
+                <div class="org-branch">
+                    <div class="org-connector-vertical-small"></div>
+                    <div class="org-node">
+                        <div class="org-role">Direção Comercial e Marketing</div>
+                    </div>
+                </div>
+                <div class="org-branch">
+                    <div class="org-connector-vertical-small"></div>
+                    <div class="org-node">
+                        <div class="org-role">Direção de Operações</div>
+                    </div>
+                </div>
+                <div class="org-branch">
+                    <div class="org-connector-vertical-small"></div>
+                    <div class="org-node">
+                        <div class="org-role">Direção de Recursos Humanos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .org-chart-section {
+                padding: 60px 20px;
+                background-color: #f9f9f9;
+                text-align: center;
+            }
+            .org-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .org-node {
+                background: white;
+                padding: 15px 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                border: 2px solid #b52e0f;
+                min-width: 200px;
+                position: relative;
+                transition: transform 0.3s;
+            }
+            .org-node:hover {
+                transform: translateY(-5px);
+            }
+            .org-role {
+                font-weight: bold;
+                color: #333;
+                font-size: 1.1rem;
+            }
+            .org-name {
+                color: #666;
+                font-size: 0.9rem;
+                margin-top: 5px;
+            }
+            .org-connector-vertical {
+                width: 2px;
+                height: 30px;
+                background-color: #b52e0f;
+            }
+            .org-connector-vertical-small {
+                width: 2px;
+                height: 20px;
+                background-color: #b52e0f;
+                margin: 0 auto;
+            }
+            .org-connector-horizontal {
+                width: 75%; /* Adjust based on number of branches */
+                height: 2px;
+                background-color: #b52e0f;
+                margin-bottom: 0;
+            }
+            .org-level {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                width: 100%;
+            }
+            .level-3 {
+                padding-top: 0;
+                flex-wrap: wrap;
+            }
+            .org-branch {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 10px;
+            }
+            @media (max-width: 768px) {
+                .org-level {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .org-connector-horizontal {
+                    display: none; /* Hide horizontal connector on mobile */
+                }
+                .org-connector-vertical {
+                    height: 20px;
+                }
+                .level-3 {
+                    gap: 20px;
+                }
+                .org-branch {
+                    width: 100%;
+                }
+                .org-node {
+                    width: 100%;
+                    max-width: 300px;
+                }
+            }
+        </style>
     </section>
 
     <main class="conteiner-Principal">

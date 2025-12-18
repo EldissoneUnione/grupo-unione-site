@@ -13,7 +13,12 @@ const routes = {
     '/empresas/quavi': 'pages/empresas/quavi.html',
     '/empresas/okukulanaua': 'pages/empresas/okukulanaua.html',
     '/empresas/tecnology': 'pages/empresas/tecnology.html',
-    '/empresas/kalanaua': 'pages/empresas/kalanaua.html'
+    '/empresas/kalanaua': 'pages/empresas/kalanaua.html',
+    '/empresas/fibra': 'pages/empresas/fibra.html',
+    '/empresas/infraone': 'pages/empresas/infraone.html',
+    '/empresas/metalangol': 'pages/empresas/metalangol.html',
+    '/empresas/mater': 'pages/empresas/mater.html',
+    '/empresas/unione': 'pages/empresas/unione.html'
 };
 
 // Função para mostrar o loader

@@ -6,10 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Áreas de Negócios do Grupo Unione - Conheça nossos setores de atuação">
     <title>Áreas de Negócios - Grupo Unione</title>
+    <link rel="icon" href="../public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsivStyle.css">
     <link rel="stylesheet" href="../css/load.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .hero-areas {
+            background-color: #f4f4f4;
+            padding: 100px 20px;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .hero-areas p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .area-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 10%;
+            gap: 50px;
+        }
+
+        .area-section:nth-child(even) {
+            flex-direction: row-reverse;
+            background-color: #f9f9f9;
+        }
+
+        .area-info {
+            flex: 1;
+        }
+
+        .area-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #b52e0f;
+            /* Using one of the brand colors seen in index.html SVG */
+        }
+
+        .area-info p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .area-img {
+            flex: 1;
+        }
+
+        .area-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .area-img img:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .area-section {
+                flex-direction: column !important;
+                padding: 50px 20px;
+            }
+
+            .hero-areas h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -23,44 +95,47 @@
             </div>
             <div class="nav-links">
                 <nav>
-                    <a href="/grupo" data-translate="grupo-unione" aria-current="page">grupo unione</a>
+                    <a href="/grupo" data-translate="grupo-unione">grupo unione</a>
                     <div class="dropdown">
                         <a href="/empresas" aria-expanded="false" aria-haspopup="true"
                             data-translate="empresas">empresas</a>
                         <div class="dropdown-menu" role="menu">
                             <a href="/empresas/corpo-e-mente" role="menuitem" data-translate="corpo-e-mente">Corpo e
                                 Mente</a>
-                            <a href="/empresas/mbt" role="menuitem" data-translate="FIBRA">Fibra</a>
+                            <a href="/empresas/fibra" role="menuitem" data-translate="FIBRA">Fibra</a>
                             <a href="/empresas/okukulanaua" role="menuitem" data-translate="okukulanaua">Okukulanaua</a>
                             <a href="/empresas/quavi" role="menuitem" data-translate="quavi">Quavi</a>
-                            <a href="/empresas/unione" role="menuitem" data-translate="UNIONE">Unione</a>
-                            <a href="/empresas/mbt" role="menuitem" data-translate="MBT ENERGIA ">MBT Energia</a>
+                            <a href="/empresas/unione" role="menuitem" data-translate="Unione">Unione</a>
+                            <a href="/empresas/mbt" role="menuitem" data-translate="MBT-Energia">MBT Energia</a>
                             <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
-                            <a href="/empresas/Infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
-                            <a href="/empresas/Metalangol" role="menuitem" data-translate="METALANGOL">Metalangol</a>
-                            <a href="/empresas/mater" role="menuitem" data-translate="MATER">Mater</a>
+                            <a href="/empresas/infraone" role="menuitem" data-translate="Infraone">Infraone</a>
+                            <a href="/empresas/metalangol" role="menuitem" data-translate="METALANGOL">Metalangol</a>
+                            <a href="/empresas/mater" role="menuitem" data-translate="Mater">Mater</a>
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                         </div>
                     </div>
                     <div class="dropdown">
                         <a href="/areas-negocios" data-translate="areas-negocios">áreas de negócios</a>
                         <div class="dropdown-menu" role="menu">
-                            <a href="/areas-negocios" role="menuitem" data-translate="SAÚDE">Saúde</a>
-                            <a href="/areas-negocios" role="menuitem"
+                            <a href="/areas-negocios#saude" role="menuitem" data-translate="SAÚDE">Saúde</a>
+                            <a href="/areas-negocios#telecomunicacoes" role="menuitem"
                                 data-translate="TELECOMUNICAÇÕES">Telecomunicações</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="ENSINO">Ensino</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="AGROPECUÁRIA">Agropecuária</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="CONSULTORIA E GESTÃO">Consultoria
-                                e Gestão</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="ENERGIA">Energia</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="HOTELARIA E TURISMO">Hotelaria e
-                                Turismo</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="CONSTRUÇÃO CIVIL">Construção
-                                Civil</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="METALOMECÂNICA">Metalomecânica</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="CARPINTARIA">Carpintaria</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="INDÚSTRIA MECÂNICA">Industria
-                                Mecânica</a>
+                            <a href="/areas-negocios#ensino" role="menuitem" data-translate="ENSINO">Ensino</a>
+                            <a href="/areas-negocios#agropecuaria" role="menuitem"
+                                data-translate="AGROPECUÁRIA">Agropecuária</a>
+                            <a href="/areas-negocios#consultoria" role="menuitem"
+                                data-translate="CONSULTORIA E GESTÃO">Consultoria e Gestão</a>
+                            <a href="/areas-negocios#energia" role="menuitem" data-translate="ENERGIA">Energia</a>
+                            <a href="/areas-negocios#hotelaria" role="menuitem"
+                                data-translate="HOTELARIA E TURISMO">Hotelaria e Turismo</a>
+                            <a href="/areas-negocios#construcao" role="menuitem"
+                                data-translate="CONSTRUÇÃO CIVIL">Construção Civil</a>
+                            <a href="/areas-negocios#metalomecanica" role="menuitem"
+                                data-translate="METALOMECÂNICA">Metalomecânica</a>
+                            <a href="/areas-negocios#carpintaria" role="menuitem"
+                                data-translate="CARPINTARIA">Carpintaria</a>
+                            <a href="/areas-negocios#industria-mecanica" role="menuitem"
+                                data-translate="INDÚSTRIA MECÂNICA">Industria Mecânica</a>
                         </div>
                     </div>
                     <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
@@ -129,9 +204,288 @@
         </div>
     </header>
 
+    <main class="areas-content">
+        <section class="hero-areas">
+            <h1 class="titulo" data-translate="areas-negocios">Áreas de Negócios</h1>
+        </section>
+
+        <section id="saude" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="SAÚDE">Saúde</h2>
+                <p>Comprometidos com o bem-estar da comunidade, investimos em infraestruturas e serviços de saúde de
+                    alta qualidade, garantindo acesso e atendimento humanizado.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/3_Área Negócio_Saúde_Op.1.jpeg" alt="Saúde">
+            </div>
+        </section>
+
+        <section id="telecomunicacoes" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="TELECOMUNICAÇÕES">Telecomunicações</h2>
+                <p>Conectando pessoas e negócios através de soluções tecnológicas avançadas em telecomunicações,
+                    reduzindo distâncias e promovendo a integração.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/9_Área Negócio_Telecomunicações.jpg" alt="Telecomunicações">
+            </div>
+        </section>
+
+        <section id="ensino" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="ENSINO">Ensino</h2>
+                <p>Investimos na educação técnica e profissionalizante como pilar fundamental para o desenvolvimento
+                    social e econômico, preparando as futuras gerações.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/4_Área Negócio_Educação Técnica.jpeg" alt="Ensino">
+            </div>
+        </section>
+
+        <section id="agropecuaria" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="AGROPECUÁRIA">Agropecuária</h2>
+                <p>Desenvolvemos projetos agroindustriais sustentáveis, contribuindo para a segurança alimentar e o
+                    crescimento do setor primário.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/1_Área Negócio_Agroindústria_Op.1.jpeg" alt="Agropecuária">
+            </div>
+        </section>
+
+        <section id="consultoria" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="CONSULTORIA E GESTÃO">Consultoria e Gestão</h2>
+                <p>Oferecemos suporte estratégico e operacional para empresas, otimizando processos e potencializando
+                    resultados através de consultoria especializada.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/10_Área Negócio_Consultoria Gestão.jpg" alt="Consultoria e Gestão">
+            </div>
+        </section>
+
+        <section id="energia" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="ENERGIA">Energia</h2>
+                <p>Soluções em energia, incluindo energias renováveis, garantindo o abastecimento e a eficiência
+                    energética para diversos projetos.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/2_Área Negócio_Energia_Op.2.jpg" alt="Energia">
+            </div>
+        </section>
+
+        <section id="hotelaria" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="HOTELARIA E TURISMO">Hotelaria e Turismo</h2>
+                <p>Investimentos no setor de hospitalidade, oferecendo experiências únicas e promovendo o turismo local
+                    e nacional.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/12_Área Negócio_Hotelaria.jpg" alt="Hotelaria e Turismo">
+            </div>
+        </section>
+
+        <section id="construcao" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="CONSTRUÇÃO CIVIL">Construção Civil</h2>
+                <p>Execução de obras civis de grande porte, infraestruturas e projetos residenciais com qualidade e
+                    segurança.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/6_Área Negócio_Construção Civil.jpg" alt="Construção Civil">
+            </div>
+        </section>
+
+        <section id="metalomecanica" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="METALOMECÂNICA">Metalomecânica</h2>
+                <p>Soluções em estruturas metálicas e serviços especializados de metalomecânica para a indústria.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/7_Área Negócio_Metalomecânica.jpeg" alt="Metalomecânica">
+            </div>
+        </section>
+
+        <section id="carpintaria" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="CARPINTARIA">Carpintaria</h2>
+                <p>Produção de mobiliário e estruturas de madeira com design e acabamento de alta qualidade.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/8_Área Negócio_Marcenaria.jpg" alt="Carpintaria">
+            </div>
+        </section>
+
+        <section id="industria-mecanica" class="area-section">
+            <div class="area-info">
+                <h2 data-translate="INDÚSTRIA MECÂNICA">Indústria Mecânica</h2>
+                <p>Manutenção e fabricação de peças e equipamentos industriais, apoiando o setor produtivo.</p>
+            </div>
+            <div class="area-img">
+                <img src="../assets/Imagens/Areas/5_Área Negócio_Mecânica Industrial_Op.2.jpg" alt="Indústria Mecânica">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="w">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5681.374665046663!2d13.346179365522373!3d-14.975112394424539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2f46708b81237da5%3A0x5bc43cb7405af95d!2sGrupo%20Unione!5e1!3m2!1spt-PT!2sao!4v1748271694849!5m2!1spt-PT!2sao"
+                title="localização do grupo unione" width="100%" height="400" style="border:0;" allowfullscreen=""
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="bottom">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h4 class="type-text" data-translate="Grupo unione"><small>Grupo <strong>unione</strong></small>
+                    </h4>
+                    <ul>
+                        <li><a href="/grupo" data-translate="o-grupo">O Grupo</a></li>
+                        <li><a href="/grupo#historia" data-translate="historia">História</a></li>
+                        <li><a href="/grupo#missao" data-translate="missao">Missão</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-translate="pessoas">Pessoas</h4>
+                    <ul>
+                        <li><a href="/contatos" data-translate="trabalhe-conosco">Trabalhe conosco</a></li>
+                        <li><a href="/contatos" data-translate="programas-estagio">Programas de Estágio</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-column">
+                    <h4 data-translate="areas-negocios">Áreas de Negócio</h4>
+                    <ul class="coluna-dupla">
+                        <li><a href="/areas-negocios#saude">Saúde</a></li>
+                        <li><a href="/areas-negocios#telecomunicacoes">Telecomunicações</a></li>
+                        <li><a href="/areas-negocios#construcao">Construção Civil</a></li>
+                        <li><a href="/areas-negocios#juridico">Jurídico</a></li>
+                        <li><a href="/areas-negocios#hotelaria">Hotelaria</a></li>
+                        <li><a href="/areas-negocios#energia">Energia</a></li>
+                        <li><a href="/areas-negocios#metalomecanica">Metalmecânica</a></li>
+                        <li><a href="/areas-negocios#ensino">Ensino</a></li>
+                        <li><a href="/areas-negocios#agropecuaria">Agropecuária</a></li>
+                        <li><a href="/areas-negocios#industria-mecanica">Indústria Mecânica</a></li>
+                        <li><a href="/areas-negocios#consultoria">Consultoria</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="footer-column">
+                    <h4 data-translate="siga-nos">Siga-nos</h4>
+                    <div class="social-icons">
+                        <a target="_blank"
+                            href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i
+                                class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                    <ul class="termo">
+                        <li><a href="#" data-translate="politica-privacidade">Política de Privacidade</a></li>
+                        <li><a href="#" data-translate="termos-condicoes">Termos e Condições</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div aria-hidden="true" class="footer-logos">
+                <div class="marquee-F">
+                    <div class="marquee__group">
+                        <img src="../assets/Logos Brancos/Corpo e Mente.png" alt="cem">
+                        <img src="../assets/Logos Brancos/MBT.png" alt="mbt">
+                        <img src="../assets/Logos Brancos/Quavi.png" alt="quavi">
+                        <img src="../assets/Logos Brancos/Okukulanaua.png" alt="okukulanaua">
+                        <img src="../assets/Logos Brancos/Kalanaua.png" alt="Kalanaua">
+                        <img src="../assets/Logos Brancos/Tecnology.png" alt="Tecnology">
+                        <img src="../assets/Logos Brancos/Unione.png" alt="unione">
+                        <img src="../assets/Logos Brancos/Fibra.png" alt="Fibra">
+                        <img src="../assets/Logos Brancos/Infraone.png" alt="Infraone">
+                        <img src="../assets/Logos Brancos/Integracons.png" alt="Integracons">
+                        <img src="../assets/Logos Brancos/Mater.png" alt="Mater">
+                        <img src="../assets/Logos Brancos/Metalangol.png" alt="Metalangol">
+                    </div>
+                    <div aria-hidden="true" class="marquee__group">
+                        <img src="../assets/Logos Brancos/Corpo e Mente.png" alt="cem">
+                        <img src="../assets/Logos Brancos/MBT.png" alt="mbt">
+                        <img src="../assets/Logos Brancos/Quavi.png" alt="quavi">
+                        <img src="../assets/Logos Brancos/Okukulanaua.png" alt="okukulanaua">
+                        <img src="../assets/Logos Brancos/Kalanaua.png" alt="Kalanaua">
+                        <img src="../assets/Logos Brancos/Tecnology.png" alt="Tecnology">
+                        <img src="../assets/Logos Brancos/Unione.png" alt="unione">
+                        <img src="../assets/Logos Brancos/Fibra.png" alt="Fibra">
+                        <img src="../assets/Logos Brancos/Infraone.png" alt="Infraone">
+                        <img src="../assets/Logos Brancos/Integracons.png" alt="Integracons">
+                        <img src="../assets/Logos Brancos/Mater.png" alt="Mater">
+                        <img src="../assets/Logos Brancos/Metalangol.png" alt="Metalangol">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
 
     <script src="../js/script.js"></script>
     <script src="../js/routes.js"></script>
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>gsap.registerPlugin(ScrollTrigger);</script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.36/dist/lenis.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.1.4/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({
+            smooth: true,
+            lerp: 0.04,
+            wheelMultiplier: 0.4,
+        });
+
+        function raf(t) {
+            lenis.raf(t);
+            ScrollTrigger.update();
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+    </script>
+    <script>
+        // Lazy loading para imagens
+        document.addEventListener("DOMContentLoaded", function () {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function (lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+
+    </script>
 </body>
 
 </html>

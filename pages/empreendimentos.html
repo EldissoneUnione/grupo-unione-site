@@ -10,6 +10,119 @@
     <link rel="stylesheet" href="../css/responsivStyle.css">
     <link rel="stylesheet" href="../css/load.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .hero-company {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background-image: url('../assets/Imagens/1_Hero_GRUPO-UNIONE_Op.2.png'); /* Using a generic hero image for now */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-company::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 80px 10%;
+            background-color: #f9f9f9;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 250px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            color: #b52e0f;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .project-info p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .status-completed {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-progress {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .projects-grid {
+                padding: 50px 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -36,8 +149,8 @@
                             <a href="/empresas/unione" role="menuitem" data-translate="UNIONE">Unione</a>
                             <a href="/empresas/mbt" role="menuitem" data-translate="MBT ENERGIA ">MBT Energia</a>
                             <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
-                            <a href="/empresas/Infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
-                            <a href="/empresas/Metalangol" role="menuitem" data-translate="METALANGOL">Metalangol</a>
+                            <a href="/empresas/infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
+                            <a href="/empresas/metalangol" role="menuitem" data-translate="METALANGOL">Metalangol</a>
                             <a href="/empresas/mater" role="menuitem" data-translate="MATER">Mater</a>
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                         </div>
@@ -129,6 +242,78 @@
         </div>
     </header>
 
+    <main>
+        <section class="hero-company" style="background-image: url('../assets/Imagens/1_Hero_GRUPO-UNIONE_Op.2.png');">
+            <div class="hero-content">
+                <h1>Empreendimentos</h1>
+                <p>Conheça os projetos que marcam a nossa trajetória de sucesso e inovação.</p>
+            </div>
+        </section>
+
+        <section class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/Imagens/Projects/Residencial_Talatona.jpg');"></div>
+                <div class="project-info">
+                    <h3>Condomínio Residencial Talatona</h3>
+                    <p>Complexo habitacional de alto padrão com 120 unidades, áreas de lazer e segurança 24h.</p>
+                    <span class="project-status status-completed">Concluído</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/Imagens/Projects/Solar_Plant.jpg');"></div>
+                <div class="project-info">
+                    <h3>Usina Solar Benguela</h3>
+                    <p>Projeto de energia renovável com capacidade de 50MW, abastecendo mais de 20.000 lares.</p>
+                    <span class="project-status status-progress">Em Andamento</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/Imagens/Projects/School_Luanda.jpg');"></div>
+                <div class="project-info">
+                    <h3>Centro Educacional Unione</h3>
+                    <p>Escola técnica profissionalizante com laboratórios modernos e capacidade para 500 alunos.</p>
+                    <span class="project-status status-completed">Concluído</span>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/Imagens/Projects/Agro_Farm.jpg');"></div>
+                <div class="project-info">
+                    <h3>Fazenda AgroUnione</h3>
+                    <p>Produção agrícola sustentável de milho e soja com tecnologia de irrigação de ponta.</p>
+                    <span class="project-status status-progress">Em Andamento</span>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/Imagens/Projects/Corporate_Tower.jpg');"></div>
+                <div class="project-info">
+                    <h3>Edifício Corporativo Central</h3>
+                    <p>Torre comercial de 15 andares no centro de Luanda, sede de diversas multinacionais.</p>
+                    <span class="project-status status-completed">Concluído</span>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/Imagens/Projects/Telecom_Infra.jpg');"></div>
+                <div class="project-info">
+                    <h3>Expansão Fibra Óptica</h3>
+                    <p>Instalação de 500km de rede de fibra óptica conectando províncias do interior.</p>
+                    <span class="project-status status-progress">Em Andamento</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    </footer>
 
     <script src="../js/script.js"></script>
     <script src="../js/routes.js"></script>

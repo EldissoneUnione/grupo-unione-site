@@ -90,7 +90,7 @@
     --okuku-red: #c7392c;
     --okuku-brown: #6b2e06;
 
-    
+
 
     --dot-size: 30px;
     --size-titulo: 3rem;
@@ -1065,15 +1065,6 @@ section {
     border-radius: 50px !important;
 }
 
-.destaque-section .card.first-visible {
-    border-top-left-radius: var(--border);
-    border-bottom-left-radius: var(--border);
-}
-
-.destaque-section .card.last-visible {
-    border-top-right-radius: var(--border);
-    border-bottom-right-radius: var(--border);
-}
 
 .destaque-section .card-overlay {
     backdrop-filter: blur(5px);

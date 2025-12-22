@@ -17,6 +17,81 @@
     --gradient-gray: linear-gradient(to bottom, #e6e6e6, #f7f7f7);
     --gray: #e6e6e6;
 
+
+    /* =========================
+     Technology
+     ========================= */
+    --tech-primary: #c33621;
+    --tech-dark: #2b2a29;
+
+    /* =========================
+     Corpo e Mente
+     ========================= */
+    --corpo-mente-light: #6dbe45;
+    --corpo-mente-dark: #2b8440;
+
+    /* =========================
+     Infraone
+     ========================= */
+    --infraone-primary: #f68c1f;
+    --infraone-dark: #514c4b;
+
+    /* =========================
+     Metalangol
+     ========================= */
+    --metalangol-light: #d9dada;
+    --metalangol-medium: #9d9e9e;
+    --metalangol-accent: #ef7d29;
+
+    /* =========================
+     MBT
+     ========================= */
+    --mbt-green: #2afc8d;
+    --mbt-blue: #0d3fd1;
+    --mbt-dark: #212e3e;
+
+    /* =========================
+     Unione
+     ========================= */
+    --unione-primary: #c33621;
+    --unione-accent: #f7a707;
+    --unione-dark: #2b2a29;
+
+    /* =========================
+     Quavi
+     ========================= */
+    --quavi-primary: #19b579;
+    --quavi-light: #61bc51;
+    --quavi-dark: #443615;
+
+    /* =========================
+     Fibra
+     ========================= */
+    --fibra-dark: #114d97;
+    --fibra-primary: #005ca4;
+    --fibra-light: #3c81c0;
+
+    /* =========================
+     Kalanaua
+     ========================= */
+    --kalanaua-green: #68882a;
+    --kalanaua-orange: #fd7a00;
+    --kalanaua-red: #c02000;
+    --kalanaua-purple: #46128d;
+     --gradient-k: linear-gradient(to right, #c02000, #fd7a00, #68882a);
+
+    /* =========================
+     Okukulanaua
+     ========================= */
+    --okuku-blue: #5cc7d0;
+    --okuku-green: #80c342;
+    --okuku-yellow: #ffd800;
+    --okuku-orange: #ff8200;
+    --okuku-red: #c7392c;
+    --okuku-brown: #6b2e06;
+
+    
+
     --dot-size: 30px;
     --size-titulo: 3rem;
     --border: 180px;
@@ -1837,7 +1912,6 @@ video {
     background-color: var(--bg-body);
     transition: all 0.5s ease;
     z-index: 100;
-
 }
 
 .contact-info {

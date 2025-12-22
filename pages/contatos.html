@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Entre em contato com o Grupo Unione">
     <title>Contatos - Grupo Unione</title>
+    <link rel="icon" href="../public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsivStyle.css">
     <link rel="stylesheet" href="../css/load.css">
+    <link rel="stylesheet" href="../css/pages-custom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         .hero-company {
             position: relative;
-            height: 50vh;
+            height: 65vh;
             min-height: 350px;
-            background-image: url('../assets/Imagens/7_Hero_Infraone.jpeg'); /* Generic placeholder */
+            background-image: url('../assets/Imagens/7_Hero_Infraone.jpeg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -23,8 +25,9 @@
             justify-content: center;
             color: white;
             text-align: center;
+            z-index: -1;
         }
-        
+
         .hero-company::before {
             content: '';
             position: absolute;
@@ -34,119 +37,13 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.6);
         }
+        .contactos-section {
+            border-top-left-radius: var(--border2);
+            border-top-right-radius: var(--border2);
+        } 
 
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            padding: 80px 10%;
-            background-color: #fff;
-        }
+      
 
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-info h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-
-        .info-item i {
-            font-size: 1.5rem;
-            color: #b52e0f;
-            margin-right: 20px;
-            margin-top: 5px;
-        }
-
-        .info-item h4 {
-            margin-bottom: 5px;
-            font-size: 1.2rem;
-        }
-
-        .info-item p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-            background: #f9f9f9;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: #b52e0f;
-            outline: none;
-        }
-
-        .submit-btn {
-            background-color: #b52e0f;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s;
-        }
-
-        .submit-btn:hover {
-            background-color: #8a200a;
-        }
-
-        .map-section {
-            height: 400px;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .contact-container {
-                padding: 50px 20px;
-            }
-        }
     </style>
 </head>
 
@@ -275,122 +172,211 @@
             </div>
         </section>
 
-        <section class="contact-container">
+        <section class="contactos-section">
             <div class="contact-info">
-                <h2>Informações de Contato</h2>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Endereço</h4>
-                        <p>Luanda, Angola<br>Bairro Talatona, Rua do MAT</p>
-                    </div>
+                <div class="logo-contact">
+                    <img src="../assets/Logos Brancos/Grupo Unione.png" alt="grupo unione logotipo">
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Telefone</h4>
-                        <p>+244 923 000 000<br>+244 222 000 000</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>geral@grupounione.co.ao<br>comercial@grupounione.co.ao</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h4>Horário de Atendimento</h4>
-                        <p>Segunda a Sexta: 08:00 - 17:00<br>Sábado: 09:00 - 13:00</p>
-                    </div>
+
+                <h2 data-translate="contacte-nos">Contacte-nos</h2>
+                <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla
+                </p>
+                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+
+                <div class="social">
+                    <h3 data-translate="siga-nos">Siga-nos</h3>
+                    <a target="_blank"
+                        href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i
+                            class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i
+                            class="fab fa-facebook"></i></a>
                 </div>
             </div>
+
 
             <div class="contact-form">
-                <h3 style="margin-bottom: 20px; color: #333;">Envie uma mensagem</h3>
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" required>
+                <h2 data-translate="fale-conosco">Fale conosco</h2>
+                <form>
+                    <div class="options">
+                        <button type="button" data-translate="particular">Particular</button>
+                        <button type="button" class="empresaBtn" data-translate="empresa">Empresa</button>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Assunto</label>
-                        <select id="subject" name="subject">
-                            <option value="geral">Informações Gerais</option>
-                            <option value="comercial">Comercial</option>
-                            <option value="rh">Recursos Humanos</option>
-                            <option value="investidores">Investidores</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+
+                    <input type="empresa" class="empresa" id="empresaInput" placeholder="Empresa"
+                        data-translate="empresa">
+                    <input type="text" placeholder="Seu Nome" data-translate="seu-nome" required>
+                    <input type="email" placeholder="Seu E-mail" data-translate="seu-email" required>
+
+                    <textarea placeholder="Mensagem" rows="5" data-translate="mensagem" required></textarea>
+                    <button type="submit" class="submit-btn" data-translate="enviar">Enviar</button>
                 </form>
             </div>
-        </section>
-
-        <section class="map-section">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.865576182606!2d13.189567314785664!3d-8.807869993674686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f5c6b6b6b6b7%3A0x1a51f5c6b6b6b6b7!2sTalatona%2C%20Luanda%2C%20Angola!5e0!3m2!1spt-PT!2sao!4v1620000000000!5m2!1spt-PT!2sao" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </section>
     </main>
 
     <footer>
+        <div class="w">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5681.374665046663!2d13.346179365522373!3d-14.975112394424539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2f46708b81237da5%3A0x5bc43cb7405af95d!2sGrupo%20Unione!5e1!3m2!1spt-PT!2sao!4v1748271694849!5m2!1spt-PT!2sao"
+                title="localização do grupo unione" width="100%" height="400" style="border:0;" allowfullscreen=""
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
         <div class="bottom">
             <div class="footer-top">
                 <div class="footer-column">
-                    <h4 class="type-text" data-translate="Grupo unione"><small>Grupo <strong>unione</strong></small></h4>
+                    <h4 data-translate="Grupo unione"><small>Grupo <strong>unione</strong></small></h4>
                     <ul>
-                        <li><a href="/grupo" data-translate="o-grupo">O Grupo</a></li>
-                        <li><a href="/grupo#historia" data-translate="historia">História</a></li>
-                        <li><a href="/grupo#missao" data-translate="missao">Missão</a></li>
+                        <li><a href="#" data-translate="o-grupo">O Grupo</a></li>
+                        <li><a href="#" data-translate="historia">História</a></li>
+                        <li><a href="#" data-translate="missao">Missão</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h4 data-translate="pessoas">Pessoas</h4>
                     <ul>
-                        <li><a href="/contatos" data-translate="trabalhe-conosco">Trabalhe conosco</a></li>
-                        <li><a href="/contatos" data-translate="programas-estagio">Programas de Estágio</a></li>
+                        <li><a href="#" data-translate="trabalhe-conosco">Trabalhe conosco</a></li>
+                        <li><a href="#" data-translate="programas-estagio">Programas de Estágio</a></li>
                     </ul>
                 </div>
+
 
                 <div class="footer-column">
                     <h4 data-translate="areas-negocios">Áreas de Negócio</h4>
                     <ul class="coluna-dupla">
-                        <li><a href="/areas-negocios#saude">Saúde</a></li>
-                        <li><a href="/areas-negocios#telecomunicacoes">Telecomunicações</a></li>
-                        <li><a href="/areas-negocios#construcao">Construção Civil</a></li>
-                        <li><a href="/areas-negocios#energia">Energia</a></li>
-                        <li><a href="/areas-negocios#ensino">Ensino</a></li>
+                        <li><a href="#">Saúde</a></li>
+                        <li><a href="#">Telecomunicações</a></li>
+                        <li><a href="#">Construção Civil</a></li>
+                        <li><a href="#">Jurídico</a></li>
+                        <li><a href="#">Hotelaria</a></li>
+                        <li><a href="#">Energia</a></li>
+                        <li><a href="#">Metalmecânica</a></li>
+                        <li><a href="#">Ensino</a></li>
+                        <li><a href="#">Agropecuária</a></li>
+                        <li><a href="#">Indústria Mecânica</a></li>
+                        <li><a href="#">Consultoria</a></li>
                     </ul>
                 </div>
+
 
                 <div class="footer-column">
                     <h4 data-translate="siga-nos">Siga-nos</h4>
                     <div class="social-icons">
-                        <a target="_blank" href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i class="fab fa-linkedin"></i></a>
-                        <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i class="fab fa-instagram"></i></a>
-                        <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i class="fab fa-facebook"></i></a>
+                        <a target="_blank"
+                            href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i
+                                class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                    <ul class="termo">
+                        <li><a href="#" data-translate="politica-privacidade">Política de Privacidade</a></li>
+                        <li><a href="#" data-translate="termos-condicoes">Termos e Condições</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div aria-hidden="true" class="footer-logos">
+                <div class="marquee-F">
+                    <div class="marquee__group">
+                        <img src="../assets/Logos Brancos/Corpo e Mente.png" alt="cem">
+                        <img src="../assets/Logos Brancos/MBT.png" alt="mbt">
+                        <img src="../assets/Logos Brancos/Quavi.png" alt="quavi">
+                        <img src="../assets/Logos Brancos/Okukulanaua.png" alt="okukulanaua">
+                        <img src="../assets/Logos Brancos/Kalanaua.png" alt="Kalanaua">
+                        <img src="../assets/Logos Brancos/Tecnology.png" alt="Tecnology">
+                        <img src="../assets/Logos Brancos/Unione.png" alt="unione">
+                        <img src="../assets/Logos Brancos/Fibra.png" alt="Fibra">
+                        <img src="../assets/Logos Brancos/Infraone.png" alt="Infraone">
+                        <img src="../assets/Logos Brancos/Integracons.png" alt="Integracons">
+                        <img src="../assets/Logos Brancos/Mater.png" alt="Mater">
+                        <img src="../assets/Logos Brancos/Metalangol.png" alt="Metalangol">
+                    </div>
+                    <div aria-hidden="true" class="marquee__group">
+                        <img src="../assets/Logos Brancos/Corpo e Mente.png" alt="cem">
+                        <img src="../assets/Logos Brancos/MBT.png" alt="mbt">
+                        <img src="../assets/Logos Brancos/Quavi.png" alt="quavi">
+                        <img src="../assets/Logos Brancos/Okukulanaua.png" alt="okukulanaua">
+                        <img src="../assets/Logos Brancos/Kalanaua.png" alt="Kalanaua">
+                        <img src="../assets/Logos Brancos/Tecnology.png" alt="Tecnology">
+                        <img src="../assets/Logos Brancos/Unione.png" alt="unione">
+                        <img src="../assets/Logos Brancos/Fibra.png" alt="Fibra">
+                        <img src="../assets/Logos Brancos/Infraone.png" alt="Infraone">
+                        <img src="../assets/Logos Brancos/Integracons.png" alt="Integracons">
+                        <img src="../assets/Logos Brancos/Mater.png" alt="Mater">
+                        <img src="../assets/Logos Brancos/Metalangol.png" alt="Metalangol">
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>Copyright &copy; 2025 Grupo Unione - <span data-translate="direitos-reservados">Todos os direitos reservados</span>.</p>
+                <p>Copyright &copy; 2025 Grupo Unione - <span data-translate="direitos-reservados">Todos os direitos
+                        reservados</span>.</p>
             </div>
         </div>
     </footer>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>gsap.registerPlugin(ScrollTrigger);</script>
 
-    <script src="../js/script.js"></script>
-    <script src="../js/routes.js"></script>
+    <script src="../../js/script.js"></script>
+    <script src="../../js/routes.js"></script>
+    <script src="../../js/searchData.js"></script>
+
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.36/dist/lenis.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.1.4/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({
+            smooth: true,
+            lerp: 0.04,
+            wheelMultiplier: 0.4,
+        });
+
+        function raf(t) {
+            lenis.raf(t);
+            ScrollTrigger.update();
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function (lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+
+    </script>
+
 </body>
 
 </html>

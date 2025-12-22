@@ -1,11 +1,8 @@
-/* =========================================
-   Shared Styles for Company Pages & Subpages
-   ========================================= */
 
 /* Hero Section */
 .hero-company {
     position: relative;
-    height: 60vh;
+    height: 65vh;
     min-height: 400px;
     background-size: cover;
     background-position: center;
@@ -14,6 +11,7 @@
     justify-content: center;
     color: white;
     text-align: center;
+    z-index: -1;
 }
 
 .hero-company::before {
@@ -85,7 +83,7 @@
     padding: 40px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 
@@ -95,7 +93,7 @@
 
 .service-card i {
     font-size: 3rem;
-    color: #b52e0f;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
@@ -124,7 +122,7 @@
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -144,7 +142,7 @@
 }
 
 .project-info h3 {
-    color: #b52e0f;
+    color: var(--text-color);
     margin-bottom: 15px;
     font-size: 1.5rem;
 }
@@ -183,8 +181,11 @@
    Investidores Page
    ========================================= */
 .investor-content {
+    display: flex;
+    flex-direction: column;
     padding: 80px 10%;
     background-color: #fff;
+
 }
 
 .investor-content h2 {
@@ -194,7 +195,7 @@
     color: #333;
 }
 
-.investor-content > p {
+.investor-content>p {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
@@ -205,6 +206,7 @@
 }
 
 .investor-grid {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
@@ -216,7 +218,7 @@
     padding: 30px;
     background: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 
@@ -226,7 +228,7 @@
 
 .investor-card i {
     font-size: 3rem;
-    color: #b52e0f;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
@@ -235,15 +237,29 @@
     font-size: 1.5rem;
 }
 
+.investor-content {
+    border-top-left-radius: var(--border2);
+    border-top-right-radius: var(--border2);
+    z-index: 999;
+    margin-top: -2.5rem;
+    align-items: center;
+}
+
 .cta-section {
-    background-color: #f4f4f4;
+    flex-direction: column;
     padding: 60px 20px;
+    margin: 2rem;
     text-align: center;
+    border-radius: var(--border2);
+
+    h1 {
+        margin: 20px;
+    }
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #b52e0f;
+    background-color: var(--text-color);
     color: white;
     padding: 15px 40px;
     border-radius: 30px;
@@ -261,116 +277,6 @@
     .investor-content {
         padding: 50px 20px;
     }
-}
-
-/* =========================================
-   Contatos Page
-   ========================================= */
-.contact-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    padding: 80px 10%;
-    background-color: #fff;
-}
-
-.contact-info {
-    flex: 1;
-    min-width: 300px;
-}
-
-.contact-info h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.info-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-}
-
-.info-item i {
-    font-size: 1.5rem;
-    color: #b52e0f;
-    margin-right: 20px;
-    margin-top: 5px;
-}
-
-.info-item h4 {
-    margin-bottom: 5px;
-    font-size: 1.2rem;
-}
-
-.info-item p {
-    color: #666;
-    line-height: 1.6;
-}
-
-.contact-form {
-    flex: 1;
-    min-width: 300px;
-    background: #f9f9f9;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-    font-weight: bold;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    border-color: #b52e0f;
-    outline: none;
-}
-
-.submit-btn {
-    background-color: #b52e0f;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #8a200a;
-}
-
-.map-section {
-    height: 400px;
-    background-color: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 1.5rem;
 }
 
 @media (max-width: 768px) {
@@ -400,8 +306,8 @@
     background: white;
     padding: 15px 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border: 2px solid #b52e0f;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--text-color);
     min-width: 200px;
     position: relative;
     transition: transform 0.3s;
@@ -426,20 +332,21 @@
 .org-connector-vertical {
     width: 2px;
     height: 30px;
-    background-color: #b52e0f;
+    background-color: var(--text-color);
 }
 
 .org-connector-vertical-small {
     width: 2px;
     height: 20px;
-    background-color: #b52e0f;
+    background-color: var(--text-color);
     margin: 0 auto;
 }
 
 .org-connector-horizontal {
-    width: 75%; /* Adjust based on number of branches */
+    width: 75%;
+    /* Adjust based on number of branches */
     height: 2px;
-    background-color: #b52e0f;
+    background-color: var(--text-color);
     margin-bottom: 0;
 }
 
@@ -467,18 +374,24 @@
         flex-direction: column;
         align-items: center;
     }
+
     .org-connector-horizontal {
-        display: none; /* Hide horizontal connector on mobile */
+        display: none;
+        /* Hide horizontal connector on mobile */
     }
+
     .org-connector-vertical {
         height: 20px;
     }
+
     .level-3 {
         gap: 20px;
     }
+
     .org-branch {
         width: 100%;
     }
+
     .org-node {
         width: 100%;
         max-width: 300px;

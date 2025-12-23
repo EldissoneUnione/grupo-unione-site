@@ -462,7 +462,6 @@
         .submit-btn {
             padding: 15px;
             border: none;
-            background: var(--gradient);
             color: white;
             font-size: 1rem;
             cursor: pointer;
@@ -1009,7 +1008,6 @@
             padding: 15px;
             border: none;
             border-radius: 12px;
-            background: var(--gradient);
             color: white;
             font-size: 1rem;
             cursor: pointer;

@@ -34,6 +34,32 @@
 
 }
 
+.company-details h2 {
+    font-size: 30px;
+    font-weight: 300;
+    position: relative;
+    padding-left: 50px;
+}
+
+.company-details h2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    border-radius: var(--border2);
+}
+
+.company-details h2::before {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50px;
+    width: 200px;
+    height: 3px;
+}
+
 .company-details p {
     margin: 0;
     color: var(--text-color1);
@@ -76,9 +102,6 @@
     color: #333;
 }
 
-strong {
-    font-size:x-large;
-}
 
 @media (max-width: 768px) {
     .hero-content h1 {

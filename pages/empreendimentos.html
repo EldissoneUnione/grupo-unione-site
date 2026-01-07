@@ -10,129 +10,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsivStyle.css">
     <link rel="stylesheet" href="../css/load.css">
+    <link rel="stylesheet" href="../css/pages-custom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        .hero-company {
-            position: relative;
-            height: 65vh;
-            min-height: 400px;
-            background-image: url('../assets/Imagens/1_Hero_GRUPO-UNIONE_Op.2.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            z-index: -1;
-        }
-
-        .hero-company::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            padding: 80px 10%;
-            background-color: #f9f9f9;
-            background-color: var(--bg-body);
-            border-top-left-radius: var(--border2);
-            border-top-right-radius: var(--border2);
-            z-index: 999;
-            margin-top: -2.5rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: var(--border2);
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            max-height: 490px;
-            height: 490px;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-image {
-            height: 250px;
-            background-color: #ddd;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .project-info {
-            padding: 25px;
-        }
-
-        .project-info h3 {
-            color: #b52e0f;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .project-info p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .project-status {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        .status-completed {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .status-progress {
-            background-color: #fff3e0;
-            color: #ef6c00;
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .projects-grid {
-                padding: 50px 20px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -165,27 +44,7 @@
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                         </div>
                     </div>
-                    <div class="dropdown">
-                        <a href="/areas-negocios" data-translate="areas-negocios">áreas de negócios</a>
-                        <div class="dropdown-menu" role="menu">
-                            <a href="/areas-negocios" role="menuitem" data-translate="SAÚDE">Saúde</a>
-                            <a href="/areas-negocios" role="menuitem"
-                                data-translate="TELECOMUNICAÇÕES">Telecomunicações</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="ENSINO">Ensino</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="AGROPECUÁRIA">Agropecuária</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="CONSULTORIA E GESTÃO">Consultoria
-                                e Gestão</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="ENERGIA">Energia</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="HOTELARIA E TURISMO">Hotelaria e
-                                Turismo</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="CONSTRUÇÃO CIVIL">Construção
-                                Civil</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="METALOMECÂNICA">Metalomecânica</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="CARPINTARIA">Carpintaria</a>
-                            <a href="/areas-negocios" role="menuitem" data-translate="INDÚSTRIA MECÂNICA">Industria
-                                Mecânica</a>
-                        </div>
-                    </div>
+                <a href="#" data-translate="areas-negocios">áreas de negócios</a>
                     <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
                     <a href="/investidores" data-translate="investidores">investidores</a>
                     <a href="/contatos" data-translate="contatos">contatos</a>

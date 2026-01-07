@@ -131,15 +131,13 @@ html {
 }
 
 html,
-body,
-.site-content {
+body{
     overflow-x: hidden;
     font-family: "Roboto", sans-serif;
     --rows: 22;
 }
 
-body,
-.site-content {
+body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -211,10 +209,6 @@ img {
     margin-bottom: 50px;
     font-family: "Arial Rounded MT Bold", "Arial Rounded MT" !important;
 }
-
-/* .site-content {
-    opacity: 0;
-} */
 
 main {
     width: 100%;
@@ -1564,7 +1558,7 @@ section {
 
 .reveal-next-mobile {
     display: none;
-    height: 98vh;
+    height: 75vh;
 }
 
 .horizontal-scroll-wrapper {
@@ -1735,13 +1729,17 @@ video {
     margin-top: -120px;
     bottom: 0;
     z-index: 1;
+    border-top-left-radius: var(--border2);
+    border-top-right-radius: var(--border2);
 
     .card-overlay {
         position: absolute;
         left: 0;
         height: 100%;
         width: 100%;
-        padding: 10rem 8rem;
+        padding-top: 6rem;
+        padding-bottom: 12rem;
+        padding-left: 8rem;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
         color: var(--white);
         box-sizing: border-box;
@@ -1796,6 +1794,7 @@ video {
     background-color: var(--bg-body);
     border-top-left-radius: var(--border2);
     border-top-right-radius: var(--border2);
+    box-shadow: 0px 1px 50px rgba(0, 0, 0, 0.484);
     padding-top: 2rem;
     padding-bottom: 2rem;
     flex-direction: column;
@@ -1852,9 +1851,9 @@ video {
     & a {
         display: flex;
         padding: 8px 15px;
-        background-color: transparent;
+        background-color: var(--tech-primary);
         border: 1px solid transparent;
-        color: var(--text-color);
+        color: var(--white);
         text-decoration: none;
         border-radius: 20px;
         font-size: 1.2rem;
@@ -1865,7 +1864,7 @@ video {
     }
 
     a:hover {
-        color: var(--text-color-black);
+        opacity: 0.8;
     }
 
 }
@@ -1890,6 +1889,110 @@ video {
     font-weight: 200;
     align-self: flex-start;
 }
+
+.carousel-controls-noticias {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.carousel-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--tech-primary);
+    border: 1px solid transparent;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover:not(:disabled) {
+    background-color: var(--tech-primary-dark);
+    color: var(--text-color);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-btn:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background-color: var(--bg-nav);
+}
+
+
+.carousel-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.indicators-container {
+    display: flex;
+    gap: 10px;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--bg-nav);
+    border: 2px solid var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator-dot.active {
+    background-color: var(--tech-primary);
+    transform: scale(1.2);
+    color: var(--text-color);
+}
+
+.indicator-dot:hover {
+    transform: scale(1.3);
+}
+
+.counter {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 15px;
+    background-color: var(--bg-nav);
+    border-radius: 20px;
+    min-width: 60px;
+    text-align: center;
+}
+
+
+.card-blog {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .contactos-section {
     display: flex;

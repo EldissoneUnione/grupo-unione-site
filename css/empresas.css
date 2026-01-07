@@ -17,6 +17,11 @@
 .logo-grupoP {
     bottom: 8rem;
     left: 4rem;
+
+    a {
+        bottom: 0rem;
+        left: 4rem;
+    }
 }
 
 .company-details {

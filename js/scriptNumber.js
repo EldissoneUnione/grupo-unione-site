@@ -1,16 +1,9 @@
 const donutData = [
-  { name: 'áreas de negócio', value: 10, percent: 12, color: '#77dd77' },
-  { name: 'Projectos de Inpacto social', value: 20, percent: 500, color: '#ceaabe' },
-  { name: 'Projectos de Inpacto social', value: 3, percent: 500, color: '#ceaabe' },
-  { name: 'milhões de dólares <br> já alocados em expansão', value: 50, percent: 50, color: '#1e668d' },
-  { name: 'Colaboradores', value: 8, percent: 1000, color: '#0a3d91' },
-  { name: 'Colaboradores', value: 12, percent: 1000, color: '#0a3d91' },
-  { name: 'Colaboradores', value: 7, percent: 1000, color: '#0a3d91' },
-  { name: 'Colaboradores', value: 9, percent: 1000, color: '#0a3d91' },
-  { name: 'Clientes e parceiros', value: 6, percent: 5000, color: '#ffb347' },
-  { name: 'Clientes e parceiros', value: 8, percent: 5000, color: '#ffb347'},
-  { name: 'Clientes e parceiros', value: 15, percent: 5000, color: '#ffb347' },
-  { name: 'Clientes e parceiros', value: 3, percent: 5000, color: '#ffb347' }
+  { name: 'áreas de negócio', value: 10, percent: 12, color: '#68882a' },
+  { name: 'Projectos de Inpacto social', value: 23, percent: 500, color: '#9d9e9e' },
+  { name: 'milhões de dólares <br> já alocados em expansão', value: 50, percent: 50, color: '#5cc7d0' },
+  { name: 'Colaboradores', value: 36, percent: 1000, color: '#0d3fd1' },
+  { name: 'Clientes e parceiros', value: 32, percent: 5000, color: '#f7a707' }
 ];
 
 const total = donutData.reduce((acc, cur) => acc + cur.value, 0);

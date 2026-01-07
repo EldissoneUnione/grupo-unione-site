@@ -2,7 +2,6 @@ function runIntroAnimation() {
     const loader = document.querySelector('.loading');
     const logo = document.getElementById('logo-svg');
     const logoContent = document.querySelector('.logo-content');
-    const siteContent = document.querySelector('.site-content');
     const typeText = document.getElementById('type-text');
 
     const message = "GRUPO UNIONE";
@@ -121,10 +120,6 @@ function runIntroAnimation() {
             .to(loader, {
                 opacity: 0,
                 duration: 0.8,
-            }, "<")
-            .to(siteContent, {
-                opacity: 1,
-                duration: 0.8
             }, "<");
     }
 }

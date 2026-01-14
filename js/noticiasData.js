@@ -15,7 +15,7 @@ window.NOTICIAS_DATA = [
   },
   {
     id: 2,
-    img: "../assets/Imagens/Noticias/epas/epas.jpg",
+    img: "../assets/Imagens/Noticias/EPAS/epas.jpg",
     data: "2025",
     titulo: "EPAS-Huila Realiza Team Building de Sucesso com Dinâmicas Interativas e Estratégicas no POLIS",
     conteudo: `

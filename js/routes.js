@@ -6,7 +6,7 @@ const routes = {
     '/areas-negocios': 'pages/areas-negocios.html',
     '/empreendimentos': 'pages/empreendimentos.html',
     '/investidores': 'pages/investidores.html',
-    '/contatos': 'pages/contatos.html',
+    '/contactos': 'pages/contactos.html',
     // Rotas das empresas
     '/empresas/mbt': 'pages/empresas/mbt.html',
     '/empresas/corpo-e-mente': 'pages/empresas/corpo-e-mente.html',

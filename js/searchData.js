@@ -58,7 +58,7 @@ window.SEARCH_DATA = [
   { title: "Áreas de Negócios", url: "/pages/areas-negocios.html" },
   { title: "Empreendimentos", url: "/pages/empreendimentos.html" },
   { title: "Investidores", url: "/pages/investidores.html" },
-  { title: "Contatos", url: "/pages/contatos.html" },
+  { title: "Contactos", url: "/pages/Contactos.html" },
   { title: "Saúde", url: "/pages/areas-negocios.html#saude" },
   { title: "Telecomunicações", url: "/pages/areas-negocios.html#telecomunicacoes" },
   { title: "Ensino", url: "/pages/areas-negocios.html#ensino" },

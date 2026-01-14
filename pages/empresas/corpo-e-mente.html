@@ -37,6 +37,11 @@
     .submit-btn {
         background: var(--corpo-mente-dark);
     }
+    
+    .submit-btn:hover {
+    background: var(--corpo-mente-dark);
+}
+
 
     .company-details h2::after,
     .services-section h2::after,
@@ -49,6 +54,10 @@
     .medical-team h2::before {
         background-color: var(--corpo-mente-light);
     }
+
+    .service-card h3 {
+    color: var(--corpo-mente-dark);
+}
 
     footer {
         background: var(--corpo-mente-dark);
@@ -93,7 +102,7 @@
                     <a href="#" data-translate="areas-negocios">áreas de negócios</a>
                     <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
                     <a href="/investidores" data-translate="investidores">investidores</a>
-                    <a href="/contatos" data-translate="contatos">contatos</a>
+                    <a href="/Contactos" data-translate="Contactos">Contactos</a>
                 </nav>
 
                 <label class="burger" for="burger">
@@ -144,7 +153,7 @@
                 <a href="/areas-negocios">áreas de negócios</a>
                 <a href="/empreendimentos">empreendimentos</a>
                 <a href="/investidores">investidores</a>
-                <a href="/contatos">contatos</a>
+                <a href="/Contactos">Contactos</a>
             </nav>
             <div class="search-menu">
                 <button id="search" class="search-button" aria-label="Pesquisar">
@@ -178,9 +187,9 @@
         </section>
 
         <section class="company-details">
-            <h2>CORPO & MENTE - SAÚDE INTEGRAL</h2> <br>
+            <h2>CORPO & MENTE - SAÚDE INTEGRAL</h2> <br> <br>
             <p>Há 16 anos, nascia mais do que uma clínica — nascia um compromisso com a vida, com o cuidado e com a dignidade de cada pessoa que passa pelas nossas portas. Desde 2009, temos caminhado lado a lado com os cidadãos do Lubango e não só, zelando pelo seu bem-estar físico, emocional e mental.</p>
-            
+            <br>
             <div class="company-highlights">
                 <div class="highlight-card">
                     <h3><i class="fas fa-heart-circle-check"></i> Atendimento Humanizado</h3>
@@ -195,6 +204,8 @@
                     <p>16 anos de história construída com confiança, excelência e dedicação aos nossos pacientes.</p>
                 </div>
             </div>
+
+            <br>
 
             <p>Com um espaço moderno e acolhedor, nossa equipe de profissionais está pronta para oferecer o melhor em tratamentos estéticos, terapias relaxantes e atividades físicas personalizadas.</p>
             
@@ -310,7 +321,7 @@
                     <p>Serviços completos para empresas: exames admissionais, periódicos, demissionais e programas de saúde ocupacional.</p>
                     <a href="https://wa.me/244939060244?text=Olá! Gostaria de agendar exames ocupacionais para minha empresa" 
                        class="cta-button secondary" 
-                       style="margin-top: 20px; padding: 12px 25px; font-size: 0.9rem;" 
+                     
                        target="_blank">
                         Agendar para Empresa
                     </a>
@@ -322,7 +333,7 @@
                     <p>Parceria com diversas seguradoras. Verifique a cobertura do seu plano ou entre em contacto com nossa equipa.</p>
                     <a href="https://wa.me/244939060244?text=Olá! Gostaria de saber sobre a cobertura do meu plano de saúde" 
                        class="cta-button secondary" 
-                       style="margin-top: 20px; padding: 12px 25px; font-size: 0.9rem;" 
+                        
                        target="_blank">
                         Consultar Cobertura
                     </a>
@@ -504,8 +515,8 @@
     <script>
         const lenis = new Lenis({
             smooth: true,
-            lerp: 0.04,
-            wheelMultiplier: 0.4,
+            lerp: 0.08,
+            wheelMultiplier: 0.8,
         });
 
         function raf(t) {

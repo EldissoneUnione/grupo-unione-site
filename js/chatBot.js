@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Banco de respostas variadas
     const respostas = {
-      contato: [
+      contacto: [
         "Você pode nos contatar pelo e-mail: unione@unioneafrica.com ou pelo telefone (+244) 922 490 448.",
-        "Nosso contato: unione@unioneafrica.com | Tel: (+244) 922 490 448. Precisa de mais alguma informação?",
+        "Nosso contacto: unione@unioneafrica.com | Tel: (+244) 922 490 448. Precisa de mais alguma informação?",
         "Fale conosco pelo e-mail unione@unioneafrica.com ou ligue para (+244) 922 490 448."
       ],
       empresa: [
@@ -43,9 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
         "Seja bem-vindo! Em que posso te ajudar?"
       ],
       desconhecido: [
-        "Desculpe, ainda estou aprendendo! Você pode perguntar sobre empresas, áreas de atuação ou como entrar em contato.",
-        "Não entendi muito bem. Tente perguntar sobre empresas, áreas de negócio ou formas de contato.",
-        "Ainda não sei responder isso, mas posso te ajudar com informações sobre empresas, áreas ou contato."
+        "Desculpe, ainda estou aprendendo! Você pode perguntar sobre empresas, áreas de atuação ou como entrar em contacto.",
+        "Não entendi muito bem. Tente perguntar sobre empresas, áreas de negócio ou formas de contacto.",
+        "Ainda não sei responder isso, mas posso te ajudar com informações sobre empresas, áreas ou contacto."
       ]
     };
 
@@ -116,8 +116,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const conteudo = buscarConteudo(msg);
         if (conteudo) {
           resposta = conteudo;
-        } else if (msg.includes('contato') || msg.includes('falar com') || msg.includes('telefone') || msg.includes('email')) {
-          resposta = respostas.contato[Math.floor(Math.random() * respostas.contato.length)];
+        } else if (msg.includes('contacto') || msg.includes('falar com') || msg.includes('telefone') || msg.includes('email')) {
+          resposta = respostas.contacto[Math.floor(Math.random() * respostas.contacto.length)];
         } else if (msg.includes('empresa') || msg.includes('empresas') || msg.includes('grupo')) {
           resposta = respostas.empresa[Math.floor(Math.random() * respostas.empresa.length)];
         } else if (msg.includes('olá') || msg.includes('oi') || msg.includes('bom dia') || msg.includes('boa tarde')) {

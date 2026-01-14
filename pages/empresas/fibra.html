@@ -18,8 +18,7 @@
 
 <style>
     .service-card i {
-        color: var(--fibra-light);
-
+        color: var(--fibra-dark);
     }
 
     .contact-info {
@@ -39,12 +38,26 @@
         background: var(--fibra-primary);
     }
 
-    .company-details h2::after {
+    .submit-btn:hover {
+        background: var(--fibra-dark);
+    }
+
+    .company-details h2::after,
+    .section-header h2::after {
         background-color: var(--fibra-primary);
     }
 
-    .company-details h2::before {
+    .company-details h2::before,
+    .section-header h2::before {
         background-color: var(--fibra-primary);
+    }
+
+    .service-card h3 {
+        color: var(--fibra-dark);
+    }
+
+    .cta-section {
+        background: linear-gradient(135deg, var(--fibra-primary), var(--fibra-dark));
     }
 
     footer {
@@ -82,10 +95,10 @@
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                         </div>
                     </div>
-                <a href="#" data-translate="areas-negocios">áreas de negócios</a>
+                    <a href="#" data-translate="areas-negocios">áreas de negócios</a>
                     <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
                     <a href="/investidores" data-translate="investidores">investidores</a>
-                    <a href="/contatos" data-translate="contatos">contatos</a>
+                    <a href="/Contactos" data-translate="Contactos">Contactos</a>
                 </nav>
 
                 <label class="burger" for="burger">
@@ -136,7 +149,7 @@
                 <a href="/areas-negocios">áreas de negócios</a>
                 <a href="/empreendimentos">empreendimentos</a>
                 <a href="/investidores">investidores</a>
-                <a href="/contatos">contatos</a>
+                <a href="/Contactos">Contactos</a>
             </nav>
             <div class="search-menu">
                 <button id="search" class="search-button" aria-label="Pesquisar">
@@ -149,82 +162,256 @@
         </div>
     </header>
     <main>
-        <section class="hero-company" role="banner" aria-label="Banner principal">
+        <section class="hero-company" role="banner" aria-label="Banner principal da FIBRA">
             <div class="baner-grupo">
                 <div class="baner-cards-grupo">
                     <div class="card-baner-grupo">
                         <img src="../../assets/Imagens/10_Hero_Fibra.jpeg"
-                            alt="Imagem representando Quavi do grupo Unione" width="1920" height="1080" loading="eager">
+                            alt="Infraestrutura de fibra óptica e rede da empresa FIBRA" width="1920" height="1080"
+                            loading="eager">
                         <div class="logo-grupoP">
-                            <img src="../../assets/Logos Brancos/Fibra.png" alt="Logo fibra" width="100" height="100">
+                            <img src="../../assets/Logos Brancos/Fibra.png" alt="Logo FIBRA Telecomunicações"
+                                width="180" height="auto">
                         </div>
+                        <a href="#contacto" class="cta-hero">
+                            <i class="fas fa-wifi"></i> Solicite uma consultoria
+                        </a>
                     </div>
-
                 </div>
+            </div>
         </section>
 
         <section class="company-details">
-            <h2><strong>Telecomunicações e Conectividade</strong></h2> <br>
-            <p>A <strong>Fibra</strong> é a empresa do Grupo Unione dedicada ao setor de telecomunicações e
-               *FIBRA - TELECOMUNICAÇÕES*
-*Banner / Hero*
-*Conectamos o Futuro da Região Sul*
-Com 7 anos de actuação no mercado, a FIBRA - Informática e Telecomunicações nasceu para oferecer soluções tecnológicas inovadoras e sustentáveis. Actuamos com excelência em redes de comunicação, fibra óptica, data centers, virtualização, formação técnica e integração de sistemas.
- Já conectámos grandes projetos como o Porto do Namibe, o Resort Pululukwa (Lubango) e o POLIS - Polo de Desenvolvimento Integrado e Sustentável (Humpata), sempre com compromisso, inovação e foco no cliente.
- Nosso propósito é claro: transformar digitalmente a região sul de Angola e além.
+            <h2><strong>CONECTAMOS O FUTURO DA REGIÃO SUL</strong></h2>
 
-*Nossas Soluções Tecnológicas*
+            <div class="company-intro">
+                <div class="intro-content">
+                    <p>Com <strong>7 anos de atuação</strong> no mercado, a <strong>FIBRA - Informática e
+                            Telecomunicações</strong> nasceu para oferecer soluções tecnológicas inovadoras e
+                        sustentáveis. Atuamos com excelência em redes de comunicação, fibra óptica, data centers,
+                        virtualização, formação técnica e integração de sistemas.</p> <br>
 
-Atendemos empresas públicas e privadas com um portfólio completo de serviços em:
-Infraestrutura de Rede e Fibra Óptica
-Data Center e Virtualização
-Consultoria e Transformação Digital
-Formação Técnica Profissional
-Integração e Suporte de Sistemas
-Projetos de Conectividade em larga escala
- Do diagnóstico à implementação, somos parceiros para o crescimento e modernização das organizações.
+                    <P>
+                        Já conectámos grandes projetos como o <strong>Porto do Namibe</strong>, o <strong>Resort
+                            Pululukwa</strong> (Lubango) e o
+                        <strong>POLIS</strong> - Polo de Desenvolvimento Integrado e Sustentável (Humpata),
+                        sempre com compromisso, inovação e foco no cliente.
+                    </P>
+                </div>
+            </div>
 
-*Soluções Reais. Impactos Reais.*
+            <div class="mission-vision">
+                <div class="mission-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h4>Nossa Missão</h4>
+                    <p>Transformar digitalmente a região sul de Angola através de soluções tecnológicas de ponta e
+                        conectividade de alta performance.</p>
+                </div>
+                <div class="vision-card">
+                    <i class="fas fa-eye"></i>
+                    <h4>Nossa Visão</h4>
+                    <p>Ser referência em telecomunicações e inovação tecnológica em Angola, conectando pessoas, empresas
+                        e regiões.</p>
+                </div>
+            </div>
 
-Ao longo dos nossos 7 anos de actividade, temos sido protagonistas em projectos que marcaram a diferença no sector das telecomunicações e tecnologia em Angola.
- Da instalação de redes de fibra óptica em zonas estratégicas, à concepção de sistemas robustos para empresas e instituições, a FIBRA tem deixado uma marca de qualidade e inovação em cada obra.
-Alguns dos nossos destaques:
-Polo de Desenvolvimento Integrado e Sustentável (POLIS) – Instalação de rede de fibra óptica em 417 hectares
-Porto do Namibe – Infraestrutura de comunicação para operações portuárias
-Resort Pululukwa – Projeto completo de conectividade e suporte técnico
-Infraestrutura técnica para instituições e empresas da Huíla, Namibe, Cunene e Benguela
+            <div class="services-overview">
+                <h2></i> Nossas Soluções Tecnológicas</h2> <br> <br>
+                <p>Atendemos empresas públicas e privadas com um portfólio completo de serviços em:</p>
 
-*Contactos (Em alternativa ao chat bot, esta página poderá ter um Botão de Formulário de Contactos que acompanha a visita do utilizador)*
+                <div class="services-list">
+                    <div class="service-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Infraestrutura de Rede e Fibra Óptica</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Data Center e Virtualização</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Consultoria e Transformação Digital</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Formação Técnica Profissional</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Integração e Suporte de Sistemas</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Projetos de Conectividade em larga escala</span>
+                    </div>
+                </div>
+
+                <p class="highlight-text">Do diagnóstico à implementação, somos parceiros para o crescimento e
+                    modernização das organizações.</p>
+            </div>
+
+            <div class="projects-showcase">
+                <h2>Soluções Reais. Impactos Reais.</h2> <br><br>
+                <p>Ao longo dos nossos 7 anos de atividade, temos sido protagonistas em projetos que marcaram a
+                    diferença no sector das telecomunicações e tecnologia em Angola.</p>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <img src="../../assets/Imagens/25.jpeg" alt="">
+                        </div>
+                        <h4>POLIS - Humpata</h4>
+                        <p>Instalação de rede de fibra óptica em <strong>415 hectares</strong> do Polo de
+                            Desenvolvimento Integrado e Sustentável.</p>
+                        <span class="project-tag">Infraestrutura Total</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <img src="../../assets/Imagens/25.jpeg" alt="">
+                        </div>
+                        <h4>Porto do Namibe</h4>
+                        <p>Infraestrutura de comunicação avançada para operações portuárias de alta complexidade.</p>
+                        <span class="project-tag">Conectividade Industrial</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <img src="../../assets/Imagens/25.jpeg" alt="">
+                        </div>
+                        <h4>Resort Pululukwa</h4>
+                        <p>Projeto completo de conectividade e suporte técnico para resort de luxo no Lubango.</p>
+                        <span class="project-tag">Soluções Integradas</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <img src="../../assets/Imagens/25.jpeg" alt="">
+                        </div>
+                        <h4>Expansão Regional</h4>
+                        <p>Infraestrutura técnica para instituições e empresas da Huíla, Namibe, Cunene e Benguela.</p>
+                        <span class="project-tag">Cobertura Ampliada</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section" id="contacto">
+                <h2></i> Pronto para Conectar seu Negócio?</h2>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 40px;text-align: center;">Temos a solução
+                    ideal para suas necessidades de conectividade e telecomunicações.</p>
+
+                <div class="cta-buttons">
+                    <a href="#contact-form" class="cta-primary">
+                        <i class="fas fa-file-alt"></i> Solicitar Orçamento
+                    </a>
+                    <a href="tel:+244922490448" class="cta-outline">
+                        <i class="fas fa-phone"></i> Falar com Especialista
+                    </a>
+                    <a href="mailto:fibra@unioneafrica.com" class="cta-outline">
+                        <i class="fas fa-envelope"></i> Enviar E-mail
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <section class="services-grid fibra">
-            <div class="service-card">
-                <i class="fas fa-network-wired"></i>
-                <h3>Fibra Óptica</h3>
-                <p>Instalação e manutenção de redes de fibra óptica para alta velocidade e confiabilidade.</p>
+        <section class="services-detailed services-section fibra">
+            <div class="section-header">
+                <h2></i> Nossas Especialidades</i></h2>
+                <p>Soluções tecnológicas completas para empresas de todos os portes</p>
             </div>
-            <div class="service-card">
-                <i class="fas fa-server"></i>
-                <h3>Infraestrutura de Rede</h3>
-                <p>Projetos completos de cabeamento estruturado e infraestrutura para data centers.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-wifi"></i>
-                <h3>Conectividade</h3>
-                <p>Soluções de conectividade para empresas, condomínios e áreas rurais.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Fibra Óptica</h3>
+                    <p>Instalação e manutenção de redes de fibra óptica para alta velocidade e confiabilidade máxima.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Projeto personalizado</li>
+                        <li><i class="fas fa-check"></i> Equipamentos de ponta</li>
+                        <li><i class="fas fa-check"></i> Suporte 24/7</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Infraestrutura de Rede</h3>
+                    <p>Projetos completos de cabeamento estruturado e infraestrutura para data centers.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Cabeamento estruturado</li>
+                        <li><i class="fas fa-check"></i> Data Center solutions</li>
+                        <li><i class="fas fa-check"></i> Virtualização</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Conectividade Corporativa</h3>
+                    <p>Soluções de conectividade para empresas, condomínios e áreas rurais com cobertura ampliada.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Wi-Fi empresarial</li>
+                        <li><i class="fas fa-check"></i> Redes ponto-a-ponto</li>
+                        <li><i class="fas fa-check"></i> Soluções rurais</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança Digital</h3>
+                    <p>Sistemas de segurança de rede, firewall, VPN e proteção contra ameaças cibernéticas.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Firewall avançado</li>
+                        <li><i class="fas fa-check"></i> Monitoramento 24h</li>
+                        <li><i class="fas fa-check"></i> Backup em nuvem</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Formação Técnica</h3>
+                    <p>Capacitação de equipas em tecnologias de rede, segurança e telecomunicações.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Certificações</li>
+                        <li><i class="fas fa-check"></i> Treinamento in company</li>
+                        <li><i class="fas fa-check"></i> Suporte técnico</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Consultoria Tecnológica</h3>
+                    <p>Diagnóstico e planeamento estratégico para transformação digital da sua empresa.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Auditoria de rede</li>
+                        <li><i class="fas fa-check"></i> Planeamento estratégico</li>
+                        <li><i class="fas fa-check"></i> Migração assistida</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="contactos-section">
             <div class="contact-info">
                 <div class="logo-contact">
-                    <img src="../../assets/Logos Brancos/Grupo Unione.png" alt="grupo unione logotipo">
+                    <img src="../../assets/Logos Brancos/Fibra.png" alt="Logo FIBRA Telecomunicações">
                 </div>
 
                 <h2 data-translate="contacte-nos">Contacte-nos</h2>
                 <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla
                 </p>
-                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i aria-hidden="true" class="fas fa-envelope"></i> fibra@unioneafrica.com</p>
                 <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
 
                 <div class="social">
@@ -254,7 +441,9 @@ Infraestrutura técnica para instituições e empresas da Huíla, Namibe, Cunene
                     <input type="email" placeholder="Seu E-mail" data-translate="seu-email" required>
 
                     <textarea placeholder="Mensagem" rows="5" data-translate="mensagem" required></textarea>
-                    <button type="submit" class="submit-btn" data-translate="enviar">Enviar</button>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> <span data-translate="enviar">Enviar Solicitação</span>
+                    </button>
                 </form>
             </div>
         </section>
@@ -386,8 +575,8 @@ Infraestrutura técnica para instituições e empresas da Huíla, Namibe, Cunene
     <script>
         const lenis = new Lenis({
             smooth: true,
-            lerp: 0.04,
-            wheelMultiplier: 0.4,
+            lerp: 0.08,
+            wheelMultiplier: 0.8,
         });
 
         function raf(t) {

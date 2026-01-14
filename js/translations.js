@@ -6,7 +6,7 @@ const translations = {
         'areas-negocios': 'áreas de negócios',
         'empreendimentos': 'empreendimentos',
         'investidores': 'investidores',
-        'contatos': 'contatos',
+        'Contactos': 'Contactos',
         
         // Empresas
         'mbt': 'MBT',
@@ -70,7 +70,7 @@ const translations = {
         'investimentos': 'Investimentos',
         'projetos': 'Projetos',
         'colaboradores': 'Colaboradores',
-        'investimento-valor': '+50 milhões de dólares',
+        'investimento-valor': '+30 milhões de dólares',
         'investimento-desc': 'já investidos'
     },
     en: {
@@ -80,7 +80,7 @@ const translations = {
         'areas-negocios': 'business areas',
         'empreendimentos': 'ventures',
         'investidores': 'investors',
-        'contatos': 'contacts',
+        'Contactos': 'contacts',
         
         // Companies
         'mbt': 'MBT',

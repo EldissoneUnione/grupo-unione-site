@@ -1,7 +1,9 @@
 const donutData = [
-  { name: 'áreas de negócio', value: 10, percent: 12, color: '#68882a' },
-  { name: 'Projectos de Inpacto social', value: 23, percent: 500, color: '#9d9e9e' },
-  { name: 'milhões de dólares <br> já alocados em expansão', value: 50, percent: 50, color: '#5cc7d0' },
+  { name: 'áreas de negócio', value: 5, percent: 12, color: '#68882a' },
+  { name: 'hectares de loteamento <br> integrado e sustentavél', value: 5, percent: 400, color: '#68882a' },
+  { name: 'Projectos de Impacto social', value: 23, percent: 500, color: '#9d9e9e' },
+  { name: 'milhões de dólares <br> Investidos', value: 40, percent: 30, color: '#5cc7d0' },
+  { name: 'refeiões servidas/ano', value: 10, percent: 300, color: '#5cc7d0' },
   { name: 'Colaboradores', value: 36, percent: 1000, color: '#0d3fd1' },
   { name: 'Clientes e parceiros', value: 32, percent: 5000, color: '#f7a707' }
 ];

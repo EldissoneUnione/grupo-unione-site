@@ -17,10 +17,10 @@ Site institucional do Grupo Unione, um importante grupo empresarial e de investi
 ## � Atualizações Recentes (Dezembro 2025)
 
 ### Refinamento de Páginas
-- **Padronização Visual:** Criação do `css/pages-custom.css` para centralizar estilos de páginas internas (`empreendimentos.html`, `investidores.html`, `contatos.html`, `grupo.html`), eliminando estilos inline e garantindo consistência de marca.
+- **Padronização Visual:** Criação do `css/pages-custom.css` para centralizar estilos de páginas internas (`empreendimentos.html`, `investidores.html`, `Contactos.html`, `grupo.html`), eliminando estilos inline e garantindo consistência de marca.
 - **Empreendimentos:** Novo layout de grid responsivo para exibição de projetos com status.
 - **Investidores:** Adição de seção de pilares de investimento e call-to-action claro.
-- **Contatos:** Implementação de formulário funcional, informações de contato completas e mapa interativo.
+- **Contactos:** Implementação de formulário funcional, informações de contacto completas e mapa interativo.
 
 ### Organograma Empresarial
 - Implementado na página `grupo.html`.
@@ -87,7 +87,7 @@ grupo-unione-site/
 │   ├── areas-negocios.html
 │   ├── empreendimentos.html
 │   ├── investidores.html
-│   └── contatos.html
+│   └── Contactos.html
 └── index.html
 ```
 
@@ -165,7 +165,7 @@ Para contribuir com o projeto:
 4. Push para a branch
 5. Abra um Pull Request
 
-## 📞 Contato
+## 📞 contacto
 - Email: unione@unioneafrica.com
 - Telefone: (+244) 922 490 448
 - Endereço: Polis - Estrada da Zootécnica, Humpata - Huíla

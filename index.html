@@ -198,6 +198,15 @@
         <div class="carousel-container">
             <div class="carousel-content">
                 <div class="card">
+                    <img src="assets/Imagens/Noticias/Granja/IMG_2213.jpeg" alt="Laboratório de Análises"
+                        loading="lazy">
+                    <div class="card-overlay">
+                        <h3>Chegada das matrizes F1 de Suínos</h3>
+
+                    </div>
+                </div>
+
+                <div class="card">
                     <img src="assets/Imagens/Projeto 2/Granja_Área Interior_3.png" alt="Granja de Suínos Quavi"
                         loading="lazy">
                     <div class="card-overlay">
@@ -207,17 +216,7 @@
                 </div>
 
                 <div class="card">
-                    <img src="assets/Imagens/Projeto 2/Inseminação_4.jpeg" alt="Laboratório de Análises"
-                        loading="lazy">
-                    <div class="card-overlay">
-                        <h3>Laboratório de Análises</h3>
-
-                    </div>
-                </div>
-
-                <div class="card" >
-                    <img src="assets/Imagens/Projeto 2/Granja_Área Interior_5.png" alt="Granja de Suínos"
-                        loading="lazy">
+                    <img src="assets/Imagens/Noticias/Granja/IMG_2231.jpeg" alt="Granja de Suínos" loading="lazy">
                     <div class="card-overlay">
                         <h3>Produção Sustentável de Suínos </h3>
 
@@ -227,13 +226,13 @@
                     <img src="assets/Imagens/Projeto 2/Granja_Área Interior_5.png" alt="Granja de Suínos"
                         loading="lazy">
                     <div class="card-overlay">
-                        <h3>Produção Sustentável de Suínos </h3>
+                        <h3>Retomada da produção na Granja</h3>
 
                     </div>
                 </div>
             </div>
 
-          
+
         </div>
 
     </section>
@@ -516,27 +515,40 @@
                 <div class="logoP"><img src="assets/logo/Polis-logotipo_Símbolo.png" alt="logo polis"></div>
             </div>
             <div class="text-polis">
-                <h3>O POLIS é um projeto concebido como um Polo de Desenvolvimento Integrado e Sustentável, com
-                    infraestrutura completa, gestão organizada e preparado para acolher indústrias, empresas e projetos
-                    habitacionais de alto valor agregado.
+                <h3>
+                    <span class="text-short">O POLIS é um projeto concebido como um Polo de Desenvolvimento Integrado e
+                        Sustentável, com infraestrutura completa, gestão organizada e preparado para acolher indústrias,
+                        empresas e projetos habitacionais de alto valor agregado.
 
-                    Mais do que um empreendimento imobiliário, o POLIS oferece um ambiente estruturado e estratégico
-                    para a instalação de negócios e desenvolvimento urbano com qualidade de vida, numa região geográfica
-                    que concentra cerca de 40% da população angolana e reúne as principais províncias económicas do
-                    país.
+                        Mais do que um empreendimento imobiliário, o POLIS oferece um ambiente estruturado e estratégico
+                        para a instalação de negócios e desenvolvimento urbano com qualidade de vida...</span>
 
-                    Com presença consolidada numa região-chave de Angola, o POLIS beneficia de uma localização
-                    geoestratégica que reforça sua capacidade logística, operacional e comercial, com acesso
-                    privilegiado a fronteiras, corredores comerciais e zonas de produção e consumo.
+                    <span class="text-full" style="display: none;">
+                        numa região geográfica que concentra cerca de 40% da população angolana e reúne as principais
+                        províncias económicas do país.
 
-                    Situado no eixo de ligação entre a costa atlântica e o interior do continente africano, o POLIS
-                    encontra-se num dos corredores mais promissores de integração regional, através do Porto do Namibe e
-                    dos Caminhos-de-Ferro de Moçâmedes — uma infraestrutura multimodal que conecta a fachada sudoeste de
-                    África aos países fronteiriços do interior.
+                        Com presença consolidada numa região-chave de Angola, o POLIS beneficia de uma localização
+                        geoestratégica que reforça sua capacidade logística, operacional e comercial, com acesso
+                        privilegiado a fronteiras, corredores comerciais e zonas de produção e consumo.
+
+                        Situado no eixo de ligação entre a costa atlântica e o interior do continente africano, o POLIS
+                        encontra-se num dos corredores mais promissores de integração regional, através do Porto do
+                        Namibe e dos Caminhos-de-Ferro de Moçâmedes — uma infraestrutura multimodal que conecta a
+                        fachada sudoeste de África aos países fronteiriços do interior.
+                    </span>
                 </h3>
-                <a href="assets/pdf/Apresentação dos Lotes-Polis _Final.pdf" class="btn" target="_blank" download>Descubra o <strong>POLIS</strong> <i aria-hidden="true" id="secta-polis"
-                        class="fas fa-arrow-right"></i> </a>
-                
+
+                <div class="text-controls">
+                    <button class="btn-text-toggle" onclick="togglePolisText()">
+                        <span class="text-more">Ver mais</span>
+                        <span class="text-less" style="display: none;">Ver menos</span>
+                    </button>
+                </div>
+
+                <a href="assets/pdf/Apresentação dos Lotes-Polis _Final.pdf" class="btn" target="_blank" download>
+                    Descubra o <strong>POLIS</strong>
+                    <i aria-hidden="true" id="secta-polis" class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -770,6 +782,32 @@
         }
 
         requestAnimationFrame(raf);
+
+
+        function togglePolisText() {
+            const textPolis = document.querySelector('.text-polis');
+            const btnTextToggle = document.querySelector('.btn-text-toggle');
+            const textMore = document.querySelector('.text-more');
+            const textLess = document.querySelector('.text-less');
+            const textShort = document.querySelector('.text-short');
+            const textFull = document.querySelector('.text-full');
+
+            if (textPolis.classList.contains('text-expanded')) {
+                // Recolher texto
+                textPolis.classList.remove('text-expanded');
+                textMore.style.display = 'inline';
+                textLess.style.display = 'none';
+                textShort.style.display = 'inline';
+                textFull.style.display = 'none';
+            } else {
+                // Expandir texto
+                textPolis.classList.add('text-expanded');
+                textMore.style.display = 'none';
+                textLess.style.display = 'inline';
+                textShort.style.display = 'none';
+                textFull.style.display = 'inline';
+            }
+        }
     </script>
 
 </body>

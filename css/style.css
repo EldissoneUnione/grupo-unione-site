@@ -1129,7 +1129,7 @@ section {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 50%;
     padding: 30px 25px;
     border-radius: 50px;
     background: linear-gradient(to top,
@@ -1187,17 +1187,6 @@ section {
 
 
 
-@keyframes gradient-shift {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-}
 
 .destaque-section .card-overlay .btn:active {
     transform: translateY(0) scale(0.98);
@@ -1240,34 +1229,12 @@ section {
 
 
 
-/* ANIMAÇÕES ESPECIAIS */
-@keyframes float {
 
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
 
 .destaque-section .card.active {
     animation: float 6s ease-in-out infinite;
 }
 
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9) translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
 
 .destaque-section .card {
     animation: fadeInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -1301,21 +1268,8 @@ section {
     z-index: -1;
     opacity: 0.6;
     filter: blur(10px);
-    animation: border-glow 3s ease-in-out infinite;
+    animation: 3s ease-in-out infinite;
 }
-
-@keyframes border-glow {
-
-    0%,
-    100% {
-        opacity: 0.4;
-    }
-
-    50% {
-        opacity: 0.7;
-    }
-}
-
 
 
 .destaque-section .card,
@@ -1372,8 +1326,8 @@ section {
 
 .card-overlay h3 {
     margin: 0 0 10px 0;
-    font-size: 1.7rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 300 !important;
     text-transform: capitalize;
 }
 
@@ -2005,8 +1959,62 @@ video {
 }
 
 .text-polis {
-    max-width: 1200px;
+    max-width: 1000px;
     position: relative;
+}
+
+.text-polis {
+    position: relative;
+}
+
+.text-short {
+    display: inline;
+}
+
+.text-full {
+    display: none;
+}
+
+/* Quando o texto completo está visível */
+.text-expanded .text-short {
+    display: none;
+}
+
+.text-expanded .text-full {
+    display: inline;
+}
+
+.btn-text-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-color-black);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.btn-text-toggle:hover {
+    color: var(--text-color);
+}
+
+.btn-text-toggle i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.btn-text-toggle:hover i {
+    transform: translateX(3px);
+}
+
+.text-controls {
+    margin: 15px 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .polis-section {
@@ -2060,7 +2068,7 @@ video {
         font-size: 22px;
         transition: background-color 0.3s, color 0.3s;
         position: absolute;
-        right: 0;
+        left: 0;
         bottom: -20px;
         opacity: 0.8;
     }

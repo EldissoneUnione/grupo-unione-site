@@ -112,7 +112,7 @@ function renderizarPaginaNoticias(pagina) {
     const noticiasPagina = estadoNoticias.todasNoticias.slice(inicio, fim);
 
     container.innerHTML = noticiasPagina.map((noticia, index) => `
-        <div class="card-blog" data-aos="fade-down" data-aos-delay="${index * 200}" data-id="${noticia.id}">
+        <div class="card-blog"  data-id="${noticia.id}">
             <img id="img-card" src="${noticia.img}" alt="${noticia.titulo}" loading="lazy">
             <section>
                 <span>${noticia.data}</span>

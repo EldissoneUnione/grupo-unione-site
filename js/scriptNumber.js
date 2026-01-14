@@ -3,7 +3,7 @@ const donutData = [
   { name: 'hectares de loteamento <br> integrado e sustentavél', value: 5, percent: 400, color: '#68882a' },
   { name: 'Projectos de Impacto social', value: 23, percent: 500, color: '#9d9e9e' },
   { name: 'milhões de dólares <br> Investidos', value: 40, percent: 30, color: '#5cc7d0' },
-  { name: 'refeiões servidas/ano', value: 10, percent: 300, color: '#5cc7d0' },
+  { name: 'refeições servidas/ano', value: 10, percent: 300, color: '#5cc7d0' },
   { name: 'Colaboradores', value: 36, percent: 1000, color: '#0d3fd1' },
   { name: 'Clientes e parceiros', value: 32, percent: 5000, color: '#f7a707' }
 ];
@@ -19,7 +19,9 @@ let offset = 0;
 const overlapFix = 2.5;
 let lastActive = null;
 
-donutData.forEach((seg) => {
+const initialActiveIndex = 3; // Pode mudar para 0-6 conforme necessário
+
+donutData.forEach((seg, index) => {
   const percent = seg.value / total;
   const dashLength = (percent * circumference) + overlapFix;
 
@@ -38,6 +40,11 @@ donutData.forEach((seg) => {
   circle.setAttribute('data-dashoffset', -offset.toFixed(2));
   circle.classList.add(`segment`);
 
+  if (index === initialActiveIndex) {
+    circle.classList.add('active');
+    lastActive = { percent: Math.round(seg.percent), name: seg.name };
+  }
+
   circle.addEventListener('mouseover', () => {
     svg.querySelectorAll('circle.segment.active').forEach(c => c.classList.remove('active'));
     circle.classList.add('active');
@@ -48,25 +55,37 @@ donutData.forEach((seg) => {
   });
 
   circle.addEventListener('mouseout', () => {
-    circle.classList.add('active');
-    if (lastActive) {
-       donutPercent.textContent = `+${lastActive.percent}`;
-      donutDesc.innerHTML = lastActive.name;
-    }
+    // Não faz nada no mouseout, mantém o último segmento ativo
   });
 
   svg.appendChild(circle);
   offset += dashLength - overlapFix;
 });
 
+donutPercent.textContent = `+${Math.round(donutData[initialActiveIndex].percent)}`;
+donutDesc.innerHTML = donutData[initialActiveIndex].name;
+
 const style = document.createElement('style');
-style.innerHTML = `.segment.active { stroke-width: 19; r: 50.4; filter: drop-shadow(1px 1px 1px rgba(29, 29, 29, 0.4)); opacity: 1; cursor: pointer; }`;
+style.innerHTML = `
+  .segment.active { 
+    stroke-width: 19; 
+    r: 50.4; 
+    filter: drop-shadow(1px 1px 1px rgba(29, 29, 29, 0.4)); 
+    opacity: 1; 
+    cursor: pointer; 
+  }
+  
+  /* Estilo inicial para segmentos não ativos */
+  .segment:not(.active) {
+    opacity: 0.8;
+  }
+`;
 document.head.appendChild(style);
 
 const circles = svg.querySelectorAll('circle');
 
 const drawSegmentsSequentially = async () => {
-  for (const c of circles) {
+  for (const [index, c] of circles.entries()) {
     const dashArray = c.getAttribute('data-dasharray');
     const dashOffset = c.getAttribute('data-dashoffset');
 
@@ -78,6 +97,11 @@ const drawSegmentsSequentially = async () => {
     await new Promise(resolve => {
       setTimeout(() => {
         c.setAttribute('stroke-dasharray', dashArray);
+        
+        if (index === initialActiveIndex) {
+          c.classList.add('active');
+        }
+        
         setTimeout(resolve, 100);
       }, 80);
     });
@@ -91,7 +115,22 @@ const resetSegments = () => {
     c.setAttribute('stroke-dasharray', `0 ${dashArray.split(' ')[1]}`);
     c.setAttribute('stroke-dashoffset', dashOffset);
     c.style.opacity = '1';
+    
+    const circleIndex = Array.from(circles).indexOf(c);
+    if (circleIndex === initialActiveIndex) {
+      c.classList.add('active');
+    } else {
+      c.classList.remove('active');
+    }
   });
+  
+  // Restaurar texto inicial
+  donutPercent.textContent = `+${Math.round(donutData[initialActiveIndex].percent)}`;
+  donutDesc.innerHTML = donutData[initialActiveIndex].name;
+  lastActive = { 
+    percent: Math.round(donutData[initialActiveIndex].percent), 
+    name: donutData[initialActiveIndex].name 
+  };
 };
 
 const observerNumber = new IntersectionObserver((entries) => {
@@ -105,3 +144,23 @@ const observerNumber = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 observerNumber.observe(svg);
+
+// Função adicional para mudar o segmento ativo programaticamente
+function setActiveSegment(index) {
+  if (index >= 0 && index < donutData.length) {
+    circles.forEach((c, i) => {
+      if (i === index) {
+        c.classList.add('active');
+        lastActive = { 
+          percent: Math.round(donutData[index].percent), 
+          name: donutData[index].name 
+        };
+        donutPercent.textContent = `+${Math.round(donutData[index].percent)}`;
+        donutDesc.innerHTML = donutData[index].name;
+        svg.appendChild(c);
+      } else {
+        c.classList.remove('active');
+      }
+    });
+  }
+}

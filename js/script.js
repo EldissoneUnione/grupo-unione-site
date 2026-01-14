@@ -9,25 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.options button');
   const inputEmpresa = document.querySelector('#empresaInput');
 
-  const cards = document.querySelectorAll('.card-baner');
+  // const cards = document.querySelectorAll('.card-baner');
 
-  cards.forEach(card => {
-    const img = card.querySelector('img');
+  // cards.forEach(card => {
+  //   const img = card.querySelector('img');
 
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
+  //   card.addEventListener('mousemove', (e) => {
+  //     const rect = card.getBoundingClientRect();
+  //     const x = ((e.clientX - rect.left) / rect.width) * 100;
+  //     const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-      img.style.transformOrigin = `${x}% ${y}%`;
-      img.style.transform = 'scale(1.05)';
-    });
+  //     img.style.transformOrigin = `${x}% ${y}%`;
+  //     img.style.transform = 'scale(1.05)';
+  //   });
 
-    card.addEventListener('mouseleave', () => {
-      img.style.transformOrigin = 'center center';
-      img.style.transform = 'scale(1)';
-    });
-  });
+  //   card.addEventListener('mouseleave', () => {
+  //     img.style.transformOrigin = 'center center';
+  //     img.style.transform = 'scale(1)';
+  //   });
+  // });
 
 
   buttons.forEach(button => {

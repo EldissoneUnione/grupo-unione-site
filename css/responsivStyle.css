@@ -648,6 +648,7 @@
 
     .destaque-section {
         padding: 0;
+        display: none;
 
         .card:not(.active) {
             display: none;
@@ -676,6 +677,7 @@
 
     .carousel-content {
         overflow: hidden;
+
     }
 
     .destaque-section .card {
@@ -705,10 +707,11 @@
     }
 
     .sobre-section {
-        margin-top: 5rem;
+        margin-top: 0rem;
         padding: 1rem 0;
-        border-top-left-radius: 50px;
-        border-top-right-radius: 50px;
+        border-radius: 0;
+        /* border-top-left-radius: 50px;
+        border-top-right-radius: 50px; */
 
 
         .text-top,
@@ -921,7 +924,7 @@
         padding: 1rem 0;
         margin-top: -80px;
         height: auto;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         
 
         .carousel-container-noticias {

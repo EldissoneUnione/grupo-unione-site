@@ -8,9 +8,9 @@
     <title>Áreas de Negócios - Grupo Unione</title>
     <link rel="icon" href="../public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsivStyle.css">
-    <link rel="stylesheet" href="../css/load.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preload" href="../css/responsivStyle.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="../css/load.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
     <style>
         .hero-areas {
             background-color: #f4f4f4;
@@ -32,7 +32,7 @@
             justify-content: space-between;
             padding: 80px 10%;
             gap: 50px;
-            border: 2px solid red;
+            border: none;
         }
 
         .area-section:nth-child(even) {

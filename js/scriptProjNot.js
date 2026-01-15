@@ -115,8 +115,7 @@ function renderizarPaginaNoticias(pagina) {
         <div class="card-blog"  data-id="${noticia.id}">
             <img id="img-card" src="${noticia.img}" alt="${noticia.titulo}" loading="lazy">
             <section>
-                <span>${noticia.data}</span>
-                <h4>${noticia.titulo}</h4>
+            <h4>${noticia.titulo}</h4> <br>
                 <a href="#" class="btn-ver-mais">ver mais</a>
             </section>
         </div>

@@ -8,11 +8,13 @@
     <title>Grupo Unione - Grupo Empresarial Angolano</title>
     <link rel="icon" href="../public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsivStyle.css">
-    <link rel="stylesheet" href="../css/load.css">
-    <link rel="stylesheet" href="../css/grupo.css">
-    <link rel="stylesheet" href="../css/pages-custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preload" href="../css/responsivStyle.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="../css/load.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="../css/grupo.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="../css/pages-custom.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style"
+        onload="this.rel='stylesheet'">
+    <link rel="preload" as="image" href="../assets/Imagens/unione_grupo.jpg">
 </head>
 
 <body>
@@ -117,7 +119,7 @@
             <div class="baner-cards-grupo">
                 <div class="card-baner-grupo">
                     <img src="../assets/Imagens/unione_grupo.jpg" alt="Imagem representando Quavi do grupo Unione"
-                        width="1920" height="1080" loading="eager">
+                        width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high">
                     <div class="logo-grupoP">
                         <img src="../assets/Logos Brancos/Grupo Unione.png" alt="Logo do Quavi" width="100"
                             height="100">
@@ -180,120 +182,150 @@
     </section>
 
     <section class="historia">
-        <h2 class="titulo">História e Trajetória</h2>
+        <h2 class="titulo">Nossa Historia</h2>
 
-        <div class="section-header">
-            <p>Descubra os momentos mais importantes da nossa evolução e expansão no mercado</p>
-        </div>
-        <section class="historia-section">
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-progress" id="timelineProgress"></div>
 
-            <div class="timeline-container">
-                <div class="timeline-line"></div>
-                <div class="timeline-progress" id="timelineProgress"></div>
-
-                <div class="timeline-items" id="timelineItems">
-                    <!-- Ano 2005 -->
-                    <div class="timeline-item active" data-year="2005">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-item-content fade-in-up">
-                            <div class="timeline-year"><span>2005</span></div>
-                            <h3 class="timeline-title">Fundação do Grupo</h3>
-                            <p class="timeline-description">
-                                Em 2005, nasceu o Grupo Unione com uma visão clara de criar um conglomerado de
-                                excelência.
-                                As primeiras iniciativas estratégicas foram implementadas, estabelecendo as bases para
-                                o crescimento sustentável que viria a seguir.
-                            </p>
-                            <div class="timeline-highlights">
-                                <span class="timeline-highlight">Criação da holding</span>
-                                <span class="timeline-highlight">Estratégia de mercado</span>
-                                <span class="timeline-highlight">Primeiros investimentos</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ano 2008 -->
-                    <div class="timeline-item" data-year="2008">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-item-content fade-in-up">
-                            <div class="timeline-year"><span>2008</span></div>
-                            <h3 class="timeline-title">Expansão Estratégica</h3>
-                            <p class="timeline-description">
-                                Três anos após sua fundação, o Grupo Unione iniciou sua primeira grande expansão,
-                                diversificando seus investimentos e consolidando sua presença em novos mercados.
-                                Este ano marcou o início de nossa trajetória de crescimento acelerado.
-                            </p>
-                            <div class="timeline-highlights">
-                                <span class="timeline-highlight">Diversificação de portfólio</span>
-                                <span class="timeline-highlight">Expansão geográfica</span>
-                                <span class="timeline-highlight">Consolidação operacional</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ano 2009 -->
-                    <div class="timeline-item" data-year="2009">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-item-content fade-in-up">
-                            <div class="timeline-year"><span>2009</span></div>
-                            <h3 class="timeline-title">Inovação e Tecnologia</h3>
-                            <p class="timeline-description">
-                                Em 2009, implementamos tecnologias de ponta em todas as nossas operações,
-                                revolucionando nossos processos e elevando nossos padrões de qualidade.
-                                Esta transformação digital nos posicionou à frente do mercado.
-                            </p>
-                            <div class="timeline-highlights">
-                                <span class="timeline-highlight">Digitalização de processos</span>
-                                <span class="timeline-highlight">Automação operacional</span>
-                                <span class="timeline-highlight">Sistemas integrados</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ano 2010 -->
-                    <div class="timeline-item" data-year="2010">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-connector"></div>
-                        <div class="timeline-item-content fade-in-up">
-                            <div class="timeline-year"><span>2010</span></div>
-                            <h3 class="timeline-title">Reconhecimento e Premiações</h3>
-                            <p class="timeline-description">
-                                Nosso compromisso com a excelência foi reconhecido com importantes prêmios do setor.
-                                Alcançamos marcas significativas e consolidamos nossa posição como líder de mercado,
-                                preparando o terreno para nossa expansão internacional.
-                            </p>
-                            <div class="timeline-highlights">
-                                <span class="timeline-highlight">Prêmios de excelência</span>
-                                <span class="timeline-highlight">Certificações internacionais</span>
-                                <span class="timeline-highlight">Reconhecimento de mercado</span>
-                            </div>
+            <div class="timeline-items" id="timelineItems">
+                <!-- Ano 2005 -->
+                <div class="timeline-item active" data-year="2005">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2005</span></div>
+                        <h3 class="timeline-title">Fundação</h3>
+                        <p class="timeline-description">
+                            Em 2005 nasce a Unione, com a visão de construir um conglomerado sólido e sustentável,
+                            assente em projectos estratégicos que lançaram as bases do crescimento do Grupo.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Criação da holding</span>
+                            <span class="timeline-highlight">Estratégia de mercado</span>
+                            <span class="timeline-highlight">Primeiros investimentos</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Indicadores de Ano -->
-                <div class="year-indicators">
-                    <div class="year-indicator active" data-year="2005">2005</div>
-                    <div class="year-indicator" data-year="2008">2008</div>
-                    <div class="year-indicator" data-year="2009">2009</div>
-                    <div class="year-indicator" data-year="2010">2010</div>
+                <!-- Ano 2008 -->
+                <div class="timeline-item" data-year="2008">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2008</span></div>
+                        <h3 class="timeline-title">Expansão</h3>
+                        <p class="timeline-description">
+                            O Grupo Unione inicia a sua primeira grande expansão, diversificando investimentos
+                            e entrando em novos mercados com o surgimento da Tecnology, Kalanaua e Metalangol.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Diversificação de portfólio</span>
+                            <span class="timeline-highlight">Expansão geográfica</span>
+                            <span class="timeline-highlight">Consolidação operacional</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Navegação -->
-                <div class="timeline-nav">
-                    <button class="nav-btn" id="prevBtn" disabled>
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="nav-btn" id="nextBtn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                <!-- Ano 2009 -->
+                <div class="timeline-item" data-year="2009">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2009</span></div>
+                        <h3 class="timeline-title">Investimentos</h3>
+                        <p class="timeline-description">
+                            Arrancam dois projectos estruturantes: o POLIS – Polo de Desenvolvimento Integrado e
+                            Sustentável
+                            da Humpata e a Clínica Corpo e Mente, focados no desenvolvimento regional e na promoção da
+                            saúde.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Digitalização de processos</span>
+                            <span class="timeline-highlight">Automação operacional</span>
+                            <span class="timeline-highlight">Sistemas integrados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ano 2010 -->
+                <div class="timeline-item hidden-item" data-year="2010">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2010</span></div>
+                        <h3 class="timeline-title">Diversidade</h3>
+                        <p class="timeline-description">
+                            Grandes obras de energia dão origem à MBT, que se afirma no sector eléctrico nacional
+                            através de soluções técnicas fiáveis e de forte impacto no desenvolvimento do país.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Prêmios de excelência</span>
+                            <span class="timeline-highlight">Certificações internacionais</span>
+                            <span class="timeline-highlight">Reconhecimento de mercado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ano 2014 -->
+                <div class="timeline-item hidden-item" data-year="2014">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2014</span></div>
+                        <h3 class="timeline-title">Crescimento</h3>
+                        <p class="timeline-description">
+                            O Grupo reforça o seu ecossistema com empresas de Construção Civil, Marcenaria,
+                            Telecomunicações e Agricultura, criando uma rede integrada de apoio ao POLIS.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Expansão de setores</span>
+                            <span class="timeline-highlight">Rede integrada</span>
+                            <span class="timeline-highlight">Desenvolvimento regional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ano 2018 -->
+                <div class="timeline-item hidden-item" data-year="2018">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-item-content fade-in-up">
+                        <div class="timeline-year"><span>2018</span></div>
+                        <h3 class="timeline-title">Know-how</h3>
+                        <p class="timeline-description">
+                            Com foco no desenvolvimento de talento, surge o Okukulanaua, uma instituição de ensino
+                            médio dual e cursos técnicos, dedicada à formação de quadros qualificados.
+                        </p>
+                        <div class="timeline-highlights">
+                            <span class="timeline-highlight">Formação profissional</span>
+                            <span class="timeline-highlight">Desenvolvimento de talentos</span>
+                            <span class="timeline-highlight">Educação técnica</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Indicadores de Ano -->
+            <div class="year-indicators">
+                <div class="year-indicator active" data-year="2005">2005</div>
+                <div class="year-indicator" data-year="2008">2008</div>
+                <div class="year-indicator" data-year="2009">2009</div>
+                <div class="year-indicator" data-year="2010">2010</div>
+                <div class="year-indicator" data-year="2014">2014</div>
+                <div class="year-indicator" data-year="2018">2018</div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <div class="scroll-text">Role para ver mais</div>
+                <i class="fas fa-chevron-down scroll-icon"></i>
+            </div>
+        </div>
+
     </section>
+    
 
     <section class="mvv">
 
@@ -352,7 +384,7 @@
 
     </section>
 
-    <section class="org-chart-section">
+    <!-- <section class="org-chart-section">
         <h2 class="titulo">Organograma</h2>
         <div class="org-container">
             <div class="org-level level-1">
@@ -397,7 +429,7 @@
             </div>
         </div>
     
-    </section>
+    </section> -->
 
     <main class="conteiner-Principal">
         <section class="card-section empresa-section" id="empresa">
@@ -623,7 +655,6 @@
     </main>
 
 
-
     <section id="noticias" class="noticias-section">
         <h1 class="titulo" data-translate="noticias-imprensa" data-aos="fade-down">Notícias e Imprensa</h1>
         <div id="noticias-cards" class="carousel-container-noticias"></div>
@@ -774,43 +805,51 @@
             </div>
         </div>
     </footer>
-    
-    <script>
+
+     <script>
         class UnioneTimeline {
             constructor() {
                 this.currentIndex = 0;
                 this.items = document.querySelectorAll('.timeline-item');
                 this.indicators = document.querySelectorAll('.year-indicator');
                 this.progress = document.getElementById('timelineProgress');
-                this.prevBtn = document.getElementById('prevBtn');
-                this.nextBtn = document.getElementById('nextBtn');
+                this.timelineItemsContainer = document.getElementById('timelineItems');
 
+                this.visibleItems = 3;
                 this.init();
             }
 
             init() {
-                // Event listeners para os indicadores
+                this.setupScrollContainer();
+
                 this.indicators.forEach((indicator, index) => {
                     indicator.addEventListener('click', () => {
                         this.goToYear(index);
                     });
                 });
 
-                // Event listeners para navegação
-                this.prevBtn.addEventListener('click', () => this.goToPrev());
-                this.nextBtn.addEventListener('click', () => this.goToNext());
-
-                // Navegação por teclado
                 document.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowLeft') this.goToPrev();
-                    if (e.key === 'ArrowRight') this.goToNext();
+                    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') this.goToPrev();
+                    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') this.goToNext();
                 });
 
-                // Scroll spy
+                this.initSwipe();
+
                 this.initScrollSpy();
 
-                // Inicializar
                 this.updateDisplay();
+                this.centerActiveItem();
+            }
+
+            setupScrollContainer() {
+                const itemHeight = this.items[0]?.offsetHeight || 220;
+                this.timelineItemsContainer.style.maxHeight = `${itemHeight * this.visibleItems}px`;
+
+                this.items.forEach((item, index) => {
+                    if (index >= this.visibleItems) {
+                        item.classList.add('hidden-item');
+                    }
+                });
             }
 
             goToYear(index) {
@@ -818,7 +857,7 @@
 
                 this.currentIndex = index;
                 this.updateDisplay();
-                this.scrollToItem();
+                this.centerActiveItem();
             }
 
             goToPrev() {
@@ -834,12 +873,16 @@
             }
 
             updateDisplay() {
-                // Atualiza itens da timeline
                 this.items.forEach((item, index) => {
                     const isActive = index === this.currentIndex;
                     item.classList.toggle('active', isActive);
 
-                    // Adiciona/remove animação
+                    if (index >= this.visibleItems) {
+                        item.classList.add('hidden-item');
+                    } else {
+                        item.classList.remove('hidden-item');
+                    }
+
                     if (isActive) {
                         item.style.animation = 'none';
                         setTimeout(() => {
@@ -848,36 +891,66 @@
                     }
                 });
 
-                // Atualiza indicadores
                 this.indicators.forEach((indicator, index) => {
                     indicator.classList.toggle('active', index === this.currentIndex);
                 });
 
-                // Atualiza progresso
                 const progressHeight = (this.currentIndex / (this.items.length - 1)) * 100;
                 this.progress.style.height = `${progressHeight}%`;
 
-                // Atualiza botões de navegação
-                this.prevBtn.disabled = this.currentIndex === 0;
-                this.nextBtn.disabled = this.currentIndex === this.items.length - 1;
-
-                // Atualiza marcador ativo
                 const activeMarker = this.items[this.currentIndex].querySelector('.timeline-marker');
-                activeMarker.style.animation = 'none';
-                setTimeout(() => {
-                    activeMarker.style.animation = 'pulseMarker 0.6s ease';
-                }, 10);
+                if (activeMarker) {
+                    activeMarker.style.animation = 'none';
+                    setTimeout(() => {
+                        activeMarker.style.animation = 'pulseMarker 0.6s ease';
+                    }, 10);
+                }
             }
 
-            scrollToItem() {
+            centerActiveItem() {
                 const activeItem = this.items[this.currentIndex];
-                const yOffset = -100;
-                const y = activeItem.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                const container = this.timelineItemsContainer;
+                const itemTop = activeItem.offsetTop;
+                const itemHeight = activeItem.offsetHeight;
+                const containerHeight = container.clientHeight;
 
-                window.scrollTo({
-                    top: y,
+                const scrollTo = itemTop - (containerHeight / 2) + (itemHeight / 2);
+
+                container.scrollTo({
+                    top: scrollTo,
                     behavior: 'smooth'
                 });
+            }
+
+            initSwipe() {
+                let touchStartX = 0;
+                let touchStartY = 0;
+                let touchEndX = 0;
+                let touchEndY = 0;
+
+                this.timelineItemsContainer.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    touchStartY = e.changedTouches[0].screenY;
+                });
+
+                this.timelineItemsContainer.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    touchEndY = e.changedTouches[0].screenY;
+                    this.handleSwipe(touchStartX, touchStartY, touchEndX, touchEndY);
+                });
+            }
+
+            handleSwipe(startX, startY, endX, endY) {
+                const deltaX = endX - startX;
+                const deltaY = endY - startY;
+
+                if (Math.abs(deltaX) > Math.abs(deltaY) * 2) {
+                    if (deltaX > 50) {
+                        this.goToPrev();
+                    } else if (deltaX < -50) {
+                        this.goToNext();
+                    }
+                }
             }
 
             initScrollSpy() {
@@ -894,7 +967,8 @@
                         });
                     },
                     {
-                        threshold: 0.5,
+                        threshold: 0.6,
+                        root: this.timelineItemsContainer,
                         rootMargin: '-100px 0px -100px 0px'
                     }
                 );
@@ -903,42 +977,15 @@
             }
         }
 
-        // Inicializar quando o DOM estiver carregado
         document.addEventListener('DOMContentLoaded', () => {
-            new UnioneTimeline();
+            const timeline = new UnioneTimeline();
 
-            // Adicionar animação CSS para o marcador
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes pulseMarker {
-                    0% { transform: translateX(-50%) scale(1); box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.4); }
-                    70% { transform: translateX(-50%) scale(1.3); box-shadow: 0 0 0 15px rgba(139, 0, 0, 0); }
-                    100% { transform: translateX(-50%) scale(1.2); box-shadow: 0 0 0 0 rgba(139, 0, 0, 0); }
-                }
-                
-                .timeline-item:hover .timeline-marker {
-                    border-color: var(--secondary);
-                    transform: translateX(-50%) scale(1.1);
-                }
-                
-                .timeline-item-content {
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                }
-                
-                .timeline-item:hover .timeline-item-content {
-                    transform: translateY(-5px);
-                    box-shadow: var(--shadow-lg);
-                }
-            `;
-            document.head.appendChild(style);
-
-            // Adicionar efeito de hover nos botões de ano
             const indicators = document.querySelectorAll('.year-indicator');
             indicators.forEach(indicator => {
                 indicator.addEventListener('mouseenter', function () {
                     if (!this.classList.contains('active')) {
                         this.style.transform = 'translateY(-3px)';
-                        this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                        this.style.boxShadow = '0 8px 20px rgba(139, 0, 0, 0.15)';
                     }
                 });
 
@@ -949,8 +996,21 @@
                     }
                 });
             });
+
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.addEventListener('click', (e) => {
+                    if (!e.target.closest('.timeline-highlight') &&
+                        !e.target.closest('a') &&
+                        !e.target.closest('.year-indicator')) {
+                        timeline.goToYear(index);
+                    }
+                });
+            });
         });
     </script>
+
+
 
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>

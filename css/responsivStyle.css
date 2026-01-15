@@ -125,9 +125,9 @@
         }
     }
 
-     .carousel-content {
+    .carousel-content {
         gap: 5px !important;
-     }
+    }
 
     .carousel-container,
     .carousel-container-project {
@@ -211,7 +211,7 @@
                 width: 400px;
                 height: 400px;
                 margin: 10px;
-           
+
 
             }
 
@@ -395,7 +395,7 @@
 
     }
 
-     .carousel-container-noticias {
+    .carousel-container-noticias {
         max-width: 1000px;
         gap: 40px;
     }
@@ -573,12 +573,13 @@
         overflow: hidden;
         border-bottom-right-radius: 200px;
 
+
         img {
             object-position: 80% center;
         }
     }
 
-     .arrow-btn {
+    .arrow-btn {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
@@ -594,7 +595,9 @@
 
     .card-baner .txt {
         padding: 20px;
-        max-width: 95%;
+        max-width: 100%;
+        left: 0;
+
     }
 
     .card-baner .txt h2 {
@@ -709,9 +712,8 @@
     .sobre-section {
         margin-top: 0rem;
         padding: 1rem 0;
-        border-radius: 0;
-        /* border-top-left-radius: 50px;
-        border-top-right-radius: 50px; */
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px; 
 
 
         .text-top,
@@ -749,6 +751,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            border-top-left-radius: var(--border2);
+            border-top-right-radius: var(--border2);
 
             .titulo {
                 margin-top: 3rem;
@@ -925,7 +929,7 @@
         margin-top: -80px;
         height: auto;
         margin-bottom: 20px;
-        
+
 
         .carousel-container-noticias {
             padding: 0;
@@ -959,24 +963,33 @@
 
     }
 
-        .carousel-controls-noticias {
+    .carousel-controls-noticias {
         gap: 10px;
     }
-    
+
     .carousel-btn {
         width: 40px;
         height: 40px;
     }
-    
+
     .carousel-container-noticias {
         gap: 30px;
         padding: 1rem 0;
     }
-    
+
     .carousel-indicators {
         flex-direction: column;
         gap: 10px;
     }
+
+
+    .sectas {
+        position: absolute;
+        width: 30%;
+        z-index: 100;
+        bottom: 30px;
+    }
+
 
     .contactos-section {
         padding: 2rem 20px;
@@ -1066,6 +1079,7 @@
 
     .grupo {
         padding: 0;
+        padding-top: 0;
         margin: 0;
         width: 100%;
     }

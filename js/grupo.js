@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const circles = document.querySelectorAll('.circle');
     circles.forEach(circle => {
         circle.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
+            this.style.transform = 'scale(1)';
         });
         
         circle.addEventListener('mouseleave', function() {
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ===== SCROLL SUAVE PARA ÂNCORAS =====
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
     smoothScrollLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ===== LAZY LOADING PARA IMAGENS =====
     const lazyImages = document.querySelectorAll('img[data-src]');
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries) => {

@@ -42,7 +42,11 @@
 .company-details h2,
 .services-section h2,
 .medical-team h2,
-.section-header h2 {
+.section-header h2,
+.courses-section h2,
+.testimonials-section h2,
+.enrollment-section h2,
+.mais-section h2 {
     font-size: 3rem;
     font-weight: 500;
     position: relative;
@@ -53,7 +57,11 @@
 .company-details h2::after,
 .services-section h2::after,
 .medical-team h2::after,
-.section-header h2::after {
+.section-header h2::after,
+.courses-section h2::after,
+.testimonials-section h2::after,
+.enrollment-section h2::after,
+.mais-section h2::after {
     content: "";
     position: absolute;
     top: 0;
@@ -66,7 +74,11 @@
 .company-details h2::before,
 .services-section h2::before,
 .medical-team h2::before,
-.section-header h2::before {
+.section-header h2::before,
+.courses-section h2::before,
+.testimonials-section h2::before,
+.enrollment-section h2::before,
+.mais-section h2::before {
     content: "";
     position: absolute;
     bottom: -12px;
@@ -98,10 +110,11 @@ p {
     padding: 50px 0%;
     background-color: var(--bg-body);
     width: 100%;
+    border: 1px solid red;
 }
 
 .service-card {
-    background: var(--white);
+    background: var(--var(--white));
     padding: 20px;
     border-radius: var(--border2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -138,6 +151,50 @@ p {
     .services-grid {
         padding: 50px 20px;
     }
+
+    .company-details h2,
+    .services-section h2,
+    .medical-team h2,
+    .section-header h2,
+    .courses-section h2,
+    .testimonials-section h2,
+    .enrollment-section h2,
+    .mais-section h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        position: relative;
+        padding-left: 50px;
+        align-self: self-start;
+    }
+
+    .dual-system-section {
+        height: auto !important;
+    }
+
+    .carousel-track,
+    .testimonials-section {
+        margin: 0;
+        height: auto !important;
+
+    }
+
+    .mais-section {
+        padding: 20px !important;
+        margin-top: 0px !important;
+        box-shadow: none !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+    }
+
+    .service-grade {
+        flex-direction: column;
+    }
+
+    .respo {
+        display: none;
+    }
+
+   
 }
 
 .options .active {
@@ -200,12 +257,12 @@ p {
     gap: 30px;
     margin: 40px 0;
     padding: 40px;
-    background: linear-gradient(135deg, var(--corpo-mente-light) 0%, var(--white) 100%);
+    background: linear-gradient(135deg, var(--corpo-mente-light) 0%, var(--var(--white)) 100%);
     border-radius: 20px;
 }
 
 .highlight-card {
-    background: var(--white);
+    background: var(--var(--white));
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -231,7 +288,7 @@ p {
 }
 
 .service-card {
-    background: var(--white);
+    background: var(--var(--white));
     padding: 40px 30px;
     border-radius: var(--border2);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
@@ -275,7 +332,7 @@ p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--var(--white));
+    background: var(--var(--var(--white)));
     padding: 25px;
     border-radius: var(--border2);
     text-align: center;
@@ -307,9 +364,9 @@ p {
 
 .cta-section {
     padding: 0px 100px;
-    color: var(--white);
+    color: var(--var(--white));
     text-align: center;
-    color: var(--white);
+    color: var(--var(--white));
     padding: 50px;
     border-radius: 20px;
     text-align: center;
@@ -322,7 +379,7 @@ p {
     background: linear-gradient(135deg, var(--corpo-mente-light), var(--corpo-mente-dark));
     border-radius: var(--border2);
     width: 100%;
-    color: var(--white);
+    color: var(--var(--white));
 }
 
 .cta-buttons {
@@ -346,14 +403,14 @@ p {
 }
 
 .cta-button.primary {
-    background: var(--white);
+    background: var(--var(--white));
     color: var(--corpo-mente-dark);
 }
 
 .cta-button.secondary {
     background: var(--corpo-mente-dark);
-    border: 2px solid var(--white);
-    color: var(--white);
+    border: 2px solid var(--var(--white));
+    color: var(--var(--white));
 }
 
 .cta-button:hover {
@@ -366,7 +423,7 @@ p {
     bottom: 40px;
     right: 40px;
     background: var(--corpo-mente-light);
-    color: var(--white);
+    color: var(--var(--white));
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -402,6 +459,11 @@ p {
         right: 20px;
         text-align: center;
         align-items: center;
+    }
+
+    .agendarBTN,
+    .cta-hero {
+        display: none;
     }
 
     .logo-grupoP a {
@@ -449,15 +511,6 @@ p {
 
 /*Fibra*/
 
-.cta-hero {
-    background: var(--fibra-primary);
-}
-
-.cta-hero:hover {
-    background: var(--fibra-light);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
-}
 
 .company-intro {
     padding: 30px;
@@ -477,7 +530,7 @@ p {
 
 .mission-card,
 .vision-card {
-    background: var(--white);
+    background: var(--var(--white));
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -514,7 +567,7 @@ p {
     align-items: center;
     gap: 12px;
     padding: 12px;
-    background: var(--white);
+    background: var(--var(--white));
     border-radius: 8px;
     border: 1px solid var(--fibra-dark);
     transition: all 0.3s ease;
@@ -524,7 +577,7 @@ p {
 .service-item:hover {
     background: var(--fibra-dark);
     transform: translateX(5px);
-    color: var(--white);
+    color: var(--var(--white));
 }
 
 .service-item i {
@@ -543,7 +596,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: var(--white);
+    background: var(--var(--white));
     padding: 25px;
     border-radius: var(--border2);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
@@ -557,7 +610,7 @@ p {
     left: 15%;
     font-size: 1.3rem;
     font-weight: 400;
-    color: var(--white);
+    color: var(--var(--white));
 }
 
 .project-card p {
@@ -599,7 +652,7 @@ p {
     align-items: center;
     justify-content: center;
     background: var(--fibra-dark);
-    color: var(--white);
+    color: var(--var(--white));
     padding: 15px 15px;
     border-radius: 20px;
     font-size: 1rem;
@@ -632,18 +685,18 @@ p {
 }
 
 .cta-primary {
-    background: var(--white);
+    background: var(--var(--white));
     color: var(--fibra-primary);
 }
 
 .cta-secondary {
     background: var(--fibra-accent);
-    color: var(--white);
+    color: var(--var(--white));
 }
 
 .cta-outline {
-    border: 2px solid var(--white);
-    color: var(--white);
+    border: 2px solid var(--var(--white));
+    color: var(--var(--white));
     background: transparent;
 }
 
@@ -659,7 +712,7 @@ p {
 }
 
 .services-detailed .service-card {
-    background: var(--white);
+    background: var(--var(--white));
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -706,7 +759,7 @@ p {
     align-items: center;
     gap: 10px;
     background: #dc3545;
-    color: var(--white);
+    color: var(--var(--white));
     padding: 12px 24px;
     border-radius: 6px;
     text-decoration: none;
@@ -739,7 +792,7 @@ p {
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
-    background: #f8f9fa;
+    background: var(--bg-body);
     border: 2px dashed #ddd;
     border-radius: 6px;
     cursor: pointer;
@@ -781,5 +834,491 @@ p {
     .projects-grid,
     .services-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 80px;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--white);
+    border-radius: var(--border2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid var(--okuku-blue);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--okuku-blue);
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    color: var(--text-color3);
+    font-weight: 500;
+}
+
+.courses-section {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 100px;
+    background: var(--bg-body);
+
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.course-card {
+    background: var(--white);
+    padding: 20px 20px;
+    border-radius: var(--border2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+
+    p {
+        text-align: start;
+    }
+
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 86, 179, 0.15);
+}
+
+.course-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--okuku-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.course-icon i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.course-card h3 {
+    color: var(--text-color2);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+
+.dual-system-section {
+    height: 100vh;
+    padding: 100px;
+    background: var(--okuku-blue);
+    color: var(--white);
+    flex-direction: column;
+    border-radius: var(--border2);
+}
+
+.dual-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.dual-feature {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border2);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dual-feature i {
+    font-size: 3rem;
+    color: var(--okuku-orange);
+    margin-bottom: 25px;
+}
+
+.dual-feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.testimonials-section {
+    flex-direction: column;
+    padding: 80px 100px;
+    background: var(--bg-body);
+    height: 100vh;
+
+}
+
+.testimonial-slider {
+    max-width: 1200px;
+    margin: 50px auto 0;
+}
+
+.carousel-track {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    animation: carousel-scroll var(--time, 45s) linear infinite;
+    animation-play-state: running;
+    will-change: transform;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 700px;
+    max-height: 350px;
+    margin: 0 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.testimonial-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    margin-bottom: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 0px;
+    left: 30px;
+    font-size: 6rem;
+    color: var(--okuku-blue);
+    font-family: Georgia, serif;
+    line-height: 1;
+    opacity: 0.5;
+}
+
+.testimonial-card p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.student-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--okuku-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--white);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.student-details h4 {
+    margin: 0;
+    color: var(--okuku-blue);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.student-details p {
+    margin: 10px 0 0;
+    color: #666;
+    font-style: normal;
+}
+
+
+@keyframes carousel-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-400px * 6 - 240px));
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes arrow-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+.enrollment-section {
+    margin-top: 50px;
+    flex-direction: column;
+    padding: 100px;
+    text-align: center;
+    border-top-left-radius: var(--border2);
+    border-top-right-radius: var(--border2);
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.25);
+}
+
+.enrollment-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+    width: 100%;
+
+    p {
+        text-align: center;
+    }
+
+}
+
+.step-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--okuku-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+.cta-button.primary {
+    background: var(--okuku-blue);
+    color: var(--white);
+}
+
+.cta-button.secondary {
+    background: var(--white);
+    color: var(--okuku-blue);
+    border: 2px solid var(--okuku-blue);
+}
+
+.mais-section {
+    min-height: 100vh;
+    padding: 100px;
+    margin-top: -50px;
+    background: var(--bg-body);
+    border-radius: var(--border2);
+    z-index: 10;
+    flex-direction: column;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.25);
+
+}
+
+.service-grade {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    margin: 100px 0;
+
+    & .service-card:hover {
+        border: none;
+    }
+}
+
+.contactos-section {
+    margin-top: -40px;
+    border-radius: 0;
+
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 2px solid var(--okuku-blue);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.options .active {
+    background: var(--okuku-blue);
+}
+
+.submit-btn {
+    background: var(--okuku-blue);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: var(--okuku-dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+}
+
+.company-details h2::after {
+    background-color: var(--okuku-blue);
+}
+
+.company-details h2::before {
+    background-color: var(--okuku-blue);
+}
+
+footer {
+    background: var(--okuku-dark-blue);
+}
+
+
+.cta-hero {
+    background: var(--okuku-blue);
+}
+
+
+/* Responsividade */
+@media (max-width: 1200px) {
+
+    .courses-section,
+    .testimonials-section,
+    .dual-system-section,
+    .enrollment-section {
+        padding: 60px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-company .logo-grupoP {
+        bottom: 60px;
+        left: 20px;
+        right: 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contactos-section {
+        flex-direction: column;
+    }
+
+    .contact-info,
+    .contact-form {
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .courses-section,
+    .testimonials-section,
+    .dual-system-section,
+    .enrollment-section {
+        padding: 40px 20px;
     }
 }

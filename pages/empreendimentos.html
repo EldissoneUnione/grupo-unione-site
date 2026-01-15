@@ -8,10 +8,11 @@
     <title>Empreendimentos - Grupo Unione</title>
     <link rel="icon" href="../public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsivStyle.css">
-    <link rel="stylesheet" href="../css/load.css">
-    <link rel="stylesheet" href="../css/pages-custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preload" href="../css/responsivStyle.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="../css/load.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="../css/pages-custom.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" as="image" href="../assets/Imagens/1_Hero_GRUPO-UNIONE_Op.2.png">
 </head>
 
 <body>
@@ -228,23 +229,16 @@
             </div>
         </div>
     </footer>
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/gsap@3/dist/Flip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script>gsap.registerPlugin(ScrollTrigger);</script>
 
-    <script src="../../js/script.js"></script>
-    <script src="../../js/routes.js"></script>
-    <script src="../../js/searchData.js"></script>
+    <script src="../../js/script.js" defer></script>
+    <script src="../../js/routes.js" defer></script>
+    <script src="../../js/searchData.js" defer></script>
 
 
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.36/dist/lenis.umd.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.1.4/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.1.4/dist/lenis.min.js" defer></script>
     <script>
         const lenis = new Lenis({
             smooth: true,

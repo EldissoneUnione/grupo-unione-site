@@ -124,6 +124,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   searchContainer.classList.remove('active');
 
+  // Otimização de imagens: aplica lazy/async em imagens não críticas
+  const imgs = document.querySelectorAll('img');
+  imgs.forEach((img, index) => {
+    const isHero = img.closest('.hero-company, .hero-section');
+    const isLogo = img.closest('.logo, .logo-grupoP');
+    const isEager = img.getAttribute('loading') === 'eager';
+
+    if (!isHero && !isLogo && !isEager) {
+      if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+      img.setAttribute('decoding', 'async');
+      img.setAttribute('fetchpriority', 'low');
+    } else if (isHero || isEager) {
+      img.setAttribute('fetchpriority', 'high');
+    }
+  });
+
 });
 
 const dropdowns = document.querySelectorAll('.dropdown');

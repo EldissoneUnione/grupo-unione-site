@@ -185,6 +185,32 @@ document.addEventListener('DOMContentLoaded', () => {
       const c = getCookie(COOKIE_NAME);
       return c && c[category] === true;
     };
+    const ensureGtag = () => {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+    };
+    const initGoogleConsentMode = () => {
+      ensureGtag();
+      const c = getCookie(COOKIE_NAME) || DEFAULT;
+      gtag('consent', 'default', {
+        ad_storage: c.marketing ? 'granted' : 'denied',
+        analytics_storage: c.analytics ? 'granted' : 'denied',
+        functionality_storage: 'granted',
+        personalization_storage: c.marketing ? 'granted' : 'denied',
+        security_storage: 'granted'
+      });
+      gtag('js', new Date());
+    };
+    const updateGoogleConsentMode = (c) => {
+      ensureGtag();
+      gtag('consent', 'update', {
+        ad_storage: c.marketing ? 'granted' : 'denied',
+        analytics_storage: c.analytics ? 'granted' : 'denied',
+        functionality_storage: 'granted',
+        personalization_storage: c.marketing ? 'granted' : 'denied',
+        security_storage: 'granted'
+      });
+    };
     const applyConsentToScripts = () => {
       const scripts = document.querySelectorAll('script[type="text/plain"][data-consent]');
       scripts.forEach(s => {
@@ -218,11 +244,13 @@ document.addEventListener('DOMContentLoaded', () => {
         setCookie(COOKIE_NAME, cons, 365);
         banner.style.display = 'none';
         applyConsentToScripts();
+        updateGoogleConsentMode(cons);
       };
       const onReject = () => {
         const cons = { necessary: true, performance: false, analytics: false, marketing: false, timestamp: Date.now() };
         setCookie(COOKIE_NAME, cons, 365);
         banner.style.display = 'none';
+        updateGoogleConsentMode(cons);
       };
       const onConfigure = () => {
         createModal();
@@ -289,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setCookie(COOKIE_NAME, updated, 365);
         overlay.remove();
         applyConsentToScripts();
+        updateGoogleConsentMode(updated);
       });
     };
     const injectManageLink = () => {
@@ -312,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cons = { necessary: true, performance: false, analytics: false, marketing: false, timestamp: Date.now() };
         setCookie(COOKIE_NAME, cons, 365);
         injectManageLink();
+        initGoogleConsentMode();
         return;
       }
       const cons = getCookie(COOKIE_NAME);
@@ -321,6 +351,10 @@ document.addEventListener('DOMContentLoaded', () => {
         applyConsentToScripts();
       }
       injectManageLink();
+      document.querySelectorAll('a.manage-cookies').forEach(a => {
+        a.addEventListener('click', (e) => { e.preventDefault(); createModal(); });
+      });
+      initGoogleConsentMode();
     };
     return { init };
   })();

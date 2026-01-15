@@ -1043,7 +1043,7 @@ section {
 .destaque-section {
     position: relative;
     padding: 60px 20px;
-    background-color: #f5f7fa;
+    background-color: var(--bg-body);
     overflow: hidden;
 }
 
@@ -1406,13 +1406,12 @@ section {
 }
 
 .sobre-section {
-    background: var(--gray);
+    background: var(--bg-body);
     border-top-left-radius: var(--border2);
     border-top-right-radius: var(--border2);
     padding: 2rem 0;
     position: relative;
     flex-direction: column;
-    margin-top: 3rem;
 
     .header-text {
         align-self: flex-start;
@@ -1428,7 +1427,6 @@ section {
         border-bottom-right-radius: var(--border2);
         padding-bottom: 4rem;
         margin-top: 1rem;
-        background-color: var(--gray);
 
 
         p strong {
@@ -1443,7 +1441,7 @@ section {
     .content-block::after {
         content: '';
         position: absolute;
-        top: 170px;
+        top: 220px;
         right: -300px;
         width: 100%;
         height: 470px;
@@ -1518,6 +1516,8 @@ section {
 
 .sobre-container {
     background: var(--text-color-black);
+    border-top-left-radius: var(--border2);
+    border-top-right-radius: var(--border2);
     padding-top: 2rem;
     margin-top: -3rem;
     width: 100%;
@@ -1978,6 +1978,7 @@ video {
     display: inline;
 }
 
+.btn-text-toggle a,
 .btn-text-toggle {
     background: transparent;
     border: none;

@@ -664,7 +664,7 @@ p {
 .cta-secondary,
 .cta-outline {
     padding: 15px 30px;
-    border-radius: 8px;
+    border-radius: var(--border2);
     text-decoration: none;
     font-weight: 600;
     display: inline-flex;
@@ -1172,6 +1172,9 @@ p {
     font-size: 1.2rem;
 }
 
+
+
+
 .mais-section {
     min-height: 100vh;
     padding: 100px;
@@ -1232,6 +1235,11 @@ p {
 
 footer {
     background: var(--okuku-dark-blue);
+}
+
+
+.cta-hero {
+    background: var(--okuku-blue);
 }
 
 

@@ -883,7 +883,7 @@ section {
     font-size: 3.5rem;
     color: var(--text-color);
     cursor: pointer;
-    text-transform: capitalize;
+    text-transform:unset;
 }
 
 .carousel-nav button {
@@ -1782,7 +1782,7 @@ section {
     padding-left: 8rem;
     font-size: 3.5rem;
     color: var(--text-color);
-    text-transform: capitalize;
+    text-transform: unset;
     width: 100%;
     z-index: 10;
 }
@@ -2169,8 +2169,9 @@ video {
     width: 100%;
     left: 0;
     top: 0;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 20px;
+    line-height: 1.8rem;
     max-height: 120px;
     overflow-y: hidden;
     color: var(--white);

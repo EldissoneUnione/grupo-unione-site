@@ -107,7 +107,7 @@ window.NOTICIAS_DATA = [
     id: 6,
     img: "../assets/Imagens/unione_grupo.jpg",
     data: "2025",
-    titulo: "OPORTUNIDADE DE INVESTIMENTO: +100 Lotes Infraestruturados Prontos para Receber a Sua Indústria",
+    titulo: "<strong>OPORTUNIDADE DE INVESTIMENTO</strong>: +100 Lotes Infraestruturados Prontos para Receber a Sua Indústria",
     conteudo: `
     <p>
       Estão disponíveis mais de 100 lotes infraestruturados, localizados num Polo Industrial com 415 hectares, no município da Humpata, província da Huíla.

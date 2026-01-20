@@ -418,22 +418,77 @@ document.addEventListener('DOMContentLoaded', () => {
     contacto: [
       'Você pode nos contatar pelo e-mail: unione@unioneafrica.com ou pelo telefone (+244) 922 490 448.',
       'Nosso contacto: unione@unioneafrica.com | Tel: (+244) 922 490 448. Precisa de mais alguma informação?',
-      'Fale conosco pelo e-mail unione@unioneafrica.com ou ligue para (+244) 922 490 448.'
+      'Fale conosco pelo e-mail unione@unioneafrica.com ou ligue para (+244) 922 490 448.',
+      'Também estamos no WhatsApp: (+244) 922 490 448.',
+      'Prefere e-mail ou telefone? Posso te passar ambos.'
     ],
     empresa: [
       'Temos várias empresas no grupo! Quer saber mais sobre alguma em específico? Veja a seção de empresas na página.',
       'O Grupo Unione é composto por diversas empresas. Sobre qual delas você gostaria de saber mais?',
-      'Nossas empresas atuam em diferentes áreas. Se quiser detalhes, posso te mostrar informações da página de empresas.'
+      'Nossas empresas atuam em diferentes áreas. Se quiser detalhes, posso te mostrar informações da página de empresas.',
+      'Você pode explorar as empresas no menu principal em “Empresas”.',
+      'Quer que eu procure uma empresa pelo nome?'
+    ],
+    areas: [
+      'Atuamos em Saúde, Energia, Construção Civil, Hotelaria e mais. Qual interessa?',
+      'Temos áreas como Telecomunicações, Ensino, Agropecuária e Consultoria.',
+      'Posso buscar áreas no menu. Qual você procura?',
+      'Área específica em mente? Posso tentar localizar na página.',
+      'Quer ver todas as áreas disponíveis?'
+    ],
+    whatsapp: [
+      'Nosso WhatsApp: (+244) 922 490 448.',
+      'Pode falar conosco no WhatsApp pelo número (+244) 922 490 448.',
+      'Se preferir WhatsApp, estamos disponíveis: (+244) 922 490 448.'
+    ],
+    email: [
+      'Nosso e-mail: unione@unioneafrica.com.',
+      'Pode enviar um e-mail para unione@unioneafrica.com.',
+      'E-mail de contacto: unione@unioneafrica.com.'
+    ],
+    telefone: [
+      'Telefone: (+244) 922 490 448.',
+      'Fale por telefone: (+244) 922 490 448.',
+      'Nosso número é (+244) 922 490 448.'
+    ],
+    endereco: [
+      'Endereço: Polis - Estrada da Zootécnica, Humpata - Huíla.',
+      'Estamos em Humpata (Huíla), Polis - Estrada da Zootécnica.',
+      'Nossa localização: Polis - Estrada da Zootécnica, Humpata - Huíla.'
+    ],
+    noticias: [
+      'Você pode ver as últimas notícias na seção “Notícias”.',
+      'Quer que eu procure uma notícia relacionada ao seu tema?',
+      'Posso destacar notícias recentes do Grupo Unione.'
+    ],
+    projetos: [
+      'Veja os projetos em destaque na seção “Projetos”.',
+      'Posso abrir a página de projetos para você.',
+      'Quer saber mais sobre um projeto específico?'
+    ],
+    sobre: [
+      'O Grupo Unione reúne empresas atuando em diversas áreas em Angola.',
+      'Somos um grupo com presença em Saúde, Energia, Construção e outras frentes.',
+      'Quer um resumo sobre nossa atuação e valores?'
     ],
     saudacao: [
       'Olá! Como posso ajudar você hoje?',
       'Oi! Precisa de alguma informação sobre o Grupo Unione?',
-      'Seja bem-vindo! Em que posso te ajudar?'
+      'Seja bem-vindo! Em que posso te ajudar?',
+      'Olá! Quer falar sobre empresas, áreas ou contactos?',
+      'Oi! Me diga o que você procura que eu tento achar.'
+    ],
+    ajuda: [
+      'Posso ajudar com empresas, áreas de negócio, contactos e notícias.',
+      'Diga se procura contacto, empresa específica, área ou projeto.',
+      'Se preferir, posso sugerir tópicos populares para começar.'
     ],
     desconhecido: [
       'Desculpe, ainda estou aprendendo! Você pode perguntar sobre empresas, áreas de atuação ou como entrar em contacto.',
       'Não entendi muito bem. Tente perguntar sobre empresas, áreas de negócio ou formas de contacto.',
-      'Ainda não sei responder isso, mas posso te ajudar com informações sobre empresas, áreas ou contacto.'
+      'Ainda não sei responder isso, mas posso te ajudar com informações sobre empresas, áreas ou contacto.',
+      'Tente ser mais específico: empresa, área, notícia, projeto ou contacto?',
+      'Posso buscar pelo termo na página se desejar.'
     ]
   };
 
@@ -478,9 +533,18 @@ document.addEventListener('DOMContentLoaded', () => {
       let resposta = null;
       const conteudo = buscarConteudo(msg);
       if (conteudo) resposta = conteudo;
-      else if (msg.includes('contacto') || msg.includes('falar com') || msg.includes('telefone') || msg.includes('email')) resposta = respostas.contacto[Math.floor(Math.random() * respostas.contacto.length)];
+      else if (msg.includes('whatsapp')) resposta = respostas.whatsapp[Math.floor(Math.random() * respostas.whatsapp.length)];
+      else if (msg.includes('email') || msg.includes('e-mail')) resposta = respostas.email[Math.floor(Math.random() * respostas.email.length)];
+      else if (msg.includes('telefone') || msg.includes('telemovel') || msg.includes('telemóvel')) resposta = respostas.telefone[Math.floor(Math.random() * respostas.telefone.length)];
+      else if (msg.includes('endereco') || msg.includes('endereço') || msg.includes('morada') || msg.includes('localizacao') || msg.includes('localização')) resposta = respostas.endereco[Math.floor(Math.random() * respostas.endereco.length)];
+      else if (msg.includes('area') || msg.includes('área') || msg.includes('areas') || msg.includes('áreas') || msg.includes('negocio') || msg.includes('negócio') || msg.includes('negocios') || msg.includes('negócios')) resposta = respostas.areas[Math.floor(Math.random() * respostas.areas.length)];
       else if (msg.includes('empresa') || msg.includes('empresas') || msg.includes('grupo')) resposta = respostas.empresa[Math.floor(Math.random() * respostas.empresa.length)];
-      else if (msg.includes('olá') || msg.includes('oi') || msg.includes('bom dia') || msg.includes('boa tarde')) resposta = respostas.saudacao[Math.floor(Math.random() * respostas.saudacao.length)];
+      else if (msg.includes('noticia') || msg.includes('notícias') || msg.includes('noticias')) resposta = respostas.noticias[Math.floor(Math.random() * respostas.noticias.length)];
+      else if (msg.includes('projeto') || msg.includes('projetos')) resposta = respostas.projetos[Math.floor(Math.random() * respostas.projetos.length)];
+      else if (msg.includes('sobre') || msg.includes('quem é') || msg.includes('o que é') || msg.includes('grupo unione')) resposta = respostas.sobre[Math.floor(Math.random() * respostas.sobre.length)];
+      else if (msg.includes('ajuda') || msg.includes('help')) resposta = respostas.ajuda[Math.floor(Math.random() * respostas.ajuda.length)];
+      else if (msg.includes('contacto') || msg.includes('falar com')) resposta = respostas.contacto[Math.floor(Math.random() * respostas.contacto.length)];
+      else if (msg.includes('olá') || msg.includes('oi') || msg.includes('bom dia') || msg.includes('boa tarde') || msg.includes('boa noite')) resposta = respostas.saudacao[Math.floor(Math.random() * respostas.saudacao.length)];
       else resposta = respostas.desconhecido[Math.floor(Math.random() * respostas.desconhecido.length)];
       botMessage(resposta);
     }, 600);

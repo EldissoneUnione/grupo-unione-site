@@ -380,6 +380,8 @@ document.addEventListener('DOMContentLoaded', () => {
     '<div id="chatbot-header">ChatBot <span id="chatbot-toggle">_</span></div>' +
     '<div id="chatbot-body">' +
     '  <div id="chatbot-messages"></div>' +
+    '  <div id="chatbot-typing" style="display:none">Digitando...</div>' +
+    '  <div id="chatbot-suggestions"></div>' +
     '  <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." autocomplete="off" />' +
     '  <button id="chatbot-send">Enviar</button>' +
     '</div>' +
@@ -391,6 +393,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const input = container.querySelector('#chatbot-input');
   const send = container.querySelector('#chatbot-send');
   const header = container.querySelector('#chatbot-header');
+  const typing = container.querySelector('#chatbot-typing');
+  const suggestions = container.querySelector('#chatbot-suggestions');
 
   const BOT_ICON = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='14' y='18' width='36' height='28' rx='6' fill='%232b2b2b'/><circle cx='26' cy='32' r='5' fill='%23ffffff'/><circle cx='38' cy='32' r='5' fill='%23ffffff'/><rect x='24' y='40' width='16' height='4' rx='2' fill='%23ffffff'/><line x1='32' y1='10' x2='32' y2='18' stroke='%232b2b2b' stroke-width='4'/><circle cx='32' cy='8' r='4' fill='%232b2b2b'/></svg>";
 
@@ -496,6 +500,28 @@ document.addEventListener('DOMContentLoaded', () => {
     'Saúde','Telecomunicações','Ensino','Agropecuária','Consultoria e Gestão','Energia','Hotelaria e Turismo','Construção Civil','Metalomecânica','Carpintaria','Industria Mecânica'
   ];
 
+  function setTyping(on) {
+    typing.style.display = on ? 'block' : 'none';
+  }
+
+  function clearSuggestions() {
+    suggestions.innerHTML = '';
+  }
+
+  function showSuggestions(list) {
+    clearSuggestions();
+    list.forEach(label => {
+      const b = document.createElement('button');
+      b.className = 'chatbot-suggestion';
+      b.textContent = label;
+      b.addEventListener('click', () => {
+        input.value = label;
+        send.click();
+      });
+      suggestions.appendChild(b);
+    });
+  }
+
   function buscarConteudo(termo) {
     const empresasSection = document.getElementById('empresas-lista');
     if (empresasSection) {
@@ -520,6 +546,46 @@ document.addEventListener('DOMContentLoaded', () => {
     return null;
   }
 
+  function buscarConteudosLista(termo, max) {
+    const lista = [];
+    const empresasSection = document.getElementById('empresas-lista');
+    if (empresasSection) {
+      const empresas = Array.from(empresasSection.querySelectorAll('li, .empresa-nome'));
+      empresas.forEach(e => { if (e.textContent.toLowerCase().includes(termo)) lista.push(e.textContent.trim()); });
+    }
+    const noticiasSection = document.getElementById('noticias-cards');
+    if (noticiasSection) {
+      const noticias = Array.from(noticiasSection.querySelectorAll('h2, h3, .noticia-titulo, .noticia-resumo, .card-title'));
+      noticias.forEach(n => { if (n.textContent.toLowerCase().includes(termo)) lista.push(n.textContent.trim()); });
+    }
+    const areasDropdown = document.querySelector('.dropdown-menu');
+    if (areasDropdown) {
+      const areas = Array.from(areasDropdown.querySelectorAll('a[role="menuitem"]'));
+      areas.forEach(a => { if (a.textContent.toLowerCase().includes(termo)) lista.push(a.textContent.trim()); });
+    }
+    if (!lista.length) {
+      areasNegocioFixas.forEach(a => { if (a.toLowerCase().includes(termo)) lista.push(a); });
+    }
+    return lista.slice(0, max || 3);
+  }
+
+  function classificar(msg) {
+    const m = msg.toLowerCase();
+    if (m.includes('whatsapp')) return { intent: 'whatsapp' };
+    if (m.includes('email') || m.includes('e-mail')) return { intent: 'email' };
+    if (m.includes('telefone') || m.includes('telemovel') || m.includes('telemóvel')) return { intent: 'telefone' };
+    if (m.includes('endereco') || m.includes('endereço') || m.includes('morada') || m.includes('localizacao') || m.includes('localização')) return { intent: 'endereco' };
+    if (m.includes('area') || m.includes('área') || m.includes('areas') || m.includes('áreas') || m.includes('negocio') || m.includes('negócio') || m.includes('negocios') || m.includes('negócios')) return { intent: 'areas' };
+    if (m.includes('empresa') || m.includes('empresas') || m.includes('grupo')) return { intent: 'empresa' };
+    if (m.includes('noticia') || m.includes('notícias') || m.includes('noticias')) return { intent: 'noticias' };
+    if (m.includes('projeto') || m.includes('projetos')) return { intent: 'projetos' };
+    if (m.includes('sobre') || m.includes('quem é') || m.includes('o que é') || m.includes('grupo unione')) return { intent: 'sobre' };
+    if (m.includes('ajuda') || m.includes('help')) return { intent: 'ajuda' };
+    if (m.includes('olá') || m.includes('oi') || m.includes('bom dia') || m.includes('boa tarde') || m.includes('boa noite')) return { intent: 'saudacao' };
+    if (m.includes('contacto') || m.includes('falar com')) return { intent: 'contacto' };
+    return { intent: 'desconhecido' };
+  }
+
   botMessage(respostas.saudacao[Math.floor(Math.random() * respostas.saudacao.length)]);
 
   function sendMessage() {
@@ -528,26 +594,45 @@ document.addEventListener('DOMContentLoaded', () => {
     userMessage(userMsg);
     input.value = '';
     messages.scrollTop = messages.scrollHeight;
+    const delay = Math.floor(300 + Math.random() * 300);
+    setTyping(true);
     setTimeout(() => {
-      const msg = userMsg.toLowerCase();
+      const cls = classificar(userMsg);
       let resposta = null;
-      const conteudo = buscarConteudo(msg);
-      if (conteudo) resposta = conteudo;
-      else if (msg.includes('whatsapp')) resposta = respostas.whatsapp[Math.floor(Math.random() * respostas.whatsapp.length)];
-      else if (msg.includes('email') || msg.includes('e-mail')) resposta = respostas.email[Math.floor(Math.random() * respostas.email.length)];
-      else if (msg.includes('telefone') || msg.includes('telemovel') || msg.includes('telemóvel')) resposta = respostas.telefone[Math.floor(Math.random() * respostas.telefone.length)];
-      else if (msg.includes('endereco') || msg.includes('endereço') || msg.includes('morada') || msg.includes('localizacao') || msg.includes('localização')) resposta = respostas.endereco[Math.floor(Math.random() * respostas.endereco.length)];
-      else if (msg.includes('area') || msg.includes('área') || msg.includes('areas') || msg.includes('áreas') || msg.includes('negocio') || msg.includes('negócio') || msg.includes('negocios') || msg.includes('negócios')) resposta = respostas.areas[Math.floor(Math.random() * respostas.areas.length)];
-      else if (msg.includes('empresa') || msg.includes('empresas') || msg.includes('grupo')) resposta = respostas.empresa[Math.floor(Math.random() * respostas.empresa.length)];
-      else if (msg.includes('noticia') || msg.includes('notícias') || msg.includes('noticias')) resposta = respostas.noticias[Math.floor(Math.random() * respostas.noticias.length)];
-      else if (msg.includes('projeto') || msg.includes('projetos')) resposta = respostas.projetos[Math.floor(Math.random() * respostas.projetos.length)];
-      else if (msg.includes('sobre') || msg.includes('quem é') || msg.includes('o que é') || msg.includes('grupo unione')) resposta = respostas.sobre[Math.floor(Math.random() * respostas.sobre.length)];
-      else if (msg.includes('ajuda') || msg.includes('help')) resposta = respostas.ajuda[Math.floor(Math.random() * respostas.ajuda.length)];
-      else if (msg.includes('contacto') || msg.includes('falar com')) resposta = respostas.contacto[Math.floor(Math.random() * respostas.contacto.length)];
-      else if (msg.includes('olá') || msg.includes('oi') || msg.includes('bom dia') || msg.includes('boa tarde') || msg.includes('boa noite')) resposta = respostas.saudacao[Math.floor(Math.random() * respostas.saudacao.length)];
-      else resposta = respostas.desconhecido[Math.floor(Math.random() * respostas.desconhecido.length)];
+      const termos = userMsg.toLowerCase().split(/\s+/).filter(t => t.length > 2);
+      let lista = [];
+      if (termos.length) lista = buscarConteudosLista(termos[0], 3);
+      if (lista.length) {
+        resposta = 'Encontrei: ' + lista.join(', ');
+      } else {
+        if (cls.intent === 'whatsapp') resposta = respostas.whatsapp[Math.floor(Math.random() * respostas.whatsapp.length)];
+        else if (cls.intent === 'email') resposta = respostas.email[Math.floor(Math.random() * respostas.email.length)];
+        else if (cls.intent === 'telefone') resposta = respostas.telefone[Math.floor(Math.random() * respostas.telefone.length)];
+        else if (cls.intent === 'endereco') resposta = respostas.endereco[Math.floor(Math.random() * respostas.endereco.length)];
+        else if (cls.intent === 'areas') resposta = respostas.areas[Math.floor(Math.random() * respostas.areas.length)];
+        else if (cls.intent === 'empresa') resposta = respostas.empresa[Math.floor(Math.random() * respostas.empresa.length)];
+        else if (cls.intent === 'noticias') resposta = respostas.noticias[Math.floor(Math.random() * respostas.noticias.length)];
+        else if (cls.intent === 'projetos') resposta = respostas.projetos[Math.floor(Math.random() * respostas.projetos.length)];
+        else if (cls.intent === 'sobre') resposta = respostas.sobre[Math.floor(Math.random() * respostas.sobre.length)];
+        else if (cls.intent === 'ajuda') resposta = respostas.ajuda[Math.floor(Math.random() * respostas.ajuda.length)];
+        else if (cls.intent === 'contacto') resposta = respostas.contacto[Math.floor(Math.random() * respostas.contacto.length)];
+        else if (cls.intent === 'saudacao') resposta = respostas.saudacao[Math.floor(Math.random() * respostas.saudacao.length)];
+        else resposta = respostas.desconhecido[Math.floor(Math.random() * respostas.desconhecido.length)];
+      }
       botMessage(resposta);
-    }, 600);
+      if (cls.intent === 'empresa') {
+        showSuggestions(['Contactos','Empresas','Áreas de negócio']);
+      } else if (cls.intent === 'areas') {
+        showSuggestions(['Saúde','Energia','Construção Civil','Hotelaria','Telecomunicações']);
+      } else if (cls.intent === 'contacto') {
+        showSuggestions(['WhatsApp','E-mail','Telefone','Endereço']);
+      } else if (cls.intent === 'ajuda' || cls.intent === 'saudacao') {
+        showSuggestions(['Empresas','Áreas de negócio','Notícias','Projetos','Contactos']);
+      } else {
+        clearSuggestions();
+      }
+      setTyping(false);
+    }, delay);
   }
 
   send.addEventListener('click', sendMessage);

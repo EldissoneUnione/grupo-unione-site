@@ -2757,6 +2757,31 @@ footer {
     font-size: 14px;
 }
 
+#chatbot-typing {
+    align-self: self-start;
+    color: #666;
+    font-size: 12px;
+    margin: 4px 8px;
+}
+
+#chatbot-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+    padding: 4px 8px;
+}
+
+.chatbot-suggestion {
+    padding: 6px 10px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    background: #fff;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 12px;
+}
+
 #chatbot-input {
     position: absolute;
     left: 5px;

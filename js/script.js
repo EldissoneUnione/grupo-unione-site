@@ -361,3 +361,140 @@ document.addEventListener('DOMContentLoaded', () => {
   Consent.init();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const existing = document.getElementById('chatbot-widget');
+  if (existing) return;
+  const path = window.location.pathname;
+  const inEmpresas = path.includes('/empresas/');
+  const inPages = path.includes('/pages/');
+  let base = '';
+  if (inEmpresas) base = '../../'; else if (inPages) base = '../';
+
+  const container = document.createElement('div');
+  container.id = 'chatbot-widget';
+  container.className = 'minimized';
+  container.setAttribute('role', 'dialog');
+  container.setAttribute('aria-label', 'Assistente virtual');
+  container.setAttribute('aria-expanded', 'false');
+  container.innerHTML = (
+    '<div id="chatbot-header">ChatBot <span id="chatbot-toggle">_</span></div>' +
+    '<div id="chatbot-body">' +
+    '  <div id="chatbot-messages"></div>' +
+    '  <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." autocomplete="off" />' +
+    '  <button id="chatbot-send">Enviar</button>' +
+    '</div>' +
+    '<a id="chatbot-whatsapp" href="https://wa.me/244922490448" target="_blank" aria-label="Fale no WhatsApp" style="display:none"></a>'
+  );
+  document.body.appendChild(container);
+
+  const messages = container.querySelector('#chatbot-messages');
+  const input = container.querySelector('#chatbot-input');
+  const send = container.querySelector('#chatbot-send');
+  const header = container.querySelector('#chatbot-header');
+
+  const BOT_ICON = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='14' y='18' width='36' height='28' rx='6' fill='%232b2b2b'/><circle cx='26' cy='32' r='5' fill='%23ffffff'/><circle cx='38' cy='32' r='5' fill='%23ffffff'/><rect x='24' y='40' width='16' height='4' rx='2' fill='%23ffffff'/><line x1='32' y1='10' x2='32' y2='18' stroke='%232b2b2b' stroke-width='4'/><circle cx='32' cy='8' r='4' fill='%232b2b2b'/></svg>";
+
+  function botMessage(msg) {
+    messages.innerHTML += (
+      '<div class="chatbot-msg-row">' +
+      '  <img src="' + BOT_ICON + '" class="chatbot-avatar" alt="Bot">' +
+      '  <span class="chatbot-msg-bot"> ' + msg + '</span>' +
+      '</div>'
+    );
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function userMessage(msg) {
+    messages.innerHTML += (
+      '<div class="chatbot-msg-row chatbot-msg-row-user">' +
+      '  <img src="' + base + 'assets/icons/user.png" class="chatbot-avatar" alt="Você">' +
+      '  <span class="chatbot-msg-user"> ' + msg + '</span>' +
+      '</div>'
+    );
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  const respostas = {
+    contacto: [
+      'Você pode nos contatar pelo e-mail: unione@unioneafrica.com ou pelo telefone (+244) 922 490 448.',
+      'Nosso contacto: unione@unioneafrica.com | Tel: (+244) 922 490 448. Precisa de mais alguma informação?',
+      'Fale conosco pelo e-mail unione@unioneafrica.com ou ligue para (+244) 922 490 448.'
+    ],
+    empresa: [
+      'Temos várias empresas no grupo! Quer saber mais sobre alguma em específico? Veja a seção de empresas na página.',
+      'O Grupo Unione é composto por diversas empresas. Sobre qual delas você gostaria de saber mais?',
+      'Nossas empresas atuam em diferentes áreas. Se quiser detalhes, posso te mostrar informações da página de empresas.'
+    ],
+    saudacao: [
+      'Olá! Como posso ajudar você hoje?',
+      'Oi! Precisa de alguma informação sobre o Grupo Unione?',
+      'Seja bem-vindo! Em que posso te ajudar?'
+    ],
+    desconhecido: [
+      'Desculpe, ainda estou aprendendo! Você pode perguntar sobre empresas, áreas de atuação ou como entrar em contacto.',
+      'Não entendi muito bem. Tente perguntar sobre empresas, áreas de negócio ou formas de contacto.',
+      'Ainda não sei responder isso, mas posso te ajudar com informações sobre empresas, áreas ou contacto.'
+    ]
+  };
+
+  const areasNegocioFixas = [
+    'Saúde','Telecomunicações','Ensino','Agropecuária','Consultoria e Gestão','Energia','Hotelaria e Turismo','Construção Civil','Metalomecânica','Carpintaria','Industria Mecânica'
+  ];
+
+  function buscarConteudo(termo) {
+    const empresasSection = document.getElementById('empresas-lista');
+    if (empresasSection) {
+      const empresas = Array.from(empresasSection.querySelectorAll('li, .empresa-nome'));
+      const resultado = empresas.find(e => e.textContent.toLowerCase().includes(termo));
+      if (resultado) return 'Encontrei esta empresa: ' + resultado.textContent;
+    }
+    const noticiasSection = document.getElementById('noticias-cards');
+    if (noticiasSection) {
+      const noticias = Array.from(noticiasSection.querySelectorAll('h2, h3, .noticia-titulo, .noticia-resumo, .card-title'));
+      const resultado = noticias.find(n => n.textContent.toLowerCase().includes(termo));
+      if (resultado) return 'Veja esta notícia relacionada: ' + resultado.textContent;
+    }
+    const areasDropdown = document.querySelector('.dropdown-menu');
+    if (areasDropdown) {
+      const areas = Array.from(areasDropdown.querySelectorAll('a[role="menuitem"]'));
+      const resultado = areas.find(a => a.textContent.toLowerCase().includes(termo));
+      if (resultado) return 'Área de negócio encontrada: ' + resultado.textContent;
+    }
+    const areaFixa = areasNegocioFixas.find(area => area.toLowerCase().includes(termo));
+    if (areaFixa) return 'Área de negócio encontrada: ' + areaFixa;
+    return null;
+  }
+
+  botMessage(respostas.saudacao[Math.floor(Math.random() * respostas.saudacao.length)]);
+
+  function sendMessage() {
+    const userMsg = input.value.trim();
+    if (!userMsg) return;
+    userMessage(userMsg);
+    input.value = '';
+    messages.scrollTop = messages.scrollHeight;
+    setTimeout(() => {
+      const msg = userMsg.toLowerCase();
+      let resposta = null;
+      const conteudo = buscarConteudo(msg);
+      if (conteudo) resposta = conteudo;
+      else if (msg.includes('contacto') || msg.includes('falar com') || msg.includes('telefone') || msg.includes('email')) resposta = respostas.contacto[Math.floor(Math.random() * respostas.contacto.length)];
+      else if (msg.includes('empresa') || msg.includes('empresas') || msg.includes('grupo')) resposta = respostas.empresa[Math.floor(Math.random() * respostas.empresa.length)];
+      else if (msg.includes('olá') || msg.includes('oi') || msg.includes('bom dia') || msg.includes('boa tarde')) resposta = respostas.saudacao[Math.floor(Math.random() * respostas.saudacao.length)];
+      else resposta = respostas.desconhecido[Math.floor(Math.random() * respostas.desconhecido.length)];
+      botMessage(resposta);
+    }, 600);
+  }
+
+  send.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
+
+  const widget = container;
+  widget.addEventListener('click', e => { if (widget.classList.contains('minimized')) { widget.classList.remove('minimized'); container.setAttribute('aria-expanded','true'); setTimeout(()=>input.focus(), 50); e.stopPropagation(); } });
+  header.addEventListener('click', e => { if (!widget.classList.contains('minimized')) { widget.classList.add('minimized'); container.setAttribute('aria-expanded','false'); e.stopPropagation(); } });
+  document.addEventListener('click', e => { if (!widget.classList.contains('minimized') && !widget.contains(e.target)) { widget.classList.add('minimized'); container.setAttribute('aria-expanded','false'); } });
+  container.querySelectorAll('#chatbot-body, #chatbot-whatsapp').forEach(el => { el.addEventListener('click', e => e.stopPropagation()); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !widget.classList.contains('minimized')) { widget.classList.add('minimized'); container.setAttribute('aria-expanded','false'); } });
+});
+
+

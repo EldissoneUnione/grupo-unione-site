@@ -24,7 +24,8 @@
     }
 }
 
-.company-details {
+.company-details,
+.brands-section {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -46,12 +47,14 @@
 .courses-section h2,
 .testimonials-section h2,
 .enrollment-section h2,
-.mais-section h2 {
+.mais-section h2,
+.brands-container h2 {
     font-size: 3rem;
     font-weight: 500;
     position: relative;
     padding-left: 50px;
     align-self: self-start;
+    cursor: pointer;
 }
 
 .company-details h2::after,
@@ -61,7 +64,8 @@
 .courses-section h2::after,
 .testimonials-section h2::after,
 .enrollment-section h2::after,
-.mais-section h2::after {
+.mais-section h2::after,
+.brands-container h2::after {
     content: "";
     position: absolute;
     top: 0;
@@ -78,8 +82,9 @@
 .courses-section h2::before,
 .testimonials-section h2::before,
 .enrollment-section h2::before,
-.mais-section h2::before {
-    content: "";
+.mais-section h2::before,
+.brands-container h2::before {
+content: "";
     position: absolute;
     bottom: -12px;
     left: 50px;
@@ -192,13 +197,8 @@ p {
     .respo {
         display: none;
     }
-
-   
 }
 
-.options .active {
-    background: var(--corpo-mente-dark);
-}
 
 .submit-btn {
     transition: all 0.3s ease;
@@ -255,8 +255,9 @@ p {
     gap: 30px;
     margin: 40px 0;
     padding: 40px;
-    background: linear-gradient(135deg, var(--corpo-mente-light) 30%, var(--corpo-mente-dark) 60%);
     border-radius: 20px;
+    background: linear-gradient(135deg, var(--corpo-mente-light), var(--corpo-mente-dark));
+
 }
 
 .highlight-card {
@@ -264,7 +265,8 @@ p {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border-left: 5px solid var(--corpo-mente-dark);
+    border: 2px solid var(--corpo-mente-dark);
+    cursor: pointer;
 }
 
 .highlight-card h3 {
@@ -297,7 +299,6 @@ p {
 
 .service-card:hover {
     transform: translateY(-10px);
-    border-bottom-color: var(--corpo-mente-dark);
     box-shadow: 0 15px 40px rgba(42, 127, 140, 0.15);
 }
 
@@ -378,6 +379,7 @@ p {
     border-radius: var(--border2);
     width: 100%;
     color: var(--white);
+    cursor: pointer;
 }
 
 .cta-buttons {
@@ -499,7 +501,6 @@ p {
 }
 
 /*Fibra*/
-
 
 .company-intro {
     padding: 30px;
@@ -675,11 +676,9 @@ p {
 
 .cta-primary {
     background: var(--white);
-    color: var(--fibra-primary);
 }
 
 .cta-secondary {
-    background: var(--fibra-accent);
     color: var(--white);
 }
 
@@ -711,7 +710,6 @@ p {
 
 .services-detailed .service-card:hover {
     transform: translateY(-10px);
-    border-bottom-color: var(--fibra-primary);
     box-shadow: 0 10px 30px rgba(0, 102, 204, 0.15);
 }
 
@@ -731,7 +729,6 @@ p {
 }
 
 .service-features i {
-    color: var(--fibra-primary);
     font-size: 0.9rem;
 }
 
@@ -788,10 +785,6 @@ p {
     transition: all 0.3s ease;
 }
 
-.file-upload label:hover {
-    background: var(--fibra-light);
-    border-color: var(--fibra-primary);
-}
 
 @media (max-width: 768px) {
     .hero-company .logo-grupoP {
@@ -1208,38 +1201,6 @@ p {
 .contact-form textarea:focus {
     border: 2px solid var(--okuku-blue);
     box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
-}
-
-.options .active {
-    background: var(--okuku-blue);
-}
-
-.submit-btn {
-    background: var(--okuku-blue);
-    transition: all 0.3s ease;
-}
-
-.submit-btn:hover {
-    background: var(--okuku-dark-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
-}
-
-.company-details h2::after {
-    background-color: var(--okuku-blue);
-}
-
-.company-details h2::before {
-    background-color: var(--okuku-blue);
-}
-
-footer {
-    background: var(--okuku-dark-blue);
-}
-
-
-.cta-hero {
-    background: var(--okuku-blue);
 }
 
 

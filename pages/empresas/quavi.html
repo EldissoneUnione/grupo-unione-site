@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fibra - Grupo Unione">
-    <title>Fibra - Grupo Unione</title>
+    <meta name="description" content="Quavi - Grupo Unione - Agropecuária sustentável e inovadora">
+    <title>Quavi - Grupo Unione</title>
     <link rel="icon" href="../../public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/grupo.css">
@@ -14,42 +14,208 @@
     <link rel="stylesheet" href="../../css/empresas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <style>
+        .company-details h2::after,
+        .brands-container h2::after {
+            background-color: var(--quavi-primary);
+        }
+
+        .company-details h2::before,
+        .brands-container h2::before {
+            background-color: var(--quavi-primary);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .brand-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .brand-header {
+            max-height: 150px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--quavi-primary);
+        }
+
+        .brand-body {
+            padding: 30px;
+        }
+
+        .brand-body p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .service-card {
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--quavi-primary);
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            color: var(--quavi-primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--quavi-primary);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Business Units */
+        .business-units {
+            padding: 80px 20px;
+            background: var(--quavi-primary);
+
+        }
+
+        .units-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .units-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--quavi-accent);
+            margin-bottom: 50px;
+        }
+
+        .units-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .unit-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .unit-item i {
+            color: var(--quavi-primary);
+            font-size: 1.5rem;
+        }
+
+        /* Contact Info Section */
+        .contact-info-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--quavi-dark), var(--quavi-primary));
+            color: white;
+            text-align: center;
+        }
+
+        .contact-info-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info-container h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--quavi-accent);
+        }
+
+        /* Contact Form Section */
+        .contactos-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+            background: white;
+        }
+
+        .contact-info {
+            background: linear-gradient(to top, var(--quavi-primary), var(--quavi-primary));
+            padding: 60px 40px;
+            color: white;
+        }
+
+        .contact-info .logo-contact img {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            padding: 60px 40px;
+            background: white;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border: 1px solid var(--quavi-primary) !important;
+            outline: none;
+        }
+
+        .options .active {
+            background: var(--quavi-primary) !important;
+        }
+
+        .submit-btn {
+            background: var(--quavi-primary) !important;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--quavi-dark) !important;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--quavi-primary);
+        }
+    </style>
 </head>
-
-<style>
-    .service-card i {
-        color: var(--quavi-primary);
-    }
-
-    .contact-info {
-        background: linear-gradient(to top, var(--quavi-light), var(--quavi-primary));
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-        border: 1px solid var(--quavi-primary);
-    }
-
-    .options .active {
-        background: var(--quavi-primary);
-    }
-
-    .submit-btn {
-        background: var(--quavi-primary);
-    }
-
-    .company-details h2::after {
-        background-color: var(--quavi-primary);
-    }
-
-    .company-details h2::before {
-        background-color: var(--quavi-primary);
-    }
-
-    footer {
-        background: var(--quavi-primary);
-    }
-</style>
 
 <body>
     <header class="header" id="navBarHeder" role="banner">
@@ -71,7 +237,7 @@
                                 Mente</a>
                             <a href="/empresas/fibra" role="menuitem" data-translate="FIBRA">Fibra</a>
                             <a href="/empresas/okukulanaua" role="menuitem" data-translate="okukulanaua">Okukulanaua</a>
-                            <a href="/empresas/quavi" role="menuitem" data-translate="quavi">Quavi</a>
+                            <a href="/empresas/quavi" role="menuitem" data-translate="quavi" class="active">Quavi</a>
                             <a href="/empresas/unione" role="menuitem" data-translate="UNIONE">Unione</a>
                             <a href="/empresas/mbt" role="menuitem" data-translate="MBT ENERGIA ">MBT Energia</a>
                             <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
@@ -81,7 +247,7 @@
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                         </div>
                     </div>
-                <a href="#" data-translate="areas-negocios">áreas de negócios</a>
+                    <a href="#" data-translate="areas-negocios">áreas de negócios</a>
                     <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
                     <a href="/investidores" data-translate="investidores">investidores</a>
                     <a href="/Contactos" data-translate="Contactos">Contactos</a>
@@ -95,8 +261,8 @@
                 </label>
 
                 <button id="searchNav" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
-                            src="../../assets/icons/search_thin.svg" alt="search"></i>
+                    <i aria-hidden="true" id="search-icon"><img src="../../assets/icons/search_thin.svg"
+                            alt="search"></i>
                 </button>
             </div>
         </nav>
@@ -110,25 +276,18 @@
         <div class="search-conteiner">
             <div class="search-top">
                 <button id="search" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
-                            src="../../assets/icons/search_thin.svg" alt="search"></i>
+                    <i aria-hidden="true" id="search-icon"><img src="../../assets/icons/search_thin.svg"
+                            alt="search"></i>
                     <input type="text" placeholder="Pesquisar sobre..." id="search-input">
-
                     <svg class="close-btn" id="FeicharBtn" viewBox="0 0 24 24" width="18" height="18" fill="white">
                         <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                     </svg>
-
                 </button>
-
-                <div class="search-box">
-
-                </div>
+                <div class="search-box"></div>
             </div>
-
-
         </div>
-        <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
 
+        <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
             <nav class="nav-links-menu">
                 <a href="/grupo">grupo unione</a>
                 <a href="/empresas">empresas</a>
@@ -139,120 +298,201 @@
             </nav>
             <div class="search-menu">
                 <button id="search" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
-                            src="../../assets/icons/search_thin.svg" alt="search"></i>
+                    <i aria-hidden="true" id="search-icon"><img src="../../assets/icons/search_thin.svg"
+                            alt="search"></i>
                     <input type="text" placeholder="Pesquisar sobre..." id="search-input">
                 </button>
             </div>
-
         </div>
     </header>
+
     <main>
-        <section class="hero-company" role="banner" aria-label="Banner principal">
+        <!-- Hero Section -->
+        <section class="hero-company" role="banner" aria-label="Banner principal da Quavi">
             <div class="baner-grupo">
                 <div class="baner-cards-grupo">
                     <div class="card-baner-grupo">
                         <img src="../../assets/Imagens/2_Hero_Quavi_Op.2.jpeg"
-                            alt="Imagem representando Quavi do grupo Unione" width="1920" height="1080" loading="eager">
+                            alt="Imagem representando Quavi do grupo Unione - Agropecuária sustentável" width="1920"
+                            height="1080" loading="eager">
                         <div class="logo-grupoP">
-                            <img src="../../assets/logo/Quavi_Logo.png" alt="Logo quavi" width="100" height="100">
+                            <img src="../../assets/logo/Quavi_Logo.png" alt="Logo Quavi - Produzindo Vida com Qualidade"
+                                width="150" height="auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Description -->
+        <section class="company-details">
+            <h2><strong>Cultivando o futuro com inovação e sustentabilidade no agronegócio, Produzimos Vida com
+                    Qualidade</strong></h2> <br> <br>
+
+            <p>
+                <strong>A Quavi -Qualidade de Vida</strong>
+
+                é uma empresa do Grupo Unione, fundada em 2014, com o propósito de gerar impacto positivo na vida das
+                famílias e no desenvolvimento do país. Actuamos com excelência nos sectores da suinocultura, produção
+                vegetal e horticultura, unindo tecnologia, respeito ao meio ambiente e compromisso com a segurança
+                alimentar.
+
+                Acreditamos que o campo é um lugar de inovação e que qualidade de vida se constrói com trabalho,
+                sustentabilidade e responsabilidade social. Na Quavi, não cultivamos apenas produtos — cultivamos
+                valores, nutrição e oportunidades.
+
+                <a href="#" style="color: #1b5e20; text-decoration: none;">Conheça de perto o que fazemos —
+                    <strong>Visite a Quavi!</strong></a>
+            </p>
+        </section>
+
+        <!-- Brands Section -->
+        <section class="brands-section">
+            <div class="brands-container">
+                <h2>Nossas Marcas</h2>
+                <p style=" width: 100%; margin: 20px auto 40px; color: #555;">
+                    Na Quavi, acreditamos que a qualidade de vida se expressa de muitas formas — no que comemos, no que
+                    cultivamos e no que levamos para dentro de casa.
+                </p>
+                <div class="brands-grid">
+                    <div class="brand-card">
+                        <div class="brand-header" style="background: #388e3c;">
+                            <img src="../../assets/Logos Brancos/Dona Flor.png" alt="dona flor">
+                        </div>
+                        <div class="brand-body">
+                            <p>Especializada em horticultura, cultiva mais de 1.000 espécies de plantas ornamentais,
+                                entre cactos, suculentas, flores, arbustos; plantas que transformam qualquer espaço em
+                                um ambiente vivo, harmonioso e cheio de beleza natural.</p>
                         </div>
                     </div>
 
+                    <div class="brand-card">
+                        <div class="brand-header" style="background: #d32f2f;">
+                            <img src="../../assets/Logos Brancos/Serrana_branco.png" alt="serrana">
+
+                        </div>
+                        <div class="brand-body">
+                            <p>Marca dedicada à charcutaria e enchidos artesanais, produzidos com rigor, tradição e os
+                                melhores ingredientes, oferecendo sabores autênticos que respeitam a origem e os métodos
+                                clássicos da suinocultura.</p>
+                        </div>
+                    </div>
+
+                    <div class="brand-card">
+                        <div class="brand-header" style="background: #f57c00;">
+                            <img src="../../assets/Logos Brancos/Dona Flor.png" alt="nonna">
+                        </div>
+                        <div class="brand-body">
+                            <p>Inspirada nos saberes tradicionais, a Nonna oferece uma linha selecionada de temperos
+                                naturais, chás e produtos desidratados, pensados para quem valoriza sabor, saúde e
+                                praticidade na cozinha do dia a dia.</p>
+                        </div>
+                    </div>
                 </div>
-        </section>
-
-        <section class="company-details">
-            <h2><strong>Cultivando o futuro com inovação e sustentabilidade no agronegócio.</strong></h2> <br>
-            <p>
-                *QUAVI - AGROPECUÁRIA*
-*Banner / Hero*
-*Quavi: Produzimos Vida com Qualidade*
-
-A Quavi – Qualidade de Vida é uma empresa do Grupo Unione, fundada em 2014, com o propósito de gerar impacto positivo na vida das famílias e no desenvolvimento do país. Actuamos com excelência nos sectores da suinocultura, produção vegetal e horticultura, unindo tecnologia, respeito ao meio ambiente e compromisso com a segurança alimentar.
-Acreditamos que o campo é um lugar de inovação e que qualidade de vida se constrói com trabalho, sustentabilidade e responsabilidade social.
- Na Quavi, não cultivamos apenas produtos — cultivamos valores, nutrição e oportunidades. 
-*CTA: Conheça de perto o que fazemos — Visite a Quavi!*
-
-
-*Nossas Marcas*
-Na Quavi, acreditamos que a qualidade de vida se expressa de muitas formas — no que comemos, no que cultivamos e no que levamos para dentro de casa. É com esse propósito que desenvolvemos três marcas distintas, que traduzem o nosso compromisso com a excelência, a natureza e o sabor:
-
-*Dona Flor*
-Especializada em horticultura, cultiva mais de 1.000 espécies de plantas hornamentais, entre cactos, suculentas, flores, arbustos; plantas que transformam qualquer espaço em um ambiente vivo, harmonioso e cheio de beleza natural.
-
-*Serrana*
- Marca dedicada à charcutaria e enchidos artesanais, produzidos com rigor, tradição e os melhores ingredientes, oferecendo sabores autênticos que respeitam a origem e os métodos clássicos da suinocultura.
-
-*Nonna*
- Inspirada nos saberes tradicionais, a Nonna oferece uma linha selecionada de temperos naturais, chás e produtos desidratados, pensados para quem valoriza sabor, saúde e praticidade na cozinha do dia a dia. Cada marca carrega a essência da Quavi: qualidade, autenticidade e respeito pela natureza.
-
-*Unidades de Negócio*
-- Produção e Comercialização de Plantas Ornamentais
-- Produção, Abate e Comercialização de Carne de Suíno e Processados
-- Produção e Comercialização de Chás, Temperos, Legumes e Desidratados
-Contactos
-921865125/ 922490020
-            </p>
-        </section>
-        </section>
-
-        <section class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-paw"></i>
-                <h3>Produção Animal</h3>
-                <p>Criação de animais com foco em genética, nutrição e bem-estar animal.</p>
             </div>
-            <div class="service-card">
-                <i class="fas fa-seedling"></i>
-                <h3>Agricultura</h3>
-                <p>Cultivo sustentável de grãos e matérias-primas para a indústria alimentícia.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tractor"></i>
-                <h3>Tecnologia no Campo</h3>
-                <p>Uso de equipamentos modernos e técnicas avançadas para maximizar a produtividade.</p>
+
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-paw"></i>
+                    <h3>Produção Animal</h3>
+                    <p>Criação de animais com foco em genética, nutrição e bem-estar animal.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Agricultura</h3>
+                    <p>Cultivo sustentável de grãos e matérias-primas para a indústria alimentícia.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tractor"></i>
+                    <h3>Tecnologia no Campo</h3>
+                    <p>Uso de equipamentos modernos e técnicas avançadas para maximizar a produtividade.</p>
+                </div>
             </div>
         </section>
 
+
+        <!-- Business Units -->
+        <section class="business-units">
+            <div class="units-container">
+                <h2>Unidades de Negócio</h2>
+                <div class="units-list">
+                    <div class="unit-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>Produção e Comercialização de Plantas Ornamentais</span>
+                    </div>
+                    <div class="unit-item">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Produção, Abate e Comercialização de Carne de Suíno e Processados</span>
+                    </div>
+                    <div class="unit-item">
+                        <i class="fas fa-mortar-pestle"></i>
+                        <span>Produção e Comercialização de Chás, Temperos e Desidratados</span>
+                    </div>
+                    <div class="unit-item">
+                        <i class="fas fa-seedling"></i>
+                        <span>Produção e Comercialização de Legumes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info -->
+        <section class="contact-info-section">
+            <div class="contact-info-container">
+                <h2>Contactos</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>921 865 125</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>922 490 020</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span>Polis - Estrada da Zootécnica, Humpata - Huíla</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
         <section class="contactos-section">
             <div class="contact-info">
                 <div class="logo-contact">
                     <img src="../../assets/Logos Brancos/Grupo Unione.png" alt="grupo unione logotipo">
                 </div>
-
                 <h2 data-translate="contacte-nos">Contacte-nos</h2>
-                <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla
-                </p>
-                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
-                <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+                <p><i class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla</p>
+                <p><i class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i class="fas fa-phone"></i> (+244) 922 490 448</p>
 
                 <div class="social">
                     <h3 data-translate="siga-nos">Siga-nos</h3>
-                    <a target="_blank"
-                        href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i
-                            class="fab fa-instagram"></i></a>
-                    <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i
-                            class="fab fa-facebook"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/unione_consultoria/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a target="_blank" href="https://www.facebook.com/grupounioneangola">
+                        <i class="fab fa-facebook"></i>
+                    </a>
                 </div>
             </div>
-
 
             <div class="contact-form">
                 <h2 data-translate="fale-conosco">Fale conosco</h2>
                 <form>
                     <div class="options">
                         <button type="button" data-translate="particular">Particular</button>
-                        <button type="button" class="empresaBtn" data-translate="empresa">Empresa</button>
+                        <button type="button" class="empresaBtn active" data-translate="empresa">Empresa</button>
                     </div>
-
-                    <input type="empresa" class="empresa" id="empresaInput" placeholder="Empresa"
-                        data-translate="empresa">
+                    <input type="text" class="empresa" id="empresaInput" placeholder="Empresa" data-translate="empresa">
                     <input type="text" placeholder="Seu Nome" data-translate="seu-nome" required>
                     <input type="email" placeholder="Seu E-mail" data-translate="seu-email" required>
-
                     <textarea placeholder="Mensagem" rows="5" data-translate="mensagem" required></textarea>
                     <button type="submit" class="submit-btn" data-translate="enviar">Enviar</button>
                 </form>
@@ -260,8 +500,8 @@ Contactos
         </section>
     </main>
 
-
     <footer>
+        <!-- Footer content remains the same as provided -->
         <div class="w">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5681.374665046663!2d13.346179365522373!3d-14.975112394424539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2f46708b81237da5%3A0x5bc43cb7405af95d!2sGrupo%20Unione!5e1!3m2!1spt-PT!2sao!4v1748271694849!5m2!1spt-PT!2sao"
@@ -289,7 +529,6 @@ Contactos
                     </ul>
                 </div>
 
-
                 <div class="footer-column">
                     <h4 data-translate="areas-negocios">Áreas de Negócio</h4>
                     <ul class="coluna-dupla">
@@ -307,20 +546,23 @@ Contactos
                     </ul>
                 </div>
 
-
                 <div class="footer-column">
                     <h4 data-translate="siga-nos">Siga-nos</h4>
                     <div class="social-icons">
                         <a target="_blank"
-                            href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i
-                                class="fab fa-instagram"></i></a>
-                        <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i
-                                class="fab fa-facebook"></i></a>
+                            href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/unione_consultoria/">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a target="_blank" href="https://www.facebook.com/grupounioneangola">
+                            <i class="fab fa-facebook"></i>
+                        </a>
                     </div>
                     <ul class="termo">
-                        <li><a href="../privacidade.html" data-translate="politica-privacidade">Política de Privacidade</a></li>
+                        <li><a href="../privacidade.html" data-translate="politica-privacidade">Política de
+                                Privacidade</a></li>
                         <li><a href="#" data-translate="termos-condicoes">Termos e Condições</a></li>
                     </ul>
                 </div>
@@ -371,12 +613,13 @@ Contactos
     <script src="https://unpkg.com/gsap@3/dist/Flip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>gsap.registerPlugin(ScrollTrigger);</script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+    </script>
 
     <script src="../../js/script.js"></script>
     <script src="../../js/routes.js"></script>
     <script src="../../js/searchData.js"></script>
-
 
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.36/dist/lenis.umd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -398,6 +641,7 @@ Contactos
 
         requestAnimationFrame(raf);
     </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
@@ -419,7 +663,6 @@ Contactos
                 });
             }
         });
-
     </script>
 </body>
 

@@ -77,7 +77,7 @@ window.NOTICIAS_DATA = [
   },
     {
     id: 5,
-    img: "../assets/Imagens/Noticias/Granja/IMG_2228.jpeg",
+    img: "../assets/Imagens/Noticias/Granja/Granja_Quavi.jpeg",
     data: "2025",
     titulo: "Retomada da Produção de Suínos de Genética Pura Marca Nova Fase na Nossa Granja",
     conteudo: `

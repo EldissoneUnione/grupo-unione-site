@@ -385,7 +385,7 @@ p {
     text-align: center;
     color: var(--white);
     padding: 50px;
-    border-radius: 20px;
+    border-radius: var(--border2);
     text-align: center;
     margin: 50px 0;
     width: 100%;

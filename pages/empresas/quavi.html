@@ -30,11 +30,12 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
+            padding: 20px 0;
         }
 
         .brand-card {
             background: white;
-            border-radius: 10px;
+            border-radius: var(--border2);
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
@@ -50,7 +51,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--quavi-primary);
+            background: var(--white);
         }
 
         .brand-body {
@@ -92,21 +93,22 @@
 
         /* Business Units */
         .business-units {
-            padding: 80px 20px;
-            background: var(--quavi-primary);
+            align-items: center;
+            border-radius: var(--border2);
+            background: var(--quavi-primary) !important;
 
         }
 
         .units-container {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
+
         }
 
         .units-container h2 {
             text-align: center;
-            font-size: 2.5rem;
-            color: var(--quavi-accent);
             margin-bottom: 50px;
+            color: var(--white);
         }
 
         .units-list {
@@ -130,65 +132,8 @@
             font-size: 1.5rem;
         }
 
-        /* Contact Info Section */
-        .contact-info-section {
-            padding: 60px 20px;
-            background: linear-gradient(135deg, var(--quavi-dark), var(--quavi-primary));
-            color: white;
-            text-align: center;
-        }
-
-        .contact-info-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-info-container h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-        }
-
-        .contact-item i {
-            color: var(--quavi-accent);
-        }
-
-        /* Contact Form Section */
-        .contactos-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 600px;
-            background: white;
-        }
-
         .contact-info {
             background: linear-gradient(to top, var(--quavi-primary), var(--quavi-primary));
-            padding: 60px 40px;
-            color: white;
-        }
-
-        .contact-info .logo-contact img {
-            max-width: 200px;
-            margin-bottom: 30px;
-        }
-
-        .contact-form {
-            padding: 60px 40px;
-            background: white;
         }
 
         .contact-form input:focus,
@@ -206,8 +151,28 @@
             transition: background 0.3s ease;
         }
 
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button.primary {
+            background: var(--quavi-primary);
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .cta-button.secondary {
+            background: var(--white);
+            color: var(--quavi-primary);
+            border: 2px solid var(--quavi-primary);
+        }
+
         .submit-btn:hover {
-            background: var(--quavi-dark) !important;
+            background: var(--quavi-primary) !important;
         }
 
         /* Footer */
@@ -312,7 +277,7 @@
             <div class="baner-grupo">
                 <div class="baner-cards-grupo">
                     <div class="card-baner-grupo">
-                        <img src="../../assets/Imagens/2_Hero_Quavi_Op.2.jpeg"
+                        <img src="../../assets/Imagens/quavi.webp"
                             alt="Imagem representando Quavi do grupo Unione - Agropecuária sustentável" width="1920"
                             height="1080" loading="eager">
                         <div class="logo-grupoP">
@@ -356,8 +321,8 @@
                 </p>
                 <div class="brands-grid">
                     <div class="brand-card">
-                        <div class="brand-header" style="background: #388e3c;">
-                            <img src="../../assets/Logos Brancos/Dona Flor.png" alt="dona flor">
+                        <div class="brand-header">
+                            <img src="../../assets/logo/DonaFlor_horizontal.png" alt="dona flor">
                         </div>
                         <div class="brand-body">
                             <p>Especializada em horticultura, cultiva mais de 1.000 espécies de plantas ornamentais,
@@ -367,8 +332,8 @@
                     </div>
 
                     <div class="brand-card">
-                        <div class="brand-header" style="background: #d32f2f;">
-                            <img src="../../assets/Logos Brancos/Serrana_branco.png" alt="serrana">
+                        <div class="brand-header">
+                            <img src="../../assets/logo/Serrana.png" alt="serrana">
 
                         </div>
                         <div class="brand-body">
@@ -411,7 +376,6 @@
             </div>
         </section>
 
-
         <!-- Business Units -->
         <section class="business-units">
             <div class="units-container">
@@ -435,26 +399,14 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Contact Info -->
-        <section class="contact-info-section">
-            <div class="contact-info-container">
-                <h2>Contactos</h2>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>921 865 125</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>922 490 020</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-location-dot"></i>
-                        <span>Polis - Estrada da Zootécnica, Humpata - Huíla</span>
-                    </div>
-                </div>
+            <div class="cta-buttons">
+                <a href="https://wa.me/244939060244" class="cta-button primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Agendar via WhatsApp
+                </a>
+                <a href="tel:+244939060244" class="cta-button secondary">
+                    <i class="fas fa-phone"></i> Ligar Agora
+                </a>
             </div>
         </section>
 
@@ -467,7 +419,7 @@
                 <h2 data-translate="contacte-nos">Contacte-nos</h2>
                 <p><i class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla</p>
                 <p><i class="fas fa-envelope"></i> unione@unioneafrica.com</p>
-                <p><i class="fas fa-phone"></i> (+244) 922 490 448</p>
+                <p><i class="fas fa-phone"></i> (+244) 922 490 448 / 921 865 125</p>
 
                 <div class="social">
                     <h3 data-translate="siga-nos">Siga-nos</h3>

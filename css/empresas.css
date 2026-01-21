@@ -25,7 +25,8 @@
 }
 
 .company-details,
-.brands-section {
+.brands-section,
+.business-units {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -48,7 +49,8 @@
 .testimonials-section h2,
 .enrollment-section h2,
 .mais-section h2,
-.brands-container h2 {
+.brands-container h2,
+.units-container h2 {
     font-size: 3rem;
     font-weight: 500;
     position: relative;
@@ -84,7 +86,7 @@
 .enrollment-section h2::before,
 .mais-section h2::before,
 .brands-container h2::before {
-content: "";
+    content: "";
     position: absolute;
     bottom: -12px;
     left: 50px;
@@ -152,8 +154,22 @@ p {
     }
 
     .company-details,
-    .services-grid {
+    .services-grid,
+    .brands-section,
+    .business-units {
         padding: 50px 20px;
+    }
+
+    .business-units {
+        margin-bottom: 50px;
+    }
+
+    .brand-header {
+        max-height: 100px;
+
+        img {
+            width: 60%;
+        }
     }
 
     .company-details h2,
@@ -163,7 +179,9 @@ p {
     .courses-section h2,
     .testimonials-section h2,
     .enrollment-section h2,
-    .mais-section h2 {
+    .mais-section h2,
+    .brands-container h2,
+    .units-container h2 {
         font-size: 1.5rem;
         font-weight: 500;
         position: relative;
@@ -401,8 +419,6 @@ p {
     align-items: center;
     gap: 10px;
 }
-
-
 
 .cta-button:hover {
     transform: translateY(-3px);

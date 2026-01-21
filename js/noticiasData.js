@@ -2,11 +2,11 @@ window.NOTICIAS_DATA = [
   {
     id: 1,
     img: "../assets/Imagens/Noticias/Evento/IMG_5162.jpg",
-    data: "2025",
+    data: "2026",
     titulo: "Conectando ideias e oportunidades Fórum de Negócios e Conectividade guiada pelas empresas do Grupo Unione",
     conteudo: `
       <p>No âmbito do Fórum de Negócios e Conectividade, tivemos a honra de receber,
-       no POLIS, no dia 29 de março de 2025, uma delegação do Grupo Media Nova, representantes de ministérios e diversas entidades.</p>
+       no POLIS, no dia 29 de março de 2026, uma delegação do Grupo Media Nova, representantes de ministérios e diversas entidades.</p>
       
       <p>Nesta visita guiada pelas empresas do Grupo Unione, apresentamos nossa essência, áreas de atuação, 
       projetos e impacto no sector. Uma troca enriquecedora de experiências e conhecimento!</p>
@@ -16,7 +16,7 @@ window.NOTICIAS_DATA = [
   {
     id: 2,
     img: "../assets/Imagens/Noticias/EPAS/epas.jpg",
-    data: "2025",
+    data: "2026",
     titulo: "EPAS-Huila Realiza Team Building de Sucesso com Dinâmicas Interativas e Estratégicas no POLIS",
     conteudo: `
     <p>A EPAS-Huila, sob mentoria e direção da <strong>Unione Consulting</strong>, 
@@ -31,7 +31,7 @@ window.NOTICIAS_DATA = [
   {
     id: 3,
     img: "../assets/Imagens/JVL/jvl.jpg",
-    data: "2025",
+    data: "2026",
     titulo: "Adolescentes do Projeto JV+L Colhem os Frutos de Seu Trabalho e Transformam Vidas",
     conteudo: `
     <p>
@@ -56,7 +56,7 @@ window.NOTICIAS_DATA = [
   {
     id: 4,
     img: "../assets/Imagens/cm/cm3.jpg",
-    data: "2025",
+    data: "2026",
     titulo: "Clínica Corpo e Mente Anuncia Novo Serviço de Medicina Dentária para Este Ano",
     conteudo: `
       <p>
@@ -78,14 +78,14 @@ window.NOTICIAS_DATA = [
     {
     id: 5,
     img: "../assets/Imagens/Noticias/Granja/Granja_Quavi.jpeg",
-    data: "2025",
+    data: "2026",
     titulo: "Retomada da Produção de Suínos de Genética Pura Marca Nova Fase na Nossa Granja",
     conteudo: `
     <p>
       Após um período de 23 meses de interrupção da produção, decorrente do impacto da peste suína no rebanho — que resultou na perda
       de cerca de 6.300 animais —, bem como de investimentos significativos em melhorias estruturais e na implementação de rigorosas
       medidas de biossegurança, o Grupo registou, por intermédio da Quavi (empresa do Grupo Unione), nos dias 05 e 06 de dezembro de
-      2025, a chegada do seu novo efectivo suinícola.
+      2026, a chegada do seu novo efectivo suinícola.
     </p>
 
     <p>
@@ -106,7 +106,7 @@ window.NOTICIAS_DATA = [
     {
     id: 6,
     img: "../assets/Imagens/unione_grupo.jpg",
-    data: "2025",
+    data: "2026",
     titulo: "<strong>OPORTUNIDADE DE INVESTIMENTO</strong>: +100 Lotes Infraestruturados Prontos para Receber a Sua Indústria",
     conteudo: `
     <p>

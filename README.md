@@ -14,7 +14,7 @@ Site institucional do Grupo Unione, um importante grupo empresarial e de investi
 - Font Awesome
 - Png/jpg/jpeg para otimização de imagens
 
-## � Atualizações Recentes (Dezembro 2025)
+## � Atualizações Recentes (Dezembro 2026)
 
 ### Refinamento de Páginas
 - **Padronização Visual:** Criação do `css/pages-custom.css` para centralizar estilos de páginas internas (`empreendimentos.html`, `investidores.html`, `Contactos.html`, `grupo.html`), eliminando estilos inline e garantindo consistência de marca.
@@ -155,7 +155,7 @@ grupo-unione-site/
 - Documentação atualizada
 
 ## 📝 Licença
-Todos os direitos reservados © 2025 Grupo Unione
+Todos os direitos reservados © 2026 Grupo Unione
 
 ## 👥 Contribuição
 Para contribuir com o projeto:

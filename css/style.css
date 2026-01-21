@@ -2312,6 +2312,7 @@ video {
     padding: 2rem;
     border-radius: var(--border2);
     max-height: 800px;
+    cursor: pointer;
 }
 
 .contact-info h2 {

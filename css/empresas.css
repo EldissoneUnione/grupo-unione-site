@@ -255,7 +255,7 @@ p {
     gap: 30px;
     margin: 40px 0;
     padding: 40px;
-    background: linear-gradient(135deg, var(--corpo-mente-light) 0%, var(--white) 100%);
+    background: linear-gradient(135deg, var(--corpo-mente-light) 30%, var(--corpo-mente-dark) 60%);
     border-radius: 20px;
 }
 

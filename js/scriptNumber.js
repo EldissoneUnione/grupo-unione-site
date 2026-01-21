@@ -1,10 +1,10 @@
 const donutData = [
-  { name: 'áreas de negócio', value: 10, percent: 12, color: '#68882a' },
-  { name: 'hectares', value: 23, percent: 400, color: '#9d9e9e' },
-  { name: 'milhões de dólares <br> investidos', value: 40, percent: 30, color: '#5cc7d0' },
-  { name: 'mil refeições servidas', value: 10, percent: 300, color: '#5cc7d0' },
-  { name: 'Colaboradores', value: 36, percent: 1000, color: '#0d3fd1' },
-  { name: 'Clientes e parceiros', value: 32, percent: 5000, color: '#f7a707' }
+  { name: 'áreas de negócio', value: 10, percent: 12, color: ' #f88703' },
+  { name: 'hectares', value: 23, percent: 400, color: '#cf770f' },
+  { name: 'milhões de dólares <br> investidos', value: 40, percent: 30, color: '#d3c50d' },
+  { name: 'mil refeições servidas', value: 10, percent: 300, color: '#e6d53e' },
+  { name: 'Colaboradores', value: 36, percent: 1000, color: '#ffeb68' },
+  { name: 'Clientes e parceiros', value: 32, percent: 5000, color: '#ffa95a' }
 ];
 
 const total = donutData.reduce((acc, cur) => acc + cur.value, 0);

@@ -432,7 +432,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'Nossas empresas atuam em diferentes áreas. Se quiser detalhes, posso te mostrar informações da página de empresas.',
       'Você pode explorar as empresas no menu principal em “Empresas”.',
       'Quer que eu procure uma empresa pelo nome?'
-    ],
+    ], 
     areas: [
       'Atuamos em Saúde, Energia, Construção Civil, Hotelaria e mais. Qual interessa?',
       'Temos áreas como Telecomunicações, Ensino, Agropecuária e Consultoria.',

@@ -26,7 +26,8 @@
 
 .company-details,
 .brands-section,
-.business-units {
+.business-units,
+.investments-section{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -41,16 +42,7 @@
 
 }
 
-.company-details h2,
-.services-section h2,
-.medical-team h2,
-.section-header h2,
-.courses-section h2,
-.testimonials-section h2,
-.enrollment-section h2,
-.mais-section h2,
-.brands-container h2,
-.units-container h2 {
+ h2 {
     font-size: 3rem;
     font-weight: 500;
     position: relative;
@@ -59,15 +51,7 @@
     cursor: pointer;
 }
 
-.company-details h2::after,
-.services-section h2::after,
-.medical-team h2::after,
-.section-header h2::after,
-.courses-section h2::after,
-.testimonials-section h2::after,
-.enrollment-section h2::after,
-.mais-section h2::after,
-.brands-container h2::after {
+h2::after {
     content: "";
     position: absolute;
     top: 0;
@@ -77,15 +61,7 @@
     border-radius: var(--border2);
 }
 
-.company-details h2::before,
-.services-section h2::before,
-.medical-team h2::before,
-.section-header h2::before,
-.courses-section h2::before,
-.testimonials-section h2::before,
-.enrollment-section h2::before,
-.mais-section h2::before,
-.brands-container h2::before {
+h2::before {
     content: "";
     position: absolute;
     bottom: -12px;
@@ -101,11 +77,11 @@
 }
 
 p {
-    margin: 5px;
+    margin: 20px;
     color: var(--text-color1);
     font-size: 1.3rem;
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.6;
     text-align: justify;
     max-width: 100%;
 }

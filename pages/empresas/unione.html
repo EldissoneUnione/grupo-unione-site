@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fibra - Grupo Unione">
-    <title>unione - Grupo Unione</title>
+    <meta name="description" content="Unione Consultoria - Grupo Unione - Consultoria estratégica e gestão de negócios">
+    <title>Unione Consultoria - Grupo Unione</title>
     <link rel="icon" href="../../public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/grupo.css">
@@ -14,38 +14,130 @@
     <link rel="stylesheet" href="../../css/empresas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <style>
+        h2::after {
+            background-color: var(--unione-primary);
+        }
+
+        h2::before {
+            background-color: var(--unione-primary);
+        }
+
+        .service-card:hover {
+            border-bottom-color: none;
+        }
+
+        .service-card i {
+            color: var(--text-color);
+        }
+
+        .investment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .investment-card {
+            background: var(--white);
+            border-radius: var(--border2);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .investment-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .investment-header {
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--text-color), var(--text-color-black));
+            color: white;
+        }
+
+        .investment-header h3 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .investment-body {
+            padding: 30px;
+        }
+
+        .investment-body p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .investment-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .investment-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .investment-features i {
+            color: var(--unione-accent);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 80px 100px;
+            background: linear-gradient(135deg, var(--text-color), var(--unione-primary));
+            color: white;
+            border-radius: var(--border2);
+            border: 1px solid red;
+
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.173);
+            border-radius: var(--border2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--unione-orange);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-hero {
+            background: var(--text-color);
+        }
+
+
+        /* Footer specific */
+        footer {
+            background: var(--unione-primary) !important;
+        }
+    </style>
 </head>
-
-<style>
-    .service-card i {
-        color: var(--unione-primary);
-    }
-
-    .contact-info {
-        background: linear-gradient(to top, var(--unione-accent), var(--unione-primary));
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-        border: 1px solid var(--unione-primary);
-    }
-
-    .options .active {
-        background: var(--unione-primary);
-    }
-
-    .submit-btn {
-        background: var(--unione-primary);
-    }
-
-    .company-details h2::after {
-        background-color: var(--unione-primary);
-    }
-
-    .company-details h2::before {
-        background-color: var(--unione-primary);
-    }
-</style>
 
 <body>
     <header class="header" id="navBarHeder" role="banner">
@@ -68,7 +160,7 @@
                             <a href="/empresas/fibra" role="menuitem" data-translate="FIBRA">Fibra</a>
                             <a href="/empresas/okukulanaua" role="menuitem" data-translate="okukulanaua">Okukulanaua</a>
                             <a href="/empresas/quavi" role="menuitem" data-translate="quavi">Quavi</a>
-                            <a href="/empresas/unione" role="menuitem" data-translate="UNIONE">Unione</a>
+                            <a href="/empresas/unione" role="menuitem" data-translate="UNIONE" class="active">Unione</a>
                             <a href="/empresas/mbt" role="menuitem" data-translate="MBT ENERGIA ">MBT Energia</a>
                             <a href="/empresas/kalanaua" role="menuitem" data-translate="kalanaua">Kalanaua</a>
                             <a href="/empresas/infraone" role="menuitem" data-translate="INFRAONE">Infraone</a>
@@ -91,8 +183,8 @@
                 </label>
 
                 <button id="searchNav" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
-                            src="../../assets/icons/search_thin.svg" alt="search"></i>
+                    <i aria-hidden="true" id="search-icon"><img src="../../assets/icons/search_thin.svg"
+                            alt="search"></i>
                 </button>
             </div>
         </nav>
@@ -106,8 +198,8 @@
         <div class="search-conteiner">
             <div class="search-top">
                 <button id="search" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
-                            src="../../assets/icons/search_thin.svg" alt="search"></i>
+                    <i aria-hidden="true" id="search-icon"><img src="../../assets/icons/search_thin.svg"
+                            alt="search"></i>
                     <input type="text" placeholder="Pesquisar sobre..." id="search-input">
 
                     <svg class="close-btn" id="FeicharBtn" viewBox="0 0 24 24" width="18" height="18" fill="white">
@@ -120,8 +212,6 @@
 
                 </div>
             </div>
-
-
         </div>
         <div class="menu-container" id="nav-links" role="navigation" aria-label="Menu mobile">
 
@@ -135,121 +225,183 @@
             </nav>
             <div class="search-menu">
                 <button id="search" class="search-button" aria-label="Pesquisar">
-                    <i aria-hidden="true" aria-hidden="true" id="search-icon"><img
-                            src="../../assets/icons/search_thin.svg" alt="search"></i>
+                    <i aria-hidden="true" id="search-icon"><img src="../../assets/icons/search_thin.svg"
+                            alt="search"></i>
                     <input type="text" placeholder="Pesquisar sobre..." id="search-input">
                 </button>
             </div>
-
         </div>
     </header>
+
     <main>
-        <section class="hero-company" role="banner" aria-label="Banner principal">
+        <!-- Hero Section -->
+        <section class="hero-company" role="banner" aria-label="Banner principal da Unione Consultoria">
             <div class="baner-grupo">
                 <div class="baner-cards-grupo">
                     <div class="card-baner-grupo">
                         <img src="../../assets/Imagens/11_Hero_Unione Consultoria.jpg"
-                            alt="Imagem representando unione do grupo Unione" width="1920" height="1080"
+                            alt="Imagem representando Unione Consultoria do Grupo Unione" width="1920" height="1080"
                             loading="eager">
                         <div class="logo-grupoP">
-                            <img src="../../assets/logo/Unione_Logo-Horizontal.png" alt="Logo unione" width="100"
-                                height="100">
+                            <img src="../../assets/logo/Unione_Logo-Horizontal.png"
+                                alt="Logo Unione Consultoria - Estratégia que Sustenta Negócios" width="250"
+                                height="auto">
                         </div>
+                        <a href="#contacto" class="cta-hero">
+                            Estratégia que Sustenta Negócios
+                        </a>
                     </div>
-
                 </div>
+            </div>
         </section>
 
+        <!-- Company Description -->
         <section class="company-details">
-            <h2><strong> Consultoria estratégica e gestão de negócios para resultados excepcionais.<strong></h2> <br>
+            <h2><strong>Consultoria estratégica e gestão de negócios para resultados excepcionais</strong></h2>
             <p>
-                *UNIONE - CONSULTORIA E GESTÃO*
-                *Banner / Hero*
-                *Unione Consultoria: Estratégia que Sustenta Negócios*
-
                 Com mais de duas décadas de experiência, a Unione Consultoria é a empresa-mãe do Grupo Unione, onde tudo
                 começou. Antes mesmo de se tornar uma holding, já reunia sob si várias áreas de negócio que hoje se
                 transformaram em empresas independentes e consolidadas.
+            </p>
+            <p>
                 Atualmente, atua como o braço estratégico e administrativo do grupo, permitindo que cada empresa se
                 concentre no seu core business, enquanto a Unione assume com excelência a gestão das áreas de
                 consultoria em Recursos Humanos, Marketing, Contabilidade, Finanças, Gestão Administrativa, Logística,
                 Aprovisionamento, Empreendimentos e Novos Negócios.
+            </p>
+            <p>
                 Além do suporte interno ao grupo, a Unione Consultoria também está aberta ao mercado, oferecendo seus
                 serviços a empresas externas que procuram eficiência, visão integrada e soluções confiáveis para crescer
                 com sustentabilidade.
-
-                *Serviços*
-                *Unione Consultoria*
-                Na Unione Consultoria, oferecemos serviços especializados para ajudar empresas a crescer com estrutura,
-                eficiência e foco no que realmente importa. Com uma equipa multidisciplinar e experiente, entregamos
-                soluções sob medida nas principais áreas de apoio à gestão.
-                Prestamos consultoria estratégica em:
-                *Recursos Humanos* – Recrutamento, gestão de talento e clima organizacional
-                *Marketing* – Planeamento, posicionamento, branding e digital
-                *Vendas* – Estratégias comerciais, formação e estruturação de equipas
-                *Informática* – Suporte técnico, sistemas, redes e transformação digital
-                *Contabilidade e Finanças* – Gestão fiscal, orçamentária e financeira
-                *Gestão Administrativa* – Organização, processos e compliance
-                *Logística e Aprovisionamento* – Cadeia de suprimentos eficiente e integrada
-
-                Seja para reorganizar processos, melhorar desempenho ou expandir com segurança, a Unione Consultoria é a
-                parceira certa para profissionalizar e acelerar o seu negócio.
-                Quer transformar a sua gestão? Fale com a nossa equipa de consultoria.
-
-                *Unione Investimentos*
-                A Unione Investimentos é a vertente estratégica do Grupo Unione responsável por identificar, desenvolver
-                e consolidar projectos com alto impacto económico e social, que promovem o crescimento sustentável da
-                região sul de Angola e de todo o país.
-                Nossos investimentos são pensados para transformar realidades, criar oportunidades e gerar valor para as
-                comunidades, empresas e parceiros.
-                - *POLIS – Polo Industrial de Desenvolvimento Integrado e Sustentável*
-                O POLIS é um dos maiores e mais ambiciosos empreendimentos da Unione, localizado na Humpata, província
-                da Huíla. Com uma área de 413 hectares, é um espaço concebido para receber empresas dos mais variados
-                sectores, oferecendo infraestrutura moderna, acesso à tecnologia, serviços compartilhados e condições
-                ideais para negócios industriais e tecnológicos.
-                Mais do que um parque industrial, o POLIS é um ecossistema de inovação, sustentabilidade e
-                desenvolvimento regional.
-                - *Projecto Agrocivipastoril – Produção Sustentável Integrada*
-                Este projecto representa a visão integrada do Grupo Unione para a produção agrícola, pecuária e
-                florestal, respeitando os princípios da sustentabilidade e da segurança alimentar.
-                O Projecto Agrocivipastoril alia a produção vegetal à suinocultura e ao reflorestamento estratégico,
-                promovendo o uso eficiente da terra, o equilíbrio ambiental e a geração de emprego rural qualificado. É
-                um exemplo concreto de como é possível produzir com respeito ao meio ambiente e compromisso social.
-
-
-                *Contactos*
             </p>
         </section>
 
-        <section class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Consultoria Estratégica</h3>
-                <p>Planejamento e implementação de estratégias de crescimento e eficiência.</p>
+        <!-- Consultancy Services -->
+        <section class="services-section">
+            <h2>Serviços de Consultoria</h2>
+            <p style=" width: 100%; margin: 15px auto; color: #555;">
+                Oferecemos serviços especializados para ajudar empresas a crescer com estrutura, eficiência e foco no
+                que realmente importa.
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Recursos Humanos</h3>
+                    <p>Recrutamento, gestão de talento, clima organizacional e desenvolvimento de equipas.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Marketing</h3>
+                    <p>Planeamento estratégico, posicionamento de marca, branding e marketing digital.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Consultoria Estratégica</h3>
+                    <p>Planejamento e implementação de estratégias de crescimento e eficiência organizacional.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Gestão de Projetos</h3>
+                    <p>Gerenciamento completo de projetos, garantindo prazos, custos e qualidade.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Contabilidade e Finanças</h3>
+                    <p>Gestão fiscal, orçamentária, financeira e controlo de custos.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Logística</h3>
+                    <p>Gestão da cadeia de suprimentos, aprovisionamento e distribuição eficiente.</p>
+                </div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-briefcase"></i>
-                <h3>Gestão de Projetos</h3>
-                <p>Gerenciamento completo de projetos, garantindo prazos, custos e qualidade.</p>
+
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Anos de Experiência</div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-users"></i>
-                <h3>Capital Humano</h3>
-                <p>Desenvolvimento organizacional e gestão de talentos.</p>
+            <div class="stat-card">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Clientes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Empresas do Grupo</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">360°</div>
+                <div class="stat-label">Visão Integrada</div>
             </div>
         </section>
 
+        <!-- Investments Section -->
+        <section class="investments-section">
+            <div class="investments-container">
+                <h2>Investimentos Estratégicos</h2>
+                <p style="width: 100%; margin: 20px auto 40px; font-size: 1.2rem; color: #555;">
+                    A Unione Investimentos identifica, desenvolve e consolida projetos com alto impacto económico e
+                    social.
+                </p>
+
+                <div class="investment-cards">
+                    <div class="investment-card">
+                        <div class="investment-header">
+                            <h3>POLIS – Polo Industrial de Desenvolvimento Integrado e Sustentável</h3>
+                        </div>
+                        <div class="investment-body">
+                            <p>Localizado na Humpata, província da Huíla, com uma área de 413 hectares, o POLIS é um
+                                espaço concebido para receber empresas dos mais variados sectores, oferecendo
+                                infraestrutura moderna, acesso à tecnologia, serviços compartilhados e condições ideais
+                                para negócios industriais e tecnológicos.</p>
+                            <p>Mais do que um parque industrial, o POLIS é um ecossistema de inovação, sustentabilidade
+                                e desenvolvimento regional.</p>
+                            <ul class="investment-features">
+                                <li><i class="fas fa-check-circle"></i> 413 hectares de área total</li>
+                                <li><i class="fas fa-check-circle"></i> Infraestrutura moderna</li>
+                                <li><i class="fas fa-check-circle"></i> Serviços compartilhados</li>
+                                <li><i class="fas fa-check-circle"></i> Foco em inovação e sustentabilidade</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="investment-card">
+                        <div class="investment-header">
+                            <h3>Projecto Agrocivipastoril – Produção Sustentável Integrada</h3>
+                        </div>
+                        <div class="investment-body">
+                            <p>Este projeto representa a visão integrada do Grupo Unione para a produção agrícola,
+                                pecuária e florestal, respeitando os princípios da sustentabilidade e da segurança
+                                alimentar.</p>
+                            <p>O Projecto Agrocivipastoril alia a produção vegetal à suinocultura e ao reflorestamento
+                                estratégico, promovendo o uso eficiente da terra, o equilíbrio ambiental e a geração de
+                                emprego rural qualificado.</p>
+                            <ul class="investment-features">
+                                <li><i class="fas fa-check-circle"></i> Produção agrícola integrada</li>
+                                <li><i class="fas fa-check-circle"></i> Pecuária sustentável</li>
+                                <li><i class="fas fa-check-circle"></i> Reflorestamento estratégico</li>
+                                <li><i class="fas fa-check-circle"></i> Geração de emprego rural</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
         <section class="contactos-section">
             <div class="contact-info">
                 <div class="logo-contact">
                     <img src="../../assets/Logos Brancos/Grupo Unione.png" alt="grupo unione logotipo">
                 </div>
 
-                <h2 data-translate="contacte-nos">Contacte-nos</h2>
-                <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla
-                </p>
-                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
-                <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
+                <h3 data-translate="contacte-nos">Contacte-nos</h3>
+                <p><i class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla</p>
+                <p><i class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i class="fas fa-phone"></i> (+244) 922 490 448</p>
 
                 <div class="social">
                     <h3 data-translate="siga-nos">Siga-nos</h3>
@@ -263,20 +415,17 @@
                 </div>
             </div>
 
-
             <div class="contact-form">
-                <h2 data-translate="fale-conosco">Fale conosco</h2>
+                <h3 data-translate="fale-conosco">Fale conosco</h3>
                 <form>
                     <div class="options">
                         <button type="button" data-translate="particular">Particular</button>
-                        <button type="button" class="empresaBtn" data-translate="empresa">Empresa</button>
+                        <button type="button" class="empresaBtn active" data-translate="empresa">Empresa</button>
                     </div>
 
-                    <input type="empresa" class="empresa" id="empresaInput" placeholder="Empresa"
-                        data-translate="empresa">
+                    <input type="text" class="empresa" id="empresaInput" placeholder="Empresa" data-translate="empresa">
                     <input type="text" placeholder="Seu Nome" data-translate="seu-nome" required>
                     <input type="email" placeholder="Seu E-mail" data-translate="seu-email" required>
-
                     <textarea placeholder="Mensagem" rows="5" data-translate="mensagem" required></textarea>
                     <button type="submit" class="submit-btn" data-translate="enviar">Enviar</button>
                 </form>
@@ -284,8 +433,8 @@
         </section>
     </main>
 
-
     <footer>
+        <!-- Footer remains the same as in original -->
         <div class="w">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5681.374665046663!2d13.346179365522373!3d-14.975112394424539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2f46708b81237da5%3A0x5bc43cb7405af95d!2sGrupo%20Unione!5e1!3m2!1spt-PT!2sao!4v1748271694849!5m2!1spt-PT!2sao"
@@ -313,7 +462,6 @@
                     </ul>
                 </div>
 
-
                 <div class="footer-column">
                     <h4 data-translate="areas-negocios">Áreas de Negócio</h4>
                     <ul class="coluna-dupla">
@@ -331,17 +479,19 @@
                     </ul>
                 </div>
 
-
                 <div class="footer-column">
                     <h4 data-translate="siga-nos">Siga-nos</h4>
                     <div class="social-icons">
                         <a target="_blank"
-                            href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a target="_blank" href="https://www.instagram.com/unione_consultoria/"><i
-                                class="fab fa-instagram"></i></a>
-                        <a target="_blank" href="https://www.facebook.com/grupounioneangola"><i
-                                class="fab fa-facebook"></i></a>
+                            href="https://www.linkedin.com/company/grupo-unione-oficial/?viewAsMember=true">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/unione_consultoria/">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a target="_blank" href="https://www.facebook.com/grupounioneangola">
+                            <i class="fab fa-facebook"></i>
+                        </a>
                     </div>
                     <ul class="termo">
                         <li><a href="../privacidade.html" data-translate="politica-privacidade">Política de
@@ -396,12 +546,13 @@
     <script src="https://unpkg.com/gsap@3/dist/Flip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>gsap.registerPlugin(ScrollTrigger);</script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+    </script>
 
     <script src="../../js/script.js"></script>
     <script src="../../js/routes.js"></script>
     <script src="../../js/searchData.js"></script>
-
 
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.36/dist/lenis.umd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -444,7 +595,6 @@
                 });
             }
         });
-
     </script>
 </body>
 

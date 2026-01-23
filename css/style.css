@@ -2315,7 +2315,7 @@ video {
     cursor: pointer;
 }
 
-.contact-info h2 {
+.contact-info h3 {
     font-size: 3rem;
     margin: 40px 0;
     font-weight: 400;
@@ -2355,7 +2355,7 @@ video {
     border-radius: 3rem;
 }
 
-.contact-form h2 {
+.contact-form h3 {
     margin-bottom: 20px;
     font-size: 3rem;
     font-weight: 400;
@@ -2461,10 +2461,7 @@ footer {
             gap: 0px;
             margin-bottom: 30px;
             margin-left: 10px;
-
         }
-
-
 
         .footer-column {
             flex: 1 1 200px;
@@ -2792,8 +2789,8 @@ footer {
     border: 1px solid #eee;
     border-radius: 50px;
     margin-right: 4px;
- outline: none;
- transition: border-color .2s ease;
+    outline: none;
+    transition: border-color .2s ease;
 }
 
 #chatbot-send {
@@ -2806,8 +2803,8 @@ footer {
     cursor: pointer;
     position: absolute;
     right: 5px;
- bottom: 13px;
- transition: filter .2s ease;
+    bottom: 13px;
+    transition: filter .2s ease;
 }
 
 #chatbot-widget.minimized #chatbot-body {

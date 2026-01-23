@@ -9,27 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.options button');
   const inputEmpresa = document.querySelector('#empresaInput');
 
-  // const cards = document.querySelectorAll('.card-baner');
-
-  // cards.forEach(card => {
-  //   const img = card.querySelector('img');
-
-  //   card.addEventListener('mousemove', (e) => {
-  //     const rect = card.getBoundingClientRect();
-  //     const x = ((e.clientX - rect.left) / rect.width) * 100;
-  //     const y = ((e.clientY - rect.top) / rect.height) * 100;
-
-  //     img.style.transformOrigin = `${x}% ${y}%`;
-  //     img.style.transform = 'scale(1.05)';
-  //   });
-
-  //   card.addEventListener('mouseleave', () => {
-  //     img.style.transformOrigin = 'center center';
-  //     img.style.transform = 'scale(1)';
-  //   });
-  // });
-
-
   buttons.forEach(button => {
     button.addEventListener('click', () => {
       buttons.forEach(btn => btn.classList.remove('active'));
@@ -66,14 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   setupAccessibility();
 
-
-  const debounce = (func, wait) => {
-    let timeout;
-    return function executedFunction(...args) {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), wait);
-    };
-  };
 
   function setActiveMenu() {
     const currentPath = window.location.pathname.replace(/\/$/, "");
@@ -116,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         window.location.assign("/index.html");
-      }, 2000);
+      }, 1500);
     });
   } else {
     console.error('Elemento logo não encontrado.');
@@ -124,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   searchContainer.classList.remove('active');
 
-  // Otimização de imagens: aplica lazy/async em imagens não críticas
   const imgs = document.querySelectorAll('img');
   imgs.forEach((img, index) => {
     const isHero = img.closest('.hero-company, .hero-section');

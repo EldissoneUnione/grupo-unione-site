@@ -1003,9 +1003,9 @@
             border-radius: 3rem;
         }
 
-        .contact-info h2,
+        .contact-info h3,
         h3,
-        .contact-form h2 {
+        .contact-form h3 {
             font-size: 1.8rem;
             font-weight: 400;
             margin-bottom: 15px;

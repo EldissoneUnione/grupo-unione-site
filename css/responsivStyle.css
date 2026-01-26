@@ -1155,6 +1155,12 @@
             }
         }
     }
+
+    .cookie-banner {
+        flex-direction: column;
+        width: 100%;
+}
+
 }
 
 @media (max-width: 480px) {

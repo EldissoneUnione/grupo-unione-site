@@ -3,6 +3,7 @@
 # Comandos
 npm install
 npm run dev
+npm start
 
 ## 📋 Sobre o Projeto
 Site institucional do Grupo Unione, um importante grupo empresarial e de investimento Angolano com atuação em diversos setores da economia.

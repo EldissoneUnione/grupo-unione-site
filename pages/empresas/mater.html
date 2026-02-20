@@ -16,43 +16,7 @@
 
 </head>
 
-<style>
-        .service-card i {
-        color: var(--metalangol-accent);
-    }
-
-    .contact-info {
-        background: linear-gradient(to top, var(--metalangol-light), var(--metalangol-medium));
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-        border: 1px solid var(--metalangol-accent);
-    }
-
-    .options .active {
-        background: var(--metalangol-accent);
-    }
-
-    .submit-btn {
-        background: var(--metalangol-accent);
-    }
-
-    .company-details h2::after {
-        background-color: var(--metalangol-accent);
-    }
-
-    .company-details h2::before {
-        background-color: var(--metalangol-accent);
-    }
-
-     footer {
-        background: var(--metalangol-medium);
-    }
-
-</style>
-
-<body>
+<body class="company-theme company-mater">
     <header class="header" id="navBarHeder" role="banner">
         <nav class="nav-container" role="navigation" aria-label="Menu principal">
             <div class="logo" id="logo">
@@ -82,7 +46,7 @@
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                         </div>
                     </div>
-                <a href="#" data-translate="areas-negocios">áreas de negócios</a>
+                    <a href="#" data-translate="areas-negocios">áreas de negócios</a>
                     <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
                     <a href="/investidores" data-translate="investidores">investidores</a>
                     <a href="/Contactos" data-translate="Contactos">Contactos</a>
@@ -165,46 +129,61 @@
 
         <section class="company-details">
             <h2><strong>Carpintaria e Marcernaria</strong></h2> <br>
-            <p>
-                *MATER - CARPINTARIA*
-*Banner / Hero*
-*Metalangol – Força que Molda o Progresso*
-Desde 2014, a Mater One actua com excelência no mercado de transformação, acabamento e revestimento em madeira, oferecendo soluções sob medida para construções, mobiliário e design de interiores.
-Combinamos tecnologia, artesania e sustentabilidade para entregar produtos duráveis, elegantes e funcionais, que elevam a estética e o conforto de cada ambiente.
-Somos especialistas em dar forma à madeira com rigor técnico e atenção aos detalhes, tornando-nos parceiros de confiança em projetos residenciais, comerciais e institucionais.
+            <div class="company-copy">
 
-*Produtos/ Serviços*
+                <p class="tagline">Metalangol – Força que Molda o Progresso</p>
+                <div class="company-meta">
+                    <span class="pill">Mater - Carpintaria</span>
+                    <span class="pill">Desde 2014</span>
+                </div>
 
-- Transformação de Madeira 
-- Carpintaria
-- Mercenaria
-- Fabricação e Montagem de Móveis
-- Estrutura e Revestimento de Madeira Para Construção Civil
-- Fabrico e Montagem de Cofragens
+                <div class="company-story">
+                    <p>Desde 2014, a Mater One actua com excelência no mercado de transformação, acabamento e
+                        revestimento em madeira, oferecendo soluções sob medida para construções, mobiliário e design de
+                        interiores.</p>
+                    <p>Combinamos tecnologia, artesania e sustentabilidade para entregar produtos duráveis, elegantes e
+                        funcionais, que elevam a estética e o conforto de cada ambiente.</p>
+                    <p>Somos especialistas em dar forma à madeira com rigor técnico e atenção aos detalhes, tornando-nos
+                        parceiros de confiança em projetos residenciais, comerciais e institucionais.</p>
+                </div>
+            </div>
+            <br><br>
 
-*Contactos*
-materone@unioneafrica.com
-+244922490448
-            </p>
+            <h2 style="margin-top: 50px;"><strong>Produtos / Serviços</strong></h2> <br>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas "></i>
+                    <h3>Transformação de Madeira</h3>
+                    <p></p>
+                </div>
+                <div class="service-card">
+                    <i class="fas "></i>
+                    <h3>Carpintaria</h3>
+                    <p></p>
+                </div>
+                <div class="service-card">
+                    <i class="fas "></i>
+                    <h3>Mercenaria</h3>
+                    <p></p>
+                </div>
+                <div class="service-card">
+                    <i class="fas "></i>
+                    <h3>Estrutura e Revestimento de Madeira Para Construção Civil</h3>
+                    <p></p>
+                </div>
+                <div class="service-card">
+                    <i class="fas "></i>
+                    <h3>Fabricação e Montagem de Móveis</h3>
+                    <p></p>
+                </div>
+                <div class="service-card">
+                    <i class="fas "></i>
+                    <h3>Fabrico e Montagem de Cofragens</h3>
+                </div>
+            </div>
         </section>
 
-        <section class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-network-wired"></i>
-                <h3>Carpintaria</h3>
-                <p>Instalação e manutenção de redes de fibra óptica para alta velocidade e confiabilidade.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-server"></i>
-                <h3>Infraestrutura</h3>
-                <p>Projetos completos de cabeamento estruturado e infraestrutura para data centers.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-wifi"></i>
-                <h3>Conectividade</h3>
-                <p>Soluções de conectividade para empresas, condomínios e áreas rurais.</p>
-            </div>
-        </section>
 
         <section class="contactos-section">
             <div class="contact-info">
@@ -215,7 +194,7 @@ materone@unioneafrica.com
                 <h3 data-translate="contacte-nos">Contacte-nos</h3>
                 <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla
                 </p>
-                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i aria-hidden="true" class="fas fa-envelope"></i> materone@unioneafrica.com</p>
                 <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
 
                 <div class="social">
@@ -311,7 +290,8 @@ materone@unioneafrica.com
                                 class="fab fa-facebook"></i></a>
                     </div>
                     <ul class="termo">
-                        <li><a href="../privacidade.html" data-translate="politica-privacidade">Política de Privacidade</a></li>
+                        <li><a href="../privacidade.html" data-translate="politica-privacidade">Política de
+                                Privacidade</a></li>
                         <li><a href="#" data-translate="termos-condicoes">Termos e Condições</a></li>
                     </ul>
                 </div>
@@ -358,7 +338,7 @@ materone@unioneafrica.com
     </footer>
 
 
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>gsap.registerPlugin(ScrollTrigger);</script>

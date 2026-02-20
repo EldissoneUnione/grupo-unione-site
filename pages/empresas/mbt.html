@@ -16,44 +16,7 @@
 
 </head>
 
-<style>
-    .service-card i {
-        color: var(--mbt-blue);
-
-    }
-
-    .contact-info {
-        background: linear-gradient(to top, var(--mbt-blue), var(--mbt-green));
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-        border: 1px solid var(--mbt-blue);
-    }
-
-    .options .active {
-        background: var(--mbt-blue);
-    }
-
-    .submit-btn {
-        background: var(--mbt-blue);
-    }
-
-    .company-details h2::after {
-        background-color: var(--mbt-blue);
-    }
-
-    .company-details h2::before {
-        background-color: var(--mbt-blue);
-    }
-
-
-    footer {
-        background: var(--mbt-blue);
-    }
-</style>
-
-<body>
+<body class="company-theme company-mbt">
     <header class="header" id="navBarHeder" role="banner">
         <nav class="nav-container" role="navigation" aria-label="Menu principal">
             <div class="logo" id="logo">
@@ -83,7 +46,7 @@
                             <a href="/empresas/tecnology" role="menuitem" data-translate="tecnology">Tecnology</a>
                         </div>
                     </div>
-                <a href="#" data-translate="areas-negocios">áreas de negócios</a>
+                    <a href="#" data-translate="areas-negocios">áreas de negócios</a>
                     <a href="/empreendimentos" data-translate="empreendimentos">empreendimentos</a>
                     <a href="/investidores" data-translate="investidores">investidores</a>
                     <a href="/Contactos" data-translate="Contactos">Contactos</a>
@@ -166,30 +129,34 @@
 
         <section class="company-details">
             <h2><strong>Soluções completas em energia para impulsionar o desenvolvimento.</strong></h2> <br>
-            <p>A <strong>MBT Energia</strong> é a empresa do Grupo Unione dedicada à geração, transmissão e distribuição
-                de energia. Com foco
-                em sustentabilidade e eficiência, desenvolvemos projetos que garantem o abastecimento energético
-                necessário
-                para o crescimento industrial e social.</p> <br>
-            <p>Atuamos com tecnologia de ponta e uma equipe especializada para entregar soluções energéticas seguras e
-                confiáveis, desde centrais elétricas até infraestruturas complexas de distribuição.</p>
-        </section>
+            <div class="company-copy">
+                <p class="eyebrow">MBT Energia</p>
+                <div class="company-story">
+                    <p>A <strong>MBT Energia</strong> é a empresa do Grupo Unione dedicada à geração, transmissão e
+                        distribuição de energia. Com foco em sustentabilidade e eficiência, desenvolvemos projetos que
+                        garantem o abastecimento energético necessário para o crescimento industrial e social.</p>
+                    <p>Atuamos com tecnologia de ponta e uma equipe especializada para entregar soluções energéticas
+                        seguras e confiáveis, desde centrais elétricas até infraestruturas complexas de distribuição.
+                    </p>
+                </div>
+            </div>
 
-        <section class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-bolt"></i>
-                <h3>Geração de Energia</h3>
-                <p>Projetos de centrais termoelétricas, hidroelétricas e fontes renováveis.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tower-cell"></i>
-                <h3>Infraestrutura Elétrica</h3>
-                <p>Construção de subestações e linhas de transmissão de alta e média tensão.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tools"></i>
-                <h3>Manutenção e Operação</h3>
-                <p>Serviços especializados de O&M para garantir a máxima disponibilidade dos ativos energéticos.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Geração de Energia</h3>
+                    <p>Projetos de centrais termoelétricas, hidroelétricas e fontes renováveis.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tower-cell"></i>
+                    <h3>Infraestrutura Elétrica</h3>
+                    <p>Construção de subestações e linhas de transmissão de alta e média tensão.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Manutenção e Operação</h3>
+                    <p>Serviços especializados de O&M para garantir a máxima disponibilidade dos ativos energéticos.</p>
+                </div>
             </div>
         </section>
 
@@ -202,7 +169,7 @@
                 <h3 data-translate="contacte-nos">Contacte-nos</h3>
                 <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla
                 </p>
-                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i aria-hidden="true" class="fas fa-envelope"></i> mbt@mbtenergia.com</p>
                 <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
 
                 <div class="social">
@@ -299,7 +266,8 @@
                                 class="fab fa-facebook"></i></a>
                     </div>
                     <ul class="termo">
-                        <li><a href="../privacidade.html" data-translate="politica-privacidade">Política de Privacidade</a></li>
+                        <li><a href="../privacidade.html" data-translate="politica-privacidade">Política de
+                                Privacidade</a></li>
                         <li><a href="#" data-translate="termos-condicoes">Termos e Condições</a></li>
                     </ul>
                 </div>
@@ -346,7 +314,7 @@
     </footer>
 
 
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>gsap.registerPlugin(ScrollTrigger);</script>

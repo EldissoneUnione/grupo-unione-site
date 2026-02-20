@@ -16,42 +16,7 @@
 
 </head>
 
-<style>
-    .service-card i {
-        color: var(--metalangol-accent);
-    }
-
-    .contact-info {
-        background: linear-gradient(to top, var(--metalangol-light), var(--metalangol-medium));
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-        border: 1px solid var(--metalangol-accent);
-    }
-
-    .options .active {
-        background: var(--metalangol-accent);
-    }
-
-    .submit-btn {
-        background: var(--metalangol-accent);
-    }
-
-    .company-details h2::after {
-        background-color: var(--metalangol-accent);
-    }
-
-    .company-details h2::before {
-        background-color: var(--metalangol-accent);
-    }
-
-    footer {
-        background: var(--metalangol-medium);
-    }
-</style>
-
-<body>
+<body class="company-theme company-metalangol">
     <header class="header" id="navBarHeder" role="banner">
         <nav class="nav-container" role="navigation" aria-label="Menu principal">
             <div class="logo" id="logo">
@@ -166,27 +131,40 @@
 
         <section class="company-details">
             <h2><strong>Excelência em metalomecânica e estruturas industriais.</strong></h2> <br>
-            <p>
-                *METALANGOL - METALOMECÂNICA*
-*Banner / Hero*
-*Metalangol – Força que Molda o Progresso*
-Desde 2008, a Metalangol dedica-se à transformação metálica com excelência, oferecendo produtos e serviços inovadores que respondem às necessidades do sector industrial e da construção civil.
-Com tecnologia, precisão e compromisso com a qualidade, contribuímos para a construção de uma Angola mais moderna, resistente e preparada para o futuro.
-Somos parceiros estratégicos no avanço da industrialização sustentável, entregando soluções em metalurgia que fortalecem infraestruturas e impulsionam grandes projetos em todo o país.
+            <div class="company-copy">
+                
+                <p class="tagline">Metalangol – Força que Molda o Progresso</p>
+                <div class="company-meta">
+                    <span class="pill">Metalangol - Metalomecânica</span>
+                    <span class="pill">Desde 2008</span>
+                </div>
 
-*Produtos/ Serviços*
+                <div class="company-story">
+                    <p>Desde 2008, a Metalangol dedica-se à transformação metálica com excelência, oferecendo produtos e
+                        serviços inovadores que respondem às necessidades do sector industrial e da construção civil.
+                    </p>
+                    <p>Com tecnologia, precisão e compromisso com a qualidade, contribuímos para a construção de uma
+                        Angola mais moderna, resistente e preparada para o futuro.</p>
+                    <p>Somos parceiros estratégicos no avanço da industrialização sustentável, entregando soluções em
+                        metalurgia que fortalecem infraestruturas e impulsionam grandes projetos em todo o país.</p>
+                </div>
 
-- Construções Metálicas;
-- Comércio a grosso e retalho de acessórios e componentes para equipamento de queima e energia, soluções ideais para: indústrias alimentares, oficinas e fundições, sistemas de aquecimento industrial e equipamentos de produção energética.
+                <div class="details-grid">
+                    <div class="details-block">
+                        <h3>Produtos / Serviços</h3>
+                        <ul class="details-list">
+                            <li>Construções Metálicas</li>
+                            <li>Comércio a grosso e retalho de acessórios e componentes para equipamento de queima e
+                                energia, soluções ideais para: indústrias alimentares, oficinas e fundições, sistemas de
+                                aquecimento industrial e equipamentos de produção energética.</li>
+                        </ul>
+                    </div>
 
-*Contactos*
-metalangol@unioneafrica.com
-+244922490448
-            </p>
+                   
+                </div>
+            </div>
 
-        </section>
-
-        <section class="services-grid">
+        <div class="services-grid">
             <div class="service-card">
                 <i class="fas fa-industry"></i>
                 <h3>Estruturas Metálicas</h3>
@@ -202,6 +180,7 @@ metalangol@unioneafrica.com
                 <h3>Manutenção Industrial</h3>
                 <p>Serviços de manutenção preventiva e corretiva em equipamentos industriais.</p>
             </div>
+        </div>
         </section>
 
         <section class="contactos-section">
@@ -213,7 +192,7 @@ metalangol@unioneafrica.com
                 <h3 data-translate="contacte-nos">Contacte-nos</h3>
                 <p><i aria-hidden="true" class="fas fa-location-dot"></i> Polis - Estrada da Zootécnica, Humpata - Huíla
                 </p>
-                <p><i aria-hidden="true" class="fas fa-envelope"></i> unione@unioneafrica.com</p>
+                <p><i aria-hidden="true" class="fas fa-envelope"></i> metalangol@unioneafrica.com</p>
                 <p><i aria-hidden="true" class="fas fa-phone"></i> (+244) 922 490 448</p>
 
                 <div class="social">

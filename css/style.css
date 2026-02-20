@@ -81,6 +81,13 @@
     --gradient-k: linear-gradient(to right, #c02000, #fd7a00, #68882a);
 
     /* =========================
+     Mater
+     ========================= */
+    --mater-primary: #b8743b;
+    --mater-light: #e6c29a;
+    --mater-dark: #6a3f1f;
+
+    /* =========================
      Okukulanaua
      ========================= */
     --okuku-blue: #5cc7d0;

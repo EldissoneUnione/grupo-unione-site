@@ -7,7 +7,7 @@ app.disable('x-powered-by');
 
 const root = path.resolve(__dirname);
 const port = Number(process.env.PORT) || 3000;
-const host = process.env.HOST || '0.0.0.0';
+const host = process.env.HOST || '127.0.0.1';
 
 function addRoute(routePath, filePath) {
   app.get(routePath, (req, res) => {

@@ -108,10 +108,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const getImgPath = (img) => {
+    if (!img) return '';
     if (img.startsWith('/')) return img;
     if (img.startsWith('../')) return img;
     return '../' + img;
 };
+
+const escapeAttr = (value = '') => String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+function normalizarImagemNoticia(imagem, index, noticia) {
+    if (typeof imagem === 'string') {
+        return {
+            src: imagem,
+            alt: `${noticia.titulo} - imagem ${index + 1}`,
+        };
+    }
+
+    return {
+        src: imagem.src || imagem.img || '',
+        alt: imagem.alt || `${noticia.titulo} - imagem ${index + 1}`,
+        legenda: imagem.legenda || '',
+        aposParagrafo: Number.isInteger(imagem.aposParagrafo) ? imagem.aposParagrafo : null,
+        destaque: Boolean(imagem.destaque),
+    };
+}
+
+function criarImagemNoticiaHtml(imagem, index) {
+    const classes = ['noticia-imagem-inline'];
+
+    if (imagem.destaque || index === 0) {
+        classes.push('noticia-imagem-destaque');
+    } else if (index % 2 === 0) {
+        classes.push('noticia-imagem-direita');
+    } else {
+        classes.push('noticia-imagem-esquerda');
+    }
+
+    return `
+        <figure class="${classes.join(' ')}">
+            <img src="${getImgPath(imagem.src)}" alt="${escapeAttr(imagem.alt)}" loading="lazy">
+            ${imagem.legenda ? `<figcaption>${imagem.legenda}</figcaption>` : ''}
+        </figure>
+    `;
+}
+
+function renderizarConteudoNoticia(noticia) {
+    const imagens = Array.isArray(noticia.imagens)
+        ? noticia.imagens.map((imagem, index) => normalizarImagemNoticia(imagem, index, noticia)).filter(imagem => imagem.src)
+        : [];
+
+    if (imagens.length === 0) {
+        return noticia.conteudo || '';
+    }
+
+    const template = document.createElement('template');
+    template.innerHTML = noticia.conteudo || '';
+    const paragrafos = [...template.content.querySelectorAll('p')];
+
+    if (paragrafos.length === 0) {
+        return `${noticia.conteudo || ''}<div class="noticia-galeria-final">${imagens.map(criarImagemNoticiaHtml).join('')}</div>`;
+    }
+
+    imagens.forEach((imagem, index) => {
+        const posicao = imagem.aposParagrafo || Math.round(((index + 1) * paragrafos.length) / (imagens.length + 1));
+        const indiceParagrafo = Math.min(Math.max(posicao, 1), paragrafos.length) - 1;
+        paragrafos[indiceParagrafo].insertAdjacentHTML('afterend', criarImagemNoticiaHtml(imagem, index));
+    });
+
+    return template.innerHTML;
+}
 
 function inicializarPaginaNoticia() {
     const isNoticiaPage = window.location.pathname.includes('noticia.html');
@@ -126,7 +195,7 @@ function inicializarPaginaNoticia() {
         document.getElementById('noticia-img').src = getImgPath(noticia.img);
         document.getElementById('noticia-data').textContent = noticia.data;
         document.getElementById('noticia-titulo').textContent = noticia.titulo;
-        document.getElementById('noticia-conteudo').innerHTML = noticia.conteudo;
+        document.getElementById('noticia-conteudo').innerHTML = renderizarConteudoNoticia(noticia);
         
         const outrasNoticias = window.NOTICIAS_DATA
             .filter(n => n.id !== noticia.id)

@@ -2,7 +2,27 @@ window.NOTICIAS_DATA = [
   {
     id: 1,
     img: "../assets/Imagens/Noticias/Evento/IMG_5162.jpg",
-    data: "2026",
+    imagens: [
+      {
+        src: "../assets/Imagens/Noticias/Evento/IMG_5152.jpg",
+        alt: "Delegação durante visita guiada no Grupo Unione",
+        legenda: "Visita guiada pelas empresas do Grupo Unione.",
+        aposParagrafo: 1,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/Evento/IMG_5157.jpg",
+        alt: "Participantes conhecem áreas de atuação do Grupo Unione",
+        legenda: "Momento de partilha sobre projetos, áreas de atuação e impacto no sector.",
+        aposParagrafo: 2,
+      },
+      {
+        src: "../assets/Imagens/Noticias/Evento/IMG_5164.jpg",
+        alt: "Representantes e entidades durante o Fórum de Negócios e Conectividade",
+        aposParagrafo: 3,
+      },
+    ],
+    data: "2025",
     titulo: "Conectando ideias e oportunidades Fórum de Negócios e Conectividade guiada pelas empresas do Grupo Unione",
     conteudo: `
       <p>No âmbito do Fórum de Negócios e Conectividade, tivemos a honra de receber,
@@ -16,7 +36,7 @@ window.NOTICIAS_DATA = [
   {
     id: 2,
     img: "../assets/Imagens/Noticias/EPAS/epas.jpg",
-    data: "2026",
+    data: "2025",
     titulo: "EPAS-Huila Realiza Team Building de Sucesso com Dinâmicas Interativas e Estratégicas no POLIS",
     conteudo: `
     <p>A EPAS-Huila, sob mentoria e direção da <strong>Unione Consulting</strong>, 
@@ -31,7 +51,7 @@ window.NOTICIAS_DATA = [
   {
     id: 3,
     img: "../assets/Imagens/JVL/jvl.jpg",
-    data: "2026",
+    data: "2025",
     titulo: "Adolescentes do Projeto JV+L Colhem os Frutos de Seu Trabalho e Transformam Vidas",
     conteudo: `
     <p>
@@ -56,7 +76,7 @@ window.NOTICIAS_DATA = [
   {
     id: 4,
     img: "../assets/Imagens/cm/cm3.jpg",
-    data: "2026",
+    data: "2025",
     titulo: "Clínica Corpo e Mente Anuncia Novo Serviço de Medicina Dentária para Este Ano",
     conteudo: `
       <p>
@@ -75,10 +95,10 @@ window.NOTICIAS_DATA = [
       </p>
     `
   },
-    {
+  {
     id: 5,
     img: "../assets/Imagens/Noticias/Granja/Granja_Quavi.jpeg",
-    data: "2026",
+    data: "2025",
     titulo: "Retomada da Produção de Suínos de Genética Pura Marca Nova Fase na Nossa Granja",
     conteudo: `
     <p>
@@ -103,7 +123,7 @@ window.NOTICIAS_DATA = [
     </p>
     `
   },
-    {
+  {
     id: 6,
     img: "../assets/Imagens/unione_grupo.jpg",
     data: "2026",
@@ -133,6 +153,155 @@ window.NOTICIAS_DATA = [
      Os lotes inserem-se num ecossistema empresarial consolidado, integrado ao Grupo Unione, onde já operam empresas nas áreas de energia, telecomunicações, construção civil, hotelaria e turismo, formação profissional e consultoria empresarial. <br>
       Este ambiente integrado proporciona ao investidor segurança, redução de custos operacionais e retorno imediato, criando as condições ideais para o início e crescimento sustentável da sua indústria. <strong>Invista com confiança, Comece a sua indústria no lugar certo.</strong>
     </p>
+    `
+  },
+  
+  {
+    id: 7,
+    img: "../assets/Imagens//Noticias/deputados.jpeg",
+    data: "2026",
+    titulo: "Deputados da Assembleia Nacional Visitam Instalações do Grupo Unione na Humpata",
+    conteudo: `
+    <p>
+      Uma comitiva de Deputados do círculo eleitoral provincial da Huíla realizou uma visita oficial às instalações do Grupo Unione, no município da Humpata. O encontro fez parte de uma agenda parlamentar focada em identificar e acompanhar as principais potencialidades económicas da região.
+    </p>
+
+    <p>
+      Durante a jornada, os parlamentares percorreram as nossas diferentes áreas de negócio, com destaque para os projetos de agroindústria, saúde, educação técnica, energia, metalomecânica, turismo e infraestrutura local. Os representantes manifestaram uma avaliação positiva em relação à capacidade operacional e ao modelo de investimento sustentável aplicado pelo grupo.
+    </p>
+
+    <p>
+      A comitiva sublinhou a importância de projetos dessa dimensão para o fortalecimento da produção nacional, a geração de empregos e o crescimento económico estruturado do município da Humpata e da província.
+    </p>
+    `
+  },
+
+  {
+    id: 8,
+    img: "../assets/Imagens/Noticias/admh.jpeg",
+    data: "2026",
+    titulo: "Administração Municipal da Humpata Realiza Visita Técnica ao Grupo Unione",
+    conteudo: `
+    <p>
+      A Administradora Municipal da Humpata, Rita Soma Miranda, acompanhada por membros da sua comitiva oficial, realizou uma visita de trabalho às instalações do Grupo Unione. A agenda institucional teve como foco avaliar o impacto económico e as valências das diferentes áreas de negócio do Grupo no município.
+    </p>
+
+    <p>
+      Durante o percurso pelas unidades operacionais, a liderança municipal inteirou-se dos projetos em curso e da capacidade técnica instalada. O encontro serviu para estreitar o alinhamento entre as iniciativas de investimento do grupo e as metas de desenvolvimento social e económico da região.
+    </p>
+
+    <p>
+      A administração local destacou a importância da solidez do Grupo Unione para o fortalecimento da produção territorial, sublinhando o papel estratégico da parceria entre o setor privado e o governo municipal na criação de postos de trabalho e fomento local.
+    </p>
+    `
+  },
+  {
+    id: 9,
+    img: "../assets/Imagens/Noticias/adra.jpeg",
+    data: "2026",
+    titulo: "Grupo Unione Capacita Comitiva da Acção para o Desenvolvimento Rural e Ambiente (ADRA) em Tecnologia de Desidratação Solar",
+    conteudo: `
+    <p>
+      Representantes ADRA e um grupo de convidados participaram de uma sessão de demonstração técnica focada no uso eficiente de desidratadores solares. A atividade ocorreu nas instalações onde a Metalangol, empresa integrante do Grupo Unione, desenvolve e fabrica estes equipamentos.
+    </p>
+
+    <p>
+      O encontro de capacitação teve como propósito central instruir os participantes sobre o manuseio correto e o aproveitamento máximo da tecnologia de desidratação. O método permite a conservação prolongada de produtos agrícolas através de fontes de energia limpa, agregando valor à produção local.
+    </p>
+
+    <p>
+      A iniciativa reforça a atuação da Metalangol no desenvolvimento de soluções metalomecânicas sustentáveis voltadas para o setor agroalimentar da província, promovendo a autossuficiência e a redução do desperdício no campo.
+    </p>
+    `
+  },
+  {
+    id: 10,
+    img: "../assets/Imagens/Noticias/ery.jpeg",
+    data: "2026",
+    titulo: "Ator Ery Costa Visita Instalações do Grupo Unione",
+    conteudo: `
+    <p>
+      O ator e apresentador angolano Ery Costa realizou uma visita institucional às principais instalações do Grupo Unione, localizadas na província da Huíla. A deslocação teve como objetivo principal conhecer as diversas valências e a capacidade operacional do Grupo Unione.
+    </p>
+
+    <p>
+      Durante o percurso, a comitiva de Ery Costa teve a oportunidade de explorar o modelo integrado de desenvolvimento do grupo. A visita sublinhou o interesse do apresentador nas boas práticas de sustentabilidade aplicadas na região.
+    </p>
+
+    <p>
+      A receção de personalidades de destaque nacional reafirma o papel do Grupo Unione como um ponto de referência para o turismo técnico e industrial em Angola, evidenciando o potencial económico e inovador do território huilano.
+    </p>
+    `
+  },
+  {
+    id: 11,
+    img: "../assets/Imagens/Noticias/tur.jpg",
+    data: "2026",
+    titulo: "Grupo Unione Consolida-se como Destino Estratégico para o Turismo na Huíla",
+    conteudo: `
+    <p>
+      O município da Humpata tem registado um crescimento contínuo no fluxo de visitantes que procuram aliar o turismo de lazer ao contacto com o desenvolvimento agroindustrial e técnico. A região destaca-se pelas suas características climatéricas únicas, paisagens naturais e pela proximidade com grandes polos de inovação local.
+    </p>
+
+    <p>
+      O complexo do Grupo Unione surge como um dos pontos de paragem de referência neste roteiro, integrando a modernidade das infraestruturas e a valorização da produção sustentável com a hospitalidade típica da província. A combinação atrai tanto turistas nacionais como delegações institucionais.
+    </p>
+
+    <p>
+      O fortalecimento desta rota turística impulsiona a economia local, promovendo a Humpata como um exemplo de como a preservação ambiental e a capacidade técnica podem coexistir para criar um destino de excelência em Angola.
+    </p>
+    `
+  },
+
+  {
+    id: 12,
+    img: "../assets/Imagens/Noticias/alunos.jpeg",
+    data: "2026",
+    titulo: "Alunos Finalistas Realizam Defesa da Prova de Aptidão Profissional (PAP)",
+    conteudo: `
+    <p>
+      Os estudantes finalistas do Okukulanua (Grupo Unione) concluíram uma das etapas mais decisivas da sua formação com a apresentação e defesa pública dos seus projetos na Prova de Aptidão Profissional (PAP). O exercício avaliou a capacidade técnica e a aplicabilidade prática dos conhecimentos adquiridos ao longo do curso.
+    </p>
+
+    <p>
+      Diante de um júri de avaliação, os futuros técnicos demonstraram soluções desenvolvidas para responder a desafios reais do mercado de trabalho e do setor industrial. A banca analisou tanto o rigor metodológico quanto a execução operacional das propostas apresentadas.
+    </p>
+
+    <p>
+      A conclusão bem-sucedida das defesas marca a prontidão destes jovens para integrar o mercado produtivo, reforçando o papel da instituição na formação de quadros qualificados e competentes para a província da Huíla.
+    </p>
+    `
+  },
+
+  {
+    id: 13,
+    img: "../assets/Imagens/Noticias/mbt.jpeg",
+    data: "2026",
+    titulo: " MBT ENERGIA INTEGRA PROJETO DE REFORÇO DA ILUMINAÇÃO PÚBLICA NO NAMIBE",
+    conteudo: `
+    <p>
+      A MBT Energia integra o grupo de empresas responsáveis pelos
+       trabalhos de requalificação da rede de iluminação pública nos
+        bairros Bela Vista e 5 de Abril, na província do Namibe. 
+        O projeto global compreende a intervenção numa extensão de 2,1 quilómetros 
+        de rede aérea e a instalação de 72 postes de betão para garantir maior segurança
+         à população local.
+    </p>
+
+    <p>
+      Com um prazo de execução de três meses, a empreitada foca na modernização
+       e eficiência do serviço de distribuição. O projeto foi lançado oficialmente 
+       pelo Governador Provincial, Archer Mangueira, integrando o pacote de investimentos
+        estruturantes autorizados pela Presidência da República.
+      
+    </p>
+
+    <p>
+      A nossa participação nesta parceria reforça o compromisso 
+      da empresa em somar competências técnicas para entregar infraestruturas
+       robustas que promovam o desenvolvimento das comunidades.
+    </p>
+
     `
   },
 ];

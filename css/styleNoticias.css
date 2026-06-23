@@ -138,24 +138,24 @@
 }
 
 .noticia-imagem-destaque img {
-    max-height: 560px;
+    max-height: 500px;
 }
 
 .noticia-imagem-esquerda,
 .noticia-imagem-direita {
-    width: min(42%, 420px);
-    margin-top: 0.4rem;
+    width: min(50%, 560px);
+    margin-top: 1rem;
     margin-bottom: 1.4rem;
 }
 
 .noticia-imagem-esquerda {
     float: left;
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 
 .noticia-imagem-direita {
     float: right;
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 .noticia-galeria-final {

@@ -395,7 +395,6 @@ window.NOTICIAS_DATA = [
       {
         src: "../assets/Imagens/Noticias/MBT/mbt1.jpeg",
         alt: "Delegação durante visita guiada no Grupo Unione",
-        legenda: "Visita guiada pelas empresas do Grupo Unione.",
         aposParagrafo: 1,
         destaque: true,
       },

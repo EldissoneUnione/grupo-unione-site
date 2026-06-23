@@ -17,20 +17,21 @@ window.NOTICIAS_DATA = [
         aposParagrafo: 2,
       },
       {
-        src: "../assets/Imagens/Noticias/Evento/IMG_5164.jpg",
+        src: "../assets/Imagens/Noticias/Evento/IMG_5165.jpg",
         alt: "Representantes e entidades durante o Fórum de Negócios e Conectividade",
+        legenda: "Durante o Fórum de Negócios e Conectividade.",
         aposParagrafo: 3,
       },
+
     ],
     data: "2025",
     titulo: "Conectando ideias e oportunidades Fórum de Negócios e Conectividade guiada pelas empresas do Grupo Unione",
     conteudo: `
       <p>No âmbito do Fórum de Negócios e Conectividade, tivemos a honra de receber,
        no POLIS, no dia 29 de março de 2026, uma delegação do Grupo Media Nova, representantes de ministérios e diversas entidades.</p>
-      
-      <p>Nesta visita guiada pelas empresas do Grupo Unione, apresentamos nossa essência, áreas de atuação, 
+
+      <p>Nesta visita guiada pelas empresas do Grupo Unione, apresentamos nossa essência, áreas de atuação,
       projetos e impacto no sector. Uma troca enriquecedora de experiências e conhecimento!</p>
-      <p>Confira os melhores momentos nas imagens: </p>
     `
   },
   {
@@ -39,10 +40,10 @@ window.NOTICIAS_DATA = [
     data: "2025",
     titulo: "EPAS-Huila Realiza Team Building de Sucesso com Dinâmicas Interativas e Estratégicas no POLIS",
     conteudo: `
-    <p>A EPAS-Huila, sob mentoria e direção da <strong>Unione Consulting</strong>, 
+    <p>A EPAS-Huila, sob mentoria e direção da <strong>Unione Consulting</strong>,
       promoveu recentemente um team building dinâmico e envolvente para seus colaboradores,
       reforçando o espírito de equipe e alinhando estratégias organizacionais. O evento, que reuniu 80 participantes,
-      contou com uma série de atividades interativas projetadas para fortalecer a liderança, a colaboração e o engajamento 
+      contou com uma série de atividades interativas projetadas para fortalecer a liderança, a colaboração e o engajamento
       profissional. (Imagens corporativas do lugar, decoração, profissionais da Unione).
     </p>
       <p>O evento reuniu colaboradores para atividades de integração, promovendo o espírito de equipe e a colaboração.</p>
@@ -56,18 +57,18 @@ window.NOTICIAS_DATA = [
     conteudo: `
     <p>
       25 adolescentes voluntários do projeto JV+L já estão colhendo os frutos do seu esforço diário na horta comunitária.
-      Com dedicação de duas horas por dia, eles produzem diversos alimentos que abastecem as refeições servidas diariamente 
+      Com dedicação de duas horas por dia, eles produzem diversos alimentos que abastecem as refeições servidas diariamente
       a <strong> crianças, gestantes e idosos em situação de vulnerabilidade</strong>.
       Além de contribuírem para a alimentação daqueles que mais necessitam,
       os jovens também levam parte da produção para suas
       próprias casas, garantindo uma nutrição mais <strong>saudável para suas famílias </strong>.
-      O excedente da colheita é adquirido por empresas nossas, fortalecendo a sustentabilidade do projeto e 
+      O excedente da colheita é adquirido por empresas nossas, fortalecendo a sustentabilidade do projeto e
       incentivando a cultura da independência.
     </p>
 
       <p>
         Essa iniciativa tem sido fundamental na mudança de mentalidade dos participantes, ensinando-os a superar a lógica da
-        simples sobrevivência e a desenvolver uma visão empreendedora e auto-suficiente. O JV+L continua impactando vidas, 
+        simples sobrevivência e a desenvolver uma visão empreendedora e auto-suficiente. O JV+L continua impactando vidas,
         promovendo valores de responsabilidade, trabalho em equipe e desenvolvimento social através da agricultura sustentável.
       </p>
       <p>O <strong>Grupo Unione</strong> segue apoiando <strong>iniciativas de impacto social.</strong></p>
@@ -80,14 +81,14 @@ window.NOTICIAS_DATA = [
     titulo: "Clínica Corpo e Mente Anuncia Novo Serviço de Medicina Dentária para Este Ano",
     conteudo: `
       <p>
-        A <strong>Clínica Corpo e Mente </strong> continua expandindo suas especialidades e tem o prazer de anunciar a chegada 
+        A <strong>Clínica Corpo e Mente </strong> continua expandindo suas especialidades e tem o prazer de anunciar a chegada
         de um novo serviço de Medicina Dentária ainda este ano. Com o compromisso de oferecer cuidados de saúde integrados e de alta qualidade, este novo serviço
         proporcionará aos nossos pacientes um atendimento <strong>odontológico completo, aliando tecnologia, conforto e profissionalismo.</strong>
       </p>
 
       <p>
-        Com uma equipa de especialistas qualificados, a <strong>Medicina Dentária da Clínica Corpo e Mente</strong> abrangerá diversas áreas, 
-        incluindo prevenção, estética, ortodontia, implantologia e reabilitação oral. O objetivo é garantir sorrisos saudáveis e 
+        Com uma equipa de especialistas qualificados, a <strong>Medicina Dentária da Clínica Corpo e Mente</strong> abrangerá diversas áreas,
+        incluindo prevenção, estética, ortodontia, implantologia e reabilitação oral. O objetivo é garantir sorrisos saudáveis e
         bem-estar a todos os nossos pacientes, proporcionando um atendimento personalizado e soluções inovadoras para cada necessidade.
         Este lançamento reforça o compromisso da Clínica Corpo e Mente em continuar investindo na melhoria contínua dos seus serviços,
         garantindo que cada paciente tenha acesso a um atendimento multidisciplinar e de excelência.
@@ -117,7 +118,7 @@ window.NOTICIAS_DATA = [
       Os animais encontram-se atualmente em fase de adaptação, sob acompanhamento técnico permanente, com monitorização contínua dos parâmetros sanitários, comportamentais e zootécnicos, em conformidade com protocolos rigorosos de biossegurança. O objetivo é assegurar a estabilidade produtiva, o bem-estar animal e a mitigação máxima de riscos sanitários.
       De acordo com a administração, a expectativa é que, num horizonte de 3 a 12 meses, a Quavi consolide a sua capacidade operacional, permitindo o cumprimento das metas produtivas estabelecidas e garantindo, com elevados padrões de qualidade, a retoma progressiva da produção.
     </p>
-    
+
     <p>
       <strong>O Grupo Unione</strong> reforça que este avanço resulta de um trabalho <strong>estruturado, baseado em planeamento, investimento responsável e parcerias estratégicas, contribuindo para o fortalecimento do setor suinícola em Angola e para a promoção de uma produção mais segura, resiliente e sustentável</strong>.
     </p>
@@ -134,13 +135,13 @@ window.NOTICIAS_DATA = [
       A localização é estratégica:
     </p><br>
     <p>
-    
+
       <strong classe="strItem">18 km da cidade do Lubango</strong><br>
       <strong classe="strItem">161 km do Porto do Namibe</strong><br>
       <strong classe="strItem">Proximidade com mercados-chave do Sul de Angola, como Benguela, Huambo, Cunene e Cuando</strong><br>
-   
+
     </p><br>
-      
+
     <p>
       O Polo Industrial dispõe de infraestruturas completas, garantindo condições imediatas para o arranque e expansão de projetos industriais: <br><br>
       <strong classe="strItem">Segurança 24/7 (vigilância humana, canina e sistema CCTV)</strong><br>
@@ -155,10 +156,30 @@ window.NOTICIAS_DATA = [
     </p>
     `
   },
-  
+
   {
     id: 7,
-    img: "../assets/Imagens//Noticias/deputados.jpeg",
+    img: "../assets/Imagens//Noticias/DEP/deputados.jpeg",
+         imagens: [
+      {
+        src: "../assets/Imagens/Noticias/DEP/d1.jpeg",
+        alt: "deputados",
+        aposParagrafo: 1,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/DEP/d2.jpeg",
+        alt: "deputados",
+        aposParagrafo: 2,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/DEP/d3.jpeg",
+        alt: "deputados",
+        aposParagrafo: 3,
+        destaque: true,
+      }
+    ],
     data: "2026",
     titulo: "Deputados da Assembleia Nacional Visitam Instalações do Grupo Unione na Humpata",
     conteudo: `
@@ -178,7 +199,28 @@ window.NOTICIAS_DATA = [
 
   {
     id: 8,
-    img: "../assets/Imagens/Noticias/admh.jpeg",
+    img: "../assets/Imagens/Noticias/ADM/admh.jpeg",
+    imagens: [
+      {
+        src: "../assets/Imagens/Noticias/ADM/a1.jpeg",
+        alt: "adm",
+        legenda: "Momento de ADM Humpata e Grupo Unione",
+        aposParagrafo: 1,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/ADM/a2.jpeg",
+        alt: "adm",
+        aposParagrafo: 2,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/ADM/a3.jpeg",
+        alt: "adm",
+        aposParagrafo: 3,
+        destaque: true,
+      }
+    ],
     data: "2026",
     titulo: "Administração Municipal da Humpata Realiza Visita Técnica ao Grupo Unione",
     conteudo: `
@@ -197,7 +239,23 @@ window.NOTICIAS_DATA = [
   },
   {
     id: 9,
-    img: "../assets/Imagens/Noticias/adra.jpeg",
+    img: "../assets/Imagens/Noticias/ADRA/adra.jpeg",
+    imagens: [
+      {
+        src: "../assets/Imagens/Noticias/ADRA/a1.jpeg",
+        alt: "Turismo",
+        legenda: "Demostração do processo de desidratação de frutas",
+        aposParagrafo: 1,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/ADRA/a2.jpeg",
+        alt: "adra",
+        aposParagrafo: 2,
+        destaque: true,
+      },
+
+    ],
     data: "2026",
     titulo: "Grupo Unione Capacita Comitiva da Acção para o Desenvolvimento Rural e Ambiente (ADRA) em Tecnologia de Desidratação Solar",
     conteudo: `
@@ -216,7 +274,22 @@ window.NOTICIAS_DATA = [
   },
   {
     id: 10,
-    img: "../assets/Imagens/Noticias/ery.jpeg",
+    img: "../assets/Imagens/Noticias/ERY/ery.jpeg",
+    imagens: [
+      {
+        src: "../assets/Imagens/Noticias/ERY/ery1.jpeg",
+        alt: "ery",
+        legenda: "Momento  com Ery Costa",
+        aposParagrafo: 1,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/ERY/ery2.jpeg",
+        alt: "ery",
+        aposParagrafo: 2,
+        destaque: true,
+      },
+    ],
     data: "2026",
     titulo: "Ator Ery Costa Visita Instalações do Grupo Unione",
     conteudo: `
@@ -235,7 +308,28 @@ window.NOTICIAS_DATA = [
   },
   {
     id: 11,
-    img: "../assets/Imagens/Noticias/tur.jpg",
+    img: "../assets/Imagens/Noticias/TUR/tur.jpg",
+    imagens: [
+      {
+        src: "../assets/Imagens/Noticias/TUR/tur1.jpg",
+        alt: "Turismo",
+        legenda: "Momento de Turismo",
+        aposParagrafo: 1,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/TUR/tur2.jpg",
+        alt: "Turismo",
+        aposParagrafo: 2,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/TUR/tur3.jpeg",
+        alt: "Turismo",
+        aposParagrafo: 3,
+        destaque: true,
+      }
+    ],
     data: "2026",
     titulo: "Grupo Unione Consolida-se como Destino Estratégico para o Turismo na Huíla",
     conteudo: `
@@ -255,7 +349,28 @@ window.NOTICIAS_DATA = [
 
   {
     id: 12,
-    img: "../assets/Imagens/Noticias/alunos.jpeg",
+    img: "../assets/Imagens/Noticias/PAP/alunos.jpeg",
+    imagens: [
+      {
+        src: "../assets/Imagens/Noticias/PAP/oku1.jpeg",
+        alt: "Participantes PAP",
+        legenda: "Momentos",
+        aposParagrafo: 1,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/PAP/oku2.jpeg",
+        alt: "mbt",
+        aposParagrafo: 2,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/PAP/oku3.jpeg",
+        alt: "mbt",
+        aposParagrafo: 3,
+        destaque: true,
+      }
+    ],
     data: "2026",
     titulo: "Alunos Finalistas Realizam Defesa da Prova de Aptidão Profissional (PAP)",
     conteudo: `
@@ -275,29 +390,57 @@ window.NOTICIAS_DATA = [
 
   {
     id: 13,
-    img: "../assets/Imagens/Noticias/mbt.jpeg",
+    img: "../assets/Imagens/Noticias/MBT/mbt.jpeg",
+    imagens: [
+      {
+        src: "../assets/Imagens/Noticias/MBT/mbt1.jpeg",
+        alt: "Delegação durante visita guiada no Grupo Unione",
+        legenda: "Visita guiada pelas empresas do Grupo Unione.",
+        aposParagrafo: 1,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/MBT/mbt2.jpeg",
+        alt: "Participantes conhecem áreas de atuação do Grupo Unione",
+        legenda: "Momento de partilha sobre projetos, áreas de atuação e impacto no sector.",
+        aposParagrafo: 2,
+        destaque: true,
+      },
+      {
+        src: "../assets/Imagens/Noticias/MBT/mbt3.jpeg",
+        alt: "mbt",
+        aposParagrafo: 3,
+      },
+      {
+        src: "../assets/Imagens/Noticias/MBT/mbt4.jpeg",
+        alt: "mbt",
+        aposParagrafo: 3,
+      },
+
+    ],
+
     data: "2026",
     titulo: " MBT ENERGIA INTEGRA PROJETO DE REFORÇO DA ILUMINAÇÃO PÚBLICA NO NAMIBE",
     conteudo: `
     <p>
       A MBT Energia integra o grupo de empresas responsáveis pelos
        trabalhos de requalificação da rede de iluminação pública nos
-        bairros Bela Vista e 5 de Abril, na província do Namibe. 
-        O projeto global compreende a intervenção numa extensão de 2,1 quilómetros 
+        bairros Bela Vista e 5 de Abril, na província do Namibe.
+        O projeto global compreende a intervenção numa extensão de 2,1 quilómetros
         de rede aérea e a instalação de 72 postes de betão para garantir maior segurança
          à população local.
     </p>
 
     <p>
       Com um prazo de execução de três meses, a empreitada foca na modernização
-       e eficiência do serviço de distribuição. O projeto foi lançado oficialmente 
+       e eficiência do serviço de distribuição. O projeto foi lançado oficialmente
        pelo Governador Provincial, Archer Mangueira, integrando o pacote de investimentos
         estruturantes autorizados pela Presidência da República.
-      
+
     </p>
 
     <p>
-      A nossa participação nesta parceria reforça o compromisso 
+      A nossa participação nesta parceria reforça o compromisso
       da empresa em somar competências técnicas para entregar infraestruturas
        robustas que promovam o desenvolvimento das comunidades.
     </p>

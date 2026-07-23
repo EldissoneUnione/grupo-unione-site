@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destaques — Admin | Grupo Unione</title>
+    <link rel="icon" href="/public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <aside class="admin-sidebar">
+        <a class="sidebar-brand" href="/admin/dashboard">
+            <img src="/assets/logo/Grupo-Unione_Logo.png" alt="Grupo Unione">
+            <div class="sidebar-brand-text">
+                <span class="sidebar-brand-name">Grupo Unione</span>
+                <span class="sidebar-brand-sub">Admin Panel</span>
+            </div>
+        </a>
+
+        <div class="sidebar-user">
+            <div class="sidebar-user-avatar">A</div>
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-name" id="userInfo">Administrador</div>
+                <div class="sidebar-user-role">Administrador</div>
+            </div>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-label">Principal</li>
+            <li>
+                <a href="/admin/dashboard">
+                    <i class="fas fa-th-large"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="sidebar-nav-label">Conteúdo</li>
+            <li>
+                <a href="/admin/banners">
+                    <i class="fas fa-images"></i>
+                    Banners
+                </a>
+            </li>
+            <li>
+                <a href="/admin/destaques" class="active">
+                    <i class="fas fa-star"></i>
+                    Destaques
+                </a>
+            </li>
+            <li>
+                <a href="/admin/empresas">
+                    <i class="fas fa-building"></i>
+                    Empresas
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="authChecker.logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                Terminar Sessão
+            </a>
+        </div>
+    </aside>
+
+    <!-- ── Main ─────────────────────────────────────────────── -->
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <span class="topbar-title">Destaques</span>
+            <div class="topbar-actions">
+                <a href="/" target="_blank" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-external-link-alt"></i>
+                    Ver Site
+                </a>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <div class="page-header">
+                <div>
+                    <h1>Gestão de Destaques</h1>
+                    <p>Adicione, edite e organize os destaques da página principal.</p>
+                </div>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDestaqueModal">
+                    <i class="fas fa-plus"></i>
+                    Novo Destaque
+                </button>
+            </div>
+
+            <!-- Table -->
+            <div class="table-wrap">
+                <div class="filters-bar">
+                    <div class="search-input">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar destaques..." id="searchDestaque">
+                    </div>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Imagem</th>
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Status</th>
+                            <th>Ordem</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="destaquesList">
+                        <tr>
+                            <td colspan="7">
+                                <div class="empty-state">
+                                    <i class="fas fa-star"></i>
+                                    <h3>Nenhum destaque encontrado</h3>
+                                    <p>Clique em "Novo Destaque" para adicionar o primeiro.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── Modal Adicionar/Editar Destaque ────────────────────── -->
+<div class="modal fade" id="addDestaqueModal" tabindex="-1" aria-labelledby="addDestaqueModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addDestaqueModalLabel">
+                    <i class="fas fa-star" style="color:var(--gold);margin-right:8px;"></i>
+                    Adicionar Destaque
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="destaqueForm">
+                    <div class="form-group">
+                        <label class="form-label" for="destaqueTitle">Título</label>
+                        <input type="text" class="form-control" id="destaqueTitle" placeholder="Título do destaque" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="destaqueDescription">Descrição</label>
+                        <textarea class="form-control" id="destaqueDescription" rows="3" placeholder="Descrição breve do destaque" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="destaqueImage">Imagem</label>
+                        <input type="file" class="form-control" id="destaqueImage" accept="image/*" required>
+                        <img class="image-preview" id="destaquePreview" alt="Preview">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="destaqueOrder">Ordem de Exibição</label>
+                        <input type="number" class="form-control" id="destaqueOrder" placeholder="Ex: 1" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="destaqueStatus" checked>
+                            <label class="form-check-label" for="destaqueStatus">Destaque ativo</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="saveDestaque">
+                    <i class="fas fa-save"></i>
+                    Guardar Destaque
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/admin/js/api.js"></script>
+<script src="/admin/js/auth.js"></script>
+<script src="/admin/js/destaques.js"></script>
+
+</body>
+</html>

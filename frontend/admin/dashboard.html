@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Admin | Grupo Unione</title>
+    <link rel="icon" href="/public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <aside class="admin-sidebar">
+        <a class="sidebar-brand" href="/admin/dashboard">
+            <img src="/assets/logo/Grupo-Unione_Logo.png" alt="Grupo Unione">
+            <div class="sidebar-brand-text">
+                <span class="sidebar-brand-name">Grupo Unione</span>
+                <span class="sidebar-brand-sub">Admin Panel</span>
+            </div>
+        </a>
+
+        <div class="sidebar-user">
+            <div class="sidebar-user-avatar" id="userAvatar">A</div>
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-name" id="userInfo">Carregando...</div>
+                <div class="sidebar-user-role">Administrador</div>
+            </div>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-label">Principal</li>
+            <li>
+                <a href="/admin/dashboard" class="active">
+                    <i class="fas fa-th-large"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="sidebar-nav-label">Conteúdo</li>
+            <li>
+                <a href="/admin/banners">
+                    <i class="fas fa-images"></i>
+                    Banners
+                </a>
+            </li>
+            <li>
+                <a href="/admin/noticias">
+                    <i class="fas fa-newspaper"></i>
+                    Notícias
+                </a>
+            </li>
+            <li>
+                <a href="/admin/empresas">
+                    <i class="fas fa-building"></i>
+                    Empresas
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="#" id="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Terminar Sessão
+            </a>
+        </div>
+    </aside>
+
+    <!-- ── Main ─────────────────────────────────────────────── -->
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <span class="topbar-title">Dashboard</span>
+            <div class="topbar-actions">
+                <a href="/" target="_blank" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-external-link-alt"></i>
+                    Ver Site
+                </a>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <div class="page-header">
+                <div>
+                    <h1>Visão Geral</h1>
+                    <p>Bem-vindo ao painel de controlo do Grupo Unione.</p>
+                </div>
+            </div>
+
+            <!-- Stat Cards -->
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-icon accent"><i class="fas fa-images"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="totalBanners">0</div>
+                        <div class="stat-label">Banners Totais</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon success"><i class="fas fa-check-circle"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="activeBanners">0</div>
+                        <div class="stat-label">Banners Ativos</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon info"><i class="fas fa-star"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="totalDestaques">0</div>
+                        <div class="stat-label">Destaques Totais</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon warning"><i class="fas fa-bolt"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="activeDestaques">0</div>
+                        <div class="stat-label">Destaques Ativos</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Access -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title"><i class="fas fa-images" style="color:var(--accent);margin-right:8px;"></i>Banners</span>
+                        <a href="/admin/banners" class="btn btn-primary btn-sm">
+                            <i class="fas fa-arrow-right"></i>
+                            Gerir
+                        </a>
+                    </div>
+                    <div class="card-body" style="padding:16px 22px;">
+                        <p style="font-size:13px;color:var(--text-secondary);">Gerir os banners exibidos no site, incluindo imagens, títulos e ordem de exibição.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title"><i class="fas fa-star" style="color:var(--gold);margin-right:8px;"></i>Destaques</span>
+                        <a href="/admin/destaques" class="btn btn-primary btn-sm">
+                            <i class="fas fa-arrow-right"></i>
+                            Gerir
+                        </a>
+                    </div>
+                    <div class="card-body" style="padding:16px 22px;">
+                        <p style="font-size:13px;color:var(--text-secondary);">Gerir os destaques que aparecem na página principal com imagens e descrições.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title"><i class="fas fa-history" style="color:var(--info);margin-right:8px;"></i>Últimas Atividades</span>
+                </div>
+                <div class="table-wrap" style="border:none;border-radius:0;">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Título</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lastActivities">
+                            <tr>
+                                <td colspan="4">
+                                    <div class="empty-state" style="padding:32px 24px;">
+                                        <i class="fas fa-inbox"></i>
+                                        <h3>Sem atividade recente</h3>
+                                        <p>Adicione banners ou destaques para começar.</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/admin/js/api.js"></script>
+<script src="/admin/js/auth.js"></script>
+<script src="/admin/js/dashboard.js"></script>
+
+</body>
+</html>

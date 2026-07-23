@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias — Admin | Grupo Unione</title>
+    <link rel="icon" href="/public/Grupo-Unione_Logotipo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        .noticia-thumb {
+            width: 64px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+        .noticia-titulo {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            max-width: 320px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .noticia-conteudo-preview {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+            max-width: 320px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .galeria-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+        /* ── Status badges ── */
+        .status-badge { display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700; }
+        .status-badge.publicada { background:rgba(22,163,74,.12);color:#16a34a; }
+        .status-badge.rascunho  { background:rgba(100,116,139,.12);color:#64748b; }
+        .status-badge.agendada  { background:rgba(234,179,8,.12);color:#ca8a04; }
+
+        /* ── Modal overlay ── */
+        .noticia-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(13,15,26,0.65);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 30px 16px 60px;
+            overflow-y: auto;
+        }
+        .noticia-modal-overlay.open { display: flex; }
+        .noticia-modal-box {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 780px;
+            animation: modalIn 0.22s ease;
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.96) translateY(14px); }
+            to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .nm-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface-2);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            gap: 10px;
+        }
+        .content-header {
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }   
+        .nm-title { font-size: 15px; font-weight: 700; display:flex;align-items:center;gap:8px; }
+        .nm-close {
+            width: 30px; height: 30px;
+            border-radius: 6px; border: none;
+            background: var(--surface-3);
+            color: var(--text-secondary);
+            cursor: pointer; font-size: 15px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all var(--transition);
+            flex-shrink:0;
+        }
+        .nm-close:hover { background: var(--danger-soft); color: var(--danger); }
+        .nm-body { padding: 24px; display:flex;flex-direction:column;gap:18px; }
+        .nm-footer {
+            display: flex; align-items: center; justify-content: space-between; gap: 10px;
+            padding: 14px 24px; border-top: 1px solid var(--border);
+            background: var(--surface-2); border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            flex-wrap: wrap;
+        }
+        .nm-footer-actions { display:flex;gap:8px;flex-wrap:wrap; }
+        .section-label {
+            font-size: 11px; font-weight: 700; color: var(--text-secondary);
+            letter-spacing: 0.06em; text-transform: uppercase;
+            margin: 4px 0 8px;
+        }
+
+        /* ── Block Editor ── */
+        .block-editor { display:flex;flex-direction:column;gap:10px; }
+        .block-item {
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--surface-2);
+            overflow: hidden;
+            transition: border-color .2s;
+        }
+        .block-item:focus-within { border-color: var(--accent); }
+        .block-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: var(--surface-3);
+            border-bottom: 1px solid var(--border);
+            gap: 8px;
+        }
+        .block-type-badge {
+            display:inline-flex;align-items:center;gap:5px;
+            font-size:11px;font-weight:700;color:var(--text-secondary);
+            letter-spacing:.05em;text-transform:uppercase;
+        }
+        .block-actions { display:flex;gap:4px; }
+        .block-btn {
+            background: none; border: none; cursor: pointer;
+            color: var(--text-secondary); padding: 4px 6px;
+            border-radius: 4px; font-size: 12px; transition: all .15s;
+        }
+        .block-btn:hover { background: var(--surface);color:var(--text-primary); }
+        .block-btn.danger:hover { background:var(--danger-soft);color:var(--danger); }
+        .block-content { padding: 12px; }
+        .block-textarea {
+            width: 100%; min-height: 90px; resize: vertical;
+            background: transparent; border: none; outline: none;
+            font-size: 13px; color: var(--text-primary); font-family: inherit;
+            line-height: 1.6;
+        }
+        .block-img-preview {
+            max-width: 100%; max-height: 180px; object-fit: cover;
+            border-radius: 4px; display:none; margin-top:8px;
+        }
+        .block-img-preview.show { display:block; }
+        .block-img-meta { display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px; }
+        .block-img-meta input {
+            background: var(--surface-3); border: 1px solid var(--border);
+            border-radius: 4px; padding: 6px 10px; font-size: 12px;
+            color: var(--text-primary); outline:none; width:100%;
+        }
+        .block-img-meta input:focus { border-color:var(--accent); }
+        .block-add-bar {
+            display: flex; gap: 8px; margin-top: 4px;
+        }
+        .block-add-btn {
+            flex: 1; display:flex;align-items:center;justify-content:center;gap:6px;
+            padding: 9px 14px;
+            border: 1.5px dashed var(--border);
+            border-radius: var(--radius-sm);
+            background: transparent; color: var(--text-secondary);
+            cursor: pointer; font-size: 12px; font-family: inherit;
+            transition: all .2s;
+        }
+        .block-add-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+        /* ── Publish Panel ── */
+        .publish-panel {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+        }
+        .publish-status-btns { display:flex;gap:6px;flex-wrap:wrap; }
+        .status-btn {
+            padding: 7px 14px; border-radius: 6px; border: 1.5px solid var(--border);
+            background: transparent; cursor: pointer; font-size: 12px;
+            font-weight: 600; font-family: inherit; color: var(--text-secondary);
+            transition: all .2s;
+        }
+        .status-btn.active-publicada { background: rgba(22,163,74,.12); color:#16a34a; border-color:#16a34a; }
+        .status-btn.active-rascunho  { background: rgba(100,116,139,.12); color:#64748b; border-color:#64748b; }
+        .status-btn.active-agendada  { background: rgba(234,179,8,.12);  color:#ca8a04; border-color:#ca8a04; }
+        .schedule-input-wrap { display:none; margin-top:10px; }
+        .schedule-input-wrap.show { display:block; }
+        .schedule-input-wrap label { font-size:12px;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px; }
+        .schedule-input-wrap input[type="datetime-local"] {
+            background: var(--surface-3); border: 1px solid var(--border);
+            border-radius: 6px; padding: 8px 12px; font-size:13px;
+            color: var(--text-primary); outline:none; font-family:inherit;
+        }
+        .schedule-input-wrap input:focus { border-color:var(--accent); }
+    </style>
+</head>
+<body>
+
+<div class="admin-shell">
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <aside class="admin-sidebar">
+        <a class="sidebar-brand" href="/admin/dashboard">
+            <img src="/assets/logo/Grupo-Unione_Logo.png" alt="Grupo Unione">
+            <div class="sidebar-brand-text">
+                <span class="sidebar-brand-name">Grupo Unione</span>
+                <span class="sidebar-brand-sub">Admin Panel</span>
+            </div>
+        </a>
+
+        <div class="sidebar-user">
+            <div class="sidebar-user-avatar">A</div>
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-name" id="userInfo">Administrador</div>
+                <div class="sidebar-user-role">Administrador</div>
+            </div>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-label">Principal</li>
+            <li>
+                <a href="/admin/dashboard">
+                    <i class="fas fa-th-large"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="sidebar-nav-label">Conteúdo</li>
+            <li>
+                <a href="/admin/banners">
+                    <i class="fas fa-images"></i>
+                    Banners
+                </a>
+            </li>
+            <li>
+                <a href="/admin/noticias" class="active">
+                    <i class="fas fa-newspaper"></i>
+                    Notícias
+                </a>
+            </li>
+            <li>
+                <a href="/admin/empresas">
+                    <i class="fas fa-building"></i>
+                    Empresas
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="#" onclick="authChecker.logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                Terminar Sessão
+            </a>
+        </div>
+    </aside>
+
+    <!-- ── Main ─────────────────────────────────────────────── -->
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <span class="topbar-title">Notícias</span>
+            <div class="topbar-actions">
+                <a href="/" target="_blank" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-external-link-alt"></i>
+                    Ver Site
+                </a>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <div class="content-header">
+                <div>
+                    <h1>Gestão de Notícias</h1>
+                    <p>Adicione, edite e organize as notícias do Grupo Unione.</p>
+                </div>
+                <button class="btn btn-primary" id="btnNovaNoticia">
+                    <i class="fas fa-plus"></i>
+                    Nova Notícia
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="stat-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 20px;">
+                <div class="stat-card">
+                    <div class="stat-icon accent"><i class="fas fa-newspaper"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="totalNoticias">0</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon success"><i class="fas fa-eye"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="ativasNoticias">0</div>
+                        <div class="stat-label">Publicadas</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon warning"><i class="fas fa-clock"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="agendadasNoticias">0</div>
+                        <div class="stat-label">Agendadas</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon" style="background:rgba(100,116,139,.12);color:#64748b;"><i class="fas fa-file-alt"></i></div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="rascunhosNoticias">0</div>
+                        <div class="stat-label">Rascunhos</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-wrap">
+                <div class="filters-bar">
+                    <div class="search-input">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchNoticia" placeholder="Pesquisar por título...">
+                    </div>
+                    <select id="filterStatus" class="filter-select">
+                        <option value="">Todos os status</option>
+                        <option value="publicada">Publicada</option>
+                        <option value="agendada">Agendada</option>
+                        <option value="rascunho">Rascunho</option>
+                    </select>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Imagem</th>
+                            <th>Título / Resumo</th>
+                            <th>Data</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="noticiasList">
+                        <tr>
+                            <td colspan="6">
+                                <div class="empty-state">
+                                    <i class="fas fa-newspaper"></i>
+                                    <h3>A carregar notícias...</h3>
+                                    <p>As notícias serão exibidas aqui.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     MODAL — Nova / Editar Notícia (Block Editor)
+═══════════════════════════════════════════════════════ -->
+<div class="noticia-modal-overlay" id="noticiaModal">
+    <div class="noticia-modal-box">
+        <div class="nm-header">
+            <span class="nm-title" id="modalNoticiaTitle">
+                <i class="fas fa-newspaper" style="color:var(--accent)"></i>
+                Nova Notícia
+            </span>
+            <button class="nm-close" id="closeNoticiaModal">&times;</button>
+        </div>
+        <div class="nm-body">
+            <form id="noticiaForm">
+                <input type="hidden" id="noticiaId">
+
+                <!-- Título -->
+                <div class="form-group">
+                    <label class="form-label" for="noticiaTitulo">
+                        Título <span style="color:var(--danger)">*</span>
+                    </label>
+                    <input type="text" class="form-control" id="noticiaTitulo"
+                        placeholder="Título da notícia..." required>
+                </div>
+
+                <!-- Imagem Principal -->
+                <div class="form-group">
+                    <label class="form-label" for="noticiaImg">
+                        Imagem Principal <span style="color:var(--danger)">*</span>
+                    </label>
+                    <input type="file" class="form-control" id="noticiaImg" accept="image/*">
+                    <img id="noticiaImgPreview" alt="Preview" style="display:none;margin-top:10px;max-width:100%;max-height:200px;object-fit:cover;border-radius:6px;">
+                </div>
+
+                <!-- Block Editor -->
+                <div>
+                    <div class="section-label">
+                        <i class="fas fa-align-left" style="margin-right:5px;color:var(--accent)"></i>
+                        Conteúdo por Blocos
+                    </div>
+                    <div class="block-editor" id="blockEditor"></div>
+                    <div class="block-add-bar" style="margin-top:10px;margin-bottom: 10px;">
+                        <button type="button" class="block-add-btn" id="btnAddParagrafo">
+                            <i class="fas fa-paragraph"></i> Adicionar Parágrafo
+                        </button>
+                        <button type="button" class="block-add-btn" id="btnAddImagem">
+                            <i class="fas fa-image"></i> Adicionar Imagem
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicação -->
+                <div class="publish-panel">
+                    <div class="section-label" style="margin-top:0">
+                        <i class="fas fa-paper-plane" style="margin-right:5px;color:var(--accent)"></i>
+                        Publicação
+                    </div>
+                    <div class="publish-status-btns">
+                        <button type="button" class="status-btn" data-status="publicada" id="btnStatusPublicada">
+                            <i class="fas fa-eye"></i> Publicar agora
+                        </button>
+                        <button type="button" class="status-btn" data-status="agendada" id="btnStatusAgendada">
+                            <i class="fas fa-clock"></i> Agendar
+                        </button>
+                        <button type="button" class="status-btn" data-status="rascunho" id="btnStatusRascunho">
+                            <i class="fas fa-file-alt"></i> Rascunho
+                        </button>
+                    </div>
+                    <div class="schedule-input-wrap" id="scheduleWrap">
+                        <label for="agendadoPara">Data e hora de publicação</label>
+                        <input type="datetime-local" id="agendadoPara">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="nm-footer">
+            <button type="button" class="btn btn-secondary" id="cancelNoticiaModal">Cancelar</button>
+            <div class="nm-footer-actions">
+                <button type="button" class="btn btn-primary" id="saveNoticia">
+                    <i class="fas fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/noticiasData.js"></script>
+<script src="/admin/js/api.js"></script>
+<script src="/admin/js/auth.js"></script>
+<script src="/admin/js/noticias.js"></script>
+
+</body>
+</html>

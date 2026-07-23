@@ -1,0 +1,186 @@
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  role      String   @default("EDITOR")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Company {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  descricao   String?
+  missao      String?
+  visao       String?
+  logo        String?
+  capa        String?
+  website     String?
+  email       String?
+  telefone    String?
+  localizacao String?
+  status      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  projects    Project[]
+  teamMembers TeamMember[]
+}
+
+model Project {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  descricao   String?
+  categoria   String?
+  investimento Decimal?
+  localizacao String?
+  status      Boolean   @default(true)
+  imagens     String?
+  companyId   Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  company     Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+}
+
+model TeamMember {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  cargo       String?
+  fotografia  String?
+  linkedin    String?
+  biografia   String?
+  companyId   Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  company     Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+}
+
+model News {
+  id            Int                @id @default(autoincrement())
+  titulo        String
+  slug          String             @unique
+  resumo        String?
+  conteudo      String?  @db.Text
+  blocos        String?  @db.Text
+  imagem        String?
+  status        String             @default("publicada")
+  agendadoPara  DateTime?
+  dataPublicacao DateTime           @default(now())
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+
+  newsCategories NewsCategoryNews[]
+  newsTags       NewsTagNews[]
+}
+
+model NewsCategory {
+  id   Int                @id @default(autoincrement())
+  nome String             @unique
+  news NewsCategoryNews[]
+
+  @@map("news_categories")
+}
+
+model NewsCategoryNews {
+  newsId       Int
+  newsCategoryId Int
+  news         News         @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  newsCategory NewsCategory @relation(fields: [newsCategoryId], references: [id], onDelete: Cascade)
+
+  @@id([newsId, newsCategoryId])
+  @@map("news_category_news")
+}
+
+model NewsTag {
+  id   Int          @id @default(autoincrement())
+  nome String       @unique
+  news NewsTagNews[]
+
+  @@map("news_tags")
+}
+
+model NewsTagNews {
+  newsId   Int
+  newsTagId Int
+  news     News     @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  newsTag  NewsTag  @relation(fields: [newsTagId], references: [id], onDelete: Cascade)
+
+  @@id([newsId, newsTagId])
+  @@map("news_tag_news")
+}
+
+model Investor {
+  id            Int       @id @default(autoincrement())
+  nome          String
+  empresa       String?
+  email         String
+  telefone      String?
+  pais          String?
+  areaInteresse String?
+  observacoes   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Partner {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  logo      String?
+  website   String?
+  status    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String
+  telefone  String?
+  assunto   String
+  mensagem  String
+  lido      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Banner {
+  id        Int      @id @default(autoincrement())
+  titulo    String?
+  subtitulo String?
+  imagem    String
+  link      String?
+  ordem     Int      @default(0)
+  ativo     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Highlight {
+  id        Int      @id @default(autoincrement())
+  titulo    String
+  descricao String?
+  imagem    String?
+  link      String?
+  ordem     Int      @default(0)
+  ativo     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("highlights")
+}
+
+

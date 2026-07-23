@@ -9,49 +9,49 @@
 
     <!-- Página Principal -->
     <url>
-        <loc>https://unioneafrica.com/</loc>
+        <loc>https://grupounione.com/</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://unioneafrica.com/assets/logo/grupo_logo.png</image:loc>
+            <image:loc>https://grupounione.com/assets/logo/grupo_logo.png</image:loc>
             <image:title>Grupo Unione Logo</image:title>
         </image:image>
     </url>
 
     <!-- Páginas Principais -->
     <url>
-        <loc>https://unioneafrica.com/grupo</loc>
+        <loc>https://grupounione.com/grupo</loc>
         <lastmod>2026-12-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas</loc>
+        <loc>https://grupounione.com/empresas</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/areas-negocios</loc>
+        <loc>https://grupounione.com/areas-negocios</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empreendimentos</loc>
+        <loc>https://grupounione.com/empreendimentos</loc>
         <lastmod>2026-12-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/investidores</loc>
+        <loc>https://grupounione.com/investidores</loc>
         <lastmod>2026-12-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/Contactos</loc>
+        <loc>https://grupounione.com/Contactos</loc>
         <lastmod>2026-12-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -59,67 +59,67 @@
 
     <!-- Subpáginas de Empresas -->
     <url>
-        <loc>https://unioneafrica.com/empresas/mbt</loc>
+        <loc>https://grupounione.com/empresas/mbt</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/corpo-e-mente</loc>
+        <loc>https://grupounione.com/empresas/corpo-e-mente</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/quavi</loc>
+        <loc>https://grupounione.com/empresas/quavi</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/okukulanaua</loc>
+        <loc>https://grupounione.com/empresas/okukulanaua</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/tecnology</loc>
+        <loc>https://grupounione.com/empresas/tecnology</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/kalanaua</loc>
+        <loc>https://grupounione.com/empresas/kalanaua</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/fibra</loc>
+        <loc>https://grupounione.com/empresas/fibra</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/infraone</loc>
+        <loc>https://grupounione.com/empresas/infraone</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/metalangol</loc>
+        <loc>https://grupounione.com/empresas/metalangol</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/mater</loc>
+        <loc>https://grupounione.com/empresas/mater</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://unioneafrica.com/empresas/unione</loc>
+        <loc>https://grupounione.com/empresas/unione</loc>
         <lastmod>2026-12-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

@@ -17,6 +17,13 @@ dist-ssr
 backend/src/uploads/*
 !backend/src/uploads/.gitkeep
 
+# Variáveis de ambiente: cada máquina tem as suas (ver .env.example)
+.env
+
+# Cliente Prisma gerado: artefacto de build, específico da plataforma.
+# É recriado pelo postinstall do backend (npx prisma generate).
+backend/src/generated/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -10,6 +10,7 @@ class BannerManager {
         this.bannersList = document.getElementById('bannersList');
         this.saveButton = document.getElementById('saveBanner');
         this.currentBannerId = null;
+        this.selectedFile = null;
 
         this.initializeEventListeners();
         this.loadBanners();
@@ -31,6 +32,9 @@ class BannerManager {
     handleImagePreview(event) {
         const file = event.target.files[0];
         if (file) {
+            // O ficheiro é guardado para envio; o base64 abaixo serve apenas
+            // para a pré-visualização no browser e nunca é enviado à API.
+            this.selectedFile = file;
             const reader = new FileReader();
             reader.onload = (e) => {
                 let preview = document.querySelector('.image-preview');
@@ -108,18 +112,12 @@ class BannerManager {
         const ordem = orderInput ? parseInt(orderInput.value) || 0 : 0;
         const ativo = statusInput ? statusInput.checked : true;
         
-        let imagem = '';
-
-        // Obter preview de imagem ou arquivo base64
-        const preview = document.querySelector('.image-preview');
-        if (preview && preview.src) {
-            imagem = preview.src; // base64
-        }
-
-        if (!imagem && !this.currentBannerId) {
+        if (!this.selectedFile && !this.currentBannerId) {
             alert('Por favor, selecione uma imagem para o banner.');
             return;
         }
+
+        this.setSaving(true);
 
         try {
             const data = {
@@ -130,23 +128,20 @@ class BannerManager {
                 ativo
             };
 
-            if (imagem) {
-                data.imagem = imagem;
+            // A imagem vai como ficheiro para /uploads e na base de dados
+            // guarda-se apenas o caminho devolvido.
+            if (this.selectedFile) {
+                const uploaded = await ApiClient.uploadFile(this.selectedFile);
+                data.imagem = uploaded.url;
             }
 
-            // O backend Prisma espera imagem (obrigatorio na criacao).
-            // Se for edicao e nao tiver imagem nova, remove do payload para nao sobrescrever com vazio se a API suportar
-            // Mas o schema Prisma tem imagem String (nao opcional), entao devemos sempre mandar ou o backend deve suportar parcial.
-            // O nosso controller faz prisma.banner.update({ data: req.body }) que suporta updates parciais se nao mandarmos o campo.
+            // Numa edição sem imagem nova o campo é omitido, para que o
+            // update parcial do Prisma preserve a imagem existente.
 
             if (this.currentBannerId) {
                 await ApiClient.put(`/banners/${this.currentBannerId}`, data);
                 this.showToast('Banner atualizado com sucesso!');
             } else {
-                if (!data.imagem) {
-                    alert('Imagem é obrigatória para novo banner.');
-                    return;
-                }
                 await ApiClient.post('/banners', data);
                 this.showToast('Banner criado com sucesso!');
             }
@@ -165,7 +160,17 @@ class BannerManager {
         } catch (error) {
             console.error('Erro ao guardar banner:', error);
             alert('Ocorreu um erro ao guardar o banner: ' + error.message);
+        } finally {
+            this.setSaving(false);
         }
+    }
+
+    setSaving(saving) {
+        if (!this.saveButton) return;
+        this.saveButton.disabled = saving;
+        this.saveButton.innerHTML = saving
+            ? '<i class="fas fa-spinner fa-spin"></i> A guardar...'
+            : '<i class="fas fa-save"></i> Guardar Banner';
     }
 
     async editBanner(id) {
@@ -186,9 +191,11 @@ class BannerManager {
                 if (orderInput) orderInput.value = banner.ordem;
                 if (statusInput) statusInput.checked = banner.ativo;
                 
-                // Limpar input file
+                // Limpar input file: numa edição a imagem só é substituída
+                // se o utilizador escolher outra.
                 const imageInput = document.getElementById('bannerImage');
                 if (imageInput) imageInput.value = '';
+                this.selectedFile = null;
 
                 let preview = document.querySelector('.image-preview');
                 if (!preview) {
@@ -231,6 +238,7 @@ class BannerManager {
     resetForm() {
         if (this.form) this.form.reset();
         this.currentBannerId = null;
+        this.selectedFile = null;
         const preview = document.querySelector('.image-preview');
         if (preview) {
             preview.style.display = 'none';

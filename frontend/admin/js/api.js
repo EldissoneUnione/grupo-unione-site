@@ -53,8 +53,46 @@ class ApiClient {
                 window.location.href = '/admin/login.html';
                 throw new Error('Sessão expirada. Faça login novamente.');
             }
-            const errorData = await response.json().catch(() => ({}));
-            throw new Error(errorData.message || `Erro: ${response.status}`);
+            throw new Error(await this.errorMessage(response));
+        }
+
+        return response.json();
+    }
+
+    // O 413 é devolvido pelo nginx, não pela API, e vem em HTML.
+    // Sem este tratamento a mensagem chega ao utilizador vazia.
+    static async errorMessage(response) {
+        if (response.status === 413) {
+            return 'O ficheiro é demasiado grande para o servidor aceitar.';
+        }
+        const errorData = await response.json().catch(() => ({}));
+        return errorData.message || `Erro: ${response.status}`;
+    }
+
+    static async uploadFile(file) {
+        const token = this.getToken();
+        const formData = new FormData();
+        formData.append('file', file);
+
+        // O Content-Type é deixado ao browser, que precisa de definir o boundary.
+        const headers = {};
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        const response = await fetch(`${API_BASE_URL}/uploads`, {
+            method: 'POST',
+            headers,
+            body: formData
+        });
+
+        if (!response.ok) {
+            if (response.status === 401) {
+                this.clearToken();
+                window.location.href = '/admin/login.html';
+                throw new Error('Sessão expirada. Faça login novamente.');
+            }
+            throw new Error(await this.errorMessage(response));
         }
 
         return response.json();

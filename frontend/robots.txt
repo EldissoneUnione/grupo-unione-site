@@ -6,4 +6,4 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /uploads/tmp/
 
-Sitemap: https://grupounione.com/sitemap.xml
+Sitemap: https://www.grupounione.com/sitemap.xml

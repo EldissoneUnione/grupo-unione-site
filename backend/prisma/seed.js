@@ -44,12 +44,9 @@ async function main() {
     ]
   });
 
-  await prisma.banner.createMany({
-    data: [
-      { titulo: 'Banner Principal', imagem: '/uploads/banner1.jpg', ativo: true, ordem: 1 },
-      { titulo: 'Banner Secundário', imagem: '/uploads/banner2.jpg', ativo: true, ordem: 2 }
-    ]
-  });
+  // Não são criados banners de exemplo: o campo imagem teria de referenciar
+  // ficheiros reais em /uploads e qualquer caminho inventado resulta em 404
+  // no site. Os banners são carregados pelo painel admin.
 
   console.log('Database seeded successfully!');
 }

@@ -17,6 +17,7 @@ const partnerRoutes = require('./routes/partnerRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const teamMemberRoutes = require('./routes/teamMemberRoutes');
 const projectRoutes = require('./routes/projectRoutes');
+const uploadRoutes = require('./routes/uploadRoutes');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use('/api/v1/partners', partnerRoutes);
 app.use('/api/v1/contacts', contactRoutes);
 app.use('/api/v1/team-members', teamMemberRoutes);
 app.use('/api/v1/projects', projectRoutes);
+app.use('/api/v1/uploads', uploadRoutes);
 
 app.get('/api/v1/health', (req, res) => {
   res.json({ status: 'OK', message: 'API is running' });

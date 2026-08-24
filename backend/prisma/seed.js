@@ -8,7 +8,12 @@ const prisma = new PrismaClient();
 async function main() {
   console.log('Seeding database...');
 
-  const hashedPassword = await bcrypt.hash('admin123', 10);
+  // Clear existing data
+  await prisma.banner.deleteMany({});
+  await prisma.company.deleteMany({});
+  await prisma.user.deleteMany({});
+
+  const hashedPassword = await bcrypt.hash('GPUnione2020', 10);
 
   await prisma.user.create({
     data: {

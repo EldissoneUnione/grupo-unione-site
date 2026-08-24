@@ -69,15 +69,18 @@ model TeamMember {
 }
 
 model News {
-  id             Int      @id @default(autoincrement())
+  id             Int       @id @default(autoincrement())
   titulo         String
-  slug           String   @unique
+  slug           String    @unique
   resumo         String?
-  conteudo       String?
+  conteudo       String?   @db.Text
+  blocos         String?   @db.Text
   imagem         String?
-  dataPublicacao DateTime @default(now())
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  status         String    @default("publicada")
+  agendadoPara   DateTime?
+  dataPublicacao DateTime  @default(now())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 
   newsCategories NewsCategoryNews[]
   newsTags       NewsTagNews[]

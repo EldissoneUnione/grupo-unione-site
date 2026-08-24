@@ -10,117 +10,135 @@
     <!-- Página Principal -->
     <url>
         <loc>https://grupounione.com/</loc>
-        <lastmod>2026-12-17</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://grupounione.com/assets/logo/grupo_logo.png</image:loc>
-            <image:title>Grupo Unione Logo</image:title>
+            <image:loc>https://grupounione.com/assets/logo/Grupo-Unione_Logo.png</image:loc>
+            <image:title>Grupo Unione</image:title>
         </image:image>
     </url>
 
-    <!-- Páginas Principais -->
+    <!-- Páginas Institucionais -->
     <url>
         <loc>https://grupounione.com/grupo</loc>
-        <lastmod>2026-12-23</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://grupounione.com/empresas</loc>
-        <lastmod>2026-12-17</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://grupounione.com/areas-negocios</loc>
-        <lastmod>2026-12-17</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://grupounione.com/empreendimentos</loc>
-        <lastmod>2026-12-23</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://grupounione.com/investidores</loc>
-        <lastmod>2026-12-23</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://grupounione.com/Contactos</loc>
-        <lastmod>2026-12-23</lastmod>
+        <loc>https://grupounione.com/contactos</loc>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
-    <!-- Subpáginas de Empresas -->
     <url>
-        <loc>https://grupounione.com/empresas/mbt</loc>
-        <lastmod>2026-12-17</lastmod>
+        <loc>https://grupounione.com/noticia</loc>
+        <lastmod>2026-08-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://grupounione.com/projeto</loc>
+        <lastmod>2026-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://grupounione.com/privacidade</loc>
+        <lastmod>2026-08-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- Empresas do Grupo -->
+    <url>
+        <loc>https://grupounione.com/empresas/unione</loc>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://grupounione.com/empresas/corpo-e-mente</loc>
-        <lastmod>2026-12-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://grupounione.com/empresas/quavi</loc>
-        <lastmod>2026-12-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://grupounione.com/empresas/okukulanaua</loc>
-        <lastmod>2026-12-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://grupounione.com/empresas/tecnology</loc>
-        <lastmod>2026-12-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://grupounione.com/empresas/kalanaua</loc>
-        <lastmod>2026-12-17</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://grupounione.com/empresas/fibra</loc>
-        <lastmod>2026-12-17</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://grupounione.com/empresas/infraone</loc>
-        <lastmod>2026-12-17</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://grupounione.com/empresas/metalangol</loc>
-        <lastmod>2026-12-17</lastmod>
+        <loc>https://grupounione.com/empresas/kalanaua</loc>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://grupounione.com/empresas/mater</loc>
-        <lastmod>2026-12-17</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://grupounione.com/empresas/unione</loc>
-        <lastmod>2026-12-17</lastmod>
+        <loc>https://grupounione.com/empresas/mbt</loc>
+        <lastmod>2026-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://grupounione.com/empresas/metalangol</loc>
+        <lastmod>2026-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://grupounione.com/empresas/okukulanaua</loc>
+        <lastmod>2026-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://grupounione.com/empresas/quavi</loc>
+        <lastmod>2026-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://grupounione.com/empresas/tecnology</loc>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>

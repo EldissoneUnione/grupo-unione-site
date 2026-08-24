@@ -10,7 +10,7 @@ router.post('/', authMiddleware, (req, res) => {
     if (err) {
       const message =
         err.code === 'LIMIT_FILE_SIZE'
-          ? 'O ficheiro excede o limite de 10 MB'
+          ? 'O ficheiro excede o limite de 50 MB'
           : err.message;
       return res.status(400).json({ message });
     }

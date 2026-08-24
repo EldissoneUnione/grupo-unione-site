@@ -25,8 +25,10 @@ app.use(helmet());
 app.use(cors());
 app.use(compression());
 app.use(morgan('dev'));
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
+// As notícias enviam a imagem em base64 dentro do JSON, o que aumenta os dados
+// cerca de 37%. Uma imagem de 50 MB chega aqui como ~68 MB de corpo.
+app.use(express.json({ limit: '75mb' }));
+app.use(express.urlencoded({ limit: '75mb', extended: true }));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 

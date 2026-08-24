@@ -64,6 +64,14 @@ class BannerManager {
         }
     }
 
+    // Registos antigos podem ter o domínio completo gravado no campo imagem,
+    // pelo que um URL absoluto tem de ser usado tal como está.
+    imageSrc(imagem) {
+        if (!imagem) return '';
+        if (imagem.startsWith('data:') || imagem.startsWith('http')) return imagem;
+        return imagem.startsWith('/') ? imagem : '/' + imagem;
+    }
+
     renderBanners() {
         this.bannersList.innerHTML = '';
         if (this.banners.length === 0) {
@@ -73,7 +81,7 @@ class BannerManager {
 
         this.banners.forEach(banner => {
             const row = document.createElement('tr');
-            const imgUrl = banner.imagem.startsWith('data:') ? banner.imagem : (banner.imagem.startsWith('/') ? banner.imagem : '/' + banner.imagem);
+            const imgUrl = this.imageSrc(banner.imagem);
             
             row.innerHTML = `
                 <td>${banner.id}</td>
@@ -206,7 +214,7 @@ class BannerManager {
                     preview.style.borderRadius = '8px';
                     this.form.appendChild(preview);
                 }
-                preview.src = banner.imagem.startsWith('data:') ? banner.imagem : (banner.imagem.startsWith('/') ? banner.imagem : '/' + banner.imagem);
+                preview.src = this.imageSrc(banner.imagem);
                 preview.style.display = 'block';
 
                 const modalEl = document.getElementById('addBannerModal');

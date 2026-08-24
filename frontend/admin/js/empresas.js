@@ -203,7 +203,9 @@ class EmpresaManager {
                         preview.style.borderRadius = '4px';
                         this.form.insertBefore(preview, this.form.querySelector('.form-group:nth-child(4)'));
                     }
-                    preview.src = empresa.logo.startsWith('data:') ? empresa.logo : (empresa.logo.startsWith('/') ? empresa.logo : '/' + empresa.logo);
+                    preview.src = (empresa.logo.startsWith('data:') || empresa.logo.startsWith('http') || empresa.logo.startsWith('/'))
+                        ? empresa.logo
+                        : '/' + empresa.logo;
                     preview.style.display = 'block';
                 } else if (preview) {
                     preview.style.display = 'none';

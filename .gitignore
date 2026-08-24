@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 
+
 # Ficheiros carregados pelo painel admin
 backend/src/uploads/*
 !backend/src/uploads/.gitkeep

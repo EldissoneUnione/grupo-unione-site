@@ -58,6 +58,24 @@ function setupProxy(route) {
 setupProxy('/api');
 setupProxy('/uploads');
 
+// ─── Redirecionamentos 301 para o URL limpo ─────────────────────────────────
+// Os ficheiros físicos (ex.: /pages/grupo.html) continuam em disco e seriam
+// servidos pelo express.static, ficando a mesma página acessível em dois
+// endereços. Estes 301 consolidam tudo no URL sem .html.
+app.use((req, res, next) => {
+  const pathname = req.path;
+  if (!pathname.toLowerCase().endsWith('.html')) return next();
+
+  let clean = pathname.replace(/\.html$/i, '').replace(/^\/pages\//, '/');
+  if (clean.endsWith('/index')) clean = clean.slice(0, -'/index'.length);
+  if (!clean) clean = '/';
+
+  const queryIndex = req.originalUrl.indexOf('?');
+  const query = queryIndex === -1 ? '' : req.originalUrl.slice(queryIndex);
+
+  return res.redirect(301, clean + query);
+});
+
 // ─── Static assets (deve vir ANTES das rotas de fallback) ──────────────────
 app.use(express.static(root));
 

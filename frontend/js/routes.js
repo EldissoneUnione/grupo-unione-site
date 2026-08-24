@@ -1,25 +1,30 @@
-// Configuração das rotas do site
-const routes = {
-    '/': 'grupo-unione-site/index.html',
-    '/grupo': 'pages/grupo.html',
-    '/empresas': 'pages/empresas.html',
-    '/areas-negocios': 'pages/areas-negocios.html',
-    '/empreendimentos': 'pages/empreendimentos.html',
-    '/investidores': 'pages/investidores.html',
-    '/contactos': 'pages/contactos.html',
-    // Rotas das empresas
-    '/empresas/mbt': 'pages/empresas/mbt.html',
-    '/empresas/corpo-e-mente': 'pages/empresas/corpo-e-mente.html',
-    '/empresas/quavi': 'pages/empresas/quavi.html',
-    '/empresas/okukulanaua': 'pages/empresas/okukulanaua.html',
-    '/empresas/tecnology': 'pages/empresas/tecnology.html',
-    '/empresas/kalanaua': 'pages/empresas/kalanaua.html',
-    '/empresas/fibra': 'pages/empresas/fibra.html',
-    '/empresas/infraone': 'pages/empresas/infraone.html',
-    '/empresas/metalangol': 'pages/empresas/metalangol.html',
-    '/empresas/mater': 'pages/empresas/mater.html',
-    '/empresas/unione': 'pages/empresas/unione.html'
-};
+// Rotas públicas do site, em URL limpo. O servidor Express resolve cada uma
+// para o ficheiro HTML correspondente, por isso a navegação usa o próprio
+// caminho e nunca o ficheiro .html.
+const routes = [
+    '/',
+    '/grupo',
+    '/empresas',
+    '/areas-negocios',
+    '/empreendimentos',
+    '/investidores',
+    '/contactos',
+    '/noticia',
+    '/projeto',
+    '/privacidade',
+    // Empresas do grupo
+    '/empresas/corpo-e-mente',
+    '/empresas/fibra',
+    '/empresas/infraone',
+    '/empresas/kalanaua',
+    '/empresas/mater',
+    '/empresas/mbt',
+    '/empresas/metalangol',
+    '/empresas/okukulanaua',
+    '/empresas/quavi',
+    '/empresas/tecnology',
+    '/empresas/unione'
+];
 
 // Função para mostrar o loader
 function showLoader() {
@@ -38,7 +43,7 @@ function showLoader() {
             </div>
         </div>
     `;
-    
+
     const loaderContainer = document.createElement('div');
     loaderContainer.innerHTML = loaderHTML;
     document.body.appendChild(loaderContainer);
@@ -46,56 +51,31 @@ function showLoader() {
 
 // Função para navegar entre as páginas
 function navigateTo(path) {
-    const targetPage = routes[path];
-    if (targetPage) {
-        // Determina o nível de profundidade atual
-        const currentPath = window.location.pathname;
-        const isInPages = currentPath.includes('/pages/');
-        const isInEmpresas = currentPath.includes('/empresas/');
-        
-        // Ajusta o caminho baseado na localização atual
-        let basePath = '';
-        if (isInEmpresas) {
-            basePath = '../../';
-        } else if (isInPages) {
-            basePath = '../';
-        }
+    showLoader();
 
-        // Mostra o loader
-        showLoader();
-        
-        // Navega após um pequeno delay para mostrar o loader
-        setTimeout(() => {
-            window.location.href = basePath + targetPage;
-        }, 500);
-    } else {
-        console.error('Página não encontrada:', path);
-    }
+    setTimeout(() => {
+        window.location.href = path;
+    }, 500);
 }
 
 // Adicionar event listeners para os links de navegação
 document.addEventListener('DOMContentLoaded', () => {
-    // Links principais
-    const navLinks = document.querySelectorAll('.nav-links a, .nav-links-menu a');
+    const navLinks = document.querySelectorAll(
+        '.nav-links a, .nav-links-menu a, .dropdown-menu a'
+    );
+
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
             const path = link.getAttribute('href');
-            if (path !== '#') {
-                navigateTo(path);
-            }
-        });
-    });
 
-    // Links do dropdown de empresas
-    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
-    dropdownLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const path = link.getAttribute('href');
-            if (path !== '#') {
-                navigateTo(path);
+            // Âncoras, links externos e rotas desconhecidas seguem o
+            // comportamento normal do browser.
+            if (!routes.includes(path)) {
+                return;
             }
+
+            e.preventDefault();
+            navigateTo(path);
         });
     });
-}); 
+});

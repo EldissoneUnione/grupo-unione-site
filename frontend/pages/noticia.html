@@ -347,21 +347,23 @@
         });
     </script>
 
-    <script src="https://unpkg.com/@studio-freight/lenis@1.1.4/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script>
-        const lenis = new Lenis({
-            smooth: true,
-            lerp: 0.08,
-            wheelMultiplier: 0.8,
-        });
+        if (typeof Lenis === 'function') {
+            const lenis = new Lenis({
+                smooth: true,
+                lerp: 0.08,
+                wheelMultiplier: 0.8,
+            });
 
-        function raf(t) {
-            lenis.raf(t);
-            ScrollTrigger.update();
+            function raf(t) {
+                lenis.raf(t);
+                if (window.ScrollTrigger) ScrollTrigger.update();
+                requestAnimationFrame(raf);
+            }
+
             requestAnimationFrame(raf);
         }
-
-        requestAnimationFrame(raf);
     </script>
 </body>
 

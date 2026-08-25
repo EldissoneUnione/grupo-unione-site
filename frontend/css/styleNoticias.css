@@ -110,12 +110,14 @@
 
 }
 
-.noticia-imagem-inline {
+.noticia-imagem-inline,
+.noticia-bloco-img {
     margin: 2rem 0;
     color: var(--text-color1);
 }
 
-.noticia-imagem-inline img {
+.noticia-imagem-inline img,
+.noticia-bloco-img img {
     width: 100%;
     display: block;
     border-radius: 8px;

@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 img: n.imagem,
                 titulo: n.titulo,
                 conteudo: n.conteudo,
+                blocos: n.blocos,
                 data: n.dataPublicacao,
-                // tenta parsear imagens da galeria se existirem
                 imagens: n.resumo && n.resumo.startsWith('[{') ? JSON.parse(n.resumo) : []
             }));
             
@@ -129,7 +129,7 @@ function renderizarPaginaNoticias(pagina) {
             const noticia = window.NOTICIAS_DATA.find(n => n.id === id);
             if (noticia) {
                 localStorage.setItem('noticiaSelecionada', JSON.stringify(noticia));
-                window.location.href = 'pages/noticia.html';
+                window.location.href = '/noticia?id=' + id;
             }
         });
     });

@@ -52,7 +52,7 @@ function configurarEventosCards(container) {
             const noticia = window.NOTICIAS_DATA.find(n => n.id === id);
             if (noticia) {
                 localStorage.setItem('noticiaSelecionada', JSON.stringify(noticia));
-                window.location.href = 'pages/noticia.html';
+                window.location.href = '/noticia?id=' + id;
             }
         });
     });
@@ -154,24 +154,21 @@ function renderizarConteudoNoticia(noticia) {
     const blocosRaw = noticia.blocos;
     if (blocosRaw) {
         try {
-            const blocos = JSON.parse(blocosRaw);
+            const blocos = typeof blocosRaw === 'string' ? JSON.parse(blocosRaw) : blocosRaw;
             if (Array.isArray(blocos) && blocos.length > 0) {
                 return blocos.map(b => {
                     if (b.type === 'text') {
                         return `<p>${(b.content || '').replace(/\n/g, '</p><p>')}</p>`;
-                    } else if (b.type === 'image' && b.src) {
-                        const imgSrc = b.src.startsWith('data:') || b.src.startsWith('http')
-                            ? b.src
-                            : (b.src.startsWith('/') ? b.src : '/' + b.src);
-                        return `<figure class="noticia-bloco-img">
-                            <img src="${imgSrc}" alt="${b.alt || ''}" loading="lazy">
-                            ${b.legenda ? `<figcaption>${b.legenda}</figcaption>` : ''}
-                        </figure>`;
+                    }
+                    if (b.type === 'image' && (b.src || b.img)) {
+                        return criarImagemNoticiaHtml(normalizarImagemNoticia(b, 0, noticia), 0);
                     }
                     return '';
                 }).join('');
             }
-        } catch (e) {}
+        } catch (e) {
+            console.error('Não foi possível ler os blocos da notícia:', e);
+        }
     }
 
     // ── Fallback: formato antigo (galeria + conteúdo HTML) ──
@@ -235,8 +232,20 @@ async function inicializarPaginaNoticia() {
     // Garante que NOTICIAS_DATA está atualizado com o backend
     await carregarNoticiasAPI();
 
-    const noticia = JSON.parse(localStorage.getItem('noticiaSelecionada') || '{}');
+    const dataArray = window.NOTICIAS_DATA || [];
+    const stored = JSON.parse(localStorage.getItem('noticiaSelecionada') || '{}');
+    const idParam = parseInt(new URLSearchParams(window.location.search).get('id') || '', 10);
+    const noticiaId = Number.isInteger(idParam) && idParam > 0 ? idParam : stored.id;
+    // Preferir o registo da API: o clique na homepage gravava a notícia
+    // sem os blocos de imagem, e o localStorage ficava desactualizado.
+    const noticia = dataArray.find(n => n.id === noticiaId) || stored;
+
     if (noticia && noticia.id) {
+        try {
+            localStorage.setItem('noticiaSelecionada', JSON.stringify(noticia));
+        } catch (e) {
+            // Imagens em base64 podem exceder a quota do localStorage.
+        }
         document.getElementById('noticia-img').src = getImgPath(noticia.img);
         
         const dataStr = noticia.data || '';
@@ -244,8 +253,6 @@ async function inicializarPaginaNoticia() {
         document.getElementById('noticia-titulo').textContent = noticia.titulo;
         document.getElementById('noticia-conteudo').innerHTML = renderizarConteudoNoticia(noticia);
         
-        // Se a API falhou, NOTICIAS_DATA pode ser undefined, então fazemos fallback
-        const dataArray = window.NOTICIAS_DATA || [];
         const outrasNoticias = dataArray
             .filter(n => n.id !== noticia.id)
             .sort((a, b) => b.id - a.id)
@@ -270,7 +277,7 @@ async function inicializarPaginaNoticia() {
                     const nSeleccionada = dataArray.find(n => n.id === id);
                     if (nSeleccionada) {
                         localStorage.setItem('noticiaSelecionada', JSON.stringify(nSeleccionada));
-                        window.location.href = '/noticia'; 
+                        window.location.href = '/noticia?id=' + id; 
                     }
                 });
             });

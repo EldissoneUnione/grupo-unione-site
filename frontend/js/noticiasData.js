@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (noticia) {
         localStorage.setItem('noticiaSelecionada', JSON.stringify(noticia));
-        window.location.href = '/pages/noticia.html';
+        window.location.href = '/noticia?id=' + id;
       }
     });
   });

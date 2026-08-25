@@ -197,20 +197,23 @@ function renderizarConteudoNoticia(noticia) {
     return template.innerHTML;
 }
 
+function mapearNoticia(n) {
+    return {
+        id: n.id,
+        img: n.imagem || n.img,
+        titulo: n.titulo,
+        conteudo: n.conteudo,
+        blocos: n.blocos,
+        data: n.data || (n.dataPublicacao ? new Date(n.dataPublicacao).toLocaleDateString('pt-PT') : ''),
+        imagens: n.imagens || (n.resumo && String(n.resumo).startsWith('[{') ? JSON.parse(n.resumo) : [])
+    };
+}
+
 async function carregarNoticiaCompleta(id) {
     try {
         const response = await fetch('/api/v1/news/' + id);
         if (!response.ok) return null;
-        const n = await response.json();
-        return {
-            id: n.id,
-            img: n.imagem,
-            titulo: n.titulo,
-            conteudo: n.conteudo,
-            blocos: n.blocos,
-            data: n.dataPublicacao ? new Date(n.dataPublicacao).toLocaleDateString('pt-PT') : '',
-            imagens: n.resumo && String(n.resumo).startsWith('[{') ? JSON.parse(n.resumo) : []
-        };
+        return mapearNoticia(await response.json());
     } catch (err) {
         console.error('Falha ao carregar a notícia:', err);
         return null;
@@ -221,19 +224,30 @@ async function carregarNoticiasAPI() {
     try {
         const response = await fetch('/api/v1/news');
         if (response.ok) {
-            const data = await response.json();
-            window.NOTICIAS_DATA = data.map(n => ({
-                id: n.id,
-                img: n.imagem,
-                titulo: n.titulo,
-                conteudo: n.conteudo,
-                blocos: n.blocos,
-                data: n.dataPublicacao ? new Date(n.dataPublicacao).toLocaleDateString('pt-PT') : '',
-                imagens: n.resumo && String(n.resumo).startsWith('[{') ? JSON.parse(n.resumo) : []
-            }));
+            window.NOTICIAS_DATA = (await response.json()).map(mapearNoticia);
         }
-    } catch(err) {
+    } catch (err) {
         console.error('Falha ao buscar notícias da API:', err);
+    }
+}
+
+function mostrarLoadingNoticia(visivel) {
+    const loading = document.getElementById('noticia-loading');
+    const wrap = document.getElementById('noticia-conteudo-wrap');
+    if (loading) loading.hidden = !visivel;
+    if (wrap) wrap.hidden = visivel;
+}
+
+function guardarNoticiaLeve(noticia) {
+    try {
+        localStorage.setItem('noticiaSelecionada', JSON.stringify({
+            id: noticia.id,
+            titulo: noticia.titulo,
+            img: noticia.img,
+            data: noticia.data,
+        }));
+    } catch (e) {
+        // Quota do localStorage
     }
 }
 
@@ -244,81 +258,81 @@ function isPaginaNoticia() {
 
 async function inicializarPaginaNoticia() {
     const containerOutras = document.getElementById('outras-noticias');
-    
+
     if (!isPaginaNoticia() || !containerOutras) {
-        return; 
+        return;
     }
 
-    // Garante que NOTICIAS_DATA está atualizado com o backend
-    await carregarNoticiasAPI();
+    mostrarLoadingNoticia(true);
 
-    const dataArray = window.NOTICIAS_DATA || [];
     const stored = JSON.parse(localStorage.getItem('noticiaSelecionada') || '{}');
     const idParam = parseInt(new URLSearchParams(window.location.search).get('id') || '', 10);
     const noticiaId = Number.isInteger(idParam) && idParam > 0 ? idParam : stored.id;
-    const daLista = dataArray.find(n => n.id === noticiaId) || stored;
-    const completa = noticiaId ? await carregarNoticiaCompleta(noticiaId) : null;
-    const noticia = completa || daLista;
 
-    if (noticia && noticia.id) {
-        try {
-            localStorage.setItem('noticiaSelecionada', JSON.stringify(noticia));
-        } catch (e) {
-            // Imagens em base64 podem exceder a quota do localStorage.
-        }
-        document.getElementById('noticia-img').src = getImgPath(noticia.img);
-        
-        const dataStr = noticia.data || '';
-        document.getElementById('noticia-data').textContent = dataStr;
-        document.getElementById('noticia-titulo').textContent = noticia.titulo;
-        document.getElementById('noticia-conteudo').innerHTML = renderizarConteudoNoticia(noticia);
-        
-        const outrasNoticias = dataArray
-            .filter(n => n.id !== noticia.id)
-            .sort((a, b) => b.id - a.id)
-            .slice(0, 3); // Mostrar apenas as 3 mais recentes
+    const [completa] = await Promise.all([
+        noticiaId ? carregarNoticiaCompleta(noticiaId) : Promise.resolve(null),
+        carregarNoticiasAPI(),
+    ]);
 
-        if (outrasNoticias.length > 0) {
-            containerOutras.innerHTML = outrasNoticias.map(n => `
+    const dataArray = window.NOTICIAS_DATA || [];
+    const noticia = completa || dataArray.find(n => n.id === noticiaId) || stored;
+
+    if (!(noticia && noticia.id)) {
+        console.warn('Nenhuma notícia selecionada. Redirecionando...');
+        window.location.href = '/';
+        return;
+    }
+
+    guardarNoticiaLeve(noticia);
+
+    const hero = document.getElementById('noticia-img');
+    if (hero) {
+        hero.src = getImgPath(noticia.img);
+        hero.alt = noticia.titulo || '';
+    }
+    document.getElementById('noticia-data').textContent = noticia.data || '';
+    document.getElementById('noticia-titulo').textContent = noticia.titulo;
+    document.getElementById('noticia-conteudo').innerHTML = renderizarConteudoNoticia(noticia);
+
+    const outrasNoticias = dataArray
+        .filter(n => n.id !== noticia.id)
+        .sort((a, b) => (b.id || 0) - (a.id || 0))
+        .slice(0, 3);
+
+    if (outrasNoticias.length > 0) {
+        containerOutras.innerHTML = outrasNoticias.map(n => `
                 <div class="card-blog" data-id="${n.id}">
                     <img src="${getImgPath(n.img)}" alt="${n.titulo}">
                     <section>
                         <span>${n.data || ''}</span>
                         <h4>${n.titulo}</h4>
-                        <a href="#">ver mais</a>
+                        <a href="/noticia?id=${n.id}">ver mais</a>
                     </section>
                 </div>
             `).join('');
 
-            containerOutras.querySelectorAll('.card-blog').forEach(card => {
-                card.addEventListener('click', function (e) {
-                    if (e.target.tagName === 'A') e.preventDefault();
-                    const id = parseInt(card.getAttribute('data-id'), 10);
-                    const nSeleccionada = dataArray.find(n => n.id === id);
-                    if (nSeleccionada) {
-                        localStorage.setItem('noticiaSelecionada', JSON.stringify(nSeleccionada));
-                        window.location.href = '/noticia?id=' + id; 
-                    }
-                });
+        containerOutras.querySelectorAll('.card-blog').forEach(card => {
+            card.addEventListener('click', function (e) {
+                if (e.target.tagName === 'A') e.preventDefault();
+                const id = parseInt(card.getAttribute('data-id'), 10);
+                window.location.href = '/noticia?id=' + id;
             });
+        });
 
-            containerOutras.style.height = 'auto';
-            containerOutras.style.overflow = 'visible';
-            containerOutras.style.flexWrap = 'wrap';
-            containerOutras.style.justifyContent = 'center';
-            containerOutras.style.gap = '40px';
-            
-        } else {
-            containerOutras.innerHTML = `
+        containerOutras.style.height = 'auto';
+        containerOutras.style.overflow = 'visible';
+        containerOutras.style.flexWrap = 'wrap';
+        containerOutras.style.justifyContent = 'center';
+        containerOutras.style.gap = '40px';
+    } else {
+        containerOutras.innerHTML = `
                 <div class="sem-outras-noticias" style="text-align: center; padding: 40px; width: 100%;">
                     <h3>Nenhuma outra notícia disponível no momento</h3>
                 </div>
             `;
-        }
-    } else {
-        console.warn('Nenhuma notícia selecionada. Redirecionando...');
-        window.location.href = '/';
     }
+
+    mostrarLoadingNoticia(false);
 }
 
 if (isPaginaNoticia()) {

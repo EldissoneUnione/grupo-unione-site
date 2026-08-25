@@ -136,18 +136,21 @@
     </header>
 
     <section class="noticias-section-view">
-        <img id="noticia-img" src="" alt="">
-        <span id="noticia-data"></span>
-        <div id="noticia-detalhe">
-            <h4 id="noticia-titulo"></h4>
-            <div id="noticia-conteudo">
-
-            </div>
+        <div id="noticia-loading" class="noticia-loading" role="status" aria-live="polite">
+            <div class="noticia-spinner" aria-hidden="true"></div>
+            <p>A carregar a notícia...</p>
         </div>
 
-        <h4 class="titulo">Outras notícias</h4>
-        <div id="outras-noticias" class="carousel-container-noticias">
+        <div id="noticia-conteudo-wrap" hidden>
+            <img id="noticia-img" src="" alt="">
+            <span id="noticia-data"></span>
+            <div id="noticia-detalhe">
+                <h4 id="noticia-titulo"></h4>
+                <div id="noticia-conteudo"></div>
+            </div>
 
+            <h4 class="titulo">Outras notícias</h4>
+            <div id="outras-noticias" class="carousel-container-noticias"></div>
         </div>
     </section>
 

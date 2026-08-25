@@ -25,6 +25,11 @@
     color: var(--text-color1, #555);
 }
 
+.noticia-loading[hidden],
+#noticia-conteudo-wrap[hidden] {
+    display: none !important;
+}
+
 .noticia-loading p {
     margin: 0;
     font-size: 1rem;

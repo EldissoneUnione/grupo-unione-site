@@ -265,42 +265,40 @@ async function inicializarPaginaNoticia() {
 
     mostrarLoadingNoticia(true);
 
-    const stored = JSON.parse(localStorage.getItem('noticiaSelecionada') || '{}');
-    const idParam = parseInt(new URLSearchParams(window.location.search).get('id') || '', 10);
-    const noticiaId = Number.isInteger(idParam) && idParam > 0 ? idParam : stored.id;
+    try {
+        const stored = JSON.parse(localStorage.getItem('noticiaSelecionada') || '{}');
+        const idParam = parseInt(new URLSearchParams(window.location.search).get('id') || '', 10);
+        const noticiaId = Number.isInteger(idParam) && idParam > 0 ? idParam : stored.id;
 
-    const [completa] = await Promise.all([
-        noticiaId ? carregarNoticiaCompleta(noticiaId) : Promise.resolve(null),
-        carregarNoticiasAPI(),
-    ]);
+        const [completa] = await Promise.all([
+            noticiaId ? carregarNoticiaCompleta(noticiaId) : Promise.resolve(null),
+            carregarNoticiasAPI(),
+        ]);
 
-    const dataArray = window.NOTICIAS_DATA || [];
-    const noticia = completa || dataArray.find(n => n.id === noticiaId) || stored;
+        const dataArray = window.NOTICIAS_DATA || [];
+        const noticia = completa || dataArray.find(n => n.id === noticiaId) || stored;
 
-    if (!(noticia && noticia.id)) {
-        console.warn('Nenhuma notícia selecionada. Redirecionando...');
-        window.location.href = '/';
-        return;
-    }
+        if (!(noticia && noticia.id)) {
+            console.warn('Nenhuma notícia selecionada. Redirecionando...');
+            window.location.href = '/';
+            return;
+        }
 
-    guardarNoticiaLeve(noticia);
+        guardarNoticiaLeve(noticia);
 
-    const hero = document.getElementById('noticia-img');
-    if (hero) {
-        hero.src = getImgPath(noticia.img);
-        hero.alt = noticia.titulo || '';
-    }
-    document.getElementById('noticia-data').textContent = noticia.data || '';
-    document.getElementById('noticia-titulo').textContent = noticia.titulo;
-    document.getElementById('noticia-conteudo').innerHTML = renderizarConteudoNoticia(noticia);
+        const hero = document.getElementById('noticia-img');
+        if (hero) {
+            hero.src = getImgPath(noticia.img);
+            hero.alt = noticia.titulo || '';
+        }
+        document.getElementById('noticia-data').textContent = noticia.data || '';
+        document.getElementById('noticia-titulo').textContent = noticia.titulo;
+        document.getElementById('noticia-conteudo').innerHTML = renderizarConteudoNoticia(noticia);
 
-    const outrasNoticias = dataArray
-        .filter(n => n.id !== noticia.id)
-        .sort((a, b) => (b.id || 0) - (a.id || 0))
-        .slice(0, 3);
+        const outrasNoticias = dataArray.filter(n => n.id !== noticia.id);
 
-    if (outrasNoticias.length > 0) {
-        containerOutras.innerHTML = outrasNoticias.map(n => `
+        if (outrasNoticias.length > 0) {
+            containerOutras.innerHTML = outrasNoticias.map(n => `
                 <div class="card-blog" data-id="${n.id}">
                     <img src="${getImgPath(n.img)}" alt="${n.titulo}">
                     <section>
@@ -311,25 +309,33 @@ async function inicializarPaginaNoticia() {
                 </div>
             `).join('');
 
-        containerOutras.querySelectorAll('.card-blog').forEach(card => {
-            card.addEventListener('click', function (e) {
-                if (e.target.tagName === 'A') e.preventDefault();
-                const id = parseInt(card.getAttribute('data-id'), 10);
-                window.location.href = '/noticia?id=' + id;
+            containerOutras.querySelectorAll('.card-blog').forEach(card => {
+                card.addEventListener('click', function (e) {
+                    if (e.target.tagName === 'A') e.preventDefault();
+                    const id = parseInt(card.getAttribute('data-id'), 10);
+                    window.location.href = '/noticia?id=' + id;
+                });
             });
-        });
 
-        containerOutras.style.height = 'auto';
-        containerOutras.style.overflow = 'visible';
-        containerOutras.style.flexWrap = 'wrap';
-        containerOutras.style.justifyContent = 'center';
-        containerOutras.style.gap = '40px';
-    } else {
-        containerOutras.innerHTML = `
+            containerOutras.style.height = 'auto';
+            containerOutras.style.overflow = 'visible';
+            containerOutras.style.flexWrap = 'wrap';
+            containerOutras.style.justifyContent = 'center';
+            containerOutras.style.gap = '40px';
+        } else {
+            containerOutras.innerHTML = `
                 <div class="sem-outras-noticias" style="text-align: center; padding: 40px; width: 100%;">
                     <h3>Nenhuma outra notícia disponível no momento</h3>
                 </div>
             `;
+        }
+    } catch (err) {
+        console.error('Erro ao apresentar a notícia:', err);
+        const loading = document.getElementById('noticia-loading');
+        if (loading) {
+            loading.innerHTML = '<p>Não foi possível apresentar a notícia. Recarregue a página.</p>';
+        }
+        return;
     }
 
     mostrarLoadingNoticia(false);

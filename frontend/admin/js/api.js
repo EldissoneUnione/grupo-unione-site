@@ -98,8 +98,17 @@ class ApiClient {
         return response.json();
     }
 
-    static async get(endpoint) {
-        return this.request(endpoint, { method: 'GET' });
+    static loadingRow(colspan, label = 'A carregar...') {
+        return `<tr><td colspan="${colspan}">
+            <div class="admin-loading">
+                <div class="admin-spinner" aria-hidden="true"></div>
+                <p>${label}</p>
+            </div>
+        </td></tr>`;
+    }
+
+    static async get(endpoint, options = {}) {
+        return this.request(endpoint, { method: 'GET', ...options });
     }
 
     static async post(endpoint, data) {

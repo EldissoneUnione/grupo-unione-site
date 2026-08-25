@@ -1,14 +1,26 @@
 const prisma = require('../config/prisma');
 
+const NEWS_LIST_SELECT = {
+  id: true,
+  titulo: true,
+  slug: true,
+  resumo: true,
+  imagem: true,
+  status: true,
+  agendadoPara: true,
+  dataPublicacao: true,
+  createdAt: true,
+  updatedAt: true,
+};
+
 const newsController = {
   async getAll(req, res) {
     try {
       const isAdmin = req.headers['x-admin-request'] === 'true' || req.query.admin === 'true';
-      
+
       const whereClause = isAdmin ? {} : {
         OR: [
           { status: 'publicada' },
-          // Agendadas cuja data já passou também são exibidas
           {
             status: 'agendada',
             agendadoPara: { lte: new Date() }
@@ -16,12 +28,11 @@ const newsController = {
         ]
       };
 
+      // A listagem não envia blocos/conteúdo: as imagens em base64
+      // nessa coluna tornam o JSON enorme e o painel demora minutos.
       const news = await prisma.news.findMany({
         where: whereClause,
-        include: { 
-          newsCategories: { include: { newsCategory: true } }, 
-          newsTags: { include: { newsTag: true } } 
-        },
+        select: NEWS_LIST_SELECT,
         orderBy: { dataPublicacao: 'desc' }
       });
       res.json(news);
@@ -35,10 +46,6 @@ const newsController = {
       const { id } = req.params;
       const newsItem = await prisma.news.findUnique({
         where: { id: parseInt(id) },
-        include: { 
-          newsCategories: { include: { newsCategory: true } }, 
-          newsTags: { include: { newsTag: true } } 
-        }
       });
       if (!newsItem) return res.status(404).json({ message: 'Notícia não encontrada' });
       res.json(newsItem);

@@ -99,35 +99,35 @@
                 <div class="stat-card">
                     <div class="stat-icon accent"><i class="fas fa-images"></i></div>
                     <div class="stat-info">
-                        <div class="stat-value" id="totalBanners">0</div>
+                        <div class="stat-value is-loading" id="totalBanners">…</div>
                         <div class="stat-label">Banners Totais</div>
                     </div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon success"><i class="fas fa-check-circle"></i></div>
                     <div class="stat-info">
-                        <div class="stat-value" id="activeBanners">0</div>
+                        <div class="stat-value is-loading" id="activeBanners">…</div>
                         <div class="stat-label">Banners Ativos</div>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon info"><i class="fas fa-star"></i></div>
+                    <div class="stat-icon info"><i class="fas fa-newspaper"></i></div>
                     <div class="stat-info">
-                        <div class="stat-value" id="totalDestaques">0</div>
-                        <div class="stat-label">Destaques Totais</div>
+                        <div class="stat-value is-loading" id="totalNoticias">…</div>
+                        <div class="stat-label">Notícias</div>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon warning"><i class="fas fa-bolt"></i></div>
+                    <div class="stat-icon warning"><i class="fas fa-building"></i></div>
                     <div class="stat-info">
-                        <div class="stat-value" id="activeDestaques">0</div>
-                        <div class="stat-label">Destaques Ativos</div>
+                        <div class="stat-value is-loading" id="totalEmpresas">…</div>
+                        <div class="stat-label">Empresas</div>
                     </div>
                 </div>
             </div>
 
             <!-- Quick Access -->
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
+            <div class="quick-access-grid">
                 <div class="card">
                     <div class="card-header">
                         <span class="card-title"><i class="fas fa-images" style="color:var(--accent);margin-right:8px;"></i>Banners</span>
@@ -137,19 +137,31 @@
                         </a>
                     </div>
                     <div class="card-body" style="padding:16px 22px;">
-                        <p style="font-size:13px;color:var(--text-secondary);">Gerir os banners exibidos no site, incluindo imagens, títulos e ordem de exibição.</p>
+                        <p style="font-size:13px;color:var(--text-secondary);">Imagens, títulos e ordem de exibição na homepage.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <span class="card-title"><i class="fas fa-star" style="color:var(--gold);margin-right:8px;"></i>Destaques</span>
-                        <a href="/admin/destaques" class="btn btn-primary btn-sm">
+                        <span class="card-title"><i class="fas fa-newspaper" style="color:var(--info);margin-right:8px;"></i>Notícias</span>
+                        <a href="/admin/noticias" class="btn btn-primary btn-sm">
                             <i class="fas fa-arrow-right"></i>
                             Gerir
                         </a>
                     </div>
                     <div class="card-body" style="padding:16px 22px;">
-                        <p style="font-size:13px;color:var(--text-secondary);">Gerir os destaques que aparecem na página principal com imagens e descrições.</p>
+                        <p style="font-size:13px;color:var(--text-secondary);">Publicar, agendar e editar as notícias do grupo.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title"><i class="fas fa-building" style="color:var(--gold);margin-right:8px;"></i>Empresas</span>
+                        <a href="/admin/empresas" class="btn btn-primary btn-sm">
+                            <i class="fas fa-arrow-right"></i>
+                            Gerir
+                        </a>
+                    </div>
+                    <div class="card-body" style="padding:16px 22px;">
+                        <p style="font-size:13px;color:var(--text-secondary);">Dados e logótipos das empresas do grupo.</p>
                     </div>
                 </div>
             </div>
@@ -172,10 +184,9 @@
                         <tbody id="lastActivities">
                             <tr>
                                 <td colspan="4">
-                                    <div class="empty-state" style="padding:32px 24px;">
-                                        <i class="fas fa-inbox"></i>
-                                        <h3>Sem atividade recente</h3>
-                                        <p>Adicione banners ou destaques para começar.</p>
+                                    <div class="admin-loading">
+                                        <div class="admin-spinner" aria-hidden="true"></div>
+                                        <p>A carregar atividade...</p>
                                     </div>
                                 </td>
                             </tr>

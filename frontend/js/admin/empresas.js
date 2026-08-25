@@ -96,11 +96,7 @@ async function editEmpresa(id) {
 
 async function deleteEmpresa(id) {
     try {
-        // Aqui você deve implementar a chamada real para sua API
-        // Este é apenas um exemplo simulado
-        console.log('Excluindo empresa:', id);
-        
-        // Recarrega a página após excluir
+            // Recarrega a página após excluir
         window.location.reload();
     } catch (error) {
         console.error('Erro ao excluir empresa:', error);
@@ -115,8 +111,7 @@ async function saveEmpresa() {
 
         // Aqui você deve implementar a chamada real para sua API
         // Este é apenas um exemplo simulado
-        console.log('Salvando empresa:', empresa);
-
+ 
         // Fecha o modal e recarrega a página
         document.getElementById('empresaModal').style.display = 'none';
         window.location.reload();

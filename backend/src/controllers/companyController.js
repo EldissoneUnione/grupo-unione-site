@@ -5,7 +5,7 @@ const companyController = {
   async getAll(req, res) {
     try {
       const companies = await prisma.company.findMany({
-        include: { projects: true, teamMembers: true },
+        orderBy: { nome: 'asc' },
       });
       res.json(companies);
     } catch (error) {

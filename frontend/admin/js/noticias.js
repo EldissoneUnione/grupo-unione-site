@@ -41,15 +41,20 @@ function generateSlug(text) {
 async function loadNoticias() {
     try {
         const tbody = document.getElementById('noticiasList');
-        if (tbody) tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><h3>A carregar notícias...</h3></div></td></tr>';
+        if (tbody) tbody.innerHTML = ApiClient.loadingRow(6, 'A carregar notícias...');
 
-        noticias = await ApiClient.get('/news?admin=true', { headers: { 'x-admin-request': 'true' } });
+        const data = await ApiClient.get('/news?admin=true', { headers: { 'x-admin-request': 'true' } });
+        noticias = (Array.isArray(data) ? data : []).sort((a, b) => {
+            const da = new Date(a.dataPublicacao || a.createdAt || 0).getTime();
+            const db = new Date(b.dataPublicacao || b.createdAt || 0).getTime();
+            return db - da;
+        });
         renderTable();
         updateStats();
     } catch (error) {
         console.error('Erro ao carregar noticias da API:', error);
         const tbody = document.getElementById('noticiasList');
-        if (tbody) tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><h3 style="color:var(--danger)">Erro ao carregar notícias.</h3></div></td></tr>';
+        if (tbody) tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><h3 style="color:var(--danger)">Erro ao carregar notícias.</h3><p>Verifique se o servidor da API está a correr.</p></div></td></tr>';
     }
 }
 
@@ -98,14 +103,10 @@ function renderTable(filteredList) {
             ${statusLabels[status] || status}
         </span>`;
 
-        // Preview do conteúdo - pega texto dos blocos ou do conteúdo antigo
+        // Preview do conteúdo — a listagem já não traz blocos (são demasiado pesados).
         let previewText = '';
-        if (n.blocos) {
-            try {
-                const blocosParsed = JSON.parse(n.blocos);
-                const textBlock = blocosParsed.find(b => b.type === 'text');
-                previewText = textBlock ? textBlock.content.replace(/<[^>]*>/g, '').substring(0, 80) + '...' : '';
-            } catch (e) {}
+        if (n.resumo && !String(n.resumo).startsWith('[{')) {
+            previewText = String(n.resumo).replace(/<[^>]*>/g, '').substring(0, 80);
         }
         if (!previewText && n.conteudo) {
             previewText = n.conteudo.replace(/<[^>]*>/g, '').substring(0, 80) + '...';
@@ -328,8 +329,17 @@ function closeModal() {
 
 // ─── CRUD ────────────────────────────────────────────────────
 window.openEdit = async function(id) {
-    const n = noticias.find(x => x.id === id);
-    if (n) openModal(n);
+    try {
+        const n = await ApiClient.get(`/news/${id}`);
+        openModal(n);
+    } catch (error) {
+        const cached = noticias.find(x => x.id === id);
+        if (cached) {
+            openModal(cached);
+            return;
+        }
+        alert('Não foi possível carregar a notícia para edição.');
+    }
 }
 
 window.deleteNoticia = async function(id) {

@@ -197,6 +197,26 @@ function renderizarConteudoNoticia(noticia) {
     return template.innerHTML;
 }
 
+async function carregarNoticiaCompleta(id) {
+    try {
+        const response = await fetch('/api/v1/news/' + id);
+        if (!response.ok) return null;
+        const n = await response.json();
+        return {
+            id: n.id,
+            img: n.imagem,
+            titulo: n.titulo,
+            conteudo: n.conteudo,
+            blocos: n.blocos,
+            data: n.dataPublicacao ? new Date(n.dataPublicacao).toLocaleDateString('pt-PT') : '',
+            imagens: n.resumo && String(n.resumo).startsWith('[{') ? JSON.parse(n.resumo) : []
+        };
+    } catch (err) {
+        console.error('Falha ao carregar a notícia:', err);
+        return null;
+    }
+}
+
 async function carregarNoticiasAPI() {
     try {
         const response = await fetch('/api/v1/news');
@@ -208,8 +228,8 @@ async function carregarNoticiasAPI() {
                 titulo: n.titulo,
                 conteudo: n.conteudo,
                 blocos: n.blocos,
-                data: new Date(n.dataPublicacao).toLocaleDateString('pt-PT'),
-                imagens: n.resumo && n.resumo.startsWith('[{') ? JSON.parse(n.resumo) : []
+                data: n.dataPublicacao ? new Date(n.dataPublicacao).toLocaleDateString('pt-PT') : '',
+                imagens: n.resumo && String(n.resumo).startsWith('[{') ? JSON.parse(n.resumo) : []
             }));
         }
     } catch(err) {
@@ -236,9 +256,9 @@ async function inicializarPaginaNoticia() {
     const stored = JSON.parse(localStorage.getItem('noticiaSelecionada') || '{}');
     const idParam = parseInt(new URLSearchParams(window.location.search).get('id') || '', 10);
     const noticiaId = Number.isInteger(idParam) && idParam > 0 ? idParam : stored.id;
-    // Preferir o registo da API: o clique na homepage gravava a notícia
-    // sem os blocos de imagem, e o localStorage ficava desactualizado.
-    const noticia = dataArray.find(n => n.id === noticiaId) || stored;
+    const daLista = dataArray.find(n => n.id === noticiaId) || stored;
+    const completa = noticiaId ? await carregarNoticiaCompleta(noticiaId) : null;
+    const noticia = completa || daLista;
 
     if (noticia && noticia.id) {
         try {

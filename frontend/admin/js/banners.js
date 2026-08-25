@@ -55,7 +55,7 @@ class BannerManager {
 
     async loadBanners() {
         try {
-            this.bannersList.innerHTML = '<tr><td colspan="6" class="text-center">A carregar banners...</td></tr>';
+            this.bannersList.innerHTML = ApiClient.loadingRow(6, 'A carregar banners...');
             this.banners = await ApiClient.get('/banners');
             this.renderBanners();
         } catch (error) {

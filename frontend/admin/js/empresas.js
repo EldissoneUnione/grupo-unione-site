@@ -81,7 +81,7 @@ class EmpresaManager {
 
     async loadEmpresas() {
         try {
-            this.empresasList.innerHTML = '<tr><td colspan="5" class="text-center">A carregar empresas...</td></tr>';
+            this.empresasList.innerHTML = ApiClient.loadingRow(5, 'A carregar empresas...');
             this.empresas = await ApiClient.get('/companies');
             this.renderEmpresas(this.empresas);
             this.updateStats();

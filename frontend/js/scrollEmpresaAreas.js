@@ -2,8 +2,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 function initScrollHorizontal() {
   const track = document.getElementById("image-track");
+  if (!track) return;
+
   const images = track.querySelectorAll(".item");
   const totalImages = images.length;
+  if (!totalImages) return;
 
   const gap = parseFloat(getComputedStyle(track).gap) || 0;
   const imageWidth = images[0].offsetWidth;

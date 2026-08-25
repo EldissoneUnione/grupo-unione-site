@@ -220,11 +220,15 @@ async function carregarNoticiasAPI() {
     }
 }
 
+function isPaginaNoticia() {
+    const path = window.location.pathname.replace(/\/$/, '');
+    return path.endsWith('/noticia') || path.includes('noticia.html');
+}
+
 async function inicializarPaginaNoticia() {
-    const isNoticiaPage = window.location.pathname.includes('noticia.html');
     const containerOutras = document.getElementById('outras-noticias');
     
-    if (!isNoticiaPage || !containerOutras) {
+    if (!isPaginaNoticia() || !containerOutras) {
         return; 
     }
 
@@ -266,7 +270,7 @@ async function inicializarPaginaNoticia() {
                     const nSeleccionada = dataArray.find(n => n.id === id);
                     if (nSeleccionada) {
                         localStorage.setItem('noticiaSelecionada', JSON.stringify(nSeleccionada));
-                        window.location.href = 'noticia.html'; 
+                        window.location.href = '/noticia'; 
                     }
                 });
             });
@@ -286,10 +290,10 @@ async function inicializarPaginaNoticia() {
         }
     } else {
         console.warn('Nenhuma notícia selecionada. Redirecionando...');
-        window.location.href = '../index.html';
+        window.location.href = '/';
     }
 }
 
-if (window.location.pathname.includes('noticia.html')) {
+if (isPaginaNoticia()) {
     document.addEventListener('DOMContentLoaded', inicializarPaginaNoticia);
 }

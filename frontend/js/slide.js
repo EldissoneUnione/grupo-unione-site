@@ -11,27 +11,26 @@ document.addEventListener('DOMContentLoaded', async function () {
     const slideDelay = 6000;
     const maxVisibleDots = 6;
 
-    // Route map original mantido
-    const routes = {
-        '/': 'index.html',
-        '/grupo': 'pages/grupo.html',
-        '/empresas': 'pages/empresas.html',
-        '/areas-negocios': 'pages/areas-negocios.html',
-        '/empreendimentos': 'pages/empreendimentos.html',
-        '/investidores': 'pages/investidores.html',
-        '/Contactos': 'pages/Contactos.html',
-        '/empresas/mbt': 'pages/empresas/mbt.html',
-        '/empresas/corpo-e-mente': 'pages/empresas/corpo-e-mente.html',
-        '/empresas/quavi': 'pages/empresas/quavi.html',
-        '/empresas/okukulanaua': 'pages/empresas/okukulanaua.html',
-        '/empresas/tecnology': 'pages/empresas/tecnology.html',
-        '/empresas/kalanaua': 'pages/empresas/kalanaua.html',
-        '/empresas/fibra': 'pages/empresas/fibra.html',
-        '/empresas/infraone': 'pages/empresas/infraone.html',
-        '/empresas/metalangol': 'pages/empresas/metalangol.html',
-        '/empresas/mater': 'pages/empresas/mater.html',
-        '/empresas/unione': 'pages/empresas/unione.html'
-    };
+    // Banners antigos podem ter /empresas/mbt.html ou /pages/...; o site
+    // só serve URLs limpos. Links externos (http) passam intactos.
+    function resolveBannerLink(link) {
+        if (!link) return '';
+        const value = link.trim();
+
+        if (/^(mailto:|tel:)/i.test(value)) return value;
+
+        try {
+            const url = new URL(value, window.location.origin);
+            if (url.origin !== window.location.origin) return value;
+
+            let path = url.pathname.replace(/\.html$/i, '').replace(/^\/pages\//, '/');
+            if (path.endsWith('/index')) path = path.slice(0, -'/index'.length);
+            if (!path) path = '/';
+            return path + url.search + url.hash;
+        } catch {
+            return value.startsWith('/') ? value : '/' + value;
+        }
+    }
 
     // ─── Carregar Banners da API ──────────────────────────────
     try {
@@ -193,27 +192,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     function navigateTo(path) {
-        const targetPage = routes[path];
-        if (targetPage) {
-            const currentPath = window.location.pathname;
-            const isInPages = currentPath.includes('/pages/');
-            const isInEmpresas = currentPath.includes('/empresas/');
-            
-            let basePath = '';
-            if (isInEmpresas) {
-                basePath = '../../';
-            } else if (isInPages) {
-                basePath = '../';
-            }
+        const href = resolveBannerLink(path);
+        if (!href) return;
 
-            showLoader();
-            
-            setTimeout(() => {
-                window.location.href = basePath + targetPage;
-            }, 500);
-        } else {
-            console.error('Página não encontrada:', path);
-        }
+        showLoader();
+        setTimeout(() => {
+            window.location.href = href;
+        }, 500);
     }
 
     // Event Listeners
@@ -271,16 +256,4 @@ document.addEventListener('DOMContentLoaded', async function () {
     generateDots();
     showSlide(0);
     startSlideShow();
-
-    // Outros links de navegação
-    const navLinks = document.querySelectorAll('.nav-links a, .nav-links-menu a, .dropdown-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const path = link.getAttribute('href');
-            if (path && path !== '#') {
-                navigateTo(path);
-            }
-        });
-    });
 });

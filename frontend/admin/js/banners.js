@@ -72,6 +72,25 @@ class BannerManager {
         return imagem.startsWith('/') ? imagem : '/' + imagem;
     }
 
+    // URLs com .html ou /pages/ passam a caminho limpo ao gravar.
+    normalizeLink(link) {
+        if (!link || !link.trim()) return null;
+        const value = link.trim();
+        if (/^(mailto:|tel:)/i.test(value)) return value;
+
+        try {
+            const url = new URL(value, window.location.origin);
+            if (url.origin !== window.location.origin) return value;
+
+            let path = url.pathname.replace(/\.html$/i, '').replace(/^\/pages\//, '/');
+            if (path.endsWith('/index')) path = path.slice(0, -'/index'.length);
+            if (!path) path = '/';
+            return path + url.search + url.hash;
+        } catch {
+            return value.startsWith('/') ? value : '/' + value;
+        }
+    }
+
     renderBanners() {
         this.bannersList.innerHTML = '';
         if (this.banners.length === 0) {
@@ -116,7 +135,7 @@ class BannerManager {
 
         const titulo = titleInput ? titleInput.value : '';
         const subtitulo = subtitleInput ? subtitleInput.value : null;
-        const link = linkInput ? linkInput.value : null;
+        const link = this.normalizeLink(linkInput ? linkInput.value : '');
         const ordem = orderInput ? parseInt(orderInput.value) || 0 : 0;
         const ativo = statusInput ? statusInput.checked : true;
         
